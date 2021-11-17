@@ -27,6 +27,10 @@
     background-color: transparent !important;
 }
 
+#wrapper li:hover, #tools:hover {
+    background-color: #4e2bdd !important;
+}
+
 .btn-success{
     background-color: #1718b0;
 }
@@ -38,6 +42,10 @@
 .btn:focus{
     outline: none;
     box-shadow: none;
+}
+
+.card {
+    z-index: -1;
 }
 
 .google-btn{
