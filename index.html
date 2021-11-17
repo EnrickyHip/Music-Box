@@ -10,76 +10,222 @@
     <title>Music Box - Pagina inicial</title>
 </head>
 <body>
-    <nav class="Navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="row">
-
-                <!--Pesquisa mobile-->
-                <div class="nav-item col text-elf d-block d-sm-none py-3">
-                    <!--Botão-->
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><i class="bi bi-search"></i></button>
-                    <!--Janela offCanvas-->
-                    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                        <div class="offcanvas-header">
-                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <form action="#" method="get" class="d-flex input-group">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" aria-describedby="buttonSearchMobile">
-                                <button class="btn btn-outline-success" type="submit" id="buttonSearchMobile"><i class="bi bi-search"></i></button>
-                            </form>
-                        </div>
+    <nav class="navbar navbar-expand-sm navbar-light shadow bg-light fixed-top py-0">
+        <div class="row container-fluid pe-0" id="navwrap">
+    
+            <!--Pesquisa mobile-->
+            <div class="nav-item col text-elf d-block d-sm-none py-3">
+    
+                <!--Botão-->
+                <button class="btn btn-primary purpleIcon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+                    aria-controls="offcanvasTop"><i class="bi bi-search"></i></button>
+    
+                <!--Janela offCanvas-->
+                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+    
+                    <div class="offcanvas-body">
+                        <form action="#" method="get" class="d-flex input-group">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                aria-describedby="buttonSearchMobile">
+                            <button class="btn btn-outline-success" type="submit" id="buttonSearchMobile"><i
+                                    class="bi bi-search"></i></button>
+                        </form>
                     </div>
                 </div>
-
-                <!--Logo-->
-                <a href="" class="navbar-brand col-lg-4 col-sm-2 col text-md-start text-center m-0">
-                    <img src="./images/logo.png" alt="logo" id="logo">
-                </a>
-
-                <!--Pesquisa tablet/Desktop-->
-                <form action="#" method="get" class="nav-item col d-none d-sm-flex py-3 input-group">
-                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" aria-describedby="buttonSearch">
-                    <button class="btn btn-outline-success" type="submit" id="buttonSearch"><i class="bi bi-search"></i></button>
-                </form>
-                
-                <!--Botão de Login-->
-                <div class="nav-item dropdown col-lg-4 col-sm-2 col text-end pe-md-3 py-3">
-                    <!--Botão-->
-                    <a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn btn-primary dropdown login-btn" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
-                    <!--DropDown-->
-                    <div class="dropdown-menu action-form" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-item mx-auto">
-                            <p>Entre com o Google</p>
-                            <a href="#" class="btn btn-secondary google-btn"><i class="bi bi-google"> Google</i></a>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <form class="px-4 py-3">
-                            <div class="form-group">
-                                <label for="emailInput">Endereço de E-mail</label>
-                                <input type="email" class="form-control" id="emailInput" placeholder="email@exemplo.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="passwdInput">Senha</label>
-                                <input type="password" class="form-control" id="passwdInput" placeholder="Password">
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                <label class="form-check-label" for="dropdownCheck">
-                                    Lembrar desta conta
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Novo por aqui? Inscreva-se!</a>
-                        <a class="dropdown-item" href="#">Esqueçeu a senha?</a>
+            </div>
+    
+            <!--Logo-->
+            <a href="" class="navbar-brand col-lg-4 col-sm-2 col text-md-start text-center m-0">
+                <img src="./images/logo.png" alt="logo" id="logo">
+            </a>
+    
+            <!--Pesquisa tablet/Desktop-->
+            <form action="#" method="get" class="nav-item col d-none d-sm-flex py-3 input-group">
+                <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search"
+                    aria-describedby="buttonSearch">
+                <button class="btn btn-outline-success" type="submit" id="buttonSearch"><i
+                        class="bi bi-search"></i></button>
+            </form>
+    
+            <!--Botão de Login-->
+            <div class="nav-item dropdown col-lg-4 col-sm-2 col ms-auto pe-md-3 py-2 text-end">
+    
+                <!--Botão-->
+                <a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                    class="btn btn-primary dropdown login-btn" aria-expanded="false" ><i class="bi bi-person-circle fs-4 purpleIcon"></i></a>
+    
+                <!--DropDown-->
+                <div class="dropdown-menu dropdown-menu-end action-form" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-item mx-auto">
+                        <a href="#" class="btn btn-secondary google-btn">Entre com o Google <i class="bi bi-google"></i></a>
                     </div>
+    
+                    <div class="dropdown-divider"></div>
+    
+                    <form class="px-4 py-3">
+                        <div class="form-group">
+                            <label for="emailInput">Endereço de E-mail</label>
+                            <input type="email" class="form-control" id="emailInput" placeholder="email@exemplo.com">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="passwdInput">Senha</label>
+                            <input type="password" class="form-control" id="passwdInput" placeholder="Password">
+                        </div>
+    
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                            <label class="form-check-label" for="dropdownCheck">
+                                Lembrar desta conta
+                            </label>
+                        </div>
+    
+                        <button type="submit" id="formLog" class="btn btn-success">Login</button>
+                    </form>
+                    <div class="dropdown-divider"></div>
+    
+                    <a class="dropdown-item" href="#">Novo por aqui? Inscreva-se!</a>
+                    <a class="dropdown-item" href="#">Esqueçeu a senha?</a>
                 </div>
             </div>
         </div>
     </nav>
+
     
+    <div class="flex-column d-none d-lg-flex position-fixed shadow bg-gradient" id="wrapper">
+        <ul class="nav flex-column text-center mb-auto">
+            <li class="nav-item my-1">
+                <a href="" class="btn btn-primary"><i class="bi bi-file-earmark-music fs-2"></i><br>Musicas</a>
+            </li>
+
+            <li class="nav-item my-1">
+                <a href="" class="btn btn-primary"><i class="bi bi-archive fs-2"></i><br>Artigos</a>
+            </li>
+
+            <li class="nav-item my-1">
+                <a href="" class="btn btn-primary"><i class="bi bi-people fs-2"></i><br>Comunidade</a>
+            </li>
+
+            <li class="nav-item my-1">
+                <a href="" class="btn btn-primary"><i class="bi bi-person fs-2"></i><br>Sua Página de Autor</a>
+            </li>
+        </ul>
+
+        <div class="nav-item dropend">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-wrench fs-3"></i><br>Ferramentas
+            </button>
+            <ul class="dropdown-menu toolMenu">
+              <li>
+                <a href="" class="btn btn-secondary">Metrônomo</a>
+              </li>
+              <li>
+                <a href="" class="btn btn-secondary">Gerador de Escalas</a>
+              </li>
+            </ul>
+          </div>
+    </div>
+
+
+    <div class="container-fluid justify-content-center d-flex d-lg-none position-fixed bottom-0 shadow mobNavWrap">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a href="" class="btn btn-primary btn-lg"><i class="bi bi-file-earmark-music fs-3"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="btn btn-primary btn-lg"><i class="bi bi-archive fs-3"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="btn btn-primary btn-lg"><i class="bi bi-people fs-3"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="btn btn-primary btn-lg"><i class="bi bi-person fs-3"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="btn btn-primary btn-lg"><i class="bi bi-wrench fs-3"></i></a>
+            </li>
+        </ul>
+    </div>
+
+    <main class="container" id="mainContainer">
+        <div class="row g-5">
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header bg-primary text-light">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-info text-light">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header bg-primary text-light">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-info text-light">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header bg-primary text-light">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-info text-light">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header bg-primary text-light">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-info text-light">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header bg-primary text-light">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-info text-light">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-6">
+                <div class="card">
+                    <h5 class="card-header bg-primary text-light">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-info text-light">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
 
 
 
