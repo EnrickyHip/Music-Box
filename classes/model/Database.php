@@ -1,6 +1,6 @@
 <?php
 
-    namespace classes;
+    namespace classes\model;
 
     class database {
 

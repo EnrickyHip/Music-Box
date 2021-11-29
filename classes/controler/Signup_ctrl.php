@@ -1,8 +1,10 @@
 <?php
 
+    namespace classes\controler;
+
     require_once '../vendor/autoload.php';
 
-    class signup_contrl{
+    class Signup_ctrl{
 
         private $name;
         private $email;
@@ -17,5 +19,4 @@
             $this->c_pwd = $c_pwd;
 
         }
-
     }

@@ -12,17 +12,18 @@ function checkPwd(){
  }
 }
 
+
 function checkUsername(){
   let validName = document.getElementById("inputUser")
-          var match = /^[a-zA-Z0-9_]*$/
+  var match = /^[a-zA-Z0-9_]*$/
 
 
-          if (!validName.value.match(match)){
-            validName.setCustomValidity('Caracteres inválidos') // isso não funciona.
-          }
-          else {
-            validName.setCustomValidity('')
-          }
+  if (!validName.value.match(match)){
+    validName.setCustomValidity('Caracteres inválidos') // isso não funciona.
+  }
+  else {
+     validName.setCustomValidity('')
+  }
 }
 
 
