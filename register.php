@@ -43,10 +43,8 @@
                             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="exemplo@email.com" aria-label="E-mail" required>
                             <div class="invalid-feedback">E-mail inválido</div> 
 
-                        </div>
-                            
-                        </div>
-                
+                        </div>                            
+                    </div>                
     
                     <div class="col-md-6">
                         <label for="inputPdw" class="form-label">Senha</label>
@@ -63,7 +61,6 @@
                             <input type="password" name="c_pwd" id="inputCPdw" class="form-control" placeholder="senha" required>
                             <div class="invalid-feedback">Senhas Diferentes</div>
                         </div>
-
                     </div>
     
                     <div class="col-12">
@@ -79,8 +76,7 @@
                     <div class="col-12 mt-5">
                         <button class="btn btn-info text-white" type="submit" name="register">Registrar</button>
                     </div>
-                </div>
-    
+                </div>    
             </form>
         </div>
     </main>
