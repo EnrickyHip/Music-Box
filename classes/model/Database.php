@@ -2,7 +2,7 @@
 
     namespace classes\model;
 
-    class database {
+    class Database {
 
             private static $db;
 
@@ -12,8 +12,8 @@
                     try {
                         $username = "root";
                         $password = "";
-                        $dbname = "music-box";
-                        self::$db = new \PDO('mysql:host=localhost; dbname=', $dbname, $username, $password);
+                        $dbname = "music_box";
+                        self::$db = new \PDO('mysql:host=localhost; dbname='.$dbname, $username, $password);
             
                     } catch (\PDOException $e) {
                         print "Error: ". $e->getMessage() . "<br/>";

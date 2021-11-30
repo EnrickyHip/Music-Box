@@ -2,21 +2,42 @@
 
     namespace classes\controler;
 
+    use classes\model\Signup;
+
     require_once '../vendor/autoload.php';
 
-    class Signup_ctrl{
+    class Signup_ctrl extends Signup{
 
-        private $name;
+        private $username;
         private $email;
         private $pwd;
-        private $c_pwd;
 
-        public function __construct($name, $email, $pwd, $c_pwd){
+        public function __construct($username, $email, $pwd){
            
-            $this->name = $name;
+            $this->username = $username;
             $this->email = $email;
             $this->pwd = $pwd;
-            $this->c_pwd = $c_pwd;
 
         }
+
+        public function create_user(){
+
+            if ($this->taken_user()){
+                echo "usuário já existe";
+            }
+
+            if ($this->taken_email()){
+                echo "email já existe";
+            }
+        }
+
+        private function taken_user(){
+            return $this->check_username($this->username);
+        }
+
+        private function taken_email(){
+            return $this->check_email($this->email);
+        }
+
+
     }

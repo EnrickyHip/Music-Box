@@ -4,13 +4,12 @@
 
     if (isset($_POST['register'])){
 
-        $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
-        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL, FILTER_SANITIZE_EMAIL);
         $pwd = filter_input(INPUT_POST, "pwd", FILTER_SANITIZE_STRING);
-        $c_pwd = filter_input(INPUT_POST, "c_pwd", FILTER_SANITIZE_STRING);
 
-        $signup_ctrl = new \classes\controler\Signup_ctrl($name, $email, $pwd, $c_pwd); 
-
+        $signup_ctrl = new \classes\controler\Signup_ctrl($username, $email, $pwd); 
+        $signup_ctrl->create_user();
     }
 
     else{

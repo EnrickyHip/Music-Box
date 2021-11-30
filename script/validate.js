@@ -5,7 +5,7 @@ function checkPwd(){
 
 
   if (c_password.value !== password.value){
-    c_password.setCustomValidity('senhas não encaixam') // não funcion, atem que ver depois.
+    c_password.setCustomValidity('Senhas não coincidem') // não funcion, atem que ver depois.
   }
   else {
     c_password.setCustomValidity('')
@@ -20,6 +20,9 @@ function checkUsername(){
 
   if (!validName.value.match(match)){
     validName.setCustomValidity('Caracteres inválidos') // isso não funciona.
+    let user_message = document.getElementById('user-message')
+    //console.log(user_message)
+    //user_message.innerHTML = 'Caracteres inválidos'
   }
   else {
      validName.setCustomValidity('')
