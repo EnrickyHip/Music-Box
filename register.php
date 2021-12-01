@@ -41,7 +41,7 @@
                         <div class="input-group mb-3">
 
                             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="exemplo@email.com" aria-label="E-mail" required>
-                            <div class="invalid-feedback">E-mail inválido</div> 
+                            <div class="invalid-feedback" id="email-message">E-mail inválido</div> 
 
                         </div>                            
                     </div>                

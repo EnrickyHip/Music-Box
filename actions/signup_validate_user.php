@@ -7,7 +7,7 @@
         $username = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS);
 
         $signup_ctrl = new \classes\controler\Signup_ctrl($username, '', ''); 
-        $signup_ctrl->check_user();
+        $signup_ctrl->check_exists_user();
     }
 
     else{

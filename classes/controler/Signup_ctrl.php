@@ -24,7 +24,7 @@
 
         }
 
-        public function check_user(){
+        public function check_exists_user(){
 
             if ($this->taken_user()){
                 echo true;
@@ -32,11 +32,18 @@
             else {
                 echo false;
             }
+        }
+
+        public function check_exists_email(){
 
             if ($this->taken_email()){
-                echo "email já existe";
-            } 
+                echo true;
+            }
+            else {
+                echo false;
+            }
         }
+        
 
         private function taken_user(){
             return $this->check_username($this->username);

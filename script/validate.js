@@ -1,29 +1,75 @@
-
-
-$(document).ready(function(){
-  $("#inputUser").blur(function(){
-
-    var username = $(this).val()
-
-    $.ajax({
-      
-      url:"../actions/signup_validate.php",
-      method: "POST",
-      data:{user_name:username},
-    }).done(function(result){
-        console.log(result)
-
-        if(result){
-          console.log("aadputamerdfsdfsdfsdfa eindaaDFGDFGa")
-          $("#inputUser").get(0).setCustomValidity('Usuário já existe')
-        }
-        else {
-          console.log("ESSA PORRA NÃO FAZ SENTIDO CARA WTF")
-          $("#inputUser").get(0).setCustomValidity('')
-        }
+  $(document).ready(function(){
+    $("#inputUser").blur(function(){
+      check_username()
     })
   })
-})
+
+  $(document).ready(function(){
+    $("#inputEmail").blur(function(){
+      check_exists_email()
+    })
+  })
+
+  function check_username(){
+    
+    if(checkSpecialChars()){
+      $("#inputUser").get(0).setCustomValidity('usuário inválido') 
+      $("#user-message").get(0).innerHTML = "Usuário Inválido"
+    }
+    else{
+      check_exists_user()
+    }
+  }
+
+  function check_email(){
+    if($("#inputEmail").get(0).checkValidity()){
+      $("#email-message").get(0).innerHTML = "Email Inválido"
+    }
+      check_exists_user()
+  }
+
+
+function check_exists_user(){
+  var username = $("#inputUser").val()
+
+  $.ajax({
+    url:"../actions/signup_validate_user.php",
+    method: "POST",
+    data:{user_name:username},
+    success: (function(result){
+       if(result){
+        $("#inputUser").get(0).setCustomValidity('Usuário já existe') 
+        $("#user-message").get(0).innerHTML = "Nome de usuário já existente"
+       }
+       else {
+        $("#inputUser").get(0).setCustomValidity('')  
+       }
+      }) 
+    })
+}
+
+function check_exists_email(){
+  var email = $("#inputEmail").val()
+  console.log("checando...")
+  $.ajax({
+    url:"../actions/signup_validate_email.php",
+    method: "POST",
+    data:{email_: email},
+    success: (function(result){
+      console.log(result)
+       if(result){
+        $("#inputEmail").get(0).setCustomValidity('Email já existe') 
+        $("#email-message").get(0).innerHTML = "Email já cadastrado"
+       }
+       else {
+        $("#inputEmail").get(0).setCustomValidity('')  
+       }
+      }) 
+    })
+}
+
+
+    
 
 
 function checkPwd(){ 
@@ -32,27 +78,26 @@ function checkPwd(){
 
 
   if (c_password.value !== password.value){
-    c_password.setCustomValidity('Senhas não coincidem') // não funcion, atem que ver depois.
+    return true
+    //c_password.setCustomValidity('Senhas não coincidem') // não funcion, atem que ver depois.
   }
   else {
-    c_password.setCustomValidity('')
+    return false
+    //c_password.setCustomValidity('')
  }
 }
 
 
-function checkUsername(){
+function checkSpecialChars(){
   let validName = document.getElementById("inputUser")
   var match = /^[a-zA-Z0-9_]*$/
 
 
   if (!validName.value.match(match)){
-    validName.setCustomValidity('Caracteres inválidos') // isso não funciona.
-    let user_message = document.getElementById('user-message')
-    //console.log(user_message)
-    //user_message.innerHTML = 'Caracteres inválidos'
+    return true
   }
   else {
-     validName.setCustomValidity('')
+    return false
   }
 }
 
@@ -69,16 +114,26 @@ function checkUsername(){
 
         form.addEventListener('submit', function(event) {
 
-          checkPwd()
-          checkUsername()
+          let validName = document.getElementById("inputUser")
+          let c_password = document.getElementById("inputCPdw")
+
+          check_username()
+          check_email()
+
+
+          if(checkPwd()){
+            c_password.setCustomValidity('Senhas não coincidem')
+          }
+          else {
+            c_password.setCustomValidity('')
+          }
+
+
 
           if (!form.checkValidity()) {
             event.preventDefault()
             event.stopPropagation()
           }
-
-  
-
 
           form.classList.add('was-validated')
         }, false)
