@@ -28,7 +28,7 @@
                         <div class="input-group mb-3">
 
                             <span class="input-group-text" id="user-addon">https://musicbox.com/users/@</span>
-                            <input type="text" name="username" class="form-control"  id="inputUser"placeholder="nome_de_usuário"aria-label="Username" aria-describedby="user-addon userHelp" required>
+                            <input type="text" name="username" class="form-control"  id="inputUser" placeholder="nome_de_usuário"aria-label="Username" aria-describedby="user-addon userHelp" required>
                                 
                             <div id="userHelp" class="form-text">O nome de usuário não pode conter espaços ou caracteres especiais</div>
                             <div class="invalid-feedback" id="user-message">Usuário inválido</div>
@@ -81,6 +81,7 @@
         </div>
     </main>
 
+    <script src="script/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="./script/validate.js"></script>
 </body>

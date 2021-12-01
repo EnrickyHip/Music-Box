@@ -22,13 +22,20 @@
 
         public function create_user(){
 
+        }
+
+        public function check_user(){
+
             if ($this->taken_user()){
-                echo "usuário já existe";
+                echo true;
+            }
+            else {
+                echo false;
             }
 
             if ($this->taken_email()){
                 echo "email já existe";
-            }
+            } 
         }
 
         private function taken_user(){

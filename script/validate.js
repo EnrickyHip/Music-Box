@@ -1,4 +1,31 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+
+
+$(document).ready(function(){
+  $("#inputUser").blur(function(){
+
+    var username = $(this).val()
+
+    $.ajax({
+      
+      url:"../actions/signup_validate.php",
+      method: "POST",
+      data:{user_name:username},
+    }).done(function(result){
+        console.log(result)
+
+        if(result){
+          console.log("aadputamerdfsdfsdfsdfa eindaaDFGDFGa")
+          $("#inputUser").get(0).setCustomValidity('Usuário já existe')
+        }
+        else {
+          console.log("ESSA PORRA NÃO FAZ SENTIDO CARA WTF")
+          $("#inputUser").get(0).setCustomValidity('')
+        }
+    })
+  })
+})
+
+
 function checkPwd(){ 
   let password = document.getElementById("inputPdw")
   let c_password = document.getElementById("inputCPdw")
@@ -49,7 +76,10 @@ function checkUsername(){
             event.preventDefault()
             event.stopPropagation()
           }
+
   
+
+
           form.classList.add('was-validated')
         }, false)
       })
