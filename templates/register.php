@@ -24,21 +24,21 @@
     
                 <div class="containder row">
                 
-                    <div class="col-md-12">
-                        <div class="input-group mb-3">
+                    <div class="col-md-12 mb-3">
+                        <div class="input-group">
 
                             <span class="input-group-text" id="user-addon">https://musicbox.com/users/@</span>
                             <input type="text" name="username" class="form-control"  id="inputUser" placeholder="nome_de_usuário"aria-label="Username" aria-describedby="user-addon userHelp" required>
                                 
-                            <div id="userHelp" class="form-text">O nome de usuário não pode conter espaços ou caracteres especiais</div>
                             <div class="invalid-feedback" id="user-message">Usuário inválido</div>
                             
                         </div> 
+                        <div id="userHelp" class="form-text">O nome de usuário não pode conter espaços ou caracteres especiais</div>
                     </div>
                     
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                         <label for="inputEmail" class="form-label">E-mail</label>
-                        <div class="input-group mb-3">
+                        <div class="input-group ">
 
                             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="exemplo@email.com" aria-label="E-mail" required>
                             <div class="invalid-feedback" id="email-message">E-mail inválido</div> 
@@ -46,18 +46,18 @@
                         </div>                            
                     </div>                
     
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="inputPdw" class="form-label">Senha</label>
-                        <div class="input-group mb3">
+                        <div class="input-group ">
                             <input type="password" name="pwd" id="inputPdw" minlength="8" class="form-control" placeholder="senha" aria-labelledby="PDWHelp" required>
-                            <div id="PDWHelp" class="form-text">A senha deve conter no mínimo 8 caracteres</div>
                             <div class="invalid-feedback">Senha Inválida</div>
                         </div>
+                        <div id="PDWHelp" class="form-text">A senha deve conter no mínimo 8 caracteres</div>
                     </div>
     
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="inputCPdw" class="form-label">Confirmar Senha</label>
-                        <div class="input-group mb3">
+                        <div class="input-group ">
                             <input type="password" name="c_pwd" id="inputCPdw" class="form-control" placeholder="senha" required>
                             <div class="invalid-feedback">Senhas Diferentes</div>
                         </div>
@@ -74,6 +74,7 @@
                     </div>
     
                     <div class="col-12 mt-5">
+                        <a href="./?p=13" class="btn btn-secondary text-dark">Voltar</a>
                         <button class="btn btn-info text-white" type="submit" name="register">Registrar</button>
                     </div>
                 </div>    
