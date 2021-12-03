@@ -6,30 +6,37 @@
 
   $(document).ready(function(){
     $("#inputEmail").blur(function(){
-      check_exists_email()
+      check_email()
     })
   })
 
+
   function check_username(){
-    
+
     if(checkSpecialChars()){
-      $("#inputUser").get(0).setCustomValidity('usuário inválido') 
+      $("#inputUser").get(0).classList.add('is-invalid')
       $("#user-message").get(0).innerHTML = "Usuário Inválido"
     }
     else{
       check_exists_user()
     }
   }
+  
 
   function check_email(){
-    if($("#inputEmail").get(0).checkValidity()){
+
+    if(!$("#inputEmail").get(0).checkValidity()){ 
       $("#email-message").get(0).innerHTML = "Email Inválido"
+      $("#inputEmail").get(0).classList.add('is-invalid')
     }
-      check_exists_user()
+    else {
+      check_exists_email()
+    }
   }
 
 
 function check_exists_user(){
+  
   var username = $("#inputUser").val()
 
   $.ajax({
@@ -37,32 +44,42 @@ function check_exists_user(){
     method: "POST",
     data:{user_name:username},
     success: (function(result){
+
+      var input = $("#inputUser").get(0)
+
        if(result){
-        $("#inputUser").get(0).setCustomValidity('Usuário já existe') 
-        $("#user-message").get(0).innerHTML = "Nome de usuário já existente"
+        $("#user-message").get(0).innerHTML = "Nome de usuário já existente"     
+        input.classList.add('is-invalid')
        }
+
        else {
-        $("#inputUser").get(0).setCustomValidity('')  
+        input.classList.remove('is-invalid')
+        input.classList.add('is-valid')
        }
       }) 
     })
 }
 
 function check_exists_email(){
+
   var email = $("#inputEmail").val()
-  console.log("checando...")
+  
   $.ajax({
     url:"../actions/signup_validate_email.php",
     method: "POST",
     data:{email_: email},
     success: (function(result){
-      console.log(result)
-       if(result){
-        $("#inputEmail").get(0).setCustomValidity('Email já existe') 
+
+      var input = $("#inputEmail").get(0)
+
+       if(result){   
+        input.classList.add('is-invalid')
         $("#email-message").get(0).innerHTML = "Email já cadastrado"
        }
+
        else {
-        $("#inputEmail").get(0).setCustomValidity('')  
+        input.classList.remove('is-invalid')
+        input.classList.add('is-valid')
        }
       }) 
     })
@@ -73,27 +90,24 @@ function check_exists_email(){
 
 
 function checkPwd(){ 
-  let password = document.getElementById("inputPdw")
-  let c_password = document.getElementById("inputCPdw")
+  let password = $("#inputPdw").get(0)
+  let c_password = $("#inputCPdw").get(0)
 
 
   if (c_password.value !== password.value){
     return true
-    //c_password.setCustomValidity('Senhas não coincidem') // não funcion, atem que ver depois.
   }
   else {
     return false
-    //c_password.setCustomValidity('')
  }
 }
 
 
 function checkSpecialChars(){
-  let validName = document.getElementById("inputUser")
+  let validName = $("#inputUser").get(0)
   var match = /^[a-zA-Z0-9_]*$/
 
-
-  if (!validName.value.match(match)){
+  if (!validName.value.match(match) || validName.value === ""){
     return true
   }
   else {
@@ -113,8 +127,7 @@ function checkSpecialChars(){
       .forEach(function (form) {
 
         form.addEventListener('submit', function(event) {
-
-          let validName = document.getElementById("inputUser")
+          
           let c_password = document.getElementById("inputCPdw")
 
           check_username()
@@ -127,8 +140,6 @@ function checkSpecialChars(){
           else {
             c_password.setCustomValidity('')
           }
-
-
 
           if (!form.checkValidity()) {
             event.preventDefault()
