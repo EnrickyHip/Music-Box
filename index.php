@@ -1,8 +1,8 @@
 <?php
     $temp = filter_input(INPUT_GET, 't');
     if(!$temp){
-        require_once "templates/template_default.php";
+        require_once "templates/main.php";
     }elseif($temp = "register"){
-        require_once "templates/register.php";
+        require_once "templates/logoOnly.php";
     }
     
