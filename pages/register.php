@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-12 mt-5">
-                <a href="./?p=13" class="btn btn-secondary text-dark">Voltar</a>
+                <a href="../?p=13" class="btn btn-secondary text-dark">Voltar</a>
                 <button class="btn btn-info text-white" type="submit" name="register">Registrar</button>
             </div>
         </div>    

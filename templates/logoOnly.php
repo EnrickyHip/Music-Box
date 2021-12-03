@@ -11,8 +11,8 @@
     <main>
         <?php
             $page = filter_input(INPUT_GET, 'p');
-            if($page && file_exists("./pages/$page.html")){
-                require("./pages/$page.html");
+            if($page && file_exists("./pages/$page.php")){
+                require("./pages/$page.php");
             }else{
                 echo "Página não existe";
             }
