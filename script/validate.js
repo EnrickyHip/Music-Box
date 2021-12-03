@@ -68,8 +68,8 @@ function check_exists_user(){
         username.classList.remove('is-invalid')
         username.classList.add('is-valid')
        }
-      }) 
-    })
+    }) 
+  })
 }
 
   //checa se o email existe por meio do ajax e php
@@ -95,8 +95,8 @@ function check_exists_email(){
         email.classList.add('is-valid')
         console.log(email.checkValidity())
        }
-      }) 
-    })
+    }) 
+  })
 }
 
 //testa se as senhas são iguais

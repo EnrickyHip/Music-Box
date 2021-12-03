@@ -13,7 +13,6 @@
         private $pwd;
 
         public function __construct($username, $email, $pwd){
-           
             $this->username = $username;
             $this->email = $email;
             $this->pwd = $pwd;
@@ -21,11 +20,10 @@
         }
 
         public function create_user(){
-
+            $this->set_user($this->username, $this->email, $this->pwd);
         }
 
         public function check_exists_user(){
-
             if ($this->taken_user()){
                 echo true;
             }
@@ -35,7 +33,6 @@
         }
 
         public function check_exists_email(){
-
             if ($this->taken_email()){
                 echo true;
             }

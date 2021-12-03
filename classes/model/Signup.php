@@ -50,5 +50,18 @@
 
             return $result;
         }
+
+        protected function set_user($username, $email ,$pwd){
+            $stmt = $this->connect()->prepare("INSERT INTO usuario (username, email, senha) VALUES(?, ?, ?);");
+
+            $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
+
+            if (!$stmt->execute(array($username, $email, $hashed_pwd))) {
+
+                $stmt = null;
+                header("Location: ../../index.php?error=stmtError");
+                exit();
+            }  
+        }
         
     }
