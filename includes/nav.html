@@ -57,14 +57,15 @@
                 <form action="" class="px-4 py-3 needs-validation" novalidate>
                     <div class="form-group">
                         <label for="emailInput">Endereço de E-mail ou Nome de Usuário</label>
-                        <input type="email" class="form-control" name id="emailInput" placeholder="email@exemplo.com" required>
+                        <input type="email" class="form-control" name="user" id="user" placeholder="email@exemplo.com" required>
 
                         <div class="invalid-feedback" id="user-message">Usuário inválido</div>
                     </div>
 
                     <div class="form-group">
                         <label for="passwdInput">Senha</label>
-                        <input type="password" class="form-control" id="passwdInput" placeholder="Password" required>
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password" required>
+                        <div class="invalid-feedback" id="password-message">Senha Incorreta</div>
                     </div>
 
                     <div class="form-check">
@@ -74,7 +75,7 @@
                         </label>
                     </div>
 
-                    <a type="submit" id="formLog" name="login" class="btn btn-success">Login</a>
+                    <button type="submit" id="formLog" name="login" class="btn btn-success">Login</button>
                 </form>
                 <div class="dropdown-divider"></div>
 

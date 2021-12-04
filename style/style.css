@@ -28,8 +28,12 @@
     background-color: transparent !important;
 }
 
-#wrapper li:hover, #tools:hover {
+#wrapper li:hover, #tools:hover, form button:hover {
     background-color: #4e2bdd !important;
+}
+
+.white-button:hover {
+    background-color: #e4e4e4 !important;
 }
 
 .btn-success{

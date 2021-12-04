@@ -1,9 +1,10 @@
   // constantes relativas aos inputs
-  
-  const username = $("#username").get(0);
-  const email = $("#email").get(0);
-  const password = $("#pwd").get(0);
-  const c_password = $("#c_pwd").get(0);
+
+  const username = $("#username").get(0)
+  const email = $("#email").get(0)
+  const password = $("#pwd").get(0)
+  const c_password = $("#c_pwd").get(0)
+  const terms = $("#termCheck").get(0)
 
   //realiza o teste em tempo real
 
@@ -23,9 +24,14 @@
 
   function check_username(){
 
-    if(checkSpecialChars()){
+    if(username.value === ""){
       username.classList.add('is-invalid')
-      $("#user-message").innerHTML = "Usuário Inválido"
+      $("#user-message").get(0).innerHTML = "Digite um nome de usuário" 
+    }
+
+    else if(checkSpecialChars()){
+      $("#user-message").get(0).innerHTML = "Usuário Inválido"
+      username.classList.add('is-invalid')
     }
     else{
       check_exists_user()
@@ -37,7 +43,12 @@
 
   function check_email(){
 
-    if(!email.checkValidity()){ 
+    if(email.value === ""){
+      email.classList.add('is-invalid')
+      $("#email-message").get(0).innerHTML = "Digite um E-mail" 
+    }
+
+    else if(!email.checkValidity()){ 
       $("#email-message").get(0).innerHTML = "Email Inválido"
       email.classList.add('is-invalid')
     }
@@ -60,6 +71,7 @@ function check_exists_user(){
     success: (function(result){
 
        if(result){
+        console.log("por que está entrando aqui?")
         $("#user-message").get(0).innerHTML = "Nome de usuário já existente"     
         username.classList.add('is-invalid')
        }
@@ -117,7 +129,7 @@ function checkPwd(){
 function checkSpecialChars(){
   var match = /^[a-zA-Z0-9_]*$/
 
-  if (!username.value.match(match) || username.value === ""){
+  if (!username.value.match(match)){
     return true
   }
   else {
@@ -125,20 +137,55 @@ function checkSpecialChars(){
   }
 }
 
+function check_pwd_match() {
+  if(c_password.value === ""){
+    password.classList.add('is-invalid')
+    c_password.classList.add('is-invalid')
+    $("#pwd-message").get(0).innerHTML = "Confrime sua senha" 
+  }
+
+  else if(checkPwd()){
+    c_password.classList.add('is-invalid')
+    $("#pwd-message").get(0).innerHTML = "Senhas não coincidem" 
+  }
+  else {
+    password.classList.remove('is-invalid')
+    password.classList.add('is-valid')
+    c_password.classList.remove('is-invalid')
+    c_password.classList.add('is-valid')
+  }
+}
+
+
 //função que valida as senhas
 
 function check_password(){
 
-    if(checkPwd()){
-      c_password.setCustomValidity('senha invalida')
-      //c_password.classList.remove('is-valid')
-      //c_password.classList.add('is-invalid')
-    }
-    else {
-      //c_password.classList.remove('is-invalid')
-      //c_password.classList.add('is-valid')
-      c_password.setCustomValidity('')
-    }
+  if(password.value === ""){
+    password.classList.add('is-invalid')
+    $("#pwd-message").get(0).innerHTML = "Digite uma senha" 
+  }
+
+  else if(password.value.length < 8){
+    password.classList.add('is-invalid')
+    $("#pwd-message").get(0).innerHTML = "Senha Inválida" 
+  }
+
+  else {
+    check_pwd_match()
+  }
+}
+
+// checa os termos
+
+function check_terms(){
+  if(!terms.checkValidity()){
+    terms.classList.add("is-invalid")
+  }
+  else {
+    terms.classList.remove("is-invalid")
+    terms.classList.add("is-valid")
+  }
 }
 
 // função de submit
@@ -158,13 +205,14 @@ function check_password(){
           check_username()
           check_email()
           check_password()
+          check_terms()
+        
+          
 
           if (!form.checkValidity()) {
             event.preventDefault()
             event.stopPropagation()
           }
-
-          form.classList.add('was-validated')
         }, false)
       })
   })()
