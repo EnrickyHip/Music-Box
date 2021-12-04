@@ -1,3 +1,16 @@
+<?php
+  session_start();
+
+  if(isset($_SESSION['usuario'])){
+    $user = $_SESSION['usuario'];
+    $username = $user['username'];
+  }
+  else {
+    
+  }
+
+?>
+
 <div class="flex-column d-none d-lg-flex position-fixed shadow bg-gradient" id="wrapper">
     <ul class="nav flex-column text-center mb-auto">
         <li class="nav-item my-1">
@@ -12,8 +25,10 @@
             <a href="" class="btn btn-primary w-100 px-0"><i class="bi bi-people fs-2"></i><br>Comunidade</a>
         </li>
 
-        <li class="nav-item my-1">
-            <a href="" class="btn btn-primary w-100 px-0"><i class="bi bi-person fs-2"></i><br>Sua Página de Autor</a>
+        <li class="nav-item my-1">       
+          <?php  
+           echo '<a href="autor/'.$user['username'].'" class="btn btn-primary w-100 px-0"><i class="bi bi-person fs-2"></i><br>Sua Página de Autor </a>';     
+          ?>
         </li>
     </ul>
 

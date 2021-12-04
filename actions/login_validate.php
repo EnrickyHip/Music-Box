@@ -2,15 +2,15 @@
 
     include_once "../vendor/autoload.php";
 
-    if (isset($_POST['email_'])){
+    if (isset($_POST['user_name'])){
 
-        $email = filter_input(INPUT_POST, "email_", FILTER_SANITIZE_SPECIAL_CHARS);
+        $user = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS);
         
-        $signup_ctrl = new \classes\controler\Signup_ctrl('', $email, ''); 
-        $signup_ctrl->check_exists_email();
+        $login_ctrl = new \classes\controler\Login_ctrl($user, '');
+        $login_ctrl->check_exists_user();
     }
 
     else{
-        header("Location: ../register.php");
+        header("Location: ../");
         exit();
     }

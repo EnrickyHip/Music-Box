@@ -4,15 +4,15 @@
 
     if (isset($_POST['login'])){
 
-        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL, FILTER_SANITIZE_EMAIL);
+        $user = filter_input(INPUT_POST, "user", FILTER_SANITIZE_SPECIAL_CHARS);
         $pwd = filter_input(INPUT_POST, "pwd");
 
-        $signup_ctrl = new \classes\controler\Signup_ctrl($username, $email, $pwd); 
-        $signup_ctrl->create_user();
+        $login_ctrl = new \classes\controler\Login_ctrl($user, $user, $pwd);
+        $user = $login_ctrl->get_user_info($user);
+        $login_ctrl->login_user($user);
     }
 
     else{
-        header("Location: ../register.php");
+        header("Location: ../");
         exit();
     }

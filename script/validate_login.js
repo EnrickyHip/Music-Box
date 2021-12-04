@@ -1,4 +1,6 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
+console.log("aaaaaa")
+
 const user = $("#user").get(0);
 const password = $("#pwd").get(0);
 
@@ -8,10 +10,14 @@ function check_user(){
     $("#user-message").get(0).innerHTML = "Por favor, digite seu E-mail ou nome de usuário"
     user.classList.add("is-invalid")
   }
+  else {
+    check_exists_user()
+  }
 }
 
 
 function check_exists_user(){
+  
   
   var _username = $("#user").val()
 
@@ -20,16 +26,52 @@ function check_exists_user(){
     method: "POST",
     data:{user_name:_username},
     success: (function(result){
-      console.log(result)
 
        if(!result){
         $("#user-message").get(0).innerHTML = "Usuário inexistente"     
-        username.classList.add('is-invalid')
+        user.classList.add('is-invalid')
        }
 
        else {
-        username.classList.remove('is-invalid')
-        username.classList.add('is-valid')
+        user.classList.remove('is-invalid')
+        user.classList.add('is-valid')
+        check_pwd()
+       }
+    }) 
+  })
+}
+
+function check_pwd(){
+
+  if(password.value === ""){
+    password.classList.add('is-invalid')
+    $("#password-message").get(0).innerHTML = "Digite sua senha" 
+  }
+  else {
+    check_pwd_correct()
+  }
+}
+
+function check_pwd_correct(){
+
+  var _password= $("#pwd").val()
+  var _username = $("#user").val()
+
+  $.ajax({
+    url:"../actions/login_validate_pwd.php",
+    method: "POST",
+    data:{
+      pass_word:_password,
+      user_name:_username
+    },
+    success: (function(result){
+       if(!result){
+          password.classList.add("is-invalid")
+          $("#password-message").get(0).innerHTML = "Senha Incorreta"  
+       }  
+       else {
+        password.classList.remove("is-invalid")
+        password.classList.add("is-valid")
        }
     }) 
   })
@@ -44,13 +86,16 @@ function check_exists_user(){
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
+
         form.addEventListener('submit', function (event) {
+
+          check_user()
+
           if (!form.checkValidity()) {
             event.preventDefault()
             event.stopPropagation()
           }
   
-          form.classList.add('was-validated')
         }, false)
       })
   })()
