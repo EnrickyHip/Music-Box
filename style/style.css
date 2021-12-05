@@ -11,6 +11,11 @@
     height: auto;
 }
 
+#avIcon{
+    border-color: #4e2bdd !important;
+    width: 15%;
+}
+
 .purpleIcon{
     color: #4e2bdd !important;
 }

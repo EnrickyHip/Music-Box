@@ -1,7 +1,5 @@
 <?php
-  session_start();
   $user = null;
-
   if(isset($_SESSION['usuario'])){
     $user = $_SESSION['usuario'];
     $username = $user['username'];

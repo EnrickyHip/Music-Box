@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
+    session_start();
     require_once "includes/head_default.html";
 ?>
 
