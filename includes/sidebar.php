@@ -1,14 +1,11 @@
 <?php
   session_start();
+  $user = null;
 
   if(isset($_SESSION['usuario'])){
     $user = $_SESSION['usuario'];
     $username = $user['username'];
   }
-  else {
-    
-  }
-
 ?>
 
 <div class="flex-column d-none d-lg-flex position-fixed shadow bg-gradient" id="wrapper">
@@ -27,7 +24,9 @@
 
         <li class="nav-item my-1">       
           <?php  
-           echo '<a href="autor/'.$user['username'].'" class="btn btn-primary w-100 px-0"><i class="bi bi-person fs-2"></i><br>Sua Página de Autor </a>';     
+            if($user){
+              echo '<a href="autor/'.$user['username'].'" class="btn btn-primary w-100 px-0"><i class="bi bi-person fs-2"></i><br>Sua Página de Autor </a>'; 
+            }  
           ?>
         </li>
     </ul>

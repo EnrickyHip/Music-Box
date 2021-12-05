@@ -19,7 +19,7 @@
             }elseif(file_exists("./pages/$page.php")){
                 require("./pages/$page.php");
             }else{
-                echo "Página não existe";
+                require("./pages/noExist.php");
             }
         
         ?>
