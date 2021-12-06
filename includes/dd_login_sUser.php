@@ -12,7 +12,9 @@
     </div>
 
     <div class="d-flex mx-3">
-        <button class="btn btn-danger">Logout</button>
+        <button class="btn btn-danger">
+            <a href="actions/logout.php">Sair</a>
+        </button>
         <button class="btn btn-primary text-dark">Página de Autor</button>
     </div>
 </div>

@@ -76,6 +76,7 @@ function check_exists_user(){
         username.classList.add('is-invalid')
        }
 
+       
        else {
         username.classList.remove('is-invalid')
         username.classList.add('is-valid')
@@ -105,7 +106,6 @@ function check_exists_email(){
        else {
         email.classList.remove('is-invalid')
         email.classList.add('is-valid')
-        console.log(email.checkValidity())
        }
     }) 
   })

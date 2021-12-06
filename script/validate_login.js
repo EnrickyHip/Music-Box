@@ -35,6 +35,7 @@ function check_exists_user(){
        else {
         user.classList.remove('is-invalid')
         user.classList.add('is-valid')
+        console.log("nao é possivel", user.checkValidity(), user.classList)
         check_pwd()
        }
     }) 
@@ -42,6 +43,7 @@ function check_exists_user(){
 }
 
 function check_pwd(){
+  console.log("hmmm")
 
   if(password.value === ""){
     password.classList.add('is-invalid')
@@ -89,7 +91,10 @@ function check_pwd_correct(){
 
         form.addEventListener('submit', function (event) {
 
+
           check_user()
+          console.log(form.checkValidity())
+          console.log(user.checkValidity())
 
           if (!form.checkValidity()) {
             event.preventDefault()

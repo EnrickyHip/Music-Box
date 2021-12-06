@@ -1,11 +1,3 @@
-<?php
-  $user = null;
-  if(isset($_SESSION['usuario'])){
-    $user = $_SESSION['usuario'];
-    $username = $user['username'];
-  }
-?>
-
 <div class="flex-column d-none d-lg-flex position-fixed shadow bg-gradient" id="wrapper">
     <ul class="nav flex-column text-center mb-auto">
         <li class="nav-item my-1">
@@ -21,8 +13,8 @@
         </li>
 
         <li class="nav-item my-1">       
-          <?php  
-            if($user){
+          <?php
+            if(isset($user)){
               echo '<a href="autor/'.$user['username'].'" class="btn btn-primary w-100 px-0"><i class="bi bi-person fs-2"></i><br>Sua Página de Autor </a>'; 
             }  
           ?>

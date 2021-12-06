@@ -21,6 +21,10 @@
 
         public function create_user(){
             $this->set_user($this->username, $this->email, $this->pwd);
+            
+            $login_ctrl = new \classes\controler\Login_ctrl($this->username, $this->email, $this->pwd);
+            $user = $login_ctrl->get_user_info($this->username);
+            $login_ctrl->login_user($user);
         }
 
         public function check_exists_user(){
