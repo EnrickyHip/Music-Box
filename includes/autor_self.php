@@ -3,7 +3,7 @@
 </div>
 <div class="text-center">
     <span><h3>Nome artístico</h3></span>
-    <span><h5><?php echo $username?></h5></span>  
+    <span><h5><?php echo $self_username?></h5></span>  
 </div>
 <div>
     <h2>Sobre o Autor:</h2>

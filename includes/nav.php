@@ -42,7 +42,7 @@
         <!--Botão de Login-->
         <div class="nav-item dropdown col-lg-4 col-sm-2 col ms-auto pe-md-3 py-2 text-end">
             <?php
-            if(isset($user)){
+            if(isset($self_user)){
                 include_once "./includes/dd_login_sUser.php";
             }
             else {

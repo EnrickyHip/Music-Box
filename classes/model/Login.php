@@ -4,7 +4,7 @@
 
     class Login extends Database {
 
-        public function get_user_info($user){
+        public static function get_user_info($user){
 
             $stmt = self::connect()->prepare('SELECT * FROM usuario WHERE username = ? OR email = ?;');
 

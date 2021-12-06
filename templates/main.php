@@ -5,8 +5,9 @@
     session_start();
 
     if(isset($_SESSION['usuario'])){
-        $user = $_SESSION['usuario'];
-        $username = $user['username'];
+        $self_user = $_SESSION['usuario'];
+        $self_username = $self_user['username'];
+        $self_art_name = $self_user['art_name'];
     }
 
 ?>
@@ -23,7 +24,7 @@
 
             case false:
                 echo '<title>Página inicial</title>';
-                
+
             case "autor":
                 echo '<title>Página de autor</title>';
         }

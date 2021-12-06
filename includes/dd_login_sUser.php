@@ -6,8 +6,8 @@
     <div class="d-flex mx-3 mb-3">
         <img src="./images/Avatar_PlaceHolder.png" alt="" class="rounded-circle" style="width: 56px;">
         <div>
-            <h6 class="mb-0">Nome artístico</h6>
-            <p class="mb-0">@Nome_de_Usuário</p>
+            <h6 class="mb-0"><?php echo $self_username ?></h6>
+            <p class="mb-0"><?php echo $self_username ?></p>
         </div>
     </div>
 
@@ -17,8 +17,8 @@
             Sair
         </a>
             <?php
-                if(isset($user)){
-                    echo '<a class="btn btn-primary text-dark" href="?p=autor&a='.$user['username'].'">
+                if(isset($self_user)){
+                    echo '<a class="btn btn-primary text-dark" href="?p=autor&a='.$self_user['username'].'">
                             Página de Autor
                           </a>'; 
                 }  

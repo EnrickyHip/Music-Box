@@ -3,6 +3,7 @@
     namespace classes\controler;
 
     use classes\model\Signup;
+    use classes\model\Login;
 
     require_once '../vendor/autoload.php';
 
@@ -23,7 +24,7 @@
             $this->set_user($this->username, $this->email, $this->pwd);
             
             $login_ctrl = new \classes\controler\Login_ctrl($this->username, $this->email, $this->pwd);
-            $user = $login_ctrl->get_user_info($this->username);
+            $user = Login::get_user_info($this->username);
             $login_ctrl->login_user($user);
         }
 

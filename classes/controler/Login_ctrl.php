@@ -17,7 +17,7 @@ class Login_ctrl extends Login {
         }
 
         public function check_exists_user(){
-            if($this->get_user_info($this->user)){
+            if(self::get_user_info($this->user)){
                 echo true;
             }
             else {
@@ -30,6 +30,7 @@ class Login_ctrl extends Login {
             $_SESSION['usuario'] = array(
                                 "id"=>$user[0]['id'],
                                 "username"=>$user[0]['username'],
+                                "art_name"=>$user[0]['art_name'],
                                 "email"=>$user[0]['email']
                                 );
 
