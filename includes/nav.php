@@ -27,7 +27,7 @@
         </div>
 
         <!--Logo-->
-        <a href="" class="navbar-brand col-lg-4 col-sm-2 col text-md-start text-center m-0">
+        <a href="../" class="navbar-brand col-lg-4 col-sm-2 col text-md-start text-center m-0">
             <img src="./images/logo.png" alt="logo" id="logo">
         </a>
 

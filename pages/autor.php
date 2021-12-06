@@ -3,11 +3,10 @@
 
         #eu sei relaxa
 
-        $user = null;
         if(isset($_SESSION['usuario'])){
             $user = $_SESSION['usuario'];
             $username = $user['username'];
-            }
+        }
     ?>
 
 <div class="text-center">

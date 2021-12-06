@@ -12,9 +12,16 @@
     </div>
 
     <div class="d-flex mx-3">
-        <button class="btn btn-danger">
-            <a href="actions/logout.php">Sair</a>
-        </button>
-        <button class="btn btn-primary text-dark">Página de Autor</button>
+
+        <a href="actions/logout.php" class="btn btn-danger">
+            Sair
+        </a>
+            <?php
+                if(isset($user)){
+                    echo '<a class="btn btn-primary text-dark" href="?p=autor&a='.$user['username'].'">
+                            Página de Autor
+                          </a>'; 
+                }  
+            ?>
     </div>
 </div>

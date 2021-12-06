@@ -1,32 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
+
     session_start();
-    require_once "includes/head_default.html";
-?>
 
-<body>
-    <?php
-
-    
-        if(isset($_SESSION['usuario'])){
+    if(isset($_SESSION['usuario'])){
         $user = $_SESSION['usuario'];
         $username = $user['username'];
+    }
+
+?>
+
+<head>
+
+    <?php
+
+        require_once "includes/head_default.html";
+
+        $page = filter_input(INPUT_GET, 'p');
+
+        switch($page){
+
+            case false:
+                echo '<title>Página inicial</title>';
+                
+            case "autor":
+                echo '<title>Página de autor</title>';
         }
+
+    ?>
+
+</head>
+
+<body>
+
+    <?php   
     
         require_once "includes/nav.php";
         require_once "includes/sidebar.php";
         require_once "includes/mobile-bar.html";
+
     ?>
 
     <main class="container" id="mainContainer">
         <?php 
-            $page = filter_input(INPUT_GET, 'p');
             if(!$page){
                 require("./pages/mainpage.php");
-            }elseif(file_exists("./pages/$page.php")){
+
+            }
+            else if(file_exists("pages/$page.php")){
                 require("./pages/$page.php");
-            }else{
+
+            }
+            else{
                 require("./pages/noExist.php");
             }
         
