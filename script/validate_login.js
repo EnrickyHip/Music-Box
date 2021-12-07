@@ -2,11 +2,13 @@
 
 const user = $("#user").get(0);
 const password = $("#pwd").get(0);
+const form_submit = $("#formLog").get(0);
 
 function check_user(){
   if(user.value === ""){
     $("#user-message").get(0).innerHTML = "Por favor, digite seu E-mail ou nome de usuário"
-    user.classList.add("is-invalid")
+    password.classList.remove("is-valid")
+    user_add_invalid()
   }
   else {
     check_exists_user()
@@ -19,19 +21,19 @@ function check_exists_user(){
   var _username = $("#user").val()
 
   $.ajax({
+    async: false,
     url:"../actions/login_validate.php",
     method: "POST",
     data:{user_name:_username},
     success: (function(result){
        if(!result){
+
         $("#user-message").get(0).innerHTML = "Usuário inexistente"
-        user.classList.remove('is-valid')     
-        user.classList.add('is-invalid')
+        user_add_invalid()
        }
 
        else {
-        user.classList.remove('is-invalid')
-        user.classList.add('is-valid')
+        user_add_valid()
         check_pwd()
        }
     }) 
@@ -39,11 +41,9 @@ function check_exists_user(){
 }
 
 function check_pwd(){
-  console.log("veremos")
 
   if(password.value === ""){
-    password.classList.remove('is-valid')
-    password.classList.add('is-invalid')
+    password_add_invalid()
     $("#password-message").get(0).innerHTML = "Digite sua senha" 
   }
   else {
@@ -57,6 +57,7 @@ function check_pwd_correct(){
   var _username = $("#user").val()
 
   $.ajax({
+    async: false,
     url:"../actions/login_validate_pwd.php",
     method: "POST",
     data:{
@@ -65,16 +66,11 @@ function check_pwd_correct(){
     },
     success: (function(result){
        if(!result){
-        password.classList.remove("is-valid")
-          password.classList.add("is-invalid")
-          $("#password-message").get(0).innerHTML = "Senha Incorreta"
-            console.log("aaaa", password.classList.contains("is-invalid"))
+        password_add_invalid()
+        $("#password-message").get(0).innerHTML = "Senha Incorreta"
        }  
        else {
-        password.classList.remove("is-invalid")
-        password.classList.add("is-valid")
-        console.log("aaaa", password.classList.contains("is-invalid"))
-        console.log("amém irmãos")
+        password_add_valid()
        }
     }) 
   })
@@ -92,23 +88,33 @@ function check_pwd_correct(){
 
         form.addEventListener('submit', function (event) {
 
-
           check_user()
-
-
-          console.log('passwordfinal:', password.classList.contains("is-invalid"))
-          console.log('user:',user.classList.contains("is-invalid"))
-          console.log('form:',form.classList)
-
-          console.log("não sei o que faço vei")
+      
           if(user.classList.contains("is-invalid") || password.classList.contains("is-invalid")){
             event.preventDefault()
-            console.log("vai por favor")
           }
-          console.log("vai poradfad favor")
-          event.preventDefault()
 
-  
         }, false)
       })
   })()
+
+
+  function password_add_invalid(){
+    password.classList.remove("is-valid")
+    password.classList.add('is-invalid')
+  }
+
+  function password_add_valid(){
+    password.classList.remove('is-invalid')
+    password.classList.add('is-valid')
+  }
+
+  function user_add_invalid(){
+    user.classList.remove('is-valid')
+    user.classList.add('is-invalid')
+  }
+
+  function user_add_valid(){
+    user.classList.remove('is-invalid')
+    user.classList.add('is-valid')
+  }

@@ -25,13 +25,13 @@
   function check_username(){
 
     if(username.value === ""){
-      username.classList.add('is-invalid')
+      username_add_invalid()
       $("#user-message").get(0).innerHTML = "Digite um nome de usuário" 
     }
 
     else if(checkSpecialChars()){
       $("#user-message").get(0).innerHTML = "Usuário Inválido"
-      username.classList.add('is-invalid')
+      username_add_invalid()
     }
     else{
       check_exists_user()
@@ -44,13 +44,13 @@
   function check_email(){
 
     if(email.value === ""){
-      email.classList.add('is-invalid')
+      email_add_invalid()
       $("#email-message").get(0).innerHTML = "Digite um E-mail" 
     }
 
     else if(!email.checkValidity()){ 
       $("#email-message").get(0).innerHTML = "Email Inválido"
-      email.classList.add('is-invalid')
+      email_add_invalid()
     }
     else {
       check_exists_email()
@@ -65,21 +65,20 @@ function check_exists_user(){
   var _username = $("#username").val()
 
   $.ajax({
+    async: false,
     url:"../actions/signup_validate_user.php",
     method: "POST",
     data:{user_name:_username},
     success: (function(result){
 
        if(result){
-        console.log("por que está entrando aqui?")
-        $("#user-message").get(0).innerHTML = "Nome de usuário já existente"     
-        username.classList.add('is-invalid')
+        $("#user-message").get(0).innerHTML = "Nome de usuário já existente"
+        username_add_invalid()
        }
 
        
        else {
-        username.classList.remove('is-invalid')
-        username.classList.add('is-valid')
+        username_add_valid()
        }
     }) 
   })
@@ -92,20 +91,21 @@ function check_exists_email(){
   var email_ = $("#email").val()
   
   $.ajax({
+    async: false,
     url:"../actions/signup_validate_email.php",
     method: "POST",
     data:{email_: email_},
     success: (function(result){
 
 
-       if(result){   
-        email.classList.add('is-invalid')
+       if(result){  
+          
+        email_add_invalid()
         $("#email-message").get(0).innerHTML = "Email já cadastrado"
        }
 
        else {
-        email.classList.remove('is-invalid')
-        email.classList.add('is-valid')
+        email_add_valid()
        }
     }) 
   })
@@ -139,23 +139,19 @@ function checkSpecialChars(){
 
 function check_pwd_match() {
   if(c_password.value === ""){
-    password.classList.add('is-invalid')
-    c_password.classList.add('is-invalid')
+    c_password_add_invalid()
+    password_add_invalid()
     $("#pwd-message").get(0).innerHTML = "Confirme sua senha" 
   }
 
   else if(checkPwd()){
-    c_password.classList.remove("is-valid")
-    password.classList.remove("is-valid")
-    c_password.classList.add('is-invalid')
-    password.classList.add('is-invalid')
+    c_password_add_invalid()
+    password_add_invalid()
     $("#pwd-message").get(0).innerHTML = "Senhas não coincidem" 
   }
   else {
-    password.classList.remove('is-invalid')
-    password.classList.add('is-valid')
-    c_password.classList.remove('is-invalid')
-    c_password.classList.add('is-valid')
+    password_add_valid()
+    c_password_add_valid()
   }
 }
 
@@ -165,14 +161,13 @@ function check_pwd_match() {
 function check_password(){
 
   if(password.value === ""){
-    password.classList.add('is-invalid')
+    password_add_invalid()
     c_password.classList.remove('is-invalid', 'is-valid')
     $("#pwd-message").get(0).innerHTML = "Digite uma senha" 
   }
 
   else if(password.value.length < 8){
-    password.classList.remove("is-valid")
-    password.classList.add('is-invalid')
+    password_add_invalid()
     $("#pwd-message").get(0).innerHTML = "Senha Inválida" 
   }
 
@@ -185,6 +180,7 @@ function check_password(){
 
 function check_terms(){
   if(!terms.checkValidity()){
+    terms.classList.remove("is-valid")
     terms.classList.add("is-invalid")
   }
   else {
@@ -211,31 +207,54 @@ function check_terms(){
           check_email()
           check_password()
           check_terms()
-          console.log('c_passwordfinal:', c_password.classList)
-          console.log('passwordfinal:', password.classList)
-          console.log('user:',username.classList)
-          console.log('email:',email.classList)
-          console.log('form:',form.classList)
-          
 
-          console.log('cpasswordfinal:', c_password.checkValidity())
-          console.log('user:',username.checkValidity())
-          console.log('email:',email.checkValidity())
-          console.log('form:',form.checkValidity())
-
-          if(username.classList.contains("is-invalid") || email.classList.contains("is-invalid") || password.classList.contains("is-invalid")){
-
-            console.log("PELO AMOR DE DEUS")
+          if(username.classList.contains("is-invalid") || email.classList.contains("is-invalid") || password.classList.contains("is-invalid") || terms.classList.contains("is-invalid")){
             event.preventDefault()
           }
-          
 
-         /* if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          } */
         }, false)
       })
   })()
+  
+
+  function username_add_invalid(){
+    username.classList.remove('is-valid')
+    username.classList.add('is-invalid')
+  }
+
+  function username_add_valid(){
+    username.classList.remove('is-invalid')
+    username.classList.add('is-valid')
+  }
+
+  function email_add_invalid(){
+    email.classList.remove('is-valid')
+    email.classList.add('is-invalid')
+  }
+
+  function email_add_valid(){
+    email.classList.remove('is-invalid')
+    email.classList.add('is-valid')
+  }
+
+  function password_add_invalid(){
+    password.classList.remove("is-valid")
+    password.classList.add('is-invalid')
+  }
+
+  function password_add_valid(){
+    password.classList.remove('is-invalid')
+    password.classList.add('is-valid')
+  }
+
+  function c_password_add_valid(){
+    c_password.classList.remove('is-invalid')
+    c_password.classList.add('is-valid')
+  }
+
+  function c_password_add_invalid(){
+    c_password.classList.remove("is-valid")
+    c_password.classList.add('is-invalid')
+  }
 
 
