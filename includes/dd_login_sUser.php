@@ -18,10 +18,13 @@
         </a>
             <?php
                 if(isset($self_user)){
-                    echo '<a class="btn btn-primary text-dark" href="?p=autor&a='.$self_user['username'].'">
-                            Página de Autor
-                          </a>'; 
+            ?>
+                <a class="btn btn-primary text-dark" href= <?php echo "?p=autor&a=$self_username";?>>
+                    Página de Autor
+                </a> 
+            <?php
                 }  
             ?>
+            
     </div>
 </div>

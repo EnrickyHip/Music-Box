@@ -5,20 +5,22 @@
     require_once 'vendor/autoload.php';
 
     $autor = filter_input(INPUT_GET, 'a');
+    $edit = filter_input(INPUT_GET, 'e');
 
     $user_autor = Login::get_user_info($autor);
-    $username_autor = $user_autor[0]['username'];
 
     if (!$user_autor){
         require "includes/autor_error.php";
     }
     else {
 
-        if ($self_username == $username_autor){
-            require "includes/autor_self.php";
+        $username_autor = $user_autor[0]['username'];
+
+        if ($self_username == $username_autor and $edit === "true"){
+            require "includes/autor_edit.php";
         }
         else {
-            require "includes/autor_other.php";
+            require "includes/autor_inc.php";
         }   
     }
     

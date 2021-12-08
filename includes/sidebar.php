@@ -15,13 +15,17 @@
         <li class="nav-item my-1">       
           <?php
             if(isset($self_user)){
-              echo '<a href="?p=autor&a='.$self_username.'" class="btn btn-primary w-100 px-0">
-                      <i class="bi bi-person fs-2"></i>
-                      <br>
+
+          ?>
+              <a href= <?php echo "?p=autor&a=$self_username";?> class="btn btn-primary w-100 px-0">
+                  <i class="bi bi-person fs-2"></i>
+                    <br>
                       Sua Página de Autor
-                    </a>'; 
+              </a>
+          <?php 
             }  
           ?>
+
         </li>
     </ul>
 
