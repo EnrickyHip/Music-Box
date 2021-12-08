@@ -10,6 +10,10 @@
     height: auto;
 }
 
+input[type="file"]{
+    display:none;
+}
+
 #avIcon{
     border-color: #4e2bdd !important;
     width: 15%;
@@ -36,7 +40,7 @@
     background-color: transparent !important;
 }
 
-#wrapper li:hover, #tools:hover, form button:hover {
+#wrapper li:hover, #tools:hover {
     background-color: #4e2bdd !important;
 }
 
