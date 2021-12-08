@@ -27,6 +27,7 @@ class Login_ctrl extends Login {
 
         public function login_user($user){
             session_start();
+
             $_SESSION['usuario'] = array(
                                 "id"=>$user[0]['id'],
                                 "username"=>$user[0]['username'],

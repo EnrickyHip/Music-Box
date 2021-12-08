@@ -1,5 +1,5 @@
 <div class="text-center">
-    <img src="./images/Avatar_PlaceHolder.png" alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-5 bi bi-person fs-2">
+    <img src=<?php echo $self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-5 bi bi-person fs-2">
 </div>
 
 <!-- Modal -->
@@ -7,7 +7,7 @@
 
 <div class="text-center mt-2">
 
-    <form action="../actions/profile_img_act.php" method="POST">
+    <form action="../actions/profile_img_act.php" method="POST" enctype="multipart/form-data">
         <input type="file" name="inputFile" id="inputFile" accept="image/*">
         <label
         for="inputFile" 
@@ -33,7 +33,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-dark bg-primary">Save changes</button>
+                <button type="submit" name="send_profile_img" class="btn btn-dark bg-primary">Save changes</button>
             </div>
             </div>
         </div>

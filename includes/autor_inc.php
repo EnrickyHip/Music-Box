@@ -1,5 +1,5 @@
 <div class="text-center">
-    <img src="./images/Avatar_PlaceHolder.png" alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-5">
+    <img src=<?php echo $autor_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-5">
 </div>
 <div class="text-center">
 

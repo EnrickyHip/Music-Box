@@ -1,10 +1,10 @@
 <!--Botão-->
-<a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn btn-primary dropdown login-btn" data-bs-auto-close="false" aria-expanded="false"><img src="./images/Avatar_PlaceHolder.png" alt="" class="rounded-circle" style="width: 30px;"></a>
+<a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn btn-primary dropdown login-btn" data-bs-auto-close="false" aria-expanded="false"><img src=<?php echo $self_profile_img ?> alt="" class="rounded-circle" style="width: 30px;"></a>
 
 <!--DropDown-->
 <div class="dropdown-menu dropdown-menu-end action-form" aria-labelledby="dropdownMenuLink">
     <div class="d-flex mx-3 mb-3">
-        <img src="./images/Avatar_PlaceHolder.png" alt="" class="rounded-circle" style="width: 56px;">
+        <img src=<?php echo $self_profile_img ?> alt="" class="rounded-circle" style="width: 56px;">
         <div>
             <h6 class="mb-0"><?php echo $self_username ?></h6>
             <p class="mb-0"><?php echo $self_username ?></p>

@@ -14,6 +14,6 @@ CREATE TABLE usuario (
 CREATE TABLE profile_img (
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     img_dir TEXT NOT NULL,
-    user_id INTEGER NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES usuario(id)
+    id_user INTEGER NOT NULL,
+    FOREIGN KEY(id_user) REFERENCES usuario(id)
 );

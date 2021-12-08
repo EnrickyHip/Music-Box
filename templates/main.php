@@ -2,12 +2,18 @@
 <html lang="pt-br">
 <?php
 
+    require_once 'vendor/autoload.php';
+
     session_start();
 
     if(isset($_SESSION['usuario'])){
         $self_user = $_SESSION['usuario'];
         $self_username = $self_user['username'];
         $self_art_name = $self_user['art_name'];
+        $self_id = $self_user['id'];
+
+        $profile_ctrl = new \classes\controler\Profile_img_ctrl($self_id);
+        $self_profile_img = $profile_ctrl->get_profile_img($self_user);
     }
 
 ?>

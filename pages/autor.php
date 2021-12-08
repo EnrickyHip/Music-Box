@@ -8,6 +8,8 @@
     $edit = filter_input(INPUT_GET, 'e');
 
     $user_autor = Login::get_user_info($autor);
+    $profile_ctrl = new \classes\controler\Profile_img_ctrl($user_autor[0]['id']);
+    $autor_profile_img = $profile_ctrl->get_profile_img($user_autor[0]);
 
     if (!$user_autor){
         require "includes/autor_error.php";
