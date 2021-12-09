@@ -13,12 +13,16 @@
     <!-- caso a página do autor, seja a a página do usuário logado, aparecerá um botão para habilitar a edição da página-->
 
     <?php
-        if ($self_username == $username_autor){
-    ?>  
-        <a  class="btn btn-success" href= <?php echo "?p=autor&a=$self_username&e=true";?>>Editar página de Autor</a>
-    <?php
+        if(isset($self_username)){
+            if ($self_username == $username_autor){
+                ?>  
+                    <a  class="btn btn-success" href= <?php echo "?p=autor&a=$self_username&e=true";?>>Editar página de Autor</a>
+                <?php
+            }
         }
     ?>
+
+    
 
 </div>
 <div>

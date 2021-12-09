@@ -22,12 +22,16 @@
         $autor_profile_img = $profile_ctrl->get_profile_img($user_autor[0]); //recebe a foto de perfil do autor
 
         //se o autor for o mesmo do usuário logado e a variável edit estiver habilitada, o usuário irá para a página de edição, caso não, será redirecionado para o página de autor
-        if ($self_username == $username_autor and $edit === "true"){ 
-            require "includes/autor_edit.php"; 
+        if (isset($self_username)){
+            if ($self_username == $username_autor and $edit === "true"){ 
+                require "includes/autor_edit.php"; 
+            }
+            else {
+                require "includes/autor_inc.php";
+            } 
         }
-        else {
+        else{
             require "includes/autor_inc.php";
-        }   
+        }
     }
-    
 ?>
