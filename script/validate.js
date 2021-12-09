@@ -6,11 +6,9 @@
   const c_password = $("#c_pwd").get(0)
   const terms = $("#termCheck").get(0)
 
-  //realiza o teste em tempo real
-
-  $(document).ready(function(){
-    $("#username").blur(function(){
-      check_username()
+  $(document).ready(function(){ 
+    $("#username").blur(function(){ //testa toda vez que voce altera algo no input e clica fora dele
+      check_username() 
     })
   })
 
@@ -22,11 +20,11 @@
 
   //função para validar username
 
-  function check_username(){
+  function check_username(){ // função de validação do username
 
     if(username.value === ""){
-      username_add_invalid()
-      $("#user-message").get(0).innerHTML = "Digite um nome de usuário" 
+      username_add_invalid() // caso esteja vazio, o input será definido como inválido
+      $("#user-message").get(0).innerHTML = "Digite um nome de usuário" //define mensagem de erro
     }
 
     else if(checkSpecialChars()){
@@ -34,13 +32,12 @@
       username_add_invalid()
     }
     else{
-      check_exists_user()
+      check_exists_user() //checa se o username digitado ja existe no banco de dados
     }
   }
 
-    //função para validar email
-  
 
+    //função para validar email
   function check_email(){
 
     if(email.value === ""){
@@ -57,34 +54,34 @@
     }
   }
 
-  //checa se o usuário existe por meio do ajax e php
 
+//checa se o usuário existe no banco de dados utilizando AJAX, uma forma de fazer requisições ao server-side e alterar a página sem recarregá-la
 
 function check_exists_user(){
   
-  var _username = $("#username").val()
+  var _username = $("#username").val() 
 
   $.ajax({
-    async: false,
-    url:"../actions/signup_validate_user.php",
+    async: false, //o ajax por padrão executa o server-side ao mesmo tempo que o resto do código JS é executado, porém isto causa um delay das funções ajax, e como posteriormente o script JS depende das definições do ajax, essa propriedade faz com que o a continuação do código JS só seja feita após o término da requisição . Esta propriedade, aparentemente, é depreciada atualmente, porém não achei forma melhor de resolver este problema.  
+    url:"../actions/signup_validate_user.php", //envia a requisição para este arquivo
     method: "POST",
-    data:{user_name:_username},
-    success: (function(result){
+    data:{user_name:_username}, //estas são as variáveis enviadas por método POST para o server side
+    success: (function(result){ //função que é executada após sucesso da requisição
 
        if(result){
         $("#user-message").get(0).innerHTML = "Nome de usuário já existente"
-        username_add_invalid()
+        username_add_invalid()//invalida o input
        }
 
        
        else {
-        username_add_valid()
+        username_add_valid()//valida o input
        }
     }) 
   })
 }
 
-  //checa se o email existe por meio do ajax e php
+  //checa se o email existe por meio do ajax
 
 function check_exists_email(){
 
@@ -111,21 +108,8 @@ function check_exists_email(){
   })
 }
 
-//testa se as senhas são iguais
-
-function checkPwd(){ 
-
-  if (c_password.value !== password.value){
-    return true
-  }
-  else {
-    return false
- }
-}
 
 //filtragem por caracteres especiais
-
-
 function checkSpecialChars(){
   var match = /^[a-zA-Z0-9_]*$/
 
@@ -137,6 +121,27 @@ function checkSpecialChars(){
   }
 }
 
+//função para validar a senha digitada
+
+function check_password(){
+
+  if(password.value === ""){
+    password_add_invalid()
+    c_password.classList.remove('is-invalid', 'is-valid')
+    $("#pwd-message").get(0).innerHTML = "Digite uma senha" 
+  }
+
+  else if(password.value.length < 8){ //invalida senhas com menos de 8 caracteres
+    password_add_invalid()
+    $("#pwd-message").get(0).innerHTML = "Senha Inválida" 
+  }
+
+  else {
+    check_pwd_match() //testar se as senhas coincidem
+  }
+}
+
+//função para validar a senha de confirmação
 function check_pwd_match() {
   if(c_password.value === ""){
     c_password_add_invalid()
@@ -155,25 +160,15 @@ function check_pwd_match() {
   }
 }
 
+//testa se as senhas são iguais
+function checkPwd(){ 
 
-//função que valida as senhas
-
-function check_password(){
-
-  if(password.value === ""){
-    password_add_invalid()
-    c_password.classList.remove('is-invalid', 'is-valid')
-    $("#pwd-message").get(0).innerHTML = "Digite uma senha" 
+  if (c_password.value !== password.value){
+    return true
   }
-
-  else if(password.value.length < 8){
-    password_add_invalid()
-    $("#pwd-message").get(0).innerHTML = "Senha Inválida" 
-  }
-
   else {
-    check_pwd_match()
-  }
+    return false
+ }
 }
 
 // checa os termos
@@ -208,6 +203,7 @@ function check_terms(){
           check_password()
           check_terms()
 
+          //testa se os inputs contém a classe inválida, se sim, o evento(submit) é cancelado
           if(username.classList.contains("is-invalid") || email.classList.contains("is-invalid") || password.classList.contains("is-invalid") || terms.classList.contains("is-invalid")){
             event.preventDefault()
           }
@@ -216,6 +212,8 @@ function check_terms(){
       })
   })()
   
+  // estas são as funções que alteram a validação dos inputs, é apenas estético, por isso o implemento de classes do BOOTSTRAP 
+
 
   function username_add_invalid(){
     username.classList.remove('is-valid')

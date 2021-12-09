@@ -1,9 +1,12 @@
 <?php
 
+    //classe model de conexão com do banco de dados, o model serve para interações como o banco de dados, ela é exclusiva para isto, e apenas ela pode fazer isto.
+
     namespace classes\model;
 
-    class Database {
+    class Database { // classe. "extends" significa herança.
 
+            //propriedades e métodos estáticos são iguais para todos os objetos, para elas usanmos self:: ao invés do $this
             private static $db;
 
             protected static function connect() { // essa classe serve para conectar ao banco de dados

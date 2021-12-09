@@ -1,10 +1,16 @@
+<!-- include padrão da página de autor do usuário -->
+
+<!-- foto de perfil do usuário -->
 <div class="text-center">
     <img src=<?php echo $autor_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-5">
 </div>
+
 <div class="text-center">
 
     <span><h3>Nome artístico</h3></span>
     <span><h5><?php echo $username_autor?></h5></span>  
+
+    <!-- caso a página do autor, seja a a página do usuário logado, aparecerá um botão para habilitar a edição da página-->
 
     <?php
         if ($self_username == $username_autor){

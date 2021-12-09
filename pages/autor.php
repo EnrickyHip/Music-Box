@@ -1,25 +1,29 @@
 <?php
 
+    //pagina de autor
+
     use classes\model\Login;
 
     require_once 'vendor/autoload.php';
 
-    $autor = filter_input(INPUT_GET, 'a');
+    //recebe as variáveis GET
+    $username_autor = filter_input(INPUT_GET, 'a');
     $edit = filter_input(INPUT_GET, 'e');
 
-    $user_autor = Login::get_user_info($autor);
-    $profile_ctrl = new \classes\controler\Profile_img_ctrl($user_autor[0]['id']);
-    $autor_profile_img = $profile_ctrl->get_profile_img($user_autor[0]);
+
+    $user_autor = Login::get_user_info($username_autor); //recebe as informações do autor da página
 
     if (!$user_autor){
-        require "includes/autor_error.php";
+        require "includes/autor_error.php"; //caso o autor não exista, irá para uma página de erro
     }
     else {
 
-        $username_autor = $user_autor[0]['username'];
+        $profile_ctrl = new \classes\controler\Profile_img_ctrl($user_autor[0]['id']); //instancia o controle de foto de perfil
+        $autor_profile_img = $profile_ctrl->get_profile_img($user_autor[0]); //recebe a foto de perfil do autor
 
-        if ($self_username == $username_autor and $edit === "true"){
-            require "includes/autor_edit.php";
+        //se o autor for o mesmo do usuário logado e a variável edit estiver habilitada, o usuário irá para a página de edição, caso não, será redirecionado para o página de autor
+        if ($self_username == $username_autor and $edit === "true"){ 
+            require "includes/autor_edit.php"; 
         }
         else {
             require "includes/autor_inc.php";

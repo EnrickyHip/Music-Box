@@ -1,9 +1,11 @@
+<!-- include de edição de perfil do usuário -->
+
+<!-- foto de perfil do usuário -->
 <div class="text-center">
     <img src=<?php echo $self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-5 bi bi-person fs-2">
 </div>
 
-<!-- Modal -->
-
+<!-- Modal de visualização da foto de perfil -->
 
 <div class="text-center mt-2">
 

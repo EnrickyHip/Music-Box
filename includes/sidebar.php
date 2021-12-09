@@ -12,10 +12,10 @@
             <a href="" class="btn btn-primary w-100 px-0"><i class="bi bi-people fs-2"></i><br>Comunidade</a>
         </li>
 
-        <li class="nav-item my-1">       
+        <li class="nav-item my-1">    
+          <!-- caso o usuário esteja logado, aparecerá o botão de págino de autor-->   
           <?php
             if(isset($self_user)){
-
           ?>
               <a href= <?php echo "?p=autor&a=$self_username";?> class="btn btn-primary w-100 px-0">
                   <i class="bi bi-person fs-2"></i>

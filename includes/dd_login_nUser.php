@@ -1,3 +1,5 @@
+<!-- Dropdown para usuário não logados -->
+
 <!--Botão-->
 <a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn btn-primary dropdown login-btn" data-bs-auto-close="false" aria-expanded="false"><i class="bi bi-person-circle fs-4 purpleIcon"></i></a>
 
@@ -8,6 +10,8 @@
     </div>
 
     <div class="dropdown-divider"></div>
+
+    <!--Formuláro de login-->
 
     <form action="../actions/login_act.php" method="post" class="px-4 py-3 needs-validation" novalidate>
         <div class="form-group">

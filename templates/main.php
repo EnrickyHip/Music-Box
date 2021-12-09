@@ -1,3 +1,5 @@
+<!-- template da página principal -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
@@ -6,12 +8,14 @@
 
     session_start();
 
+    //caso o usuario esteja logado, essas variaveis irao receber as informações do usuário
     if(isset($_SESSION['usuario'])){
         $self_user = $_SESSION['usuario'];
         $self_username = $self_user['username'];
         $self_art_name = $self_user['art_name'];
         $self_id = $self_user['id'];
 
+        //pega a foto de perfil do usuário
         $profile_ctrl = new \classes\controler\Profile_img_ctrl($self_id);
         $self_profile_img = $profile_ctrl->get_profile_img($self_user);
     }
@@ -19,9 +23,7 @@
 ?>
 
 <head>
-
     <?php
-
         require_once "includes/head_default.html";
 
         $page = filter_input(INPUT_GET, 'p');
@@ -34,9 +36,7 @@
             case "autor":
                 echo '<title>Página de autor</title>';
         }
-
     ?>
-
 </head>
 
 <body>
