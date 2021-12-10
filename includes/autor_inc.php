@@ -7,13 +7,13 @@
 
 <div class="text-center">
 
-    <span><h3>Nome artístico</h3></span>
+    <span><h2><?php echo $art_user_autor?></h2></span>
     <span><h5><?php echo $username_autor?></h5></span>  
 
     <!-- caso a página do autor, seja a a página do usuário logado, aparecerá um botão para habilitar a edição da página-->
 
     <?php
-        if(isset($self_username)){
+        if(isset($self_user)){
             if ($self_username == $username_autor){
                 ?>  
                     <a  class="btn btn-success" href= <?php echo "?p=autor&a=$self_username&e=true";?>>Editar página de Autor</a>

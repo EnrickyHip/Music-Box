@@ -1,6 +1,7 @@
 <!-- include de edição de perfil do usuário -->
 
 <!-- foto de perfil do usuário -->
+        
 <div class="text-center">
     <img src=<?php echo $self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-5 bi bi-person fs-2">
 </div>
@@ -42,16 +43,61 @@
         </div>
     </form>
 
-    <span><h3><?php echo $self_art_name?></h3></span>
-    <span><h5><?php echo $self_username?></h5></span>  
+    <form id="edit_profile_form" action="" method="post">
+
+        <div>
+            <label for="art_name">Nome artístico:</label>
+            <h3>
+                <input value=<?php echo $self_art_name ?> type="text" name="art_name" id="art_name" required>
+            </h3>
+            <div class="invalid-feedback" id="art_name-message"></div>
+        </div> 
+
+        <div>
+            <label for="art_name">Nome de usuário:</label>
+            <h5>
+                <input value=<?php echo $self_username ?> type="text" name="art_name" id="art_name" required>
+            </h5>
+            <div class="invalid-feedback" id="art_name-message"></div>
+        <div>
+
+        <div class="text-start mt-5 row">
+            <div class="pb-5 border-bottom border-4 border-primary">
+                
+            <h2>Biografia:</h2>
+                <article>
+                    <textarea class="form-control" name="autor_text" id="" rows="3" placeholder="Fale sobre você e seu trabalho!"></textarea>
+
+                    <div class="mt-2">
+                        <label for="art_name">Website (Opcional):</label>
+                        <h5>
+                            <input class="text-start full-input" value=<?php echo "website" ?> type="text" name="art_name" id="art_name">
+                        </h5>
+                        <div class="invalid-feedback" id="art_name-message"></div>
+                    <div>
+
+                    <div class="mt-2">
+                        <label for="art_name">Localização (Opcional):</label>
+                        <h5>
+                            <input class="text-start full-input" value=<?php echo "localização" ?> type="text" name="art_name" id="art_name">
+                        </h5>
+                        <div class="invalid-feedback" id="art_name-message"></div>
+                    <div>
+
+                </article>
+
+                <div class="mt-5 text-end">
+                    <a href=<?php echo "?p=autor&a=$self_username" ?> type="button" class="btn btn-danger">Voltar</a>
+                    <button type="submit" name="send_profile_info" class="btn btn-dark bg-primary">Salvar alterações</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
 
 </div>
 <div>
-
-    <h2>Edição de autor:</h2>
-    <article class="pb-5 border-bottom border-4 border-primary">
-        <textarea class="form-control" name="autor_text" id="" rows="3" placeholder="Fale sobre você e seu trabalho!"></textarea>
-    </article>
 
     <h3 class="mt-5">Material Postado:</h3>
     <table class="table table-striped">

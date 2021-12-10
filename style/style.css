@@ -14,6 +14,31 @@ input[type="file"]{
     display:none;
 }
 
+textarea:focus  {
+    box-shadow: 0 0 0 0.25rem rgba(33, 33, 230, 0.25) !important;
+    border-color: #5656f3 !important;
+}
+
+.full-input {
+    width:100%;
+}
+
+#edit_profile_form label {
+    margin-top: 13px;
+}
+
+#edit_profile_form input{
+    border-style: none;
+    border-bottom: 1px solid #b3b3cc !important;
+    outline: none;
+    text-align:center;
+    line-height: 1.5;
+}
+
+#edit_profile_form input:focus {
+    border-bottom: 2px solid #1718b0 !important;
+}
+
 #avIcon{
     border-color: #4e2bdd !important;
     width: 15%;

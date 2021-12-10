@@ -12,6 +12,7 @@
 
 
     $user_autor = Login::get_user_info($username_autor); //recebe as informações do autor da página
+    $art_user_autor =  $user_autor[0]['art_name'];
 
     if (!$user_autor){
         require "includes/autor_error.php"; //caso o autor não exista, irá para uma página de erro
@@ -22,7 +23,7 @@
         $autor_profile_img = $profile_ctrl->get_profile_img($user_autor[0]); //recebe a foto de perfil do autor
 
         //se o autor for o mesmo do usuário logado e a variável edit estiver habilitada, o usuário irá para a página de edição, caso não, será redirecionado para o página de autor
-        if (isset($self_username)){
+        if (isset($self_user)){
             if ($self_username == $username_autor and $edit === "true"){ 
                 require "includes/autor_edit.php"; 
             }
