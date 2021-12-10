@@ -1,4 +1,4 @@
-<!-- Dropdown para usuário não logados -->
+<!-- Dropdown para usuário logados -->
 
 <!--Botão-->
 <a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn btn-primary dropdown login-btn" data-bs-auto-close="false" aria-expanded="false"><img src=<?php echo $self_profile_img ?> alt="" class="rounded-circle" style="width: 30px;"></a>

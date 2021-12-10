@@ -13,7 +13,14 @@
         </li>
 
         <li class="nav-item">
-            <a href="" class="btn btn-primary btn-lg"><i class="bi bi-person fs-3"></i></a>
+            <!-- caso o usuário esteja logado, aparecerá o botão de autor-->
+            <?php
+              if(isset($self_user)){  
+            ?>
+                <a href="<?php echo "?p=autor&a=$self_username";?>" class="btn btn-primary btn-lg"><i class="bi bi-person fs-3"></i></a>
+            <?php
+              }
+            ?>
         </li>
 
         <li class="nav-item">

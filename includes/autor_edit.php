@@ -49,9 +49,30 @@
 <div>
 
     <h2>Edição de autor:</h2>
-    <article>
-        Página de edição de autor. Aqui você poderá editar seu perfil.
+    <article class="pb-5 border-bottom border-4 border-primary">
+        <textarea class="form-control" name="autor_text" id="" rows="3" placeholder="Fale sobre você e seu trabalho!"></textarea>
     </article>
+
+    <h3 class="mt-5">Material Postado:</h3>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Artigo/Musica</td>
+                <td class="text-end">Categoria</td>
+                <td class="text-end">DD/MM/AAAA</td>
+            </tr>
+            <tr>
+                <td>Artigo/Musica</td>
+                <td class="text-end">Categoria</td>
+                <td class="text-end">DD/MM/AAAA</td>
+            </tr>
+            <tr>
+                <td>Artigo/Musica</td>
+                <td class="text-end">Categoria</td>
+                <td class="text-end">DD/MM/AAAA</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 

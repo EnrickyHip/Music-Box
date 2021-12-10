@@ -13,7 +13,7 @@
 
     <!--Formuláro de login-->
 
-    <form action="../actions/login_act.php" method="post" class="px-4 py-3 needs-validation" novalidate>
+    <form action="actions/login_act.php" method="post" class="px-4 py-3 needs-validation" novalidate>
         <div class="form-group">
 
             <label for="emailInput">Endereço de E-mail ou Nome de Usuário</label>

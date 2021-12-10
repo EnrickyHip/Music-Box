@@ -45,7 +45,7 @@
     
         require_once "includes/nav.php";
         require_once "includes/sidebar.php";
-        require_once "includes/mobile-bar.html";
+        require_once "includes/mobile-bar.php";
 
     ?>
 
