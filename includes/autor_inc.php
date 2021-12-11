@@ -40,24 +40,25 @@
         Laboriosam ducimus maiores minus quod obcaecati itaque laborum cupiditate, consequuntur, officiis consectetur vero, id reiciendis nesciunt nostrum quaerat assumenda quisquam incidunt expedita corrupti ullam provident esse architecto? Vero, ipsum? Praesentium.
     </article>
 
-    <h3 class="mt-5">Material Postado:</h3>
-    <table class="table table-striped">
-        <tbody>
-            <tr>
-                <td>Artigo/Musica</td>
-                <td class="text-end">Categoria</td>
-                <td class="text-end">DD/MM/AAAA</td>
-            </tr>
-            <tr>
-                <td>Artigo/Musica</td>
-                <td class="text-end">Categoria</td>
-                <td class="text-end">DD/MM/AAAA</td>
-            </tr>
-            <tr>
-                <td>Artigo/Musica</td>
-                <td class="text-end">Categoria</td>
-                <td class="text-end">DD/MM/AAAA</td>
-            </tr>
-        </tbody>
-    </table>
+    <nav class="mt-5 ms-2">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="z-index: 0;">
+            <button class="nav-link active" id="nav-playlist-tab" data-bs-toggle="tab" data-bs-target="#nav-playlist" type="button" role="tab" aria-controls="nav-playlist" aria-selected="true">Playlists</button>
+            <button class="nav-link" id="nav-musicas-tab" data-bs-toggle="tab" data-bs-target="#nav-musicas" type="button" role="tab" aria-controls="nav-musicas" aria-selected="false">Musicas</button>
+            <button class="nav-link" id="nav-artigos-tab" data-bs-toggle="tab" data-bs-target="#nav-artigos" type="button" role="tab" aria-controls="nav-artigos" aria-selected="false">Artigos</button>
+        </div>
+    </nav>
+    <div class="tab-content border border-5 border-primary rounded" id="nav-tabContent" style="z-index: 1;">
+        <div class="tab-pane show active" id="nav-playlist" role="tabpanel" aria-label="nav-playlist-tab">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident qui officia mollitia eius cumque recusandae delectus fugit soluta sequi quisquam accusantium, voluptatem saepe, nisi ea facere suscipit ex ab error.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eligendi harum qui perferendis, voluptatum quasi, eaque saepe quis alias sapiente atque nam, tempora quos debitis accusantium! Culpa fuga cum nostrum!
+        </div>
+        <div class="tab-pane show" id="nav-musicas" role="tabpanel" aria-label="nav-musicas-tab">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident qui officia mollitia eius cumque recusandae delectus fugit soluta sequi quisquam accusantium, voluptatem saepe, nisi ea facere suscipit ex ab error.
+        </div>
+        <div class="tab-pane show" id="nav-artigos" role="tabpanel" aria-label="nav-artigos-tab">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident qui officia mollitia eius cumque recusandae delectus fugit soluta sequi quisquam accusantium, voluptatem saepe, nisi ea facere suscipit ex ab error.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsa officiis neque debitis repellendus! Id iste libero ea. Consequuntur eaque aperiam, delectus vel itaque aliquid praesentium illo reprehenderit magni libero?
+            Autem, eligendi commodi facere assumenda hic necessitatibus possimus velit sit veritatis corporis accusantium illum libero deserunt minima dicta nulla soluta exercitationem alias esse nam fugit quae quam! Aliquam, facilis quisquam?
+        </div>
+    </div>
 </div>

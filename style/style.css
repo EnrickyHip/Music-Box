@@ -10,8 +10,25 @@
     height: auto;
 }
 
+button.active{
+    background-color: #1718b0 !important;
+    color: #f5f5f5 !important;
+}
+
+button.nav-link{
+    color: #1718b0;
+}
+
 input[type="file"]{
     display:none;
+}
+
+.nav-tabs{
+    border: none;
+}
+
+.nav-tabs > button{
+    border: none !important;
 }
 
 textarea:focus  {
