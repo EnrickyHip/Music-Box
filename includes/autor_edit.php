@@ -3,12 +3,12 @@
 <!-- foto de perfil do usuário -->
         
 <div class="text-center">
-    <img src=<?php echo $self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-5 bi bi-person fs-2">
+    <img src=<?php echo $self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-4 bi bi-person fs-2">
 </div>
 
-<!-- Modal de visualização da foto de perfil -->
-
 <div class="text-center mt-2">
+
+    <!-- formulário da foto de perfil -->
 
     <form action="../actions/profile_img_act.php" method="POST" enctype="multipart/form-data">
         <input type="file" name="inputFile" id="inputFile" accept="image/*">
@@ -22,6 +22,8 @@
             </span>
 
         </label>
+
+        <!-- Modal de visualização da foto de perfil -->
 
         <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -43,22 +45,22 @@
         </div>
     </form>
 
-    <form id="edit_profile_form" action="" method="post">
+    <!-- Formulário de edição de informações do usuário -->
+
+    <form id="edit_profile_form" action="../actions/update_user_act.php" method="post" class="needs validation" novalidate>
 
         <div>
             <label for="art_name">Nome artístico:</label>
             <h3>
                 <input value=<?php echo $self_art_name ?> type="text" name="art_name" id="art_name" required>
             </h3>
-            <div class="invalid-feedback" id="art_name-message"></div>
         </div> 
 
         <div>
-            <label for="art_name">Nome de usuário:</label>
+            <label for="username">Nome de usuário:</label>
             <h5>
-                <input value=<?php echo $self_username ?> type="text" name="art_name" id="art_name" required>
+                <input value=<?php echo $self_username ?> type="text" name="username" id="username" required>
             </h5>
-            <div class="invalid-feedback" id="art_name-message"></div>
         <div>
 
         <div class="text-start mt-5 row">
@@ -69,26 +71,26 @@
                     <textarea class="form-control" name="autor_text" id="" rows="3" placeholder="Fale sobre você e seu trabalho!"></textarea>
 
                     <div class="mt-2">
-                        <label for="art_name">Website (Opcional):</label>
+                        <label for="website">Website (Opcional):</label>
                         <h5>
-                            <input class="text-start full-input" value=<?php echo "website" ?> type="text" name="art_name" id="art_name">
+                            <input class="text-start full-input" value="" type="url" name="website" id="website">
                         </h5>
-                        <div class="invalid-feedback" id="art_name-message"></div>
                     <div>
 
                     <div class="mt-2">
-                        <label for="art_name">Localização (Opcional):</label>
+                        <label for="local">Localização (Opcional):</label>
                         <h5>
-                            <input class="text-start full-input" value=<?php echo "localização" ?> type="text" name="art_name" id="art_name">
+                            <input class="text-start full-input" value="" type="text" name="local" id="local">
                         </h5>
-                        <div class="invalid-feedback" id="art_name-message"></div>
                     <div>
 
                 </article>
 
-                <div class="mt-5 text-end">
+                <div class="mt-5 text-end is-invalid">
+
                     <a href=<?php echo "?p=autor&a=$self_username" ?> type="button" class="btn btn-danger">Voltar</a>
                     <button type="submit" name="send_profile_info" class="btn btn-dark bg-primary">Salvar alterações</button>
+                    <div class="invalid-feedback" id="edit_user_message"></div> <!-- adiciona d-block para aparecer -->
                 </div>
 
             </div>
@@ -121,5 +123,5 @@
     </table>
 </div>
 
-
 <script src="../script/edit_profile_img.js"></script>
+<script src="../script/edit_user.js"></script>
