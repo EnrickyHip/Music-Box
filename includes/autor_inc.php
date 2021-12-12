@@ -47,18 +47,70 @@
             <button class="nav-link" id="nav-artigos-tab" data-bs-toggle="tab" data-bs-target="#nav-artigos" type="button" role="tab" aria-controls="nav-artigos" aria-selected="false">Artigos</button>
         </div>
     </nav>
-    <div class="tab-content border border-5 border-primary rounded" id="nav-tabContent" style="z-index: 1;">
+    <div class="tab-content border border-5 border-primary rounded shadow" id="nav-tabContent" style="z-index: 1;">
         <div class="tab-pane show active" id="nav-playlist" role="tabpanel" aria-label="nav-playlist-tab">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident qui officia mollitia eius cumque recusandae delectus fugit soluta sequi quisquam accusantium, voluptatem saepe, nisi ea facere suscipit ex ab error.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eligendi harum qui perferendis, voluptatum quasi, eaque saepe quis alias sapiente atque nam, tempora quos debitis accusantium! Culpa fuga cum nostrum!
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">título</th>
+                        <th scope="col" class="text-end">atualizado</th>
+                        <th scope="col" class="text-end">duração</th>
+                    </tr>  
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <th>Nome</th>
+                        <th class="text-end">DD/MM/AAAA</th>
+                        <th class="text-end">Mn:Sg</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <th>Nome</th>
+                        <th class="text-end">DD/MM/AAAA</th>
+                        <th class="text-end">Mn:Sg</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <th>Nome</th>
+                        <th class="text-end">DD/MM/AAAA</th>
+                        <th class="text-end">Mn:Sg</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="tab-pane show" id="nav-musicas" role="tabpanel" aria-label="nav-musicas-tab">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident qui officia mollitia eius cumque recusandae delectus fugit soluta sequi quisquam accusantium, voluptatem saepe, nisi ea facere suscipit ex ab error.
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">título</th>
+                        <th scope="col" class="text-end">duração</th>
+                    </tr>  
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <th>Nome</th>
+                        <th class="text-end">Mn:Sg</th>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">2</th>
+                        <th>Nome</th>
+                        <th class="text-end">Mn:Sg</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <th>Nome</th>
+                        <th class="text-end">Mn:Sg</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="tab-pane show" id="nav-artigos" role="tabpanel" aria-label="nav-artigos-tab">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident qui officia mollitia eius cumque recusandae delectus fugit soluta sequi quisquam accusantium, voluptatem saepe, nisi ea facere suscipit ex ab error.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsa officiis neque debitis repellendus! Id iste libero ea. Consequuntur eaque aperiam, delectus vel itaque aliquid praesentium illo reprehenderit magni libero?
-            Autem, eligendi commodi facere assumenda hic necessitatibus possimus velit sit veritatis corporis accusantium illum libero deserunt minima dicta nulla soluta exercitationem alias esse nam fugit quae quam! Aliquam, facilis quisquam?
+            <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>
         </div>
     </div>
 </div>

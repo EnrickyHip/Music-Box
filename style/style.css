@@ -1,13 +1,59 @@
-#wrapper{
-    width: 7.5rem;
-    height: 100vh;
-    padding-top: 100px;
+/*bootstrap*/
+
+.border-primary{
+    border-color: #1718b0 !important;
+}
+
+.bg-primary{
+    background-color: #4e2bdd !important;
+}
+
+.mobNavWrap{
+    background-color: #1718b0;
+    z-index: 10;
+}
+
+.toolMenu{
+    background-color: #1718b0;
+    color: #f5f5f5;
+}
+
+.card {
+    z-index: -1;
+}
+
+/*------------*/
+
+/*Botões*/
+
+.btn{ 
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary, .btn-secondary{
+    background-color: transparent !important;
+}
+
+.google-btn{
+    color: #1718b0;
+}
+
+.btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-success{
     background-color: #1718b0;
 }
 
-#logo{
-    width: 56px;
-    height: auto;
+.btn-info{
+    background-color: #4e2bdd;
+}
+
+.white-button:hover {
+    background-color: #e4e4e4 !important;
 }
 
 button.active{
@@ -18,26 +64,47 @@ button.active{
 button.nav-link{
     color: #1718b0;
 }
+/*------*/
 
-input[type="file"]{
-    display:none;
+/*classes e ids custom*/
+
+#mainContainer{
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    width: 75%;
 }
 
-.nav-tabs{
-    border: none;
+#formLog{
+    border: #1718b0 !important;
 }
 
-.nav-tabs > button{
-    border: none !important;
+#avIcon{
+    border-color: #4e2bdd !important;
+    width: 15%;
 }
 
-textarea:focus  {
-    box-shadow: 0 0 0 0.25rem rgba(33, 33, 230, 0.25) !important;
-    border-color: #5656f3 !important;
+#wrapper{
+    width: 7.5rem;
+    height: 100vh;
+    padding-top: 100px;
+    background-color: #1718b0;
 }
 
-.full-input {
-    width:100%;
+#wrapper li:hover, #tools:hover {
+    background-color: #4e2bdd !important;
+}
+
+.purpleIcon{
+    color: #4e2bdd !important;
+}
+
+.whiteIcon{
+    color: #ffffff !important;
+}
+
+#logo{
+    width: 56px;
+    height: auto;
 }
 
 #edit_profile_form label {
@@ -56,87 +123,54 @@ textarea:focus  {
     border-bottom: 2px solid #1718b0 !important;
 }
 
-#avIcon{
-    border-color: #4e2bdd !important;
-    width: 15%;
-}
-
-.border-primary{
-    border-color: #1718b0 !important;
-}
-
-.purpleIcon{
-    color: #4e2bdd !important;
-}
-
-.whiteIcon{
-    color: #ffffff !important;
-}
-
-.bg-primary{
-    background-color: #4e2bdd !important;
-}
-
-.btn{ 
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.btn-primary, .btn-secondary{
-    background-color: transparent !important;
-}
-
-#wrapper li:hover, #tools:hover {
-    background-color: #4e2bdd !important;
-}
-
-.white-button:hover {
-    background-color: #e4e4e4 !important;
-}
-
-.btn-success{
-    background-color: #1718b0;
-}
-
-.btn-info{
-    background-color: #4e2bdd;
-}
-
-.btn:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-.card {
-    z-index: -1;
-}
-
-.google-btn{
-    color: #1718b0;
-}
-
-#formLog{
-    border: #1718b0 !important;
-}
-
-.mobNavWrap{
-    background-color: #1718b0;
-    z-index: 10;
-}
-
-.toolMenu{
-    background-color: #1718b0;
-    color: #f5f5f5;
-}
-
-#mainContainer{
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    width: 75%;
-}
-
 @media only screen and (max-width: 576px) {
     #mainContainer{
         width: 100%;
     }
 }
+
+/*-------------------*/
+
+/*nav-tabs*/
+
+.nav-tabs{
+    border: none;
+}
+
+.nav-tabs > button{
+    border: none !important;
+}
+
+.nav-tabs > button:hover{
+    color: #5656f3;
+}
+
+/*--------*/
+
+/*Inputs*/
+
+input[type="file"]{
+    display:none;
+}
+
+textarea:focus  {
+    box-shadow: 0 0 0 0.25rem rgba(33, 33, 230, 0.25) !important;
+    border-color: #5656f3 !important;
+}
+
+.full-input {
+    width:100%;
+}
+
+
+/*------*/
+
+
+
+
+
+
+
+
+
+
