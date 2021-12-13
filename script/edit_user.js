@@ -104,10 +104,10 @@ $(document).ready(function(){
 
       if(!checkArt_name() || !checkUsername() || !checkWebsite() || !checkLocalization()){
         message.classList.add("d-block") //d-block para a mensagem de erro aparecer
+        event.preventDefault()
       }
       else {
         message.classList.remove("d-block")
       }
-      event.preventDefault()
     })
 })

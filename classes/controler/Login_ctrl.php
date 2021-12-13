@@ -32,20 +32,20 @@ class Login_ctrl extends Login { // classe. "extends" significa herança.
         }
 
             //loga o usuário no sistem
-        public function login_user($user){
+        public function login_user($user){//recebe o username OU email
             session_start();
+            $user = self::get_user_info($user);
 
            //armazena as informações do usuário em um array associativo
             $_SESSION['usuario'] = array(
                                 "id"=>$user[0]['id'],
                                 "username"=>$user[0]['username'],
                                 "art_name"=>$user[0]['art_name'],
-                                "email"=>$user[0]['email']
+                                "email"=>$user[0]['email'],
+                                "bio"=>$user[0]['bio'],
+                                "website"=>$user[0]['website'],
+                                "localization"=>$user[0]['localization']
                                 );
-
-            header('Location: ../?error=0');
-            exit();
-
         }
 
         //checa se as senhas coincidem

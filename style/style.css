@@ -102,6 +102,11 @@ button.nav-link{
     color: #ffffff !important;
 }
 
+.material-icons{
+    display: inline-flex;
+    vertical-align: top;
+}
+
 #logo{
     width: 56px;
     height: auto;
@@ -163,10 +168,17 @@ textarea:focus  {
 }
 
 
-/*------*/
+/*-----*/
 
+/*Links*/
 
+a:link.classic-links {
+    text-decoration: none;
+}
 
+a:hover.classic-links {
+    text-decoration: underline;
+}
 
 
 

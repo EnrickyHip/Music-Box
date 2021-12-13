@@ -1,6 +1,7 @@
 <!-- include de edição de perfil do usuário -->
 
 <!-- foto de perfil do usuário -->
+
         
 <div class="text-center">
     <img src=<?php echo $self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-4 bi bi-person fs-2">
@@ -17,7 +18,7 @@
         class="btn text-dark bg-primary rounded-circle" 
         aria-expanded="false" >
 
-            <span class="material-icons whiteIcon pt-1">
+            <span class="material-icons whiteIcon pt-1 pb-1">
                 add_a_photo
             </span>
 
@@ -47,19 +48,19 @@
 
     <!-- Formulário de edição de informações do usuário -->
 
-    <form id="edit_profile_form" action="../actions/update_user_act.php" method="post" class="needs validation" novalidate>
+    <form id="edit_profile_form" action="../actions/update_user_act.php" method="post" class="needs validation" novalidate autocomplete="off">
 
         <div>
             <label for="art_name">Nome artístico:</label>
             <h3>
-                <input value=<?php echo $self_art_name ?> type="text" name="art_name" id="art_name" required>
+                <input value="<?php echo $self_art_name;?>" type="text" name="art_name" id="art_name" required>
             </h3>
         </div> 
 
         <div>
             <label for="username">Nome de usuário:</label>
             <h5>
-                <input value=<?php echo $self_username ?> type="text" name="username" id="username" required>
+                <input value="<?php echo $self_username; ?>" type="text" name="username" id="username" required>
             </h5>
         <div>
 
@@ -68,19 +69,19 @@
                 
             <h2>Biografia:</h2>
                 <article>
-                    <textarea class="form-control" name="autor_text" id="" rows="3" placeholder="Fale sobre você e seu trabalho!"></textarea>
+                    <textarea class="form-control" name="bio" id="bio" rows="3" placeholder="Fale sobre você e seu trabalho!"><?php echo $art_bio; ?></textarea>
 
                     <div class="mt-2">
                         <label for="website">Website (Opcional):</label>
                         <h5>
-                            <input class="text-start full-input" value="" type="url" name="website" id="website">
+                            <input class="text-start full-input" value="<?php echo $art_website; ?>" type="url" name="website" id="website">
                         </h5>
                     <div>
 
                     <div class="mt-2">
                         <label for="local">Localização (Opcional):</label>
                         <h5>
-                            <input class="text-start full-input" value="" type="text" name="local" id="local">
+                            <input class="text-start full-input" value="<?php echo $art_local; ?>" type="text" name="local" id="local">
                         </h5>
                     <div>
 

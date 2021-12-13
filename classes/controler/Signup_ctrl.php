@@ -32,6 +32,7 @@
             $login_ctrl = new \classes\controler\Login_ctrl($this->username, $this->email, $this->pwd);
             $user = Login::get_user_info($this->username);
             $login_ctrl->login_user($user);
+            header('Location: ../?error=0');
         }
 
         //checa se o usuário já existe no sistema
