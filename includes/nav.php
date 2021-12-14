@@ -10,18 +10,46 @@
 
             <!--Janela offCanvas-->
             <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                <div class="offcanvas-header">
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-
-                <div class="offcanvas-body">
+                <div class="offcanvas-header px-0">
+                    <button type="button" class="btn-close text-reset px-1 mx-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     <form action="#" method="get" class="d-flex input-group">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            aria-describedby="buttonSearchMobile">
-                        <button class="btn btn-outline-success" type="submit" id="buttonSearchMobile"><i
-                                class="bi bi-search"></i></button>
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" aria-describedby="buttonSearchMobile">
+                        <button class="btn btn-outline-success me-2" type="submit" id="buttonSearchMobile"><i class="bi bi-search"></i></button>
                     </form>
+                </div>
+                <div class="offcanvas-body px-2">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="">
+                                <h5 class="text-primary mb-0">titulo de coisa</h5>
+                                <small class="text-secondary">preview de coisa</small>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">
+                                <h5 class="text-primary mb-0">titulo de coisa</h5>
+                                <small class="text-secondary">preview de coisa</small>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">
+                                <h5 class="text-primary mb-0">titulo de coisa</h5>
+                                <small class="text-secondary">preview de coisa</small>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">
+                                <h5 class="text-primary mb-0">titulo de coisa</h5>
+                                <small class="text-secondary">preview de coisa</small>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">
+                                <h5 class="text-primary mb-0">titulo de coisa</h5>
+                                <small class="text-secondary">preview de coisa</small>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -32,11 +60,9 @@
         </a>
 
         <!--Pesquisa tablet/Desktop-->
-        <form action="#" method="get" class="nav-item col d-none d-sm-flex py-3 input-group">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search"
-                aria-describedby="buttonSearch">
-            <button class="btn btn-outline-success" type="submit" id="buttonSearch"><i
-                    class="bi bi-search"></i></button>
+        <form action="#" method="get" class="nav-item col d-none d-sm-flex py-3 input-group" autocomplete="off">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" aria-describedby="buttonSearch" list="datalistSearch">
+            <button class="btn btn-outline-success" type="submit" id="buttonSearch"><i class="bi bi-search"></i></button>
         </form>
 
         <!--Botão de Login-->

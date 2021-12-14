@@ -80,7 +80,7 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist" style="z-index: 0;">
             <button class="nav-link active" id="nav-playlist-tab" data-bs-toggle="tab" data-bs-target="#nav-playlist" type="button" role="tab" aria-controls="nav-playlist" aria-selected="true">Playlists</button>
             <button class="nav-link" id="nav-musicas-tab" data-bs-toggle="tab" data-bs-target="#nav-musicas" type="button" role="tab" aria-controls="nav-musicas" aria-selected="false">Musicas</button>
-            <button class="nav-link" id="nav-artigos-tab" data-bs-toggle="tab" data-bs-target="#nav-artigos" type="button" role="tab" aria-controls="nav-artigos" aria-selected="false">Artigos</button>
+            <button class="nav-link" id="nav-contrib-tab" data-bs-toggle="tab" data-bs-target="#nav-contrib" type="button" role="tab" aria-controls="nav-contrib" aria-selected="false">Contribuições</button>
         </div>
     </nav>
     <div class="tab-content border border-5 border-primary rounded shadow" id="nav-tabContent" style="z-index: 1;">
@@ -145,7 +145,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="tab-pane show" id="nav-artigos" role="tabpanel" aria-label="nav-artigos-tab">
+        <div class="tab-pane show" id="nav-contrib" role="tabpanel" aria-label="nav-contrib-tab">
             <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>
         </div>
     </div>

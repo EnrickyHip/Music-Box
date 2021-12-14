@@ -1,5 +1,9 @@
 /*bootstrap*/
 
+.text-primary{
+    color: #1718b0 !important;
+}
+
 .border-primary{
     border-color: #1718b0 !important;
 }
@@ -22,6 +26,9 @@
     z-index: -1;
 }
 
+.offcanvas-top{
+    height: 100% !important;
+}
 /*------------*/
 
 /*Botões*/
@@ -126,6 +133,14 @@ button.nav-link{
 
 #edit_profile_form input:focus {
     border-bottom: 2px solid #1718b0 !important;
+}
+
+a{
+    text-decoration: none;
+}
+
+.autocomplete{
+    position: relative;
 }
 
 @media only screen and (max-width: 576px) {
