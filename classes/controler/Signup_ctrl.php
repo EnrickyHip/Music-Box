@@ -30,8 +30,7 @@
 
             //loga o usuário no sistema
             $login_ctrl = new \classes\controler\Login_ctrl($this->username, $this->email, $this->pwd);
-            $user = Login::get_user_info($this->username);
-            $login_ctrl->login_user($user);
+            $login_ctrl->login_user($this->username);
             header('Location: ../?error=0');
         }
 

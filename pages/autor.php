@@ -2,7 +2,7 @@
 
     //pagina de autor
 
-    use classes\model\Login;
+    use classes\model\User;
 
     require_once 'vendor/autoload.php';
 
@@ -10,17 +10,18 @@
     $username_autor = filter_input(INPUT_GET, 'a');
     $edit = filter_input(INPUT_GET, 'e');
 
-    $user_autor = Login::get_user_info($username_autor); //recebe as informações do autor da página
-    $art_user_autor =  $user_autor[0]['art_name'];
-    $art_bio =  $user_autor[0]['bio'];
-    $art_website =  $user_autor[0]['website'];
-    $art_local =  $user_autor[0]['localization'];
-    $art_user_autor = filter_var($art_user_autor, FILTER_SANITIZE_STRING);
+    $user_autor = User::get_user_info($username_autor); //recebe as informações do autor da página
 
     if (!$user_autor){
         require "includes/autor_error.php"; //caso o autor não exista, irá para uma página de erro
     }
     else {
+
+        $art_user_autor =  $user_autor[0]['art_name'];
+        $art_bio =  $user_autor[0]['bio'];
+        $art_website =  $user_autor[0]['website'];
+        $art_local =  $user_autor[0]['localization'];
+        $art_user_autor = filter_var($art_user_autor, FILTER_SANITIZE_STRING);
 
         $profile_ctrl = new \classes\controler\Profile_img_ctrl($user_autor[0]['id']); //instancia o controle de foto de perfil
         $autor_profile_img = $profile_ctrl->get_profile_img($user_autor[0]); //recebe a foto de perfil do autor

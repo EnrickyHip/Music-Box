@@ -35,8 +35,8 @@
                         $this->remove_profile_img(); //caso haja, remove a foto de perfil
                     }
     
-                    $novo_nome = uniqid('', true).".$ext"; // cria um novo nome para o aleatório para o foto de perfil, isso serve para que não haja conflitos nos nomes das imagens na pasta uploads.
-                    $pasta_files = "uploads/".$novo_nome; // define a pasta de upload
+                    $novo_nome = uniqid('', true).".$ext"; // cria um novo nome para o aleatório para o foto de perfil, isso serve para que não haja conflitos nos nomes das imagens na pasta profile_img.
+                    $pasta_files = "profile_img/".$novo_nome; // define a pasta de upload
                     $temporario = $foto['tmp_name']; //pasta temporária
     
                     move_uploaded_file($temporario, "../$pasta_files");// move o arquivo do local temoporario para a pasta
@@ -73,7 +73,7 @@
                 $profile_img = $user[0]['img_dir'];
             }
             else {
-                $profile_img = "images/Avatar_PlaceHolder.png"; // caso o usuário não possua foto de perfil, sua foto será o Avatar_PlaceHolder.png como padrão
+                $profile_img = "profile_img/Avatar_PlaceHolder.png"; // caso o usuário não possua foto de perfil, sua foto será o Avatar_PlaceHolder.png como padrão
             }
 
             return $profile_img;  
