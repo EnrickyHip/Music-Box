@@ -26,62 +26,30 @@
     <ul class="list-group list-group-flush mx-lg-5">
         <li class="list-group-item">
             <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <h2 class="text-primary mb-0">titulo de coisa <span class="badge bg-primary fs-6 ms-1">tipo</span></h2>
+                <p class="text-secondary mb-0 text-wrap">preview de coisa Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt recusandae quod magni laborum laudantium pariatur impedit voluptatem, iste, molestias necessitatibus, fugiat quidem voluptas sequi assumenda quaerat id! Consequuntur, pariatur illo!</p>
+                <small class="text-muted">Por: Nome do Autor</small>
             </a>
         </li>
         <li class="list-group-item">
             <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <h2 class="text-primary mb-0">titulo de coisa <span class="badge bg-primary fs-6 ms-1">tipo</span></h2>
+                <p class="text-secondary mb-0 text-wrap">preview de coisa Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt recusandae quod magni laborum laudantium pariatur impedit voluptatem, iste, molestias necessitatibus, fugiat quidem voluptas sequi assumenda quaerat id! Consequuntur, pariatur illo!</p>
+                <small class="text-muted">Por: Nome do Autor</small>
             </a>
         </li>
         <li class="list-group-item">
             <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <h2 class="text-primary mb-0">titulo de coisa <span class="badge bg-primary fs-6 ms-1">tipo</span></h2>
+                <p class="text-secondary mb-0 text-wrap">preview de coisa Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt recusandae quod magni laborum laudantium pariatur impedit voluptatem, iste, molestias necessitatibus, fugiat quidem voluptas sequi assumenda quaerat id! Consequuntur, pariatur illo!</p>
+                <small class="text-muted">Por: Nome do Autor</small>
             </a>
         </li>
         <li class="list-group-item">
             <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="">
-                <h2 class="text-primary mb-0">titulo de coisa</h2>
-                <p class="text-secondary mb-0">preview de coisa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <h2 class="text-primary mb-0">titulo de coisa <span class="badge bg-primary fs-6 ms-1">tipo</span></h2>
+                <p class="text-secondary mb-0 text-wrap">preview de coisa Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt recusandae quod magni laborum laudantium pariatur impedit voluptatem, iste, molestias necessitatibus, fugiat quidem voluptas sequi assumenda quaerat id! Consequuntur, pariatur illo!</p>
+                <small class="text-muted">Por: Nome do Autor</small>
             </a>
         </li>
     </ul>
