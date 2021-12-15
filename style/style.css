@@ -34,11 +34,27 @@
 /*Botões*/
 
 .btn{ 
-    border: none !important;
     box-shadow: none !important;
 }
 
+.btn-outline-info{
+    border: 1px solid #1718b0 !important;
+    color: #1718b0 !important;
+}
+
+.btn-outline-info:hover{
+    border: 1px solid #1718b0 !important;
+    color: #1718b0 !important;
+    background-color: #ffffff;
+}
+
+.btn-check:active+.btn-outline-info, .btn-check:checked+.btn-outline-info, .btn-outline-info.active, .btn-outline-info.dropdown-toggle.show, .btn-outline-info:active{
+    background-color: #1718b0 !important;
+    color: #ffffff !important;
+}
+
 .btn-primary, .btn-secondary{
+    border: none !important;
     background-color: transparent !important;
 }
 
@@ -71,6 +87,8 @@ button.active{
 button.nav-link{
     color: #1718b0;
 }
+
+
 /*------*/
 
 /*classes e ids custom*/
