@@ -35,7 +35,7 @@
 
         <article class="pb-5 border-bottom border-4 border-primary">
 
-        <?php echo $art_bio?>
+        <?=$art_bio?>
         <br>
 
         <?php
@@ -46,7 +46,7 @@
             <span class="material-icons">
                 place
             </span>
-            <?php echo $art_local?>
+            <?=$art_local?>
 
         <?php
             }
@@ -61,8 +61,8 @@
                 link
             </span>
 
-            <a class="classic-links" href="<?php echo $art_website?>"> 
-                <?php echo $art_website?> 
+            <a class="classic-links" href="<?=$art_website?>"> 
+                <?=$art_website?> 
             </a>
 
         <?php

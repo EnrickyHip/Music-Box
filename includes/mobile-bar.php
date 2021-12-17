@@ -17,7 +17,7 @@
             <?php
               if(isset($self_user)){  
             ?>
-                <a href="<?php echo "?p=autor&a=$self_username";?>" class="btn btn-primary btn-lg"><i class="bi bi-person fs-3"></i></a>
+                <a href="<?="?p=autor&a=$self_username";?>" class="btn btn-primary btn-lg"><i class="bi bi-person fs-3"></i></a>
             <?php
               }
             ?>

@@ -10,8 +10,8 @@
         <img src=<?php echo $self_profile_img ?> alt="" class="rounded-circle" style="width: 56px;">
 
         <div>
-            <h6 class="mb-0"><?php echo $self_username ?></h6>
-            <p class="mb-0"><?php echo $self_username ?></p>
+            <h6 class="mb-0"><?=$self_username ?></h6>
+            <p class="mb-0"><?=$self_username ?></p>
         </div>
     </div>
 
