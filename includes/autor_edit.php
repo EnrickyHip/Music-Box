@@ -11,7 +11,7 @@
 
     <!-- formulário da foto de perfil -->
 
-    <form action="../actions/profile_img_act.php" method="POST" enctype="multipart/form-data">
+    <form action="../actions/profile_img_act.php" method="POST" enctype="multipart/form-data" class="no-ajaxy">
         <input type="file" name="inputFile" id="inputFile" accept="image/*">
         <label
         for="inputFile" 
@@ -48,7 +48,7 @@
 
     <!-- Formulário de edição de informações do usuário -->
 
-    <form id="edit_profile_form" action="../actions/update_user_act.php" method="post" class="needs validation" novalidate autocomplete="off">
+    <form id="edit_profile_form" action="../actions/update_user_act.php" method="post" class="needs validation no-ajaxy" novalidate autocomplete="off">
 
         <div>
             <label for="art_name">Nome artístico:</label>

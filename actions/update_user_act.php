@@ -21,6 +21,6 @@
     }
 
     else{
-        header("Location: ../?t=logoOnly&p=register"); //retorna para a página de registro caso o usuário não tenha enviado o formulário
+        header("Location: ../?p=autor&a=".$self_username."&e=true&error=true"); //retorna para a página de registro caso o usuário não tenha enviado o formulário
         exit();
     }

@@ -1,0 +1,1 @@
+let ajaxify = new Ajaxify({elements: "#mainContainer"})

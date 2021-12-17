@@ -17,7 +17,7 @@
 
     <div class="d-flex mx-3">
 
-        <a href="actions/logout.php" class="btn btn-danger">
+        <a href="actions/logout.php" class="btn btn-danger no-ajaxy">
             Sair
         </a>
         <a class="btn btn-primary text-dark" href= <?php echo "?p=autor&a=$self_username";?>>

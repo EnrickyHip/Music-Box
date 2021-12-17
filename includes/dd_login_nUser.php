@@ -13,7 +13,7 @@
 
     <!--Formuláro de login-->
 
-    <form action="actions/login_act.php" method="post" class="px-4 py-3 needs-validation" novalidate>
+    <form action="actions/login_act.php" method="post" class="px-4 py-3 needs-validation no-ajaxy" novalidate>
         <div class="form-group">
 
             <label for="emailInput">Endereço de E-mail ou Nome de Usuário</label>
@@ -40,6 +40,6 @@
     </form>
     <div class="dropdown-divider"></div>
 
-    <a class="dropdown-item" href="?t=logoOnly&p=register">Novo por aqui? Inscreva-se!</a>
+    <a class="dropdown-item no-ajaxy" href="?t=logoOnly&p=register">Novo por aqui? Inscreva-se!</a>
     <a class="dropdown-item" href="#">Esqueçeu a senha?</a>
 </div>

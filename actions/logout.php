@@ -1,3 +1,4 @@
+
 <?php
 // esse arquivo desloga o usuário
 session_start(); // inicia a sessão

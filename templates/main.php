@@ -38,6 +38,9 @@
                 echo '<title>Página de autor</title>';
         }
     ?>
+
+    <script src="https://cdn.jsdelivr.net/gh/arvgta/ajaxify@8.1.5/ajaxify.min.js"></script>
+
 </head>
 
 <body>
@@ -70,7 +73,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../script/validate_login.js">
-    </script>
+    <script src="../script/validate_login.js"></script>
+    <script src="../script/ajaxify_call.js"></script>
 </body>
 </html>
