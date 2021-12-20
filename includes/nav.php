@@ -55,9 +55,11 @@
         </div>
 
         <!--Logo-->
-        <a href="../" class="navbar-brand col-lg-4 col-sm-2 col text-md-start text-center m-0">
-            <img src="./images/logo.png" alt="logo" id="logo">
-        </a>
+        <div class="navbar-brand col-lg-4 col-sm-2 col text-md-start text-center m-0 ps-3">
+            <a href="../">
+                <img src="./images/logo.png" alt="logo" id="logo">
+            </a>
+        </div>
 
         <!--Pesquisa tablet/Desktop-->
         <form action="#" method="get" class="nav-item col d-none d-sm-flex py-3 input-group" autocomplete="off">

@@ -52,6 +52,8 @@
         require_once "includes/sidebar.php";
         require_once "includes/mobile-bar.php";
 
+        require_once "includes/player.php";
+
     ?>
 
     <main class="container" id="mainContainer">
