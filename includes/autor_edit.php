@@ -7,6 +7,8 @@
     <img src=<?=$self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-4 bi bi-person fs-2">
 </div>
 
+
+
 <div class="text-center mt-2">
 
     <!-- formulário da foto de perfil -->
@@ -27,22 +29,22 @@
         <!-- Modal de visualização da foto de perfil -->
 
         <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Alterar Foto de Perfil</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <img src="" class="image-preview">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alterar Foto de Perfil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" class="image-preview">
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="send_profile_img" class="btn btn-dark bg-primary">Save changes</button>
+                </div>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="send_profile_img" class="btn btn-dark bg-primary">Save changes</button>
-            </div>
-            </div>
-        </div>
         </div>
     </form>
 
@@ -97,6 +99,7 @@
             </div>
         </div>
     </form>
+
 
 
 </div>

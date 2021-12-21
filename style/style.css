@@ -34,6 +34,10 @@
     background-color: #1718b0;
 }
 
+.fixed-bottom#player {
+    z-index: 1000 !important;
+}
+
 /*------------*/
 
 /*Botões*/
@@ -114,6 +118,14 @@ button.nav-link{
     cursor: pointer;
 }
 
+#add_song_icon {
+    font-size: 3.5vh;
+}
+
+#add_song:hover {
+    background-color: #e4e4e4;
+}
+
 #player .modal-content {
     border: 1px solid rgb(211, 211, 214) !important;
     border-radius: 10px 10px 0 0;
@@ -130,7 +142,7 @@ button.nav-link{
 }
 
 #formLog{
-    border: #1718b0 !important;
+    border: #383846 !important;
 }
 
 #avIcon{
@@ -149,7 +161,7 @@ button.nav-link{
     background-color: #4e2bdd !important;
 }
 
-.purpleIcon{
+.purple{
     color: #1718b0 !important;
 }
 

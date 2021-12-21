@@ -1,12 +1,14 @@
 <!-- Dropdown para usuário não logados -->
 
 <!--Botão-->
-<a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn btn-primary dropdown login-btn" data-bs-auto-close="false" aria-expanded="false"><i class="bi bi-person-circle fs-4 purpleIcon"></i></a>
+<a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn btn-primary dropdown login-btn transparent" data-bs-auto-close="false" aria-expanded="false">
+    <i class="bi bi-person-circle fs-4 purple"></i>
+</a>
 
 <!--DropDown-->
 <div class="dropdown-menu dropdown-menu-end action-form" aria-labelledby="dropdownMenuLink">
     <div class="dropdown-item mx-auto">
-        <a href="#" class="btn btn-secondary google-btn">Entre com o Google <i class="bi bi-google"></i></a>
+        <a href="#" class="btn btn-secondary transparent google-btn">Entre com o Google <i class="bi bi-google"></i></a>
     </div>
 
     <div class="dropdown-divider"></div>

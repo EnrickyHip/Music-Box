@@ -6,7 +6,7 @@
 
             <div class="modal-header">
                 <h6 class="modal-title" id="exampleModalLabel">Music-box Player</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" id="btn_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
@@ -21,7 +21,7 @@
             </div>
                     
             <div id="progress" class="py-1 mx-4" >
-                <input type="range" min="0" max="100" class="w-100" value="0" id="progress-bar">
+                <input type="range" min="0" max="1000" class="w-100" value="0" id="progress-bar">
             </input>
             </div>
             
@@ -36,24 +36,24 @@
             </div>
 
             <div id="controler" class="d-flex justify-content-around align-items-center px-4 mb-3">
-                <span class="material-icons skip purpleIcon" id="prev">
+                <span class="material-icons skip purple" id="prev">
                     skip_previous
                 </span>
 
-                <span id="play" class="material-icons play purpleIcon">
+                <span id="play" class="material-icons play purple">
                     play_circle
                 </span>
 
-                <span id="pause" class="material-icons d-none play purpleIcon">
+                <span id="pause" class="material-icons d-none play purple">
                     pause_circle
                 </span>
 
-                <span class="material-icons skip purpleIcon" id="next">
+                <span class="material-icons skip purple" id="next">
                     skip_next
                 </span>
             </div>
 
-            <audio id="song" ></audio>
+            <audio id="song"></audio>
         </div>
 
     </div>

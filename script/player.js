@@ -103,6 +103,7 @@ progress_bar.addEventListener('mouseup', function (){ //identifica se usuário s
 });
 
 progress_bar.oninput = function(){ //identifica se o usuário está alterando a barra de progresso manualmente
+    console.log(progress_bar.value)
     progressBarUpdate()
 }
 
@@ -166,21 +167,21 @@ function prev_song(){ //troca para a música anterior
 
 function timeUpdate(){ //função que atualiza o tempo da música
     if(!isNaN(song.duration) & !holding){ //só sera executado quando a duração da música ser carregada, e se o usuário não estiver segurando a barra de progresso.
-        progress_bar.value = song.currentTime * (100 / song.duration)
+        progress_bar.value = song.currentTime * (1000 / song.duration)
         time.textContent = secForMinute(Math.floor(song.currentTime))
         progressBarUpdate()
     }
 }
 
 function changeDuration(){ //esta função altera a duração da música caso o usuário faça imediatamente.
-    song.currentTime = song.duration * (progress_bar.value/100)
+    song.currentTime = song.duration * (progress_bar.value/1000)
 }
 
 function progressBarUpdate(){ //atualiza a progress bar
     if(holding){
-        time.textContent = secForMinute(Math.floor(progress_bar.value / (100 / song.duration))) //atualiza o tempo da música caso o usuário esteja segurando a progress bar
+        time.textContent = secForMinute(Math.floor(progress_bar.value / (1000 / song.duration))) //atualiza o tempo da música caso o usuário esteja segurando a progress bar
     }
-    progress_bar.style.background = 'linear-gradient(90deg, #1718b0 '+progress_bar.value+'%, #bdc3c7 0)'
+    progress_bar.style.background = 'linear-gradient(90deg, #1718b0 '+progress_bar.value/10+'%, #bdc3c7 0)'
 }
 
 /*FUNÇÕES AUXILIARES*/

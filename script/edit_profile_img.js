@@ -1,6 +1,6 @@
 //script de edição da foto de perfil
 
-$(document).ready(function(){ //testa se o documento está pronto
+jQuery(function(){ //testa se o documento está pronto
 
         //recebe os elementos
         const inputFile = document.getElementById("inputFile")
