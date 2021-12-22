@@ -28,7 +28,7 @@
         <div class="mt-3 ms-2">
           <div class="nav nav-tabs" id="nav-tab" role="tablist" style="z-index: 0;">
 
-              <button class="nav-link active ps-2" id="song_upload_tab" data-bs-toggle="tab" data-bs-target="#song_upload_content_tab" type="button" role="tab" aria-controls="nav-playlist" aria-selected="true">
+              <button class="nav-link active ps-2" id="song_upload_tab" data-bs-toggle="tab" data-bs-target="#song_upload_content_tab" type="button" role="tab" aria-controls="song_upload_content_tab" aria-selected="true">
 
                 <span class="material-icons">
                   file_upload
@@ -37,14 +37,14 @@
                 Upload
               </button>
 
-              <button class="nav-link" id="nav-song_youtube_tab-tab" data-bs-toggle="tab" data-bs-target="#song_youtube_content_tab" type="button" role="tab" aria-controls="nav-musicas" aria-selected="false">
+              <button class="nav-link" id="nav_song_youtube_tab" data-bs-toggle="tab" data-bs-target="#song_youtube_content_tab" type="button" role="tab" aria-controls="nav_song_youtube_tab" aria-selected="false">
 
                 <i class="bi bi-youtube"></i>
                 Youtube
 
               </button>
 
-              <button class="nav-link" id="nav-song_spotify_tab-tab" data-bs-toggle="tab" data-bs-target="#song_spotify_content_tab" type="button" role="tab" aria-controls="nav-contrib" aria-selected="false">
+              <button class="nav-link" id="nav_song_spotify_tab" data-bs-toggle="tab" data-bs-target="#song_spotify_content_tab" type="button" role="tab" aria-controls="song_spotify_content_tab" aria-selected="false">
 
                 <i class="bi bi-spotify"></i>
                 Spotify
@@ -53,14 +53,29 @@
 
           </div>
         </div>
-        <div class="tab-content border border-1 border-primary rounded" id="nav-tabContent" style="z-index: 1;">
-          <div class="tab-pane show active" id="song_upload_content_tab" role="tabpanel" aria-label="nav-playlist-tab">
-              
+        <div class="tab-content border border-1 border-primary rounded text-center" id="upload_content" style="z-index: 1;">
 
-          </div>
+        <div class="tab-pane show active" id="song_upload_content_tab" role="tabpanel" aria-label="song_upload_content_tab">
+          <form method="POST" class="needs-validation">
+
+            <div class="m-1 drop-zone">
+              <div class="p-5">
+
+                <span class="material-icons purple" id="upload_song_icon">
+                  file_upload
+                </span>
+                  <input type="file" name="upload_song" id="upload_song">
+                <p>Arraste e solte a música que deseja carregar.</p>  
+                <button name="send_song_upload" class="btn btn-dark bg-primary">Selecionar Arquivos</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+
           <div class="tab-pane show" id="song_youtube_content_tab" role="tabpanel" aria-label="nav-musicas-tab">
           
-            <form action="" method="post" id="form" class="needs-validation p-5" novalidate>
+            <form action="" method="post" id="" class="needs-validation p-5" novalidate>
               <label for="youtube_link_upload">
                 Digite o link da música:
               </label>
@@ -109,9 +124,11 @@
         <a href="actions/logout.php" class="btn btn-danger no-ajaxy">
             Sair
         </a>
-        <a class="btn btn-primary text-dark" href= <?php echo "?p=autor&a=$self_username";?>>
+        <a class="btn btn-primary text-dark" href= <?="?p=autor&a=$self_username";?>>
             Página de Autor
         </a> 
             
     </div>
 </div>
+
+<script src="../script/upload_song.js"></script>

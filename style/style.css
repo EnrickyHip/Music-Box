@@ -103,6 +103,19 @@ button.nav-link{
 /*classes e ids custom*/
 
 
+
+#upload_song_icon{
+    font-size: 16vh !important;
+}
+
+.drop-zone{
+    border: 4px dashed #ffffff;
+}
+
+.drop-zone-border{
+    border: 4px dashed #1718b0 !important;
+}
+
 #time {
     font-size: 90%;
 }
