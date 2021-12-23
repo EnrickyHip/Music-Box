@@ -34,6 +34,10 @@
     background-color: #1718b0;
 }
 
+#volume-bar {
+    background-color: #1718b0;
+}
+
 .fixed-bottom#player {
     z-index: 1000 !important;
 }
@@ -126,8 +130,13 @@ button.nav-link{
 #controler .material-icons.play {
     font-size: 8.5vh;
 }
-#controler .material-icons:hover, #progress:hover{
+
+.clickable:hover {
     cursor: pointer;
+}
+
+.black-hover:hover {
+    color: black !important;
 }
 
 #add_song_icon {
@@ -144,7 +153,11 @@ button.nav-link{
 }
 
 #player-song-cover {
-    width: 245px;
+    width: 100%;
+}
+
+#player > div {
+    width: 40vh;
 }
 
 #mainContainer{
@@ -263,6 +276,15 @@ input[type="range"]::-webkit-slider-thumb {
     border: 2px solid white;
     cursor: pointer;
   }
+
+#volume-bar {
+    height: 3px;
+}
+
+#volume-bar::-webkit-slider-thumb {
+    height: 15px;
+    width: 15px;
+}
 
 .underline_input input{
     border-style: none;

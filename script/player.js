@@ -56,6 +56,7 @@ const pause = document.getElementById("pause")
 const prev = document.getElementById("prev")
 const next = document.getElementById("next")
 const progress_bar = document.getElementById("progress-bar")
+const volume_bar = document.getElementById("volume-bar")
 const progress = document.querySelector("#progress")
 const song = document.querySelector("audio")
 const time = document.getElementById("begin-time")
@@ -63,6 +64,11 @@ const end_time = document.getElementById("end-time")
 const song_cover = document.getElementById("player-song-cover")
 const song_name = document.getElementById("player-song-name")
 const song_artist = document.getElementById("player-song-artist")
+const expand_less_button = document.getElementById("player-expand-less")
+const expand_more_button = document.getElementById("player-expand-more")
+const volume_up = document.getElementById("volume_up")
+const volume_off = document.getElementById("volume_off")
+const player_volume = document.getElementById("player_volume")
 
 let list_index = 0 //index da lista
 let holding = false; //este holding refere-se a barra de progresso do player, se o usuário está segurando o clique em algum ponto dela ela, vai estar true
@@ -103,13 +109,42 @@ progress_bar.addEventListener('mouseup', function (){ //identifica se usuário s
 });
 
 progress_bar.oninput = function(){ //identifica se o usuário está alterando a barra de progresso manualmente
-    console.log(progress_bar.value)
-    progressBarUpdate()
+    progressUpdate(progress_bar)
+}
+
+volume_bar.oninput = function(){ //identifica se o usuário está alterando a barra de volume manualmente
+    progressUpdate(volume_bar)
+    changeVolume()
 }
 
 progress_bar.addEventListener("change", function(){ //identifica se a barra de progresso está sendo alterada, seja manualmente ou não.
     changeDuration()
 })
+
+expand_less_button.addEventListener("click", function(){
+    expand_less()
+})
+
+expand_more_button.addEventListener("click", function(){
+    expand_more()
+})
+
+
+volume_icons = [volume_up, volume_off]
+
+volume_icons.forEach(element =>{
+    element.addEventListener('mouseover', e =>{
+        volume_show()
+       })
+})
+
+player_volume.addEventListener('mouseleave', e =>{
+    console.log("aaaaa")
+    volume_hide()
+    })
+
+
+
 
 /*FUNÇÕES*/
 
@@ -134,6 +169,19 @@ function load_data(){ // carrega as informações da música
     song_name.textContent = songs[list_index].name
     song_artist.textContent = songs[list_index].artist
     end_time.textContent = secForMinute(Math.floor(song.duration))
+}
+
+function expand_less(){
+    expand_less_button.classList.add("d-none")
+    expand_more_button.classList.remove("d-none")
+    song_cover.classList.add("d-none")
+}
+
+
+function expand_more(){
+    expand_less_button.classList.remove("d-none")
+    expand_more_button.classList.add("d-none")
+    song_cover.classList.remove("d-none")
 }
 
 function song_play(){ //toca a música
@@ -165,11 +213,33 @@ function prev_song(){ //troca para a música anterior
     }
 }
 
+function volume_show(){
+    volume_bar.classList.remove("d-none")
+}
+
+function volume_hide(){
+    volume_bar.classList.add("d-none")
+}
+
+function changeVolume(){
+    volume_init = song.volume
+    song.volume = volume_bar.value/100
+    if (song.volume == 0){
+        volume_up.classList.add("d-none")
+        volume_off.classList.remove("d-none")
+    }
+    if (song.volume > 0 & volume_init == 0){
+        volume_up.classList.remove("d-none")
+        volume_off.classList.add("d-none")
+    }
+
+}
+
 function timeUpdate(){ //função que atualiza o tempo da música
     if(!isNaN(song.duration) & !holding){ //só sera executado quando a duração da música ser carregada, e se o usuário não estiver segurando a barra de progresso.
         progress_bar.value = song.currentTime * (1000 / song.duration)
         time.textContent = secForMinute(Math.floor(song.currentTime))
-        progressBarUpdate()
+        progressUpdate(progress_bar)
     }
 }
 
@@ -177,12 +247,13 @@ function changeDuration(){ //esta função altera a duração da música caso o 
     song.currentTime = song.duration * (progress_bar.value/1000)
 }
 
-function progressBarUpdate(){ //atualiza a progress bar
+function progressUpdate(input){ //atualiza a progress bar
     if(holding){
-        time.textContent = secForMinute(Math.floor(progress_bar.value / (1000 / song.duration))) //atualiza o tempo da música caso o usuário esteja segurando a progress bar
+        time.textContent = secForMinute(Math.floor(input.value / (input.max / song.duration))) //atualiza o tempo da música caso o usuário esteja segurando a progress bar
     }
-    progress_bar.style.background = 'linear-gradient(90deg, #1718b0 '+progress_bar.value/10+'%, #bdc3c7 0)'
+    input.style.background = 'linear-gradient(90deg, #1718b0 '+input.value/(input.max/100)+'%, #bdc3c7 0)'
 }
+
 
 /*FUNÇÕES AUXILIARES*/
 

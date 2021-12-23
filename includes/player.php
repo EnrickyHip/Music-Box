@@ -4,24 +4,41 @@
 
         <div class="modal-content shadow-lg">
 
-            <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">Music-box Player</h6>
+            <div class="modal-header py-2">
+                <h6 class="modal-title" id="exampleModalLabel">Music-box Player</h6> 
+                    <span class="material-icons text-secondary fs-2 clickable black-hover" id="player-expand-less"> <!-- aqui está expand less, mas é isto mesmo. é ao contrário. -->
+                        expand_more 
+                    </span>
+                    <span class="material-icons text-secondary fs-2 clickable d-none black-hover" id="player-expand-more">
+                        expand_less
+                    </span>
+                
                 <button type="button" id="btn_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
 
-                <img class="rounded mx-auto d-block p-0" id="player-song-cover">
+                <img class="rounded mx-auto d-block p-0 mb-2" id="player-song-cover">
 
                 <div id="descrição">
-                    <h5 class="mt-2 mb-0" id="player-song-name">Sign of the Cross</h5>
+                    <h5 class="mb-0" id="player-song-name">Sign of the Cross</h5>
                     <p class="text-secondary fst-italic mb-0" id="player-song-artist">Avantasia</p>
+
+                    <div class="d-flex align-item-center mt-1 w-50" id="player_volume">
+                        <span class="material-icons purple fs-5 clickable" id="volume_up">
+                            volume_up
+                        </span>
+                        <span class="material-icons purple d-none fs-5 clickable" id="volume_off">
+                            volume_off
+                        </span>
+                        <input type="range" min="0" max="100" class="ms-2 mt-2 clickable d-none w-100" value="100" id="volume-bar">
+                </div>
                 </div>
 
             </div>
                     
             <div id="progress" class="py-1 mx-4" >
-                <input type="range" min="0" max="1000" class="w-100" value="0" id="progress-bar">
+                <input type="range" min="0" max="1000" class="w-100 clickable" value="0" id="progress-bar">
             </input>
             </div>
             
@@ -40,15 +57,15 @@
                     skip_previous
                 </span>
 
-                <span id="play" class="material-icons play purple">
+                <span id="play" class="material-icons play purple clickable">
                     play_circle
                 </span>
 
-                <span id="pause" class="material-icons d-none play purple">
+                <span id="pause" class="material-icons d-none play purple clickable">
                     pause_circle
                 </span>
 
-                <span class="material-icons skip purple" id="next">
+                <span class="material-icons skip purple clickable" id="next">
                     skip_next
                 </span>
             </div>
