@@ -50,19 +50,19 @@
 
     <!-- Formulário de edição de informações do usuário -->
 
-    <form id="edit_profile_form" action="../actions/update_user_act.php" method="post" class="needs validation no-ajaxy" novalidate autocomplete="off">
+    <form action="../actions/update_user_act.php" method="post" class="needs validation no-ajaxy underline_input" novalidate autocomplete="off">
 
         <div>
             <label for="art_name">Nome artístico:</label>
             <h3>
-                <input value="<?=$self_art_name;?>" type="text" name="art_name" id="art_name" required>
+                <input class="text-center" value="<?=$self_art_name;?>" type="text" name="art_name" id="art_name" required>
             </h3>
         </div> 
 
         <div>
             <label for="username">Nome de usuário:</label>
             <h5>
-                <input value="<?=$self_username; ?>" type="text" name="username" id="username" required>
+                <input class="text-center" value="<?=$self_username; ?>" type="text" name="username" id="username" required>
             </h5>
         <div>
 
@@ -76,14 +76,14 @@
                     <div class="mt-2">
                         <label for="website">Website (Opcional):</label>
                         <h5>
-                            <input class="text-start full-input" value="<?=$art_website; ?>" type="url" name="website" id="website">
+                            <input class="full-input" value="<?=$art_website; ?>" type="url" name="website" id="website">
                         </h5>
                     <div>
 
                     <div class="mt-2">
                         <label for="local">Localização (Opcional):</label>
                         <h5>
-                            <input class="text-start full-input" value="<?=$art_local; ?>" type="text" name="local" id="local">
+                            <input class="full-input" value="<?=$art_local; ?>" type="text" name="local" id="local">
                         </h5>
                     <div>
 

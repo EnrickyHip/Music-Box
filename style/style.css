@@ -103,7 +103,6 @@ button.nav-link{
 /*classes e ids custom*/
 
 
-
 #upload_song_icon{
     font-size: 16vh !important;
 }
@@ -196,22 +195,6 @@ button.nav-link{
     height: auto;
 }
 
-#edit_profile_form label {
-    margin-top: 13px;
-}
-
-#edit_profile_form input{
-    border-style: none;
-    border-bottom: 1px solid #b3b3cc !important;
-    outline: none;
-    text-align:center;
-    line-height: 1.5;
-}
-
-#edit_profile_form input:focus {
-    border-bottom: 2px solid #1718b0 !important;
-}
-
 a{
     text-decoration: none;
 }
@@ -270,7 +253,7 @@ input[type="range"] {
     outline: 0;
   }
   
-  input[type="range"]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     background-color: #1718b0;
     box-shadow: #1718b0;
@@ -281,8 +264,20 @@ input[type="range"] {
     cursor: pointer;
   }
 
+.underline_input input{
+    border-style: none;
+    border-bottom: 1px solid #b3b3cc !important;
+    outline: none;
+    line-height: 1.5;
+}
 
+.underline_input input:focus {
+    border-bottom: 2px solid #1718b0 !important;
+}
 
+.underline_input label {
+    margin-top: 13px;
+}
   
 
   ​

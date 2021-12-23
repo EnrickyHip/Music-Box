@@ -55,34 +55,49 @@
         </div>
         <div class="tab-content border border-1 border-primary rounded text-center" id="upload_content" style="z-index: 1;">
 
-        <div class="tab-pane show active" id="song_upload_content_tab" role="tabpanel" aria-label="song_upload_content_tab">
-          <form method="POST" class="needs-validation">
+        <!-- UPLOAD INPUT-->
 
-            <div class="m-1 drop-zone">
-              <div class="p-5">
+          <div class="tab-pane show active" id="song_upload_content_tab" role="tabpanel" aria-label="song_upload_content_tab">
+            <form method="POST" class="needs-validation">
 
-                <span class="material-icons purple" id="upload_song_icon">
-                  file_upload
-                </span>
-                  <input type="file" name="upload_song" id="upload_song">
-                <p>Arraste e solte a música que deseja carregar.</p>  
-                <button name="send_song_upload" class="btn btn-dark bg-primary">Selecionar Arquivos</button>
+              <div class="m-1 drop-zone">
+                <div class="p-4">
 
+                  <span class="material-icons purple" id="upload_song_icon">
+                    file_upload
+                  </span>
+
+                  <input type="file" name="upload_song" id="upload_song_input">
+
+                  <p>Arraste e solte a música que deseja carregar.</p>  
+         
+                  <button name="send_song_upload" class="btn btn-dark bg-primary">Selecionar Arquivos</button>
+
+                  <div class="d-flex justify-content-center mt-2 invisible" id="upload_message">
+                    <span class="material-icons text-danger">
+                      warning
+                    </span>
+                    <p id="upload_message_text">Formato de arquivo inválido.</p>
+                  </div>
+                         
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
+
+            </form>
+          </div>
+          <!-- YOUTUBE INPUT-->
 
           <div class="tab-pane show" id="song_youtube_content_tab" role="tabpanel" aria-label="nav-musicas-tab">
           
-            <form action="" method="post" id="" class="needs-validation p-5" novalidate>
+            <form action="" method="post" id="" class="needs-validation p-5 underline_input" novalidate>
               <label for="youtube_link_upload">
                 Digite o link da música:
               </label>
-              <input type="link" name="youtube_link_upload" class="form-control"  id="youtube_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp" required>
+              <input class="full-input text-center" type="link" name="youtube_link_upload" id="youtube_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp" required>
             </form>
 
           </div>
+          <!-- SPOTIFY INPUT-->
           <div class="tab-pane show" id="song_spotify_content_tab" role="tabpanel" aria-label="nav-contrib-tab">
               <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>
           </div>

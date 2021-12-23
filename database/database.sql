@@ -38,6 +38,8 @@ CREATE TABLE song (
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     file_dir TEXT NOT NULL,
+    link_youtube VARCHAR(2048),
+    link_spotify VARCHAR(2048),
     autor_id INTEGER NOT NULL,
     album_id INTEGER NOT NULL,
     FOREIGN KEY(autor_id) REFERENCES usuario(id),
