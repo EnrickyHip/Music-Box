@@ -72,20 +72,33 @@ const volume_off = document.getElementById("volume_off")
 const volume_down = document.getElementById("volume_down")
 const player_volume = document.getElementById("player_volume")
 const close_btn = document.getElementById("player_btn_close")
-
+const modal_body = document.getElementById("modal-body-player")
+const litle_pause_button = document.getElementById("litle_stop_button")
+const litle_play_button = document.getElementById("litle_play_button")
 
 let list_index = 0 //index da lista
-let holding = false; //este holding refere-se a barra de progresso do player, se o usuário está segurando o clique em algum ponto dela ela, vai estar true
+let holding = false //este holding refere-se a barra de progresso do player, se o usuário está segurando o clique em algum ponto dela ela, vai estar true
+let player_stage = 0 // estágio do player, 0 para inteiro, 1 para remover a capa, e 2 para o player mínimo
+let playing = false
 
 load_song() //carrega a música quando a página é iniciada
 
 /*EVENTOS*/
-play.addEventListener("click", function(){ //botão para tocar a música
-    song_play()
+
+play_buttons = [play, litle_play_button]
+
+play_buttons.forEach(element =>{
+    element.addEventListener("click", function(){ //botão para tocar a música
+        song_play()
+    })
 })
 
-pause.addEventListener("click", function(){ //botão para pausar a música
-    song_pause()
+pause_buttons = [pause, litle_pause_button]
+
+pause_buttons.forEach(element =>{
+    element.addEventListener("click", function(){ //botão para tocar a música
+        song_pause()
+    })
 })
 
 prev.addEventListener("click", function(){ //botão para para a música anterior
@@ -176,16 +189,38 @@ function load_data(){ // carrega as informações da música
 }
 
 function expand_less(){
-    expand_less_button.classList.add("d-none")
-    expand_more_button.classList.remove("d-none")
-    song_cover.classList.add("d-none")
+    player_stage++
+    if(player_stage == 1){
+        expand_more_button.classList.remove("d-none")
+        song_cover.classList.add("d-none")
+    }
+    else {
+        expand_less_button.classList.add("d-none")
+        modal_body.classList.add("d-none")
+        if (playing){
+            litle_pause_button.classList.remove("d-none")
+        }
+        else {
+            litle_play_button.classList.remove("d-none")
+        }
+    }
+    
 }
 
 
 function expand_more(){
-    expand_less_button.classList.remove("d-none")
-    expand_more_button.classList.add("d-none")
-    song_cover.classList.remove("d-none")
+    player_stage--
+    if(player_stage == 1){
+        modal_body.classList.remove("d-none")
+        expand_more_button.classList.remove("d-none")
+        expand_less_button.classList.remove("d-none")
+        litle_play_button.classList.add("d-none")
+        litle_pause_button.classList.add("d-none")
+    }
+    else {
+        song_cover.classList.remove("d-none")
+        expand_more_button.classList.add("d-none")
+    }
 }
 
 function close_player(){
@@ -193,13 +228,15 @@ function close_player(){
 }
 
 function song_play(){ //toca a música
+    playing = true
     song.play()
-    pause_button_show()
+    pause_buttons_show()
 }
 
 function song_pause(){ //pausa a música
+    playing = false
     song.pause()
-    play_button_show()
+    play_buttons_show()
 }
 
 
@@ -302,14 +339,22 @@ function PurpleIcon(icon){//transforma o icone em roxo
     icon.style.cursor = "pointer"
 }
 
-function pause_button_show(){ //mostra o botão de pausar e esconde o botão de tocar
+function pause_buttons_show(){ //mostra o botão de pausar e esconde o botão de tocar
     play.classList.add("d-none");
     pause.classList.remove("d-none");
+    if (player_stage == 2){
+        litle_play_button.classList.add("d-none");
+        litle_pause_button.classList.remove("d-none");  
+    }   
 }
 
-function play_button_show(){ //faz o contrário do anterior
+function play_buttons_show(){ //faz o contrário do anterior
     pause.classList.add("d-none");
     play.classList.remove("d-none");
+    if (player_stage == 2){
+        litle_pause_button.classList.add("d-none");
+        litle_play_button.classList.remove("d-none");
+    }
 }
 
 
