@@ -13,7 +13,7 @@
                         expand_less
                     </span>
                 
-                <button type="button" id="btn_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" id="player_btn_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
@@ -27,6 +27,9 @@
                     <div class="d-flex align-item-center mt-1 w-50" id="player_volume">
                         <span class="material-icons purple fs-5 clickable" id="volume_up">
                             volume_up
+                        </span>
+                        <span class="material-icons purple d-none fs-5 clickable" id="volume_down">
+                            volume_down
                         </span>
                         <span class="material-icons purple d-none fs-5 clickable" id="volume_off">
                             volume_off

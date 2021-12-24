@@ -5,7 +5,6 @@ jQuery(function(){ //testa se o documento está pronto
         //recebe os elementos
         const inputFile = document.getElementById("inputFile")
         const imgPreview = document.querySelector(".image-preview")
-        const imgModal = document.getElementById("imgModal")
 
         inputFile.addEventListener("change", function(){ //isso será ativado quando o usuário enviar algumar foto pelo input
             const file = this.files[0] //recebe o arquivo enviado

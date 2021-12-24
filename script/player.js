@@ -55,6 +55,7 @@ const play = document.getElementById("play")
 const pause = document.getElementById("pause")
 const prev = document.getElementById("prev")
 const next = document.getElementById("next")
+const player = document.getElementById("player")
 const progress_bar = document.getElementById("progress-bar")
 const volume_bar = document.getElementById("volume-bar")
 const progress = document.querySelector("#progress")
@@ -68,7 +69,10 @@ const expand_less_button = document.getElementById("player-expand-less")
 const expand_more_button = document.getElementById("player-expand-more")
 const volume_up = document.getElementById("volume_up")
 const volume_off = document.getElementById("volume_off")
+const volume_down = document.getElementById("volume_down")
 const player_volume = document.getElementById("player_volume")
+const close_btn = document.getElementById("player_btn_close")
+
 
 let list_index = 0 //index da lista
 let holding = false; //este holding refere-se a barra de progresso do player, se o usuário está segurando o clique em algum ponto dela ela, vai estar true
@@ -90,6 +94,10 @@ prev.addEventListener("click", function(){ //botão para para a música anterior
 
 next.addEventListener("click", function(){ //botão para para a música seguinte
     next_song()
+})
+
+close_btn.addEventListener("click", function(){
+    close_player()
 })
 
 song.addEventListener("timeupdate", function(){ //esse evento identifica o progresso da música para alterar o barra de progresso
@@ -130,7 +138,7 @@ expand_more_button.addEventListener("click", function(){
 })
 
 
-volume_icons = [volume_up, volume_off]
+volume_icons = [volume_up, volume_off, volume_down]
 
 volume_icons.forEach(element =>{
     element.addEventListener('mouseover', e =>{
@@ -139,12 +147,8 @@ volume_icons.forEach(element =>{
 })
 
 player_volume.addEventListener('mouseleave', e =>{
-    console.log("aaaaa")
     volume_hide()
     })
-
-
-
 
 /*FUNÇÕES*/
 
@@ -182,6 +186,10 @@ function expand_more(){
     expand_less_button.classList.remove("d-none")
     expand_more_button.classList.add("d-none")
     song_cover.classList.remove("d-none")
+}
+
+function close_player(){
+    player.classList.add("d-none")
 }
 
 function song_play(){ //toca a música
@@ -222,15 +230,22 @@ function volume_hide(){
 }
 
 function changeVolume(){
-    volume_init = song.volume
     song.volume = volume_bar.value/100
+    console.log(song.volume)
     if (song.volume == 0){
+        volume_down.classList.add("d-none")
         volume_up.classList.add("d-none")
         volume_off.classList.remove("d-none")
     }
-    if (song.volume > 0 & volume_init == 0){
+    else if(song.volume > 0.5){
         volume_up.classList.remove("d-none")
+        volume_down.classList.add("d-none")
         volume_off.classList.add("d-none")
+    }
+    else {
+        volume_off.classList.add("d-none")
+        volume_up.classList.add("d-none")
+        volume_down.classList.remove("d-none")
     }
 
 }
