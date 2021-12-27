@@ -56,7 +56,7 @@
 
     ?>
 
-    <main class="container" id="mainContainer">
+    <main id="mainContainer">
         <?php 
             if(!$page){
                 require("./pages/mainpage.php");

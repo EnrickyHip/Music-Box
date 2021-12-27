@@ -92,7 +92,7 @@
 
                 <i class="bi bi-youtube purple upload-icon"></i>
           
-            <form action="" method="post" id="" class="needs-validation p-5 pt-0 underline_input" novalidate>
+            <form name="ytdlform" action="" method="post" id="" class="needs-validation p-5 pt-0 underline_input" novalidate>
                 <label for="youtube_link_upload">
                     Digite o link da música no youtube:
                 </label>

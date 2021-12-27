@@ -170,9 +170,8 @@ button.nav-link{
 }
 
 #mainContainer{
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    width: 75%;
+    margin-top: 70px;
+    margin-left: 120px;
 }
 
 #formLog{
