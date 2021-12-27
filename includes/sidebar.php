@@ -1,4 +1,4 @@
-<div class="flex-column d-none d-lg-flex position-fixed shadow bg-gradient" id="wrapper">
+<div class="flex-column d-none d-lg-flex position-fixed shadow bg-gradient position-absolute" id="wrapper">
     <ul class="nav flex-column text-center mb-auto">
         <li class="nav-item my-1">
             <a href="" class="btn btn-primary transparent w-100 px-0"><i class="bi bi-file-earmark-music fs-2"></i><br>Musicas</a>
@@ -43,3 +43,8 @@
         </ul>
       </div>
 </div>
+
+<?php
+
+
+?>
