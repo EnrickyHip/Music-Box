@@ -11,6 +11,7 @@
                 <span class="material-icons play purple clickable me-1 d-none" id="litle_stop_button">
                     pause_circle
                 </span>
+
                 <h6 class="modal-title" id="exampleModalLabel">Music-box Player</h6> 
                     <span class="material-icons text-secondary fs-2 clickable black-hover" id="player-expand-less"> <!-- aqui está expand less, mas é isto mesmo. é ao contrário. -->
                         expand_more 
@@ -43,15 +44,12 @@
                         <input type="range" min="0" max="100" class="ms-2 mt-2 clickable d-none w-100" value="100" id="volume-bar">
                     </div>
                 </div>
-            
-            
+
                     
                 <div id="progress" class="py-1 mx-2" >
-                    <input type="range" min="0" max="1000" class="w-100 clickable" value="0" id="progress-bar">
-                </input>
+                    <input type="range" min="0" max="1000" class="w-100 clickable" value="0" id="progress-bar"></input>
                 </div>
                 
-
                 <div id="time" class="d-flex justify-content-between text-secondary mt-1 mx-2">
                     <p id="begin-time" class="mb-1">
                         0:00
@@ -79,11 +77,10 @@
                     </span>
                 </div>
             </div>
-
-            <audio id="song"></audio>
-
-
+        </div>  
     </div>
 </div>
+
+<audio id="song"></audio>
 
 <script src="../script/player.js"></script>
