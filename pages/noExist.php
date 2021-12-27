@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
     <h1 class="fs-1 text-center fw-bold">Essa página não existe :(</h1>
 
     <p class="fs-2 text-center">A página que você está tentando acessar não existe em nosso servidor.</p>

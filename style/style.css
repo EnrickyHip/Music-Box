@@ -94,7 +94,6 @@ button.nav-link{
 
 /*classes e ids custom*/
 
-
 .upload-icon {
     font-size: 100px !important;
 }
@@ -170,8 +169,8 @@ button.nav-link{
 }
 
 #mainContainer{
-    margin-top: 70px;
-    margin-left: 120px;
+    padding-top: 70px;
+    padding-left: 120px;
 }
 
 #formLog{
