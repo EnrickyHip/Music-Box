@@ -169,8 +169,9 @@ button.nav-link{
 }
 
 #mainContainer{
-    padding-top: 70px;
-    padding-left: 120px;
+    margin-top: 70px;
+    margin-left: 120px;
+    width: 88%;
 }
 
 #formLog{
@@ -179,13 +180,13 @@ button.nav-link{
 
 #avIcon{
     border-color: #4e2bdd !important;
-    width: 15%;
+    width: 12%;
 }
 
 #wrapper{
     width: 7.5rem;
-    height: 100vh;
-    padding-top: 100px;
+    height: 89vh;
+    padding-top: 20px;
     background-color: #1718b0;
 }
 

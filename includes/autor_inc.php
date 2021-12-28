@@ -1,5 +1,5 @@
 <!-- include padrão da página de autor do usuário -->
-<div class="container mt-5">
+<div class="container pt-5">
     <!-- foto de perfil do usuário -->
     <div class="text-center">
         <img src=<?php echo $autor_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-4">

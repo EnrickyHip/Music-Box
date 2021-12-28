@@ -1,5 +1,5 @@
 <!-- include de edição de perfil do usuário -->
-<div class="container mt-5">
+<div class="container pt-5">
     <!-- foto de perfil do usuário -->
             
     <div class="text-center">
