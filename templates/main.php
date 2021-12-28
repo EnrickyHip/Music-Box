@@ -59,7 +59,6 @@
         require_once "includes/mobile-bar.php";
 
         require_once "includes/player.php";
-
     ?>
 
     <main id="mainContainer">
