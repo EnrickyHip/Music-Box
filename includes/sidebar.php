@@ -5,7 +5,7 @@
         </li>
 
         <li class="nav-item my-1">
-            <a href="?p=teoria_musical" class="btn btn-primary transparent w-100 px-0"><i class="bi bi-archive fs-2"></i><br>Teoria Musical</a>
+            <a href=<?="?p=teoria_musical";?> class="btn btn-primary transparent w-100 px-0"><i class="bi bi-archive fs-2"></i><br>Teoria Musical</a>
         </li>
 
         <li class="nav-item my-1">

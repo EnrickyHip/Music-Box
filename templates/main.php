@@ -20,30 +20,24 @@
         $self_profile_img = $profile_ctrl->get_profile_img($self_user);
     }
     
+
 ?>
 
 <head>
     <?php
         require_once "includes/head_default.html";
+
+        $page = filter_input(INPUT_GET, 'p');
+
+        switch($page){
+
+            case false:
+                echo '<title>Página inicial</title>';
+
+            case "autor":
+                echo '<title>Página de autor</title>';
+        }
     ?>
-    <div id="head">
-
-        <?php
-            $page = filter_input(INPUT_GET, 'p');
-
-            switch($page){
-
-                case false:
-                    echo '<title>Página inicial</title>';
-    
-                case "autor":
-                    echo '<title>Página de autor</title>';
-
-                case "teoria_musical":
-                    echo '<title>Teoria Musical</title>';
-            }
-        ?>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/gh/arvgta/ajaxify@8.1.5/ajaxify.min.js"></script>
 
