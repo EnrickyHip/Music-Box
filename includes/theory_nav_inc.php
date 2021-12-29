@@ -1,4 +1,7 @@
-<div class="flex-shrink-0 position-fixed p-3 bg-light overflow-auto" style="width: 200px; height: 100%;" id="theory-nav">
+<!-- sidebar de navegação da página de teoria musical
+PS: a classe btn-toggle e btn-toggle nav NÃO fazem parte do bootstrap.
+-->
+<div class="flex-shrink-0 position-fixed d-none p-3 bg-light overflow-auto" style="width: 200px; height: 100%;" id="theory-nav">
     <div class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <span class="fs-5 fw-semibold">Teoria Musical</span>
     </div>
@@ -9,7 +12,7 @@
         </button>
         <div class="collapse show" id="home-theory">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="?p=teoria_musical" class="link-dark rounded">Aprenda Teoria Musical</a></li>
+            <li><a href="?p=teoria_musical" id="teoria_musical" class="link-dark rounded">Aprenda Teoria Musical</a></li>
             <li><a href="#" class="link-dark rounded">Como Contribuir</a></li>
           </ul>
         </div>
@@ -20,7 +23,7 @@
         </button>
         <div class="collapse" id="basic-theory-nav">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="?p=teoria_musical&art=o_que_e_musica" class="link-dark rounded">O que é Música?</a></li>
+            <li><a href="?p=teoria_musical&art=o_que_e_musica" id="o_que_e_musica" class="link-dark rounded">O que é Música?</a></li>
             <li><a href="#" class="link-dark rounded">Propriedades da música</a></li>
             <li><a href="#" class="link-dark rounded">Notas musicais</a></li>
             <li><a href="#" class="link-dark rounded">Intervalos</a></li>
@@ -106,3 +109,5 @@
       </li>
     </ul >
   </div>
+
+  <script src="../script/theory_nav.js"></script>

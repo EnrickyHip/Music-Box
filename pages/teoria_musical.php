@@ -1,6 +1,5 @@
 <?php
 
-require_once "includes/theory_nav_inc.php";
     $article = filter_input(INPUT_GET, 'art');
 
 ?>

@@ -268,7 +268,6 @@ function volume_hide(){
 
 function changeVolume(){
     song.volume = volume_bar.value/100
-    console.log(song.volume)
     if (song.volume == 0){
         volume_down.classList.add("d-none")
         volume_up.classList.add("d-none")

@@ -52,8 +52,10 @@
 <body>
     <script src="script/jquery-3.6.0.min.js"></script>
 
-    <?php   
-    
+    <?php
+
+        require_once "includes/theory_nav_inc.php";
+
         require_once "includes/nav.php";
         require_once "includes/sidebar.php";
         require_once "includes/mobile-bar.php";

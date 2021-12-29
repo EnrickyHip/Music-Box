@@ -94,8 +94,8 @@ button.nav-link{
 
 /*classes e ids custom*/
 
-#theory-nav-list {
-    padding-bottom: 50px;
+#theory-nav{
+    margin-left: 7.5rem;;
 }
 
 .upload-icon {
@@ -364,12 +364,19 @@ a:hover.classic-links {
   margin-top: .125rem;
   margin-left: 1.25rem;
   text-decoration: none;
+  color: rgb(114, 114, 114);
 }
-.btn-toggle-nav a:hover,
-.btn-toggle-nav a:focus {
-  background-color: #5637d3;
-  color: white;
+
+.btn-toggle-nav a:hover{
+  background-color: rgb(238, 238, 238);
+  color: rgb(114, 114, 114);
 }
+
+.btn-toggle-nav a.active {
+    color: rgb(27, 27, 27);
+    font-weight: 600;
+}
+
 
 .scrollarea {
   overflow-y: auto;
