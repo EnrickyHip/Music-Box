@@ -23,7 +23,11 @@ CREATE TABLE profile_img (
 
 CREATE TABLE playlist (
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(255) NOT NULL
+    privacity BOOLEAN NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    code_name VARCHAR(255) NOT NULL,
+    owner_id INT NOT NULL,
+    FOREIGN KEY(owner_id) REFERENCES usuario(id)
 );
 
 CREATE TABLE album (
@@ -38,8 +42,10 @@ CREATE TABLE song (
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     file_dir TEXT NOT NULL,
+    code_name VARCHAR(255) NOT NULL,
     link_youtube VARCHAR(2048),
     link_spotify VARCHAR(2048),
+    privacity BOOLEAN NOT NULL,
     autor_id INTEGER NOT NULL,
     album_id INTEGER NOT NULL,
     FOREIGN KEY(autor_id) REFERENCES usuario(id),

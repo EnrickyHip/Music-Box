@@ -56,10 +56,10 @@
         <!-- UPLOAD INPUT-->
 
           <div class="tab-pane show active" id="song_upload_content_tab" role="tabpanel" aria-label="song_upload_content_tab">
-            <form method="POST" class="needs-validation" enctype="multipart/form-data">
+            <form action="../actions/song_upload_act.php" method="POST" class="needs-validation no-ajaxy" enctype="multipart/form-data" id="upload_form">
 
               <div class="m-1 drop-zone">
-                <div class="p-4">
+                <div class="p-5 m-4">
 
                     <span class="material-icons purple" id="upload_song_icon">
                         file_upload
@@ -69,8 +69,8 @@
 
                     <p>Arraste e solte a música que deseja carregar.</p>  
 
-                    <label for="upload_song_input" aria-expanded="false"name="send_song_upload" class="btn btn-dark bg-primary">
-                        Selecionar Arquivos
+                    <label for="upload_song_input" aria-expanded="false" name="send_song_upload" class="btn btn-dark bg-primary">
+                        Selecionar Arquivo
                     </label>
             
 
@@ -113,11 +113,6 @@
             </form>
           </div>
         </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
 
     </div>

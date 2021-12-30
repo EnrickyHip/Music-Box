@@ -94,6 +94,7 @@ button.nav-link{
 
 /*classes e ids custom*/
 
+
 #theory-nav{
     margin-left: 7.5rem;;
 }
@@ -153,6 +154,7 @@ button.nav-link{
 
 #add_song_icon {
     font-size: 3.5vh;
+    padding-bottom: 2px;
 }
 
 #add_song:hover {

@@ -47,6 +47,7 @@ jQuery(function(){
                 inicio.classList.add("active") 
             }
             else if (element.getAttribute("id") == article){
+                element.parentElement.parentElement.parentElement.classList.add("show") 
                 element.classList.add("active") 
             }
         })

@@ -4,23 +4,28 @@
 
         <div class="modal-content shadow-lg">
 
-            <div class="modal-header py-2">
-                <span class="material-icons play purple clickable me-1 d-none" id="litle_play_button">
-                    play_circle
-                </span>
-                <span class="material-icons play purple clickable me-1 d-none" id="litle_stop_button">
-                    pause_circle
-                </span>
+            <div class="modal-header py-2 pe-2">
+                <div class="d-flex justify-content-start align-items-center">
+                    <span class="material-icons play purple clickable me-1 d-none" id="litle_play_button">
+                        play_circle
+                    </span>
+                    <span class="material-icons play purple clickable me-1 d-none" id="litle_stop_button">
+                        pause_circle
+                    </span>
 
-                <h6 class="modal-title" id="exampleModalLabel">Music-box Player</h6> 
+                    <h6 class="modal-title" id="player-title">Music-box Player</h6>
+                </div>
+
+                <div class="d-flex justify-content-end">
                     <span class="material-icons text-secondary fs-2 clickable black-hover" id="player-expand-less"> <!-- aqui está expand less, mas é isto mesmo. é ao contrário. -->
                         expand_more 
                     </span>
                     <span class="material-icons text-secondary fs-2 clickable d-none black-hover" id="player-expand-more">
                         expand_less
                     </span>
-                
-                <button type="button" id="player_btn_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    
+                    <button type="button" id="player_btn_close" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
             </div>
 
             <div class="modal-body pb-0" id="modal-body-player">

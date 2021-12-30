@@ -75,6 +75,7 @@ const close_btn = document.getElementById("player_btn_close")
 const modal_body = document.getElementById("modal-body-player")
 const litle_pause_button = document.getElementById("litle_stop_button")
 const litle_play_button = document.getElementById("litle_play_button")
+const player_title = document.getElementById("player-title")
 
 let list_index = 0 //index da lista
 let holding = false //este holding refere-se a barra de progresso do player, se o usuário está segurando o clique em algum ponto dela ela, vai estar true
@@ -195,6 +196,7 @@ function expand_less(){
         song_cover.classList.add("d-none")
     }
     else {
+        player_title.textContent = songs[list_index].name
         expand_less_button.classList.add("d-none")
         modal_body.classList.add("d-none")
         if (playing){
@@ -211,6 +213,7 @@ function expand_less(){
 function expand_more(){
     player_stage--
     if(player_stage == 1){
+        player_title.textContent = "Music-box"
         modal_body.classList.remove("d-none")
         expand_more_button.classList.remove("d-none")
         expand_less_button.classList.remove("d-none")
@@ -225,6 +228,8 @@ function expand_more(){
 
 function close_player(){
     player.classList.add("d-none")
+    song.pause
+    song.currentTime = 0
 }
 
 function song_play(){ //toca a música

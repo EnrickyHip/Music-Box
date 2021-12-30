@@ -2,6 +2,7 @@ const drop_zone = document.querySelector(".drop-zone")
 const upload_message = document.getElementById("upload_message")
 const upload_message_text = document.getElementById("upload_message_text") 
 const upload_song_input = document.getElementById("upload_song_input") 
+const upload_form = document.getElementById("upload_form") 
 
 /* UPLOAD DIRETO */
 
@@ -28,6 +29,7 @@ drop_zone.addEventListener("drop", function(event){
             upload_message_hide()
             text = "Funcionou :D"
             upload_message_show(text)
+            upload_form.submit()
         }
     }
 
