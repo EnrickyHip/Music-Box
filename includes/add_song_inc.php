@@ -56,7 +56,7 @@
         <!-- UPLOAD INPUT-->
 
           <div class="tab-pane show active" id="song_upload_content_tab" role="tabpanel" aria-label="song_upload_content_tab">
-            <form action="../actions/song_upload_act.php" method="POST" class="needs-validation no-ajaxy" enctype="multipart/form-data" id="upload_form">
+            <form action="..?t=logoOnly&p=song_register" method="POST" class="needs-validation no-ajaxy" enctype="multipart/form-data" id="upload_form">
 
               <div class="m-1 drop-zone">
                 <div class="p-5 m-4">

@@ -1,4 +1,5 @@
   // constantes relativas aos inputs
+  console.log("loaded")
 
   const username = $("#username").get(0)
   const email = $("#email").get(0)

@@ -4,6 +4,8 @@
     <form action="actions/signup_act.php" method="post" id="form" class="needs-validation bg-white border rounded-3 p-5" novalidate>
 
         <div class="containder row">
+            
+            <label for="username" class="form-label">Nome de Usuário:</label>
         
             <div class="col-md-12 mb-3">
                 <div class="input-group">
@@ -61,3 +63,5 @@
         </div>    
     </form>
 </div>
+
+<script src="./script/validate.js"></script>
