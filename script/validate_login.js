@@ -9,7 +9,7 @@ const form_submit = $("#formLog").get(0);
 function check_user(){
   if(user.value === ""){ // caso esteja vazio, o input será definido como inválido
     $("#user-message").get(0).innerHTML = "Por favor, digite seu E-mail ou nome de usuário" //define mensagem de erro
-    user_add_invalid() // invalida o input, porém é apenas ESTÉTICOa
+    add_invalid(user) // invalida o input, porém é apenas ESTÉTICOa
   }
   else {
     check_exists_user() //checa se o usuário existe no banco de dados
@@ -32,11 +32,11 @@ function check_exists_user(){
        if(!result){
 
         $("#user-message").get(0).innerHTML = "Usuário inexistente"
-        user_add_invalid() //invalida o input
+        add_invalid(user) //invalida o input
        }
 
        else {
-        user_add_valid()//valida o input
+        add_valid(user)//valida o input
         check_pwd() // testa a senha
        }
     }) 
@@ -46,7 +46,7 @@ function check_exists_user(){
 function check_pwd(){
 
   if(password.value === ""){ 
-    password_add_invalid()
+    add_invalid(password)
     $("#password-message").get(0).innerHTML = "Digite sua senha" 
   }
   else {
@@ -70,11 +70,11 @@ function check_pwd_correct(){
     },
     success: (function(result){
        if(!result){
-        password_add_invalid()
+        add_invalid(password)
         $("#password-message").get(0).innerHTML = "Senha Incorreta"
        }  
        else {
-        password_add_valid()
+        add_valid(password)
        }
     }) 
   })
@@ -105,22 +105,12 @@ function check_pwd_correct(){
   // estas são as funções que alteram a validação dos inputs, é apenas estético, por isso o implemento de classes do BOOTSTRAP 
 
 
-  function password_add_invalid(){
-    password.classList.remove("is-valid")
-    password.classList.add('is-invalid')
+  function add_invalid(input){
+    input.classList.remove("is-valid")
+    input.classList.add('is-invalid')
   }
 
-  function password_add_valid(){
-    password.classList.remove('is-invalid')
-    password.classList.add('is-valid')
-  }
-
-  function user_add_invalid(){
-    user.classList.remove('is-valid')
-    user.classList.add('is-invalid')
-  }
-
-  function user_add_valid(){
-    user.classList.remove('is-invalid')
-    user.classList.add('is-valid')
+  function add_valid(input){
+    input.classList.remove('is-invalid')
+    input.classList.add('is-valid')
   }

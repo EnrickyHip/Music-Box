@@ -24,13 +24,13 @@
   function check_username(){ // função de validação do username
 
     if(username.value === ""){
-      username_add_invalid() // caso esteja vazio, o input será definido como inválido
+      add_invalid(username) // caso esteja vazio, o input será definido como inválido
       $("#user-message").get(0).innerHTML = "Digite um nome de usuário" //define mensagem de erro
     }
 
     else if(checkSpecialChars()){
       $("#user-message").get(0).innerHTML = "Usuário Inválido"
-      username_add_invalid()
+      add_invalid(username)
     }
     else{
       check_exists_user() //checa se o username digitado ja existe no banco de dados
@@ -42,13 +42,13 @@
   function check_email(){
 
     if(email.value === ""){
-      email_add_invalid()
+      add_invalid(email)
       $("#email-message").get(0).innerHTML = "Digite um E-mail" 
     }
 
     else if(!email.checkValidity()){ 
       $("#email-message").get(0).innerHTML = "Email Inválido"
-      email_add_invalid()
+      add_invalid(email)
     }
     else {
       check_exists_email()
@@ -71,12 +71,12 @@ function check_exists_user(){
 
        if(result){
         $("#user-message").get(0).innerHTML = "Nome de usuário já existente"
-        username_add_invalid()//invalida o input
+        add_invalid(username)//invalida o input
        }
 
        
        else {
-        username_add_valid()//valida o input
+        add_valid(username)//valida o input
        }
     }) 
   })
@@ -98,12 +98,12 @@ function check_exists_email(){
 
        if(result){  
           
-        email_add_invalid()
+        add_invalid(email)
         $("#email-message").get(0).innerHTML = "Email já cadastrado"
        }
 
        else {
-        email_add_valid()
+        add_valid(email)
        }
     }) 
   })
@@ -127,13 +127,13 @@ function checkSpecialChars(){
 function check_password(){
 
   if(password.value === ""){
-    password_add_invalid()
+    add_invalid(password)
     c_password.classList.remove('is-invalid', 'is-valid')
     $("#pwd-message").get(0).innerHTML = "Digite uma senha" 
   }
 
   else if(password.value.length < 8){ //invalida senhas com menos de 8 caracteres
-    password_add_invalid()
+    add_invalid(password)
     $("#pwd-message").get(0).innerHTML = "Senha Inválida" 
   }
 
@@ -145,19 +145,19 @@ function check_password(){
 //função para validar a senha de confirmação
 function check_pwd_match() {
   if(c_password.value === ""){
-    c_password_add_invalid()
-    password_add_invalid()
+    add_invalid(c_password)
+    add_invalid(password)
     $("#pwd-message").get(0).innerHTML = "Confirme sua senha" 
   }
 
   else if(checkPwd()){
-    c_password_add_invalid()
-    password_add_invalid()
+    add_invalid(c_password)
+    add_invalid(password)
     $("#pwd-message").get(0).innerHTML = "Senhas não coincidem" 
   }
   else {
-    password_add_valid()
-    c_password_add_valid()
+    dd_valid(password)
+    add_valid(c_password)
   }
 }
 
@@ -176,12 +176,10 @@ function checkPwd(){
 
 function check_terms(){
   if(!terms.checkValidity()){
-    terms.classList.remove("is-valid")
-    terms.classList.add("is-invalid")
+    add_invalid(terms)
   }
   else {
-    terms.classList.remove("is-invalid")
-    terms.classList.add("is-valid")
+    add_valid(terms)
   }
 }
 
@@ -216,44 +214,14 @@ function check_terms(){
   // estas são as funções que alteram a validação dos inputs, é apenas estético, por isso o implemento de classes do BOOTSTRAP 
 
 
-  function username_add_invalid(){
-    username.classList.remove('is-valid')
-    username.classList.add('is-invalid')
+  function add_invalid(input){
+    input.classList.remove('is-valid')
+    input.classList.add('is-invalid')
   }
 
-  function username_add_valid(){
-    username.classList.remove('is-invalid')
-    username.classList.add('is-valid')
-  }
-
-  function email_add_invalid(){
-    email.classList.remove('is-valid')
-    email.classList.add('is-invalid')
-  }
-
-  function email_add_valid(){
-    email.classList.remove('is-invalid')
-    email.classList.add('is-valid')
-  }
-
-  function password_add_invalid(){
-    password.classList.remove("is-valid")
-    password.classList.add('is-invalid')
-  }
-
-  function password_add_valid(){
-    password.classList.remove('is-invalid')
-    password.classList.add('is-valid')
-  }
-
-  function c_password_add_valid(){
-    c_password.classList.remove('is-invalid')
-    c_password.classList.add('is-valid')
-  }
-
-  function c_password_add_invalid(){
-    c_password.classList.remove("is-valid")
-    c_password.classList.add('is-invalid')
+  function add_valid(input){
+    input.classList.remove('is-invalid')
+    input.classList.add('is-valid')
   }
 
 

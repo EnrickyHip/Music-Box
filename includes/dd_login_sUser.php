@@ -2,7 +2,7 @@
 
 <!--Botão-->
 <a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="pe-2" data-bs-auto-close="false" aria-expanded="false">
-    <img src=<?=$self_profile_img ?> alt="" class="rounded-circle" style="width: 40px;">
+    <img src=<?=$self_profile_img ?> alt="" class="rounded-circle" style="width: 37px;">
 </a>
 
 <!--DropDown-->

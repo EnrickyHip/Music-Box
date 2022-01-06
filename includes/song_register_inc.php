@@ -1,31 +1,32 @@
 <div class="container-xxl bg-primary border rounded-3 shadow p-3 col-lg-6">
     <h2 class="text-white text-center">Cadastrar música</h2>
     
-    <form action="actions/signup_act.php" method="post" id="form" class="needs-validation bg-white border rounded-3 p-5" novalidate>
+    <form action="actions/song_upload_act.php" method="post" id="form-song" class="bg-white border rounded-3 p-5">
         
         <div class="containder row">
             <div id="step1">
                 <h3 class="mb-4 text-center">Principais Informações</h3>
 
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-4">
 
                     <label class="form-label" for="seleted_file">Arquivo Selecionado:</label>  
                     <div class="input-group">
-                        <input type="text" class="form-control" id="selected_file" value="<?=$song['name']?>" disabled>
+                        <input type="text" class="form-control" id="selected_file" name="selected_file" value="<?=$song['name']?>" disabled>
                     </div> 
 
                 </div>
 
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-4">
 
                     <label class="form-label" for="song_title">Título:</label>  
                     <div class="input-group">
-                        <input type="text" maxlength="100" class="form-control" id="song_title" placeholder="Título da Música" required>
+                        <input type="text" maxlength="100" class="form-control" id="song_title" name="song_title" placeholder="Título da Música" required>
+                        <div class="invalid-feedback" id="title-message"></div>
                     </div> 
                     
                 </div>
 
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-4">
 
                     <label class="form-label" for="song_desc">Descrição (Opcional):</label>  
                     <div class="input-group">
@@ -33,24 +34,24 @@
                     </div>
                 </div>
 
-                <div class="col-md-12 mb-3 mt-2">
+                <div class="col-md-12 mb-4 mt-2">
 
                     <label class="form-label" for="album_select">Selecionar Álbum:</label> 
                     
                     <div class="input-group">
-                        <select id="album_select" class="form-select">
+                        <select id="album_select" name="album_select" class="form-select">
                             <option>Solo</option>
                         </select>              
                     </div> 
                     
                 </div>
 
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-4">
 
                     <label class="form-label" for="playlist_select">Playlists:</label> 
                     
                     <div class="input-group">
-                        <select id="playlist_select" class="form-select" disabled>
+                        <select id="playlist_select" name="playlist_select" class="form-select" disabled>
                             <option>Selecionar Playlists</option>
                         </select>
                     </div> 
@@ -63,26 +64,99 @@
             <div id="step2">
                 <h3 class="mb-4 text-center">Tags e Identificação</h3>
 
-                <div class="col-md-12 mb-3 mt-2">
+                <div class="col-md-12 mb-4 mt-2">
                     <label class="form-label" for="genre_select">Gênero/Estilo Musical:</label> 
                     
                     <div class="input-group">
-                        <select id="genre_select" class="form-select">
+                        <select id="genre_select" name="genre_select" class="form-select">
                         <option disabled selected>Escolher Gênero</option>
-                        </select>              
+                        </select>
+                        <div class="invalid-feedback" id="genre-message"></div>              
                     </div>    
                 </div>
 
-                <div class="col-md-12 mb-3 mt-2">
+                <div class="col-md-12 mb-4 mt-2">
                     <label class="form-label" for="subgenre_select">Subgênero (Opcional):</label> 
                     
                     <div class="input-group">
-                        <select id="subgenre_select" class="form-select">
+                        <select id="subgenre_select" name="subgenre_select" class="form-select">
                             <option disabled selected>Escolher Subgênero</option>
                         </select>              
                     </div>    
                 </div>
 
+                <div class="col-md-12 mb-4 mt-2">
+                    <label class="form-label" for="key_select">Tom (Opcional):</label> 
+                    
+                    <div class="input-group">
+                        <select id="key_select" name="key_select" class="form-select">
+                            <option disabled selected>Escolher Tom</option>
+                            <option>A</option>
+                            <option>Am</option>
+                            <option>A#/Bb</option>
+                            <option>A#m/Bbm</option>
+                            <option>B</option>
+                            <option>Bm</option>
+                            <option>C</option>
+                            <option>Cm</option>
+                            <option>C#/Db</option>
+                            <option>C#m/Cbm</option>
+                            <option>D</option>
+                            <option>Dm</option>
+                            <option>D#/Eb</option>
+                            <option>D#m/Ebm</option>
+                            <option>E</option>
+                            <option>Em</option>
+                            <option>F</option>
+                            <option>Fm</option>
+                            <option>F#/Gb</option>
+                            <option>F#m/Gbm</option>
+                            <option>G</option>
+                            <option>Gm</option>
+                            <option>G#/Ab</option>
+                            <option>G#m/Abm</option>
+                        </select>              
+                    </div>    
+                </div>
+
+                <!--<div class="col-md-12 mb-4 mt-2">
+                    <label class="form-label">Tipo:</label>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type" id="lyric_type" checked>
+                        <label class="form-check-label" for="lyric_type">
+                            Lírico
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type" id="instrumental_type">
+                        <label class="form-check-label" for="instrumental_type">
+                            Instrumental
+                        </label>
+                    </div>
+                </div>-->
+
+                
+                <div class="col-md-12 mb-4 mt-2">
+
+                    <label class="form-label title d-flex" for="subgenre_select">
+                        <i class="bi bi-tags-fill"></i>
+                        <h5 class="ms-1">Tags (Opcional):</h5>
+                    </label> 
+
+                    <div class="wrapper">
+                        <div class="content">
+                            <p>Pressione entre ou adicione uma virgúla para adicionar uma tag.</p>
+                            <ul><input id="input-tags" name="input-tags" type="text" spellcheck="false"></ul>
+                        </div>
+                        <div class="details">
+                            <p><span>1000</span>/1000</p>
+                            <button type="button">Remover tudo</button>
+                        </div>
+                    </div>
+                </div>
+
+            
             </div>
 
             <div class="d-flex mt-5">
