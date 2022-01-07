@@ -17,7 +17,7 @@
             $this->formatos = array("mp3", "aac", "wav", "ogg", "wma");
         }
 
-        public function uploadSong($song){
+        public function uploadSong($song, $album){
 
             $ext = pathinfo($song['name'], PATHINFO_EXTENSION); //recebe a extensão do arquivo
 
@@ -28,14 +28,18 @@
     
                 move_uploaded_file($temporario, "../$song_file");// move o arquivo do local temoporario para a pasta
 
-                $songs = array($song_file);
-
-                $album_control = new \classes\controler\AlbumControler($this->user_id);
-                $title = $song['name'];
-                $album_control->create_album($songs, $title);
+                if($album == "Solo"){
+                    $this->createSoloAlbum($song, $song_file);
+                }
                 
                 $this->insert_song($this->user_id, $song_file);
-            }
-            
+            }   
+        }
+
+        private function createSoloAlbum($song, $song_file){
+            $songs = array($song_file);
+            $album_control = new \classes\controler\AlbumControler($this->user_id);
+            $title = $song['name'];
+            $album_control->create_album($songs, $title);
         }
     }

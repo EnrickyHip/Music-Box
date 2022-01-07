@@ -72,7 +72,7 @@
             <!-- aparecerá dropdowns diferentes para usuários logados e não logados  -->
             <?php
             if(isset($self_user)){
-                include_once "./includes/add_song_inc.php";
+                include_once "./includes/create.php";
                 include_once "./includes/dd_login_sUser.php";
             }
             else {

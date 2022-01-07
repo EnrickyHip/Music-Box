@@ -1,6 +1,7 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn px-2 me-3 purple"  id="add_song" data-bs-toggle="modal" data-bs-target="#add_song_modal">
 
+
+<div class="btn-group">
+  <button type="button" class="btn px-2 me-3 purple add_button"  id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
     <div class="d-flex align-items-center">
         <h5 class="mb-0 pb-1">
             Criar
@@ -9,14 +10,20 @@
             add
         </span>
     </div>
-</button>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#add_song_modal" href="#">Enviar música</a></li>
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#create_album_modal" href="#">Criar Album</a></li>
+    <li><a class="dropdown-item" href="#">Criar Playlist</a></li>
+  </ul>
+</div>
 
-<!-- Modal -->
-<div class="modal fade" id="add_song_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal para adicionar música -->
+<div class="modal fade" id="add_song_modal" tabindex="-1" aria-labelledby="add_song_modal" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Adicionar música</h5>
+        <h5 class="modal-title" id="add_song_modal">Adicionar música</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -119,6 +126,58 @@
   </div>
 </div>
 
+<!-- MODAL DE CRIAÇÃO DE ÁLBUNS -->
+
+<div class="modal fade" id="create_album_modal" tabindex="-1" aria-labelledby="create_album_modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="create_album_modal">Criar Álbum</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <form action="" method="POST" enctype="multipart/form-data" class="needs-validation p-5 pt-0 underline_input" novalidate>
+
+          <label for="album_title">
+            <h3>Título do álbum:</h3>
+          </label>
+          <input type="text" class="full-input text-center fs-5" required>
+
+          
+          <button type="button" class="btn px-2 my-3 purple add_button"  id="add_album_songs" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <h5 class="mb-0 pb-1">
+                    Adicionar Músicas
+                </h5>
+                <span class="material-icons" id="add_song_icon">
+                    add
+                </span>
+            </div>
+          </button>
+
+          <h6 class="mb-3">Descrição (Opcional):</h6>
+          <textarea class="form-control" name="album_desc" id="album_desc" rows="3" placeholder="Fale sobre seu álbum!"></textarea>
+
+
+          <div class="mt-4">
+            <h6 class="mb-3">Capa do Álbum:</h6>
+            <div>
+              <img src="../album_covers/default-cover-art.png" alt="" width="35%">
+            </div>
+            
+            <label for="album_cover" class="btn btn-success">Selecionar Capa para o Álbum</label>
+            <input type="file" name="album_cover" id="album_cover" accept="image/*">
+          </div>
+
+        </form>    
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 
 <script>$('#add_song_modal').appendTo("body");</script>
+<script>$('#create_album_modal').appendTo("body");</script>

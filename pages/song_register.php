@@ -10,8 +10,8 @@
 
             /*$self_username = $_SESSION['usuario']['username'];
             $self_id = $_SESSION['usuario']['id'];*/
-            $song = $_FILES['upload_song_input'];
-
+            $_SESSION['actual_song'] = $_FILES['upload_song_input'];
+            $song = $_SESSION['actual_song'];
             require_once "includes/song_register_inc.php";
 
 

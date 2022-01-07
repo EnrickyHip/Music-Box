@@ -1,7 +1,7 @@
 <div class="container-xxl bg-primary border rounded-3 shadow p-3 col-lg-6">
     <h2 class="text-white text-center">Cadastrar música</h2>
     
-    <form action="actions/song_upload_act.php" method="post" id="form-song" class="bg-white border rounded-3 p-5">
+    <form action="../actions/song_upload_act.php" method="post" id="form-song" class="bg-white border rounded-3 p-5" enctype="multipart/form-data">
         
         <div class="containder row">
             <div id="step1">
@@ -9,9 +9,9 @@
 
                 <div class="col-md-12 mb-4">
 
-                    <label class="form-label" for="seleted_file">Arquivo Selecionado:</label>  
+                    <label class="form-label" for="selected_song_file">Arquivo Selecionado:</label>  
                     <div class="input-group">
-                        <input type="text" class="form-control" id="selected_file" name="selected_file" value="<?=$song['name']?>" disabled>
+                        <input type="text" class="form-control" id="selected_song_file" name="selected_song_file" value="<?=$song['name']?>" disabled>
                     </div> 
 
                 </div>
@@ -22,6 +22,7 @@
                     <div class="input-group">
                         <input type="text" maxlength="100" class="form-control" id="song_title" name="song_title" placeholder="Título da Música" required>
                         <div class="invalid-feedback" id="title-message"></div>
+                        <input type="hidden" value="<?=$song?>" name="song_file">
                     </div> 
                     
                 </div>
@@ -100,7 +101,7 @@
                             <option>C</option>
                             <option>Cm</option>
                             <option>C#/Db</option>
-                            <option>C#m/Cbm</option>
+                            <option>C#m/Dbm</option>
                             <option>D</option>
                             <option>Dm</option>
                             <option>D#/Eb</option>
@@ -118,24 +119,6 @@
                         </select>              
                     </div>    
                 </div>
-
-                <!--<div class="col-md-12 mb-4 mt-2">
-                    <label class="form-label">Tipo:</label>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="type" id="lyric_type" checked>
-                        <label class="form-check-label" for="lyric_type">
-                            Lírico
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="type" id="instrumental_type">
-                        <label class="form-check-label" for="instrumental_type">
-                            Instrumental
-                        </label>
-                    </div>
-                </div>-->
-
                 
                 <div class="col-md-12 mb-4 mt-2">
 
@@ -160,7 +143,7 @@
             </div>
 
             <div class="d-flex mt-5">
-                <a href="../" class="btn btn-danger me-auto">Cancelar</a>
+                <a href="../actions/delete_actual_song_session.php" class="btn btn-danger me-auto">Cancelar</a>
                 <button type="button" class="btn btn-secondary white-button text-white me-2" disabled id="back_button">Voltar</button>
                 <button type="button" class="btn btn-info text-white" id="next_button">Próximo</button>
             </div>

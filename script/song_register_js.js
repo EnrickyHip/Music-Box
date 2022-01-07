@@ -1,5 +1,3 @@
-let step = 1
-
 const genres = [
     {
         name: "Metal",
@@ -18,6 +16,8 @@ const genres = [
         subgenres: ["Barroco", "Romântico"]
     },
 ]
+
+let step = 1
 
 $("#step2").hide()
 
