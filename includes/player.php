@@ -86,6 +86,6 @@
     </div>
 </div>
 
-<audio id="song"></audio>
 
-<script src="../script/player.js"></script>
+
+<script src="../script/playerJs/mainPlayer.js"></script>

@@ -50,7 +50,10 @@
 </head>
 
 <body>
+    <audio id="song"></audio>
     <script src="script/jquery-3.6.0.min.js"></script>
+    <script src="../script/playerJs/playerCore.js"></script>
+    
 
     <?php
 

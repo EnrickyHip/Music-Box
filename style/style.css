@@ -258,6 +258,14 @@ a{
 
 /*Inputs*/
 
+#page-progress-bar{
+    width: 100%;
+}
+
+#controlador-page .material-icons{
+    font-size: 48px; 
+}
+
 input[type="file"]{
     display:none;
 }
@@ -271,7 +279,7 @@ textarea:focus  {
     width:100%;
 }
 
-input[type="range"] {
+input[type="range"] { /*tenho quase certeza que isso não é uma boa prática*/
     display: block;
     -webkit-appearance: none;
     background-color: #bdc3c7;
@@ -293,11 +301,11 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
   }
 
-#volume-bar {
+#volume-bar, #page-volume-bar {
     height: 3px;
 }
 
-#volume-bar::-webkit-slider-thumb {
+#volume-bar::-webkit-slider-thumb, #page-volume-bar::-webkit-slider-thumb {
     height: 15px;
     width: 15px;
 }
@@ -316,9 +324,6 @@ input[type="range"]::-webkit-slider-thumb {
 .underline_input label {
     margin-top: 13px;
 }
-  
-
-  ​
 
 
 /*-----*/

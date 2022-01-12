@@ -11,7 +11,7 @@
 
         <img src=<?=$self_profile_img ?> alt="" class="rounded-circle" style="width: 56px;">
 
-        <div>
+        <div class="ms-3">
             <h6 class="mb-0"><?=$self_username ?></h6>
             <p class="mb-0"><?=$self_username ?></p>
         </div>
