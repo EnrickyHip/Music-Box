@@ -14,10 +14,7 @@
         $self_username = $self_user['username'];
         $self_art_name = $self_user['art_name'];
         $self_id = $self_user['id'];
-
-        //pega a foto de perfil do usuário
-        $profile_ctrl = new \classes\controler\Profile_img_ctrl($self_id);
-        $self_profile_img = $profile_ctrl->get_profile_img($self_user);
+        $self_profile_img = "../".$self_user['profile_img_dir'];
     }
     
 ?>

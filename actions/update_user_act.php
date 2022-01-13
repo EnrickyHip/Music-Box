@@ -14,10 +14,11 @@
         $bio = filter_input(INPUT_POST, "bio", FILTER_SANITIZE_SPECIAL_CHARS);
         $website = filter_input(INPUT_POST, "website", FILTER_SANITIZE_SPECIAL_CHARS);
         $local = filter_input(INPUT_POST, "local", FILTER_SANITIZE_SPECIAL_CHARS);
+        $foto = $_FILES['inputFile'];
 
         //instancia o controle e edita as informações do usuário
-        $signup_ctrl = new \classes\controler\Edit_ctrl($user_id, $art_name, $username, $bio, $website, $local); 
-        $signup_ctrl->edit_user();
+        $edit_ctrl = new \classes\controler\Edit_ctrl($user_id, $art_name, $username, $bio, $website, $local, $foto); 
+        $edit_ctrl->edit_user();
     }
 
     else{

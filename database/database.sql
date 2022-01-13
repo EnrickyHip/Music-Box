@@ -9,16 +9,10 @@ CREATE TABLE usuario (
     art_name VARCHAR(255),
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL,
+    profile_img_dir TEXT NOT NULL,
     bio TEXT(5000),
     website VARCHAR(2048),
     localization VARCHAR(255)
-);
-
-CREATE TABLE profile_img (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    img_dir TEXT NOT NULL,
-    id_user INTEGER NOT NULL,
-    FOREIGN KEY(id_user) REFERENCES usuario(id)
 );
 
 CREATE TABLE playlist (
@@ -35,6 +29,7 @@ CREATE TABLE album (
     single BOOLEAN NOT NULL,
     about TEXT(5000),
     owner_id INT NOT NULL,
+    cover_dir TEXT NOT NULL,
     playlist_code_name VARCHAR(255),
     FOREIGN KEY(owner_id) REFERENCES usuario(id),
     FOREIGN KEY(playlist_code_name) REFERENCES playlist(code_name)
@@ -50,13 +45,6 @@ CREATE TABLE song (
     autor_id INTEGER NOT NULL,
     album_id INTEGER NOT NULL,
     FOREIGN KEY(autor_id) REFERENCES usuario(id),
-    FOREIGN KEY(album_id) REFERENCES album(id)
-);
-
-CREATE TABLE cover (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    img_dir TEXT NOT NULL,
-    album_id INTEGER NOT NULL,
     FOREIGN KEY(album_id) REFERENCES album(id)
 );
 

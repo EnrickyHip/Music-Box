@@ -10,7 +10,6 @@ jQuery(function(){ //testa se o documento está pronto
             const file = this.files[0] //recebe o arquivo enviado
 
             if (file){
-                $("#imgModal").modal('show') //se existir aquivo, o modal/pop up de edição de foto de perfil aparece
 
                 /*isto serve mostrar a foto de perfil ao usuário antes que ele envie a foto para o server-side
                 ps: não sei o que cada coisa faz
@@ -24,15 +23,10 @@ jQuery(function(){ //testa se o documento está pronto
             }
             else {
                 //esconde o modal/pop up e define o src do preview como vazio
-                $("#imgModal").modal('hide')
                 imgPreview.setAttribute("src", "")
             }
         })
 
-        $('#imgModal').on('hidden.bs.modal', function () {
-            inputFile.value = null //quando o modal/pop up ser fechado, o valor do inputFile ficará vazio
-
-        });
     
 
 })

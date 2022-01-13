@@ -44,7 +44,8 @@ class Login_ctrl extends User { // classe. "extends" significa herança.
                                 "email"=>$user[0]['email'],
                                 "bio"=>$user[0]['bio'],
                                 "website"=>$user[0]['website'],
-                                "localization"=>$user[0]['localization']
+                                "localization"=>$user[0]['localization'],
+                                "profile_img_dir"=>$user[0]['profile_img_dir']
                                 );
         }
 

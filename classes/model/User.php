@@ -84,11 +84,12 @@
 
         //da um insert do usuário no banco de dados.
         protected function set_user($username, $email ,$pwd){
-            $stmt = $this->connect()->prepare("INSERT INTO usuario (username, art_name, email, senha) VALUES(?, ?, ?, ?);");
+            $stmt = $this->connect()->prepare("INSERT INTO usuario (username, art_name, email, senha, profile_img_dir) VALUES(?, ?, ?, ?, ?);");
 
             $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT); //criptografa a senha
+            $profile_img_dir = "profile_img/Avatar_PlaceHolder.png";
 
-            if (!$stmt->execute(array($username, $username, $email, $hashed_pwd))) {
+            if (!$stmt->execute(array($username, $username, $email, $hashed_pwd, $profile_img_dir))) {
 
                 $stmt = null;
                 header("Location: ../../index.php?error=stmtError");

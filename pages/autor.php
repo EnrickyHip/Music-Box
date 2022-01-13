@@ -23,8 +23,7 @@
         $art_local =  $user_autor[0]['localization'];
         $art_user_autor = filter_var($art_user_autor, FILTER_SANITIZE_STRING);
 
-        $profile_ctrl = new \classes\controler\Profile_img_ctrl($user_autor[0]['id']); //instancia o controle de foto de perfil
-        $autor_profile_img = $profile_ctrl->get_profile_img($user_autor[0]); //recebe a foto de perfil do autor
+        $autor_profile_img = $user_autor[0]['profile_img_dir'];
 
         //se o autor for o mesmo do usuário logado e a variável edit estiver habilitada, o usuário irá para a página de edição, caso não, será redirecionado para o página de autor
         if (isset($self_user)){
