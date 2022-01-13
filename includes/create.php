@@ -1,12 +1,10 @@
-
-
 <div class="btn-group">
   <button type="button" class="btn px-2 me-3 purple add_button"  id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
     <div class="d-flex align-items-center">
         <h5 class="mb-0 pb-1">
             Criar
         </h5>
-        <span class="material-icons" id="add_song_icon">
+        <span class="material-icons" id="create_icon">
             add
         </span>
     </div>
@@ -63,6 +61,7 @@
         <!-- UPLOAD INPUT-->
 
           <div class="tab-pane show active" id="song_upload_content_tab" role="tabpanel" aria-label="song_upload_content_tab">
+
             <form action="..?t=logoOnly&p=song_register" method="POST" class="needs-validation no-ajaxy" enctype="multipart/form-data" id="upload_form">
 
               <div class="m-1 drop-zone">
@@ -136,13 +135,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <div class="modal-body text-center">
-        <form action="" method="POST" enctype="multipart/form-data" class="needs-validation p-5 pt-0 underline_input" novalidate>
+      <form action="../actions/create_album_act.php" id="create_album_form" method="POST" enctype="multipart/form-data" class="needs-validation p-5 pt-0 underline_input no-ajaxy" novalidate>
+        <div class="modal-body text-center">
 
           <label for="album_title">
             <h3>Título do álbum:</h3>
           </label>
-          <input type="text" class="full-input text-center fs-5" required>
+          <input type="text" id="album_title_input" name="album_title_input" class="full-input text-center fs-5" required>
 
           
           <button type="button" class="btn px-2 my-3 purple add_button"  id="add_album_songs" data-bs-toggle="dropdown" aria-expanded="false">
@@ -170,8 +169,15 @@
             <input type="file" name="album_cover" id="album_cover" accept="image/*">
           </div>
 
-        </form>    
-      </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="text-danger" id="create_album_message"></div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" name="create_album_submit" class="btn btn-success">Criar Álbum</button>
+        </div>
+
+      </form>    
 
     </div>
   </div>
@@ -179,5 +185,7 @@
 
 
 
-<script>$('#add_song_modal').appendTo("body");</script>
-<script>$('#create_album_modal').appendTo("body");</script>
+<script>
+  $('#add_song_modal').appendTo("body");
+  $('#create_album_modal').appendTo("body")
+</script>

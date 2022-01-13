@@ -4,12 +4,12 @@
 
     namespace classes\controler;  //isso é complexo, não sei explicar, mas serve para usar o autoload de classes
 
-    use classes\model\Signup; //idem
-    use classes\model\Login;
+    use classes\model\User; //idem
+
 
     require_once '../vendor/autoload.php';
 
-    class Signup_ctrl extends Signup{ // classe. "extends" significa herança.
+    class Signup_ctrl extends User{ // classe. "extends" significa herança.
 
         //propriedades
         private $username;

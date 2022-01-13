@@ -30,3 +30,4 @@
 </div>
 
 <script src="../script/upload_song.js"></script>
+<script src="../script/create_album.js"></script>

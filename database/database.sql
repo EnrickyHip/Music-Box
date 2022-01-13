@@ -9,7 +9,7 @@ CREATE TABLE usuario (
     art_name VARCHAR(255),
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL,
-    bio TEXT(255),
+    bio TEXT(5000),
     website VARCHAR(2048),
     localization VARCHAR(255)
 );
@@ -22,10 +22,9 @@ CREATE TABLE profile_img (
 );
 
 CREATE TABLE playlist (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    code_name VARCHAR(255) NOT NULL PRIMARY KEY,
     privacity BOOLEAN NOT NULL,
     title VARCHAR(255) NOT NULL,
-    code_name VARCHAR(255) NOT NULL,
     owner_id INT NOT NULL,
     FOREIGN KEY(owner_id) REFERENCES usuario(id)
 );
@@ -34,15 +33,17 @@ CREATE TABLE album (
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     single BOOLEAN NOT NULL,
-    playlist_id INTEGER NOT NULL,
-    FOREIGN KEY(playlist_id) REFERENCES playlist(id)
+    about TEXT(5000),
+    owner_id INT NOT NULL,
+    playlist_code_name VARCHAR(255),
+    FOREIGN KEY(owner_id) REFERENCES usuario(id),
+    FOREIGN KEY(playlist_code_name) REFERENCES playlist(code_name)
 );
 
 CREATE TABLE song (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    code_name VARCHAR(255) NOT NULL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
     file_dir TEXT NOT NULL,
-    code_name VARCHAR(255) NOT NULL,
     link_youtube VARCHAR(2048),
     link_spotify VARCHAR(2048),
     privacity BOOLEAN NOT NULL,
@@ -61,8 +62,8 @@ CREATE TABLE cover (
 
 CREATE TABLE playlist_songs (
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    playlist_id INTEGER NOT NULL,
-    song_id INTEGER NOT NULL,
-    FOREIGN KEY(playlist_id) REFERENCES playlist(id),
-    FOREIGN KEY(song_id) REFERENCES song(id)
+    playlist_id VARCHAR(255) NOT NULL,
+    song_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY(playlist_id) REFERENCES playlist(code_name),
+    FOREIGN KEY(song_id) REFERENCES song(code_name)
 );
