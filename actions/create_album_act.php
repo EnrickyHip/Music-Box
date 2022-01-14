@@ -16,10 +16,6 @@
         $cover = $_FILES['album_cover'];
         $about = $_POST['album_desc'];
 
-        if ($cover['size'] == 0){
-            $cover = "album_covers/default-cover-art.png";
-        }
-
         $album_ctrl = new \classes\controler\AlbumControler($user_id);
         $album_ctrl->create_album($songs, $title, $cover, $about);
         header("Location: ../?error=tudocerto");

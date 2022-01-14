@@ -41,7 +41,7 @@
             header("Location: ../../?p=autor&a=$this->username");
         }
 
-        public function set_profile_img(){
+        private function set_profile_img(){
             $formatos = array("png", "jpg", "jpeg", "PNG");
 
             $ext = pathinfo($this->foto['name'], PATHINFO_EXTENSION); //recebe a extensão do arquivo

@@ -6,11 +6,11 @@
 
     class Album extends Database{
 
-        protected function insert_album($user_id, $playlist_code_name, $title, $single, $about){
+        protected function insert_album($user_id, $playlist_code_name, $title, $single, $about, $cover_dir){
 
-            $stmt = $this->connect()->prepare("INSERT INTO album (owner_id, playlist_code_name, title, single, about) VALUES(?,?,?,?,?);");
+            $stmt = $this->connect()->prepare("INSERT INTO album (owner_id, playlist_code_name, title, single, about, cover_dir) VALUES(?,?,?,?,?,?);");
 
-            if (!$stmt->execute(array($user_id, $playlist_code_name, $title, $single, $about))) { // executa e testa se há erros
+            if (!$stmt->execute(array($user_id, $playlist_code_name, $title, $single, $about, $cover_dir))) { // executa e testa se há erros
                 header("Location: ../?error=insteralbumerror");
                 exit();
             }

@@ -21,10 +21,6 @@ jQuery(function(){ //testa se o documento está pronto
                 reader.readAsDataURL(file)   
                  
             }
-            else {
-                //esconde o modal/pop up e define o src do preview como vazio
-                imgPreview.setAttribute("src", "")
-            }
         })
 
     
