@@ -1,3 +1,5 @@
+
+<!-- dropdown de criação-->
 <div class="btn-group">
   <button type="button" class="btn px-2 me-3 purple add_button"  id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
     <div class="d-flex align-items-center">

@@ -1,9 +1,9 @@
 <?php
 
     require_once "../vendor/autoload.php";
+    use classes\model\Album;
 
     session_start();
-    use classes\model\Album;
 
     if(!isset($_POST['song_file'])){
         header("Location: ../"); // caso as variáveis não estejam setadas, o usuário retorna a página principal.
@@ -11,10 +11,10 @@
     }
 
     else {
-        $song = $_SESSION['actual_song'];
+        $song = $_SESSION['actual_song']; //esta variavel recebe o arquivo da música guardada na sessão actual_song, criada na song register
         $user_id = $_SESSION['usuario']['id'];
         $visibility = $_POST['visibility'];
-        $song_title = $_POST['song_title'];
+        $song_title = filter_input(INPUT_POST, "song_title", FILTER_SANITIZE_SPECIAL_CHARS);
         $album_title = $_POST['album_select'];
         $album = Album::get_album_info('', $album_title);
 

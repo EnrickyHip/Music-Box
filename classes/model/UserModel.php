@@ -3,7 +3,7 @@
      //classe model de registro, o model serve para interações como o banco de dados, ela é exclusiva para isto, e apenas ela pode fazer isto.
     namespace classes\model;
 
-    class User extends Database { // classe. "extends" significa herança.
+    class UserModel extends Database { // classe. "extends" significa herança.
 
         public static function get_user_info($user){
 

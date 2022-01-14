@@ -4,11 +4,11 @@
 
     namespace classes\controler;  //isso é complexo, não sei explicar, mas serve para usar o autoload de classes
 
-    use classes\model\Edit;
+    use classes\model\EditModel;
 
     require_once '../vendor/autoload.php';
 
-    class Edit_ctrl extends Edit{ // classe. "extends" significa herança.
+    class EditControler extends EditModel{ // classe. "extends" significa herança.
 
         //propriedades
         private $user_id;
@@ -31,13 +31,20 @@
 
         }
 
-        public function edit_user(){
-            $profile_img_dir = $this->set_profile_img();
-            $this->set_null();
+        public function edit_user(){ //função principal para editar informações do usuário
+
+            if ($this->foto['size'] > 0){ //caso o usuário não defina nenhuma capa para o álbum, será definida como a default
+                $profile_img_dir = $this->set_profile_img();
+            }
+            else {
+                $profile_img_dir = $_SESSION['usuario']['profile_img_dir'];
+            }
+            $this->set_null(); 
             $this->update_user($this->user_id, $this->art_name, $this->username, $this->bio, $this->website, $this->local, $profile_img_dir);
 
-            $login_ctrl = new \classes\controler\Login_ctrl($this->username, null, null);
+            $login_ctrl = new \classes\controler\LoginControler($this->username, null, null);
             $login_ctrl->login_user($this->username);
+
             header("Location: ../../?p=autor&a=$this->username");
         }
 
@@ -50,7 +57,7 @@
 
                 if ($this->foto['error'] === 0){ //caso não haja erros na foto
     
-                    $novo_nome = uniqid('', true).".$ext"; // cria um novo nome para o aleatório para o foto de perfil, isso serve para que não haja conflitos nos nomes das imagens na pasta profile_img.
+                    $novo_nome = uniqid('', true).".$ext"; // cria um novo nome para o aleatório para o arquivo, isso serve para que não haja conflitos nos nomes.
                     $pasta_files = "profile_img/".$novo_nome; // define a pasta de upload
                     $temporario = $this->foto['tmp_name']; //pasta temporária
     
@@ -74,7 +81,7 @@
             }
         }
 
-        private function set_null(){
+        private function set_null(){ //essa função serve para definir algumas informações opicionais como null para cadastro no banco de dados. pois a método post considera inputs em brancos como uma string vazia.
 
             if($this->bio === ""){
                 $this->bio = null;

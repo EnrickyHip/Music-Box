@@ -1,5 +1,7 @@
 <?php
 
+    //este arquivo recebe o formulário de cadastramento de álbuns
+
     require_once "../vendor/autoload.php";
 
     session_start();
@@ -11,10 +13,10 @@
 
     else {
         $user_id = $_SESSION['usuario']['id'];
-        $title = $_POST['album_title_input'];
-        $songs = []; //ISTO É TEMPORÁRIO!
+        $title = filter_input(INPUT_POST, "album_title_input", FILTER_SANITIZE_SPECIAL_CHARS);
+        $songs = []; //ISTO É TEMPORÁRIO! pois ainda não foi desenvolvido o sistema de adicionar músicas em seu álbum
         $cover = $_FILES['album_cover'];
-        $about = $_POST['album_desc'];
+        $about = filter_input(INPUT_POST, "album_desc", FILTER_SANITIZE_SPECIAL_CHARS);
 
         $album_ctrl = new \classes\controler\AlbumControler($user_id);
         $album_ctrl->create_album($songs, $title, $cover, $about);

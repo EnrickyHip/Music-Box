@@ -4,12 +4,12 @@
 
     namespace classes\controler;  //isso é complexo, não sei explicar, mas serve para usar o autoload de classes
 
-    use classes\model\User; //idem
+    use classes\model\UserModel; //idem
 
 
     require_once '../vendor/autoload.php';
 
-    class Signup_ctrl extends User{ // classe. "extends" significa herança.
+    class SignupControler extends UserModel{ // classe. "extends" significa herança.
 
         //propriedades
         private $username;
@@ -29,7 +29,7 @@
             $this->set_user($this->username, $this->email, $this->pwd); //insert do usuário no banco de dados
 
             //loga o usuário no sistema
-            $login_ctrl = new \classes\controler\Login_ctrl($this->username, $this->email, $this->pwd);
+            $login_ctrl = new \classes\controler\LoginControler($this->username, $this->email, $this->pwd);
             $login_ctrl->login_user($this->username);
             header('Location: ../?error=0');
         }

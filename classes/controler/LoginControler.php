@@ -4,9 +4,9 @@
 
     namespace classes\controler; //isso é complexo, não sei explicar, mas serve para usar o autoload de classes
 
-    use classes\model\User; //idem
+    use classes\model\UserModel; //idem
 
-class Login_ctrl extends User { // classe. "extends" significa herança.
+class LoginControler extends UserModel { // classe. "extends" significa herança.
 
         //propriedades
         private $user; 

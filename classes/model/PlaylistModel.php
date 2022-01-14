@@ -6,7 +6,7 @@
 
     require_once '../vendor/autoload.php';
 
-    class Playlist extends Database{
+    class PlaylistModel extends Database{
                      
         protected function insert_playlist($code_name, $title, $owner_id){
 

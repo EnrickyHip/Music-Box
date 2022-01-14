@@ -2,9 +2,9 @@
 
     namespace classes\model;
     
-    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php'; //esse model recebe instancias de mais um local relativo, portanto, esse require requere o autoload a partir do caminho absoluto.
 
-    class Album extends Database{
+    class AlbumModel extends Database{
 
         protected function insert_album($user_id, $playlist_code_name, $title, $single, $about, $cover_dir){
 
@@ -21,7 +21,7 @@
             }
         }
 
-        protected function get_all_albuns($user_id){
+        protected function get_all_albuns($user_id){ //retorna todos os albuns do usuário, caso o usuário não tenha albuns cadastrados, retornará false.
             $stmt = $this->connect()->prepare("SELECT * FROM album WHERE owner_id = ? AND single = ?;");
 
             if (!$stmt->execute(array($user_id, false))) { // executa e testa se há erros
@@ -36,7 +36,7 @@
             }
         }
 
-        public static function get_album_info($id, $title){
+        public static function get_album_info($id, $title){ // retorna as informações do álbum em um array associativo
 
             $stmt = self::connect()->prepare("SELECT * FROM album WHERE id = ? OR title = ?;");
 

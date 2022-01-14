@@ -2,7 +2,7 @@
 
     namespace classes\model;
 
-    class Song extends Database{
+    class SongModel extends Database{
         
         function insert_song($code_name, $song_title,  $song_file, $visibility, $user_id, $album_id){
 

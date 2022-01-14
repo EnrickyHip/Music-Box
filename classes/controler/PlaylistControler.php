@@ -2,11 +2,11 @@
 
     namespace classes\controler;
 
-    use classes\model\Playlist;
+    use classes\model\PlaylistModel;
 
     require_once '../vendor/autoload.php';
 
-    class PlaylistControler extends Playlist{
+    class PlaylistControler extends PlaylistModel{
 
         private $user_id;
 

@@ -4,16 +4,16 @@
 
     include_once "../vendor/autoload.php";
 
-    if (isset($_POST['user_name'], $_POST['pass_word'] )){ // testa se as variáveis que vem da requisição ajax estão setadas
+    if (!isset($_POST['user_name'], $_POST['pass_word'] )){ // testa se as variáveis que vem da requisição ajax estão setadas
+        header("Location: ../"); // caso as variáveis não estejam setadas, o usuário retorna a página principal.
+        exit();
+    }
+
+    else{
 
         $user = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS); //recebe as variáveis do ajax
         $password = filter_input(INPUT_POST, "pass_word");
         
-        $login_ctrl = new \classes\controler\Login_ctrl($user, $password); // instancia o controle de login
+        $login_ctrl = new \classes\controler\LoginControler($user, $password); // instancia o controle de login
         $login_ctrl->check_pwd(); // checa se as senhas coincidem
-    }
-
-    else{
-        header("Location: ../"); // caso as variáveis não estejam setadas, o usuário retorna a página principal.
-        exit();
     }
