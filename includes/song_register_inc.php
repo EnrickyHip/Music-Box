@@ -31,7 +31,7 @@
 
                     <label class="form-label" for="song_desc">Descrição (Opcional):</label>  
                     <div class="input-group">
-                        <textarea rows="3" class="form-control" maxlength="5000" id="song_desc" placeholder="Descrição da Música"></textarea>
+                        <textarea rows="3" class="form-control" maxlength="5000" id="song_desc" name="song_desc" placeholder="Descrição da Música"></textarea>
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                     
                     <div class="input-group">
                         <select id="key_select" name="key_select" class="form-select">
-                            <option disabled selected>Escolher Tom</option>
+                            <option disabled selected>Escolher Tonalidade</option>
                             <option>A</option>
                             <option>Am</option>
                             <option>A#/Bb</option>
@@ -148,7 +148,7 @@
                 
                 <div class="col-md-12 mb-4 mt-2">
 
-                    <label class="form-label title d-flex" for="subgenre_select">
+                    <label class="form-label title d-flex" for="input-tags">
                         <i class="bi bi-tags-fill"></i>
                         <h5 class="ms-1">Tags (Opcional):</h5>
                     </label> 

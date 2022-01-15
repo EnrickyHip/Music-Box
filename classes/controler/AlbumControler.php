@@ -25,13 +25,16 @@
                 $playlist_controler = new \classes\controler\PlaylistControler($this->user_id);
                 $playlist_code_name = $playlist_controler->create_playlist($songs, $title);
                 $single = false;
-            }
 
-            if ($cover['size'] == 0){ //caso o usuário não defina nenhuma capa para o álbum, será definida como a default
-                $cover_dir = "album_covers/default-cover-art.png";
+                if ($cover['size'] == 0){ //caso o usuário não defina nenhuma capa para o álbum, será definida como a default
+                    $cover_dir = "album_covers/default-cover-art.png";
+                }
+                else{
+                    $cover_dir = $this->set_album_cover($cover);
+                }
             }
-            else{
-                $cover_dir = $this->set_album_cover($cover);
+            else {
+                $cover_dir = $cover;
             }
             
             $album_id = $this->insert_album($this->user_id, $playlist_code_name, $title, $single, $about, $cover_dir);  

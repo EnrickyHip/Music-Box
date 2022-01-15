@@ -13,6 +13,6 @@
         $username = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS);
 
          //instancia o controle e checa se o username já existe
-        $signup_ctrl = new \classes\controler\Signup_ctrl($username, '', ''); 
+        $signup_ctrl = new \classes\controler\SignupControler($username, '', ''); 
         $signup_ctrl->check_exists_user();
     }

@@ -5,11 +5,11 @@
 
     class UserModel extends Database { // classe. "extends" significa herança.
 
-        public static function get_user_info($user){
+        public static function get_user_info($user, $column){
 
-            $stmt = self::connect()->prepare('SELECT * FROM usuario WHERE username = ? OR email = ?;');//conecta com o banco de dados e prepara a execução
+            $stmt = self::connect()->prepare('SELECT '.$column.' FROM usuario WHERE username = ? OR email = ? OR id = ?;');//conecta com o banco de dados e prepara a execução
 
-            if (!$stmt->execute(array($user, $user))) { // executa e testa se há erros
+            if (!$stmt->execute(array($user, $user, $user))) { // executa e testa se há erros
 
                 $stmt = null;
                 header("Location: ../login_page.php?error=stmtError");
@@ -33,6 +33,7 @@
                 return false;
             }
         }
+        
         
         //checa se o usuario existe a partir do username
         protected function check_username($username){

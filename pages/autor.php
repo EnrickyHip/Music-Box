@@ -10,7 +10,7 @@
     $username_autor = filter_input(INPUT_GET, 'a');
     $edit = filter_input(INPUT_GET, 'e');
 
-    $user_autor = UserModel::get_user_info($username_autor); //recebe as informações do autor da página
+    $user_autor = UserModel::get_user_info($username_autor, '*'); //recebe as informações do autor da página
 
     if (!$user_autor){
         require "includes/autor_error.php"; //caso o autor não exista, irá para uma página de erro

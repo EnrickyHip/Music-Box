@@ -36,11 +36,11 @@
             }
         }
 
-        public static function get_album_info($id, $title){ // retorna as informações do álbum em um array associativo
+        public static function get_album_info($album, $column){ // retorna as informações do álbum em um array associativo
 
-            $stmt = self::connect()->prepare("SELECT * FROM album WHERE id = ? OR title = ?;");
+            $stmt = self::connect()->prepare("SELECT ".$column." FROM album WHERE id = ? OR title = ?;");
 
-            if (!$stmt->execute(array($id, $title))) { // executa e testa se há erros
+            if (!$stmt->execute(array($album, $album))) { // executa e testa se há erros
                 header("Location: ../?error=albunGetInfoerror");
                 exit();
             }

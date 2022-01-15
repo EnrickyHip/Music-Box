@@ -23,7 +23,7 @@ class LoginControler extends UserModel { // classe. "extends" significa herança
 
         //checa se o usuário já existe
         public function check_exists_user(){
-            if(self::get_user_info($this->user)){
+            if(self::get_user_info($this->user, "username")){
                 echo true;
             }
             else {
@@ -34,7 +34,7 @@ class LoginControler extends UserModel { // classe. "extends" significa herança
             //loga o usuário no sistem
         public function login_user($user){//recebe o username OU email
             session_start();
-            $user = self::get_user_info($user);
+            $user = self::get_user_info($user, '*');
 
            //armazena as informações do usuário em um array associativo
             $_SESSION['usuario'] = array(
@@ -51,7 +51,7 @@ class LoginControler extends UserModel { // classe. "extends" significa herança
 
         //checa se as senhas coincidem
         public function check_pwd(){
-            $user = self::get_user_info($this->user);
+            $user = self::get_user_info($this->user, 'senha');
 
             $check_pwd = password_verify($this->senha, $user[0]['senha']); //verfica se a senha que o usuário digitou coincide com o hash
 

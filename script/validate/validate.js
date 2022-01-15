@@ -70,6 +70,7 @@ function check_exists_user(){
     success: (function(result){ //função que é executada após sucesso da requisição
 
        if(result){
+         console.log(result)
         $("#user-message").get(0).innerHTML = "Nome de usuário já existente"
         add_invalid(username)//invalida o input
        }
