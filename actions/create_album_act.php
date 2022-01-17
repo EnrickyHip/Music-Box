@@ -1,0 +1,24 @@
+<?php
+
+    //este arquivo recebe o formulário de cadastramento de álbuns
+
+    require_once "../vendor/autoload.php";
+
+    session_start();
+
+    if(!isset($_POST['create_album_submit'])){
+        header("Location: ../"); // caso as variáveis não estejam setadas, o usuário retorna a página principal.
+        exit();
+    }
+
+    else {
+        $user_id = $_SESSION['usuario']['id'];
+        $title = filter_input(INPUT_POST, "album_title_input", FILTER_SANITIZE_SPECIAL_CHARS);
+        $songs = []; //ISTO É TEMPORÁRIO! pois ainda não foi desenvolvido o sistema de adicionar músicas em seu álbum
+        $cover = $_FILES['album_cover'];
+        $about = filter_input(INPUT_POST, "album_desc", FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $album_ctrl = new \classes\controler\AlbumControler($user_id);
+        $album_ctrl->create_album($songs, $title, $cover, $about);
+        header("Location: ../?error=tudocerto");
+    }

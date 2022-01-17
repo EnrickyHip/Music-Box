@@ -6,16 +6,16 @@
 
     require_once '../vendor/autoload.php';
 
-    class Playlist extends Database{
+    class PlaylistModel extends Database{
                      
         protected function insert_playlist($code_name, $title, $owner_id){
 
-            $stmt = $this->connect()->prepare('INSERT INTO playlist (privacity, code_name, title, onwer_id) VALUES (?,?,?,?)');
+            $stmt = $this->connect()->prepare('INSERT INTO playlist (code_name, privacity, title, owner_id) VALUES (?,?,?,?);');
 
-            if (!$stmt->execute(array(true, $code_name, $title, $owner_id))) {
+            if (!$stmt->execute(array($code_name, true, $title, $owner_id))) {
 
                 $stmt = null;
-                header("Location: ../../?error=stmtError"); //apenas para testes
+                header("Location: ../../?error=playliststmtError"); //apenas para testes
                 exit();
             }
         }
@@ -23,7 +23,7 @@
         protected function add_songs($playlist_code_name, $songs){
            
             foreach($songs as $song){
-                
+                $oi = "1"; //temporário obviamente
             }
             
         }

@@ -108,5 +108,3 @@ volume_icons.forEach(element =>{
 player_volume.addEventListener('mouseleave', e =>{
     volume_hide(volume_bar)
     })
-
-console.log("Player principal carregado")

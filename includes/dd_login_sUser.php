@@ -1,9 +1,9 @@
 <!-- Dropdown para usuário logados -->
 
 <!--Botão-->
-<a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="pe-2" data-bs-auto-close="false" aria-expanded="false">
-    <img src=<?=$self_profile_img ?> alt="" class="rounded-circle" style="width: 37px;">
-</a>
+    <button type="button" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class=" btn pe-2" aria-expanded="false">
+        <img src=<?=$self_profile_img ?> alt="" class="rounded-circle" style="width: 37px;">
+    </button>
 
 <!--DropDown-->
 <div class="dropdown-menu dropdown-menu-end action-form" aria-labelledby="dropdownMenuLink">
@@ -30,3 +30,4 @@
 </div>
 
 <script src="../script/upload_song.js"></script>
+<script src="../script/create_album.js"></script>

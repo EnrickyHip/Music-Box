@@ -3,17 +3,17 @@
     <!-- foto de perfil do usuário -->
             
     <div class="text-center">
-        <img src=<?=$self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-4 bi bi-person fs-2">
+        <img src='<?=$self_profile_img?>' alt="Foto de Perfil" id="avIcon" class="image-preview rounded-circle border border-4 bi bi-person fs-2">
     </div>
 
 
 
     <div class="text-center mt-2">
+        <!-- Formulário de edição de informações do usuário -->
 
-        <!-- formulário da foto de perfil -->
+        <form action="../actions/update_user_act.php" method="post" id="edit_profile_form"  enctype="multipart/form-data" class="needs validation no-ajaxy underline_input" novalidate autocomplete="off">
 
-        <form action="../actions/profile_img_act.php" method="POST" enctype="multipart/form-data" class="no-ajaxy">
-            <input type="file" name="inputFile" id="inputFile" accept="image/*">
+        <input type="file" name="inputFile" id="inputFile" accept="image/*">
             <label
             for="inputFile" 
             class="btn text-dark bg-primary rounded-circle" 
@@ -26,30 +26,6 @@
             </label>
 
             <!-- Modal de visualização da foto de perfil -->
-
-            <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Alterar Foto de Perfil</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="" class="image-preview">
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" name="send_profile_img" class="btn btn-dark bg-primary">Save changes</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <!-- Formulário de edição de informações do usuário -->
-
-        <form action="../actions/update_user_act.php" method="post" class="needs validation no-ajaxy underline_input" novalidate autocomplete="off">
 
             <div>
                 <label for="art_name">Nome artístico:</label>

@@ -9,10 +9,10 @@
 <?php
 
     if(!$article){
-        require("./article/inicio.php");
+        require("./article/inicio.html");
     }
-    else if(file_exists("article/$article.php")){
-        require("./article/$article.php");
+    else if(file_exists("article/$article.html")){
+        require("./article/$article.html");
 
     }
     else{

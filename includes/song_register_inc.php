@@ -31,7 +31,24 @@
 
                     <label class="form-label" for="song_desc">Descrição (Opcional):</label>  
                     <div class="input-group">
-                        <textarea rows="3" class="form-control" maxlength="5000" id="song_desc" placeholder="Descrição da Música"></textarea>
+                        <textarea rows="3" class="form-control" maxlength="5000" id="song_desc" name="song_desc" placeholder="Descrição da Música"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mb-4 mt-2">
+                    <label class="form-label">Visibilidade:</label>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="visibility" id="public_type" checked>
+                        <label class="form-check-label" for="public_type">
+                            Público
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="visibility" id="private_type">
+                        <label class="form-check-label" for="private_type">
+                            Privado
+                        </label>
                     </div>
                 </div>
 
@@ -41,7 +58,16 @@
                     
                     <div class="input-group">
                         <select id="album_select" name="album_select" class="form-select">
-                            <option>Solo</option>
+                            <option>Nenhum</option>
+                            <?php
+                                
+                                $album_ctrl = new \classes\controler\AlbumControler($self_id);
+                                $albuns = $album_ctrl->get_all_user_albuns($self_id);
+                                
+                                foreach ($albuns as $album){
+                                    echo "<option>".$album['title']."</option>";
+                                }
+                            ?>
                         </select>              
                     </div> 
                     
@@ -91,7 +117,7 @@
                     
                     <div class="input-group">
                         <select id="key_select" name="key_select" class="form-select">
-                            <option disabled selected>Escolher Tom</option>
+                            <option disabled selected>Escolher Tonalidade</option>
                             <option>A</option>
                             <option>Am</option>
                             <option>A#/Bb</option>
@@ -122,7 +148,7 @@
                 
                 <div class="col-md-12 mb-4 mt-2">
 
-                    <label class="form-label title d-flex" for="subgenre_select">
+                    <label class="form-label title d-flex" for="input-tags">
                         <i class="bi bi-tags-fill"></i>
                         <h5 class="ms-1">Tags (Opcional):</h5>
                     </label> 
@@ -138,8 +164,6 @@
                         </div>
                     </div>
                 </div>
-
-            
             </div>
 
             <div class="d-flex mt-5">
@@ -148,6 +172,8 @@
                 <button type="button" class="btn btn-info text-white" id="next_button">Próximo</button>
             </div>
         </div>
+
+        
 
     </form>
 </div>

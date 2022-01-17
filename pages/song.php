@@ -1,13 +1,46 @@
 <?php
 
+    use classes\model\SongModel;
+    use classes\model\UserModel;
+    use classes\model\AlbumModel;
+
+    require_once 'vendor/autoload.php';
+    $song_code_name = filter_input(INPUT_GET, 's');
+
+    $song = SongModel::get_song($song_code_name);
+    if (!$song){
+        // mostra alguma mensagem de erro
+    }
+
+    $song_name = $song[0]['title'];
+    $song_autor_id = $song[0]['autor_id'];
+
+    $song_album_id = $song[0]['album_id'];
+    $song_album = AlbumModel::get_album_info($song_album_id, 'title, cover_dir, single');
+
+    $song_album_title = $song_album[0]['title'];
+    $song_album_cover = $song_album[0]['cover_dir'];
+    $song_album_single = $song_album[0]['single'];
+
+    if($song_album_single){
+        $song_album_title = "Solo";
+    }
+
+
+    $song_autor = UserModel::get_user_info($song_autor_id, 'username, profile_img_dir');
+    $song_autor_name = $song_autor[0]['username'];
+    $song_autor_profile_img = "../".$song_autor[0]['profile_img_dir'];
+
+    
+
 ?>
 <div class="container mt-5">
     <div class="d-flex">
-        <img src="../profile_img/Avatar_PlaceHolder.png" alt="" class="rounded-circle float-start" style="width: 48px; height: 48px;">
+        <img src=<?=$song_autor_profile_img?> alt="" class="rounded-circle float-start" style="width: 48px; height: 48px;">
 
         <div class="float-end ms-3">
             <h6 class="mb-0">Postado por:</h6>
-            <span>Nome do autor da musica</span>
+            <span><?=$song_autor_name?></span>
         </div>
     </div>
     <div class="p-1 my-3 mx-auto" style="max-width: 80%;"> 
@@ -15,8 +48,8 @@
             <div class="col-10">
                 <div class="py-1">
                     <div class="text-center">
-                        <h5 class="mb-0">Nome Da musica</h5>
-                        <small>Album</small>
+                        <h5 class="mb-0"><?=$song_name?></h5>
+                        <small><?=$song_album_title?></small>
                     </div>
                     <div class="d-flex">
                         <div class="d-flex w-25 ms-3 me-auto" id="page-volume">
@@ -56,7 +89,7 @@
                 </div>
             </div>
             <div class="col-2">
-                <img src="../album_covers/666.jpg" alt="" style="width: 128px;" class="float-end">
+                <img src=<?=$song_album_cover?> alt="" style="width: 128px;" class="float-end">
             </div>
         </div>
     </div>

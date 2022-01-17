@@ -70,11 +70,10 @@ function check_exists_user(){
     success: (function(result){ //função que é executada após sucesso da requisição
 
        if(result){
+         console.log(result)
         $("#user-message").get(0).innerHTML = "Nome de usuário já existente"
         add_invalid(username)//invalida o input
        }
-
-       
        else {
         add_valid(username)//valida o input
        }
@@ -156,7 +155,7 @@ function check_pwd_match() {
     $("#pwd-message").get(0).innerHTML = "Senhas não coincidem" 
   }
   else {
-    dd_valid(password)
+    add_valid(password)
     add_valid(c_password)
   }
 }
@@ -205,6 +204,8 @@ function check_terms(){
           //testa se os inputs contém a classe inválida, se sim, o evento(submit) é cancelado
           if(username.classList.contains("is-invalid") || email.classList.contains("is-invalid") || password.classList.contains("is-invalid") || terms.classList.contains("is-invalid")){
             event.preventDefault()
+          }
+          else {
           }
 
         }, false)

@@ -4,9 +4,9 @@
 
     namespace classes\controler; //isso é complexo, não sei explicar, mas serve para usar o autoload de classes
 
-    use classes\model\User; //idem
+    use classes\model\UserModel; //idem
 
-class Login_ctrl extends User { // classe. "extends" significa herança.
+class LoginControler extends UserModel { // classe. "extends" significa herança.
 
         //propriedades
         private $user; 
@@ -23,7 +23,7 @@ class Login_ctrl extends User { // classe. "extends" significa herança.
 
         //checa se o usuário já existe
         public function check_exists_user(){
-            if(self::get_user_info($this->user)){
+            if(self::get_user_info($this->user, "username")){
                 echo true;
             }
             else {
@@ -34,7 +34,7 @@ class Login_ctrl extends User { // classe. "extends" significa herança.
             //loga o usuário no sistem
         public function login_user($user){//recebe o username OU email
             session_start();
-            $user = self::get_user_info($user);
+            $user = self::get_user_info($user, '*');
 
            //armazena as informações do usuário em um array associativo
             $_SESSION['usuario'] = array(
@@ -44,13 +44,14 @@ class Login_ctrl extends User { // classe. "extends" significa herança.
                                 "email"=>$user[0]['email'],
                                 "bio"=>$user[0]['bio'],
                                 "website"=>$user[0]['website'],
-                                "localization"=>$user[0]['localization']
+                                "localization"=>$user[0]['localization'],
+                                "profile_img_dir"=>$user[0]['profile_img_dir']
                                 );
         }
 
         //checa se as senhas coincidem
         public function check_pwd(){
-            $user = self::get_user_info($this->user);
+            $user = self::get_user_info($this->user, 'senha');
 
             $check_pwd = password_verify($this->senha, $user[0]['senha']); //verfica se a senha que o usuário digitou coincide com o hash
 

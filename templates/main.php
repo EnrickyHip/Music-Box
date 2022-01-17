@@ -14,10 +14,8 @@
         $self_username = $self_user['username'];
         $self_art_name = $self_user['art_name'];
         $self_id = $self_user['id'];
+        $self_profile_img = "../".$self_user['profile_img_dir'];
 
-        //pega a foto de perfil do usuário
-        $profile_ctrl = new \classes\controler\Profile_img_ctrl($self_id);
-        $self_profile_img = $profile_ctrl->get_profile_img($self_user);
     }
     
 ?>
@@ -41,6 +39,8 @@
 
                 case "teoria_musical":
                     echo '<title>Teoria Musical</title>';
+                case "song":
+                    echo '<title>Música</title>'; //posteriormente será alterado para o nome da música
             }
         ?>
     </div>
@@ -85,7 +85,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../script/validate_login.js"></script>
+    <script src="../script/validate/validate_login.js"></script>
     <script src="../script/ajaxify_call.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
     //pagina de autor
 
-    use classes\model\User;
+    use classes\model\UserModel;
 
     require_once 'vendor/autoload.php';
 
@@ -10,7 +10,7 @@
     $username_autor = filter_input(INPUT_GET, 'a');
     $edit = filter_input(INPUT_GET, 'e');
 
-    $user_autor = User::get_user_info($username_autor); //recebe as informações do autor da página
+    $user_autor = UserModel::get_user_info($username_autor, '*'); //recebe as informações do autor da página
 
     if (!$user_autor){
         require "includes/autor_error.php"; //caso o autor não exista, irá para uma página de erro
@@ -23,8 +23,7 @@
         $art_local =  $user_autor[0]['localization'];
         $art_user_autor = filter_var($art_user_autor, FILTER_SANITIZE_STRING);
 
-        $profile_ctrl = new \classes\controler\Profile_img_ctrl($user_autor[0]['id']); //instancia o controle de foto de perfil
-        $autor_profile_img = $profile_ctrl->get_profile_img($user_autor[0]); //recebe a foto de perfil do autor
+        $autor_profile_img = $user_autor[0]['profile_img_dir'];
 
         //se o autor for o mesmo do usuário logado e a variável edit estiver habilitada, o usuário irá para a página de edição, caso não, será redirecionado para o página de autor
         if (isset($self_user)){
