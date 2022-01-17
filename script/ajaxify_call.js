@@ -1,1 +1,1 @@
-let ajaxify = new Ajaxify({elements: "#mainContainer, #title"})
+let ajaxify = new Ajaxify({elements: '#mainContainer, #title', alwayshints: "edit_user.js, edit_profile_img.js"})

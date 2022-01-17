@@ -1,10 +1,13 @@
 //script de edição da foto de perfil
 
+console.log("edit img user carregado")
+
 jQuery(function(){ //testa se o documento está pronto
 
-        //recebe os elementos
+        //recebe os elementosy
         const inputFile = document.getElementById("inputFile")
-        const imgPreview = document.querySelector(".image-preview")
+        const imgPreview = document.querySelector("#avIcon")
+
 
         inputFile.addEventListener("change", function(){ //isso será ativado quando o usuário enviar algumar foto pelo input
             const file = this.files[0] //recebe o arquivo enviado
@@ -16,13 +19,14 @@ jQuery(function(){ //testa se o documento está pronto
                 */
                 const reader = new FileReader()
                 reader.addEventListener("load", function(){
-                    imgPreview.setAttribute("src", this.result)
+        
+                    imgPreview.src = this.result
                 })
                 reader.readAsDataURL(file)   
                  
             }
         })
+    })
 
     
 
-})

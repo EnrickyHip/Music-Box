@@ -16,7 +16,7 @@ const pageEndtime = document.getElementById('end-page-time');
 pagePlay.addEventListener("click",function(){
     if(!songs.includes(pageSong)){
         addPageSongtoQueue()
-        console.log(songs)
+
     }
     song_play(pagePlay, pagePause)
 });
@@ -37,5 +37,3 @@ function addPageSongtoQueue(){
     songs.unshift(pageSong)
     load_song()
 }
-
-console.log('Player da página Carregado');

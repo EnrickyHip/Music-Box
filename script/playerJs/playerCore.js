@@ -226,5 +226,3 @@ function secForMinute(secs){ //função que tranforma segunds brutos em minutos 
 
     return minutes_field+':'+seconds_field
 }
-
-console.log('PlayerCore Carregado')

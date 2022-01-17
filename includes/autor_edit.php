@@ -3,7 +3,7 @@
     <!-- foto de perfil do usuário -->
             
     <div class="text-center">
-        <img src=<?=$self_profile_img ?> alt="Foto de Perfil" id="avIcon" class="image-preview rounded-circle border border-4 bi bi-person fs-2">
+        <img src='<?=$self_profile_img?>' alt="Foto de Perfil" id="avIcon" class="image-preview rounded-circle border border-4 bi bi-person fs-2">
     </div>
 
 
@@ -11,7 +11,7 @@
     <div class="text-center mt-2">
         <!-- Formulário de edição de informações do usuário -->
 
-        <form action="../actions/update_user_act.php" method="post"  enctype="multipart/form-data" class="needs validation no-ajaxy underline_input" novalidate autocomplete="off">
+        <form action="../actions/update_user_act.php" method="post" id="edit_profile_form"  enctype="multipart/form-data" class="needs validation no-ajaxy underline_input" novalidate autocomplete="off">
 
         <input type="file" name="inputFile" id="inputFile" accept="image/*">
             <label
