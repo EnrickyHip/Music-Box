@@ -18,16 +18,29 @@
                         <h5 class="mb-0">Nome Da musica</h5>
                         <small>Album</small>
                     </div>
-                    <div class="d-flex w-25 ms-3" id="page-volume">
-                        <span class="material-icons purple fs-5 clickable" id="page-volume-up">volume_up</span>
-                        <span class="material-icons purple d-none fs-5 clickable" id="page-volume-down">volume_down</span>
-                        <span class="material-icons purple d-none fs-5 clickable" id="page-volume-off">volume_off</span>
-                        <input type="range" min="0" max="100" class="ms-2 mt-2 clickable w-100" value="100" id="page-volume-bar">
+                    <div class="d-flex">
+                        <div class="d-flex w-25 ms-3 me-auto" id="page-volume">
+                            <span class="material-icons purple fs-5 clickable" id="page-volume-up">volume_up</span>
+                            <span class="material-icons purple d-none fs-5 clickable" id="page-volume-down">volume_down</span>
+                            <span class="material-icons purple d-none fs-5 clickable" id="page-volume-off">volume_off</span>
+                            <input type="range" min="0" max="100" class="ms-2 mt-2 clickable w-100" value="100" id="page-volume-bar">
+                        </div>
+                        <div id="like-controler" class="float-right">
+                            <span id="like-false" class="material-icons purple clickable">favorite_border</span>
+                            <span id="like-true" class="material-icons purple clickable d-none">favorite</span>
+                        </div>
                     </div>
+                    
                     <div class="d-flex" id="page-player">                
-                        <div id="controlador-page" class="py-1">
-                            <span id="page-play" class="material-icons play purple clickable">play_circle</span>
-                            <span id="page-pause" class="material-icons d-none play purple clickable">pause_circle</span>
+                        <div id="controlador-page" class="py-1 d-flex">
+                            <div>
+                                <span id="page-add" class="material-icons play purple clickable">add_circle</span>
+                            </div>
+                            <div>
+                                <span id="page-play" class="material-icons play purple clickable">play_circle</span>
+                                <span id="page-pause" class="material-icons d-none play purple clickable">pause_circle</span>
+                            </div>  
+                            
                         </div>
                         <div class="w-100">
                             <div id="page-progress" class="py-1 ms-2">
