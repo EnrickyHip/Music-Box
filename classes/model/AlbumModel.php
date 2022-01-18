@@ -38,6 +38,7 @@
 
         public static function get_album_info($album, $column){ // retorna as informações do álbum em um array associativo
 
+
             $stmt = self::connect()->prepare("SELECT ".$column." FROM album WHERE id = ? OR title = ?;");
 
             if (!$stmt->execute(array($album, $album))) { // executa e testa se há erros
@@ -45,7 +46,7 @@
                 exit();
             }
             else {
-                return $stmt->fetchAll(\PDO::FETCH_ASSOC); 
+                return $stmt->fetchAll(\PDO::FETCH_ASSOC)[0]; 
             }
         }
     }

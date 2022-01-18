@@ -22,19 +22,25 @@
             $subgenre = $_POST['subgenre_select'];
         }
         else{
-            $subgenre = 'nenhum';
+            $subgenre = null;
         }
 
         if(isset($_POST['subgenre_select'])){
             $key = $_POST['key_select'];
         }
         else{
-            $key = 'nenhum';
+            $key = null;
+        }
+
+        if ($visibility == "true"){
+            $visibility = true;
+        }
+        else {
+            $visibility = false;
         }
         
-        $album_title = $_POST['album_select'];
-        $album = AlbumModel::get_album_info($album_title, '*');
+        $album_id = (int)$_POST['album_select'];
 
         $upload_song = new \classes\controler\SongControler($user_id);
-        $upload_song->uploadSong($song, $album, $visibility, $song_title, $song_desc, $genre, $subgenre, $key);
+        $upload_song->uploadSong($song, $album_id, $visibility, $song_title, $song_desc, $genre, $subgenre, $key);
     }

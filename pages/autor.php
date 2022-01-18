@@ -17,13 +17,13 @@
     }
     else {
 
-        $art_user_autor =  $user_autor[0]['art_name'];
-        $art_bio =  $user_autor[0]['bio'];
-        $art_website =  $user_autor[0]['website'];
-        $art_local =  $user_autor[0]['localization'];
+        $art_user_autor =  $user_autor['art_name'];
+        $art_bio =  $user_autor['bio'];
+        $art_website =  $user_autor['website'];
+        $art_local =  $user_autor['localization'];
         $art_user_autor = filter_var($art_user_autor, FILTER_SANITIZE_STRING);
 
-        $autor_profile_img = $user_autor[0]['profile_img_dir'];
+        $autor_profile_img = $user_autor['profile_img_dir'];
 
         //se o autor for o mesmo do usuário logado e a variável edit estiver habilitada, o usuário irá para a página de edição, caso não, será redirecionado para o página de autor
         if (isset($self_user)){

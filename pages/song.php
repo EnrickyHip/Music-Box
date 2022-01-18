@@ -12,24 +12,24 @@
         // mostra alguma mensagem de erro
     }
 
-    $song_name = $song[0]['title'];
-    $song_autor_id = $song[0]['autor_id'];
+    $song_name = $song['title'];
+    $song_autor_id = $song['autor_id'];
 
-    $song_album_id = $song[0]['album_id'];
+    $song_album_id = $song['album_id'];
     $song_album = AlbumModel::get_album_info($song_album_id, 'title, cover_dir, single');
 
-    $song_album_title = $song_album[0]['title'];
-    $song_album_cover = $song_album[0]['cover_dir'];
-    $song_album_single = $song_album[0]['single'];
+    $song_album_title = $song_album['title'];
+    $song_album_cover = $song_album['cover_dir'];
+    $song_album_single = $song_album['single'];
 
     if($song_album_single){
         $song_album_title = "Solo";
     }
 
 
-    $song_autor = UserModel::get_user_info($song_autor_id, 'username, profile_img_dir');
-    $song_autor_name = $song_autor[0]['username'];
-    $song_autor_profile_img = "../".$song_autor[0]['profile_img_dir'];
+    $song_autor = UserModel::get_user_info($song_autor_id, 'art_name, profile_img_dir');
+    $song_autor_name = $song_autor['art_name'];
+    $song_autor_profile_img = "../".$song_autor['profile_img_dir'];
 
     
 

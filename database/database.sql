@@ -17,7 +17,8 @@ CREATE TABLE usuario (
 
 CREATE TABLE playlist (
     code_name VARCHAR(255) NOT NULL PRIMARY KEY,
-    privacity BOOLEAN NOT NULL,
+    visibility BOOLEAN NOT NULL,
+    favorite BOOLEAN NOT NULL,
     title VARCHAR(255) NOT NULL,
     owner_id INT NOT NULL,
     FOREIGN KEY(owner_id) REFERENCES usuario(id)
@@ -41,7 +42,8 @@ CREATE TABLE song (
     file_dir TEXT NOT NULL,
     link_youtube VARCHAR(2048),
     link_spotify VARCHAR(2048),
-    privacity BOOLEAN NOT NULL,
+    single BOOLEAN NOT NULL,
+    visibility BOOLEAN NOT NULL,
     about TEXT(5000),
     genre VARCHAR(255) NOT NULL,
     sub_genre VARCHAR(255),

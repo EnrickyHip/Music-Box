@@ -26,7 +26,10 @@
 
         //criar e logar usuário
         public function create_user(){
-            $this->set_user($this->username, $this->email, $this->pwd); //insert do usuário no banco de dados
+            $user_id = $this->set_user($this->username, $this->email, $this->pwd); //insert do usuário no banco de dados
+
+            $playlist_ctrl = new \classes\controler\PlaylistControler($user_id);
+            $playlist_ctrl->create_playlist([], "Favoritos", true, true);
 
             //loga o usuário no sistema
             $login_ctrl = new \classes\controler\LoginControler($this->username, $this->email, $this->pwd);

@@ -96,9 +96,6 @@ expand_more_button.addEventListener("click", function(){
     expand_more()
 })
 
-
-
-
 volume_icons.forEach(element =>{
     element.addEventListener('mouseover', e =>{
         volume_show(volume_bar)

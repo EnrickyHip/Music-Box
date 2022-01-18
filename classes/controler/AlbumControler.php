@@ -23,7 +23,7 @@
 
             if($songs !== "Solo"){ //instancia e cria a playlist caso o álbum não seja solo.
                 $playlist_controler = new \classes\controler\PlaylistControler($this->user_id);
-                $playlist_code_name = $playlist_controler->create_playlist($songs, $title);
+                $playlist_code_name = $playlist_controler->create_playlist($songs, $title, true, false);
                 $single = false;
 
                 if ($cover['size'] == 0){ //caso o usuário não defina nenhuma capa para o álbum, será definida como a default

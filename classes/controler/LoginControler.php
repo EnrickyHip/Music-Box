@@ -38,14 +38,14 @@ class LoginControler extends UserModel { // classe. "extends" significa herança
 
            //armazena as informações do usuário em um array associativo
             $_SESSION['usuario'] = array(
-                                "id"=>$user[0]['id'],
-                                "username"=>$user[0]['username'],
-                                "art_name"=>$user[0]['art_name'],
-                                "email"=>$user[0]['email'],
-                                "bio"=>$user[0]['bio'],
-                                "website"=>$user[0]['website'],
-                                "localization"=>$user[0]['localization'],
-                                "profile_img_dir"=>$user[0]['profile_img_dir']
+                                "id"=>$user['id'],
+                                "username"=>$user['username'],
+                                "art_name"=>$user['art_name'],
+                                "email"=>$user['email'],
+                                "bio"=>$user['bio'],
+                                "website"=>$user['website'],
+                                "localization"=>$user['localization'],
+                                "profile_img_dir"=>$user['profile_img_dir']
                                 );
         }
 

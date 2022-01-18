@@ -157,6 +157,17 @@
             </div>
           </button>
 
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <?php
+                  $song_ctrl = new \classes\controler\SongControler($self_id);
+                  $songs = $song_ctrl->get_all_solo_songs();
+
+                  foreach ($songs as $song){
+                    echo $song['title'];
+                  }
+              ?>
+          </div>
+
           <h6 class="mb-3">Descrição (Opcional):</h6>
           <textarea class="form-control" name="album_desc" id="album_desc" rows="3" placeholder="Fale sobre seu álbum!"></textarea>
 

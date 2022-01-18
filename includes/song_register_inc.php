@@ -39,13 +39,13 @@
                     <label class="form-label">Visibilidade:</label>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visibility" id="public_type" checked>
+                        <input value="true" class="form-check-input" type="radio" name="visibility" id="public_type" checked>
                         <label class="form-check-label" for="public_type">
                             Público
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visibility" id="private_type">
+                        <input value="false" class="form-check-input" type="radio" name="visibility" id="private_type">
                         <label class="form-check-label" for="private_type">
                             Privado
                         </label>
@@ -65,7 +65,7 @@
                                 $albuns = $album_ctrl->get_all_user_albuns($self_id);
                                 
                                 foreach ($albuns as $album){
-                                    echo "<option>".$album['title']."</option>";
+                                    echo "<option value='".$album['id']."'>".$album['title']."</option>";
                                 }
                             ?>
                         </select>              

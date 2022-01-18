@@ -8,11 +8,11 @@
 
     class PlaylistModel extends Database{
                      
-        protected function insert_playlist($code_name, $title, $owner_id){
+        protected function insert_playlist($code_name, $title, $owner_id, $visibility, $favorite){
 
-            $stmt = $this->connect()->prepare('INSERT INTO playlist (code_name, privacity, title, owner_id) VALUES (?,?,?,?);');
+            $stmt = $this->connect()->prepare('INSERT INTO playlist (code_name, visibility, favorite, title, owner_id) VALUES (?,?,?,?,?);');
 
-            if (!$stmt->execute(array($code_name, true, $title, $owner_id))) {
+            if (!$stmt->execute(array($code_name, $visibility, $favorite, $title, $owner_id))) {
 
                 $stmt = null;
                 header("Location: ../../?error=playliststmtError"); //apenas para testes

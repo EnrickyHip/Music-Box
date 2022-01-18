@@ -4,16 +4,12 @@
 
     use \classes\model\SongModel;
 
-    require_once '../vendor/autoload.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
     class SongControler extends SongModel{
 
         private $user_id;
         private $formatos;
-
-        private $song_desc;
-        private $subgenre;
-        private $key;
         
         public function __construct($user_id){
 
@@ -21,7 +17,7 @@
             $this->formatos = array("mp3", "aac", "wav", "ogg", "wma");
         }
 
-        public function uploadSong($song, $album, $visibility, $song_title, $song_desc, $genre, $subgenre, $key){
+        public function uploadSong($song, $album_id, $visibility, $song_title, $song_desc, $genre, $subgenre, $key){
 
             $ext = pathinfo($song['name'], PATHINFO_EXTENSION); //recebe a extensão do arquivo
 
@@ -34,17 +30,16 @@
                     $temporario = "../temp_songs/".$song_file_name; //pasta temporária
                     rename($temporario, "../$song_file");// move o arquivo do local temoporario para a pastas
 
-                    if(!$album){ //caso o usuário não tenha selecionado álbum, o sistema irá criar um solo para a música
+                    if(!$album_id){ //caso o usuário não tenha selecionado álbum, o sistema irá criar um solo para a música
                         $album_id = $this->createSoloAlbum($song_title);
+                        $single = true;
                     }
                     else {
-                        $album_id = $album[0]['id']; //seleciona o id do álbum selecionado
+                        $single = false;
                     }
 
-                    $this->set_null($song_desc, $subgenre, $key);
-
                     $code_name = uniqid('', true);
-                    $this->insert_song($code_name, $song_title,  $song_file, $visibility, $this->user_id, $album_id, $this->song_desc, $genre, $this->subgenre, $this->key);
+                    $this->insert_song($code_name, $song_title,  $song_file, $visibility, $single, $this->user_id, $album_id, $song_desc, $genre, $subgenre, $key);
                 }
                 else {
                     die("deu erro meu bom");
@@ -62,18 +57,8 @@
             return $album_id;
         }
 
-        private function set_null($song_desc, $subgenre, $key){ //essa função serve para definir algumas informações opicionais como null para cadastro no banco de dados. pois a método post considera inputs em brancos como uma string vazia.
-
-            if($song_desc === "nenhum"){
-                $this->$song_desc = null;
-            }
-
-            if($subgenre === "nenhum"){
-                $this->$subgenre = null;
-            }
-
-            if($key === "nenhum"){
-                $this->$key = null;
-            }
+        public function get_all_solo_songs(){
+            $songs = $this->get_solo_songs();
+            return $songs;
         }
     }

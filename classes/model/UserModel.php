@@ -27,7 +27,7 @@
 
                 0 refere-se a seleção 0, ou seja, a primera. <- não tenho certeza disto. 
                 */
-                return $stmt->fetchAll(\PDO::FETCH_ASSOC); 
+                return $stmt->fetchAll(\PDO::FETCH_ASSOC)[0]; 
             }
             else {
                 return false;
@@ -95,7 +95,11 @@
                 $stmt = null;
                 header("Location: ../../index.php?error=stmtError");
                 exit();
-            }  
+            }
+
+            $user_id = $this->connect()->lastInsertId();
+
+            return $user_id;
         }
         
     }
