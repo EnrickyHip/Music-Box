@@ -1,7 +1,7 @@
 
 <!-- dropdown de criação-->
 <div class="btn-group">
-  <button type="button" class="btn px-2 me-3 purple add_button"  id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
+  <button type="button" class="btn px-2 me-3 purple add_button gray_hover"  id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
     <div class="d-flex align-items-center">
         <h5 class="mb-0 pb-1">
             Criar
@@ -137,16 +137,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form action="../actions/create_album_act.php" id="create_album_form" method="POST" enctype="multipart/form-data" class="needs-validation p-5 pt-0 underline_input no-ajaxy" novalidate>
+      <form action="../actions/create_album_act.php" id="create_album_form" method="POST" enctype="multipart/form-data" class="p-5 pt-0 underline_input no-ajaxy">
         <div class="modal-body text-center">
 
-          <label for="album_title">
+          <label class="mt-3" for="album_title">
             <h3>Título do álbum:</h3>
           </label>
           <input type="text" id="album_title_input" name="album_title_input" class="full-input text-center fs-5" required>
 
-          
-          <button type="button" class="btn px-2 my-3 purple add_button"  id="add_album_songs" data-bs-toggle="dropdown" aria-expanded="false">
+
+        <div class="dropdown">
+          <button type="button" class="btn px-2 my-3 purple add_button gray_hover" data-bs-auto-close="false" id="add_album_songs"  data-bs-toggle="dropdown" aria-expanded="false">
             <div class="d-flex align-items-center">
                 <h5 class="mb-0 pb-1">
                     Adicionar Músicas
@@ -157,16 +158,27 @@
             </div>
           </button>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <div class="dropdown-menu ps-2 pe-2 dropdown-menu-center" id="album_songs_dropdown" aria-labelledby="dropdownMenuLink">
             <?php
                   $song_ctrl = new \classes\controler\SongControler($self_id);
                   $songs = $song_ctrl->get_all_solo_songs();
+                  $i = -1;
 
                   foreach ($songs as $song){
-                    echo $song['title'];
+                    $i++;
+                    echo "<div class='form-check ps-0'>";
+                      echo "<label class='form-check-label clickable gray_hover text-break w-100 py-1 d-flex align-items-center' for='$i'>";
+                        
+                        echo "<input class='form-check-input mx-2 clickable' id='$i' type='checkbox' name='album_songs' value='".$song['code_name']."'>";
+
+                        echo $song['title'];
+
+                      echo "</label>";
+                    echo "</div>";
                   }
               ?>
           </div>
+        </div>
 
           <h6 class="mb-3">Descrição (Opcional):</h6>
           <textarea class="form-control" name="album_desc" id="album_desc" rows="3" placeholder="Fale sobre seu álbum!"></textarea>
@@ -178,7 +190,7 @@
               <img class="image-preview" src="../album_covers/default-cover-art.png" alt="" width="35%">
             </div>
             
-            <label for="album_cover" class="btn btn-success">Selecionar Capa para o Álbum</label>
+            <label for="album_cover" class="btn btn-success mt-3">Selecionar Capa para o Álbum</label>
             <input type="file" name="album_cover" id="album_cover" accept="image/*">
           </div>
 

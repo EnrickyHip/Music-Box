@@ -157,7 +157,7 @@ button.nav-link{
     padding-bottom: 2px;
 }
 
-.add_button:hover {
+.gray_hover:hover {
     background-color: #e4e4e4;
 }
 
@@ -310,19 +310,28 @@ input[type="range"]::-webkit-slider-thumb {
     width: 15px;
 }
 
-.underline_input input{
+.underline_input input:not([type="checkbox"]){
     border-style: none;
     border-bottom: 1px solid #b3b3cc !important;
     outline: none;
     line-height: 1.5;
 }
 
-.underline_input input:focus {
+.underline_input input:not([type="checkbox"]):focus{
     border-bottom: 2px solid #1718b0 !important;
 }
 
-.underline_input label {
-    margin-top: 13px;
+#album_songs_dropdown {
+    max-width: 60%;
+}
+
+.dropdown-menu-center {
+    top:90% !important;
+    right: auto !important;
+    left: 50% !important;
+    -webkit-transform: translate(-50%, 0) !important;
+    -o-transform: translate(-50%, 0) !important;
+    transform: translate(-50%, 0) !important;
 }
 
 
