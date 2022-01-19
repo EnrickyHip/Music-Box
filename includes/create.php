@@ -1,7 +1,7 @@
 
 <!-- dropdown de criação-->
 <div class="btn-group">
-  <button type="button" class="btn px-2 me-3 purple add_button gray_hover"  id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
+  <button type="button" class="btn px-2 me-3 purple add_button gray_hover" id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
     <div class="d-flex align-items-center">
         <h5 class="mb-0 pb-1">
             Criar
@@ -137,7 +137,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form action="../actions/create_album_act.php" id="create_album_form" method="POST" enctype="multipart/form-data" class="p-5 pt-0 underline_input no-ajaxy">
+      <form action="../actions/create_album_act.php" id="create_album_form" method="POST" enctype="multipart/form-data" class="p-5 pt-0 underline_input no-ajaxy" novalidate>
         <div class="modal-body text-center">
 
           <label class="mt-3" for="album_title">
@@ -158,25 +158,35 @@
             </div>
           </button>
 
-          <div class="dropdown-menu ps-2 pe-2 dropdown-menu-center" id="album_songs_dropdown" aria-labelledby="dropdownMenuLink">
+          <div style="max-height: 300px;" class="dropdown-menu ps-2 pe-2 dropdown-menu-center overflow-auto" id="album_songs_dropdown" aria-labelledby="dropdownMenuLink">
+
             <?php
-                  $song_ctrl = new \classes\controler\SongControler($self_id);
-                  $songs = $song_ctrl->get_all_solo_songs();
-                  $i = -1;
+              $song_ctrl = new \classes\controler\SongControler($self_id);
+              $songs = $song_ctrl->get_all_solo_songs();
+              $i = -1;
 
-                  foreach ($songs as $song){
-                    $i++;
-                    echo "<div class='form-check ps-0'>";
-                      echo "<label class='form-check-label clickable gray_hover text-break w-100 py-1 d-flex align-items-center' for='$i'>";
-                        
-                        echo "<input class='form-check-input mx-2 clickable' id='$i' type='checkbox' name='album_songs' value='".$song['code_name']."'>";
+              if(!$songs){
+                echo "<span class='m-2'>Você não possui músicas Solo.</span>";
+              }
 
-                        echo $song['title'];
+              else{
+                foreach ($songs as $song){
+                  $i++;
+            ?>
 
-                      echo "</label>";
-                    echo "</div>";
-                  }
-              ?>
+                  <div class='form-check ps-0'>
+                    <label class='form-check-label clickable gray_hover text-break w-100 py-1 pe-1' for="<?=$i?>">
+                      
+                      <input class='form-check-input mx-2 clickable float-start' id="<?=$i?>" type='checkbox' name='album_songs[]' value="<?=$song['code_name']?>">
+
+                      <span class="d-block overflow-auto"><?=$song['title'];?></span>
+
+                    </label>
+                  </div>
+            <?php
+                }
+              }
+            ?>
           </div>
         </div>
 

@@ -4,11 +4,11 @@
 
     namespace classes\controler;  //isso é complexo, não sei explicar, mas serve para usar o autoload de classes
 
-    use classes\model\EditModel;
+    use classes\model\UserModel;
 
     require_once '../vendor/autoload.php';
 
-    class EditControler extends EditModel{ // classe. "extends" significa herança.
+    class EditControler extends UserModel{ // classe. "extends" significa herança.
 
         //propriedades
         private $user_id;

@@ -38,7 +38,6 @@
 
         public static function get_album_info($album, $column){ // retorna as informações do álbum em um array associativo
 
-
             $stmt = self::connect()->prepare("SELECT ".$column." FROM album WHERE id = ? OR title = ?;");
 
             if (!$stmt->execute(array($album, $album))) { // executa e testa se há erros
@@ -47,6 +46,15 @@
             }
             else {
                 return $stmt->fetchAll(\PDO::FETCH_ASSOC)[0]; 
+            }
+        }
+
+        protected function delete($album_id){
+            $stmt = self::connect()->prepare("DELETE FROM album WHERE id = ?;");
+
+            if (!$stmt->execute(array($album_id))) { // executa e testa se há erros
+                header("Location: ../?error=albunGetInfoerror");
+                exit();
             }
         }
     }

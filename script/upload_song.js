@@ -6,6 +6,11 @@ const upload_form = document.getElementById("upload_form")
 
 /* UPLOAD DIRETO */
 
+upload_song_input.addEventListener("change", function(){
+    files = upload_song_input.files
+    submit(files)
+})
+
 drop_zone.addEventListener("dragover", function(event){
     event.preventDefault()
     dash_border_add()
@@ -14,13 +19,18 @@ drop_zone.addEventListener("dragover", function(event){
 drop_zone.addEventListener("drop", function(event){
     event.preventDefault()
     dash_border_remove()
+    submit(event.dataTransfer.files)
 
-    if (event.dataTransfer.files.length > 1){
+})
+
+function submit(files){
+    console.log(files.length)
+    if (files.length > 1){
         text = "Você só pode enviar um arquivo por vez."
         upload_message_show(text)
     }
     else {
-        upload_song_input.files = event.dataTransfer.files
+        upload_song_input.files = files
         if(!upload_song_input.files[0].type.includes("audio/")){
             text = "Formato de arquivo inválido."
             upload_message_show(text)
@@ -32,8 +42,7 @@ drop_zone.addEventListener("drop", function(event){
             upload_form.submit()
         }
     }
-
-})
+}
 
 function dash_border_add(){
     drop_zone.classList.add("drop-zone-border")

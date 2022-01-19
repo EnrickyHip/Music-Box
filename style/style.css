@@ -323,6 +323,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 #album_songs_dropdown {
     max-width: 60%;
+    min-width: 30%;
 }
 
 .dropdown-menu-center {

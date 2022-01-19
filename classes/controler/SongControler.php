@@ -2,7 +2,8 @@
 
     namespace classes\controler;
 
-    use \classes\model\SongModel;
+use classes\model\AlbumModel;
+use \classes\model\SongModel;
 
     require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
@@ -38,13 +39,22 @@
                         $single = false;
                     }
 
-                    $code_name = uniqid('', true);
-                    $this->insert_song($code_name, $song_title,  $song_file, $visibility, $single, $this->user_id, $album_id, $song_desc, $genre, $subgenre, $key);
+                    $song_code_name = uniqid('', true);
+                    $this->insert_song($song_code_name, $song_title,  $song_file, $visibility, $single, $this->user_id, $album_id, $song_desc, $genre, $subgenre, $key);
+
+                    if(!$single){
+                        $playlist_code_name = AlbumModel::get_album_info($album_id, "playlist_code_name")['playlist_code_name'];
+
+                        $playlist_controler = new \classes\controler\PlaylistControler($this->user_id, $playlist_code_name);
+                        $playlist_controler->add_song($playlist_code_name, array($song_code_name));
+                    }
+
+                    return $song_code_name;
                 }
                 else {
                     die("deu erro meu bom");
                 }
-            }   
+            }
         }
 
         private function createSoloAlbum($song_title){ //cria o album solo
@@ -58,7 +68,11 @@
         }
 
         public function get_all_solo_songs(){
-            $songs = $this->get_solo_songs();
+            $songs = $this->get_solo_songs($this->user_id);
             return $songs;
+        }
+
+        public function change_album($songs, $single, $album_id){         
+            $this->update_album($songs, $single, $album_id);
         }
     }

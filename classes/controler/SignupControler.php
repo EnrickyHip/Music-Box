@@ -28,8 +28,9 @@
         public function create_user(){
             $user_id = $this->set_user($this->username, $this->email, $this->pwd); //insert do usuário no banco de dados
 
-            $playlist_ctrl = new \classes\controler\PlaylistControler($user_id);
-            $playlist_ctrl->create_playlist([], "Favoritos", true, true);
+            $code_name = uniqid('', true);
+            $playlist_ctrl = new \classes\controler\PlaylistControler($user_id, $code_name);
+            $playlist_ctrl->create_playlist([], "Favoritos", false, true);
 
             //loga o usuário no sistema
             $login_ctrl = new \classes\controler\LoginControler($this->username, $this->email, $this->pwd);

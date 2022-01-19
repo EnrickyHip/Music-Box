@@ -12,15 +12,11 @@
                 header("Location: ../?error=instertSongerror");
                 exit();
             }
-            else{
-                header("Location: ../?p=song&s=$code_name");
-                exit();
-            }
         }
 
 
-        public static function get_song($code_name){
-            $stmt = self::connect()->prepare('SELECT * FROM song WHERE code_name = ?;');//conecta com o banco de dados e prepara a execução
+        public static function get_song_info($code_name, $column){
+            $stmt = self::connect()->prepare("SELECT $column FROM song WHERE code_name = ?;");//conecta com o banco de dados e prepara a execução
 
             if (!$stmt->execute(array($code_name))){ // executa e testa se há erros
                 $stmt = null;
@@ -37,10 +33,10 @@
             }
         }
 
-        public static function get_solo_songs(){ //retorna todos os albuns do usuário, caso o usuário não tenha albuns cadastrados, retornará false.
-            $stmt = self::connect()->prepare("SELECT * FROM song WHERE single = 1;");
+        public static function get_solo_songs($autor_id){ //retorna todos os albuns do usuário, caso o usuário não tenha albuns cadastrados, retornará false.
+            $stmt = self::connect()->prepare("SELECT * FROM song WHERE single = 1 AND autor_id = ?;");
 
-            if (!$stmt->execute()) { // executa e testa se há erros
+            if (!$stmt->execute(array($autor_id))) { // executa e testa se há erros
                 header("Location: ../?error=getalbunserror");
                 exit();
             }
@@ -49,6 +45,16 @@
             }
             else {
                 return false;
+            }
+        }
+
+        protected function update_album($song, $single, $album_id){
+
+            $stmt = self::connect()->prepare("UPDATE song SET album_id = ?, single = ? WHERE code_name = ?;");
+
+            if (!$stmt->execute(array($album_id, $single, $song))) { // executa e testa se há erros
+                header("Location: ../?error=getalbunserror");
+                exit();
             }
         }
     }

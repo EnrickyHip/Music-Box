@@ -18,6 +18,13 @@
         $cover = $_FILES['album_cover'];
         $about = filter_input(INPUT_POST, "album_desc", FILTER_SANITIZE_SPECIAL_CHARS);
 
+        if (!isset($_POST['album_songs'])){
+           $songs = [];
+        }
+        else {
+            $songs = $_POST['album_songs'];
+        }
+
         $album_ctrl = new \classes\controler\AlbumControler($user_id);
         $album_ctrl->create_album($songs, $title, $cover, $about);
         header("Location: ../?error=tudocerto");

@@ -7,7 +7,7 @@
     require_once 'vendor/autoload.php';
     $song_code_name = filter_input(INPUT_GET, 's');
 
-    $song = SongModel::get_song($song_code_name);
+    $song = SongModel::get_song_info($song_code_name, '*');
     if (!$song){
         // mostra alguma mensagem de erro
     }
