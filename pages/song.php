@@ -27,8 +27,9 @@
     }
 
 
-    $song_autor = UserModel::get_user_info($song_autor_id, 'art_name, profile_img_dir');
+    $song_autor = UserModel::get_user_info($song_autor_id, 'art_name, username, profile_img_dir');
     $song_autor_name = $song_autor['art_name'];
+    $song_autor_username = $song_autor['username'];
     $song_autor_profile_img = "../".$song_autor['profile_img_dir'];
 
     
@@ -36,12 +37,14 @@
 ?>
 <div class="container mt-5">
     <div class="d-flex">
-        <img src=<?=$song_autor_profile_img?> alt="" class="rounded-circle float-start" style="width: 48px; height: 48px;">
+        <a href=<?="?p=autor&a=$song_autor_username"?> class="text-decoration-none link-dark">
+            <img src=<?=$song_autor_profile_img?> alt="" class="rounded-circle float-start" style="width: 48px; height: 48px;">
 
-        <div class="float-end ms-3">
-            <h6 class="mb-0">Postado por:</h6>
-            <span><?=$song_autor_name?></span>
-        </div>
+            <div class="float-end ms-3">
+                <h6 class="mb-0">Postado por:</h6>
+                <span><?=$song_autor_name?></span>
+            </div>
+        </a>
     </div>
     <div class="p-1 my-3 mx-auto" style="max-width: 80%;"> 
         <div class="row g-0">
