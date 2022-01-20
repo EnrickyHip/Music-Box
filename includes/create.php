@@ -161,7 +161,7 @@
           <div style="max-height: 300px;" class="dropdown-menu ps-2 pe-2 dropdown-menu-center overflow-auto" id="album_songs_dropdown" aria-labelledby="dropdownMenuLink">
 
             <?php
-              $song_ctrl = new \classes\controler\SongControler($self_id);
+              $song_ctrl = new \classes\controler\SongControler($self_user->get_id());
               $songs = $song_ctrl->get_all_solo_songs();
               $i = -1;
 

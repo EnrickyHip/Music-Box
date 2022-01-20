@@ -2,58 +2,58 @@
 <div class="container pt-5">
     <!-- foto de perfil do usuário -->
     <div class="text-center">
-        <img src=<?php echo $autor_profile_img ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-4">
+
+        <img src=<?= $autor->get_profile_img() ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-4">
     </div>
 
     <div class="text-center">
 
-        <span><h2><?php echo $art_user_autor?></h2></span>
-        <span><h5><?php echo $username_autor?></h5></span>  
+        <span><h2><?= $autor->get_art_name()?></h2></span>
+        <span><h5><?= $autor->get_username()?></h5></span>  
 
         <!-- caso a página do autor, seja a a página do usuário logado, aparecerá um botão para habilitar a edição da página-->
 
         <?php
             if(isset($self_user)){
-                if ($self_username == $username_autor){
+                if ($self_user->get_username()  == $autor->get_username()){
+    
                     ?>  
-                        <a  class="btn btn-success" href= <?php echo "?p=autor&a=$self_username&e=true";?>>Editar página de Autor</a>
+                        <a  class="btn btn-success" href= <?= "?p=autor&a=".$self_user->get_username() ."&e=true";?>>Editar página de Autor</a>
                     <?php
                 }
             }
         ?>
 
-        
-
     </div>
     <div>
 
         <?php   
-            if ($art_bio !== null){
+            if ($autor->get_bio() !== null){
         ?>
 
             <h2>Sobre o Autor:</h2>
 
             <article class="pb-5 border-bottom border-4 border-primary">
 
-            <?=$art_bio?>
+            <?=$autor->get_bio()?>
             <br>
 
             <?php
-                if ($art_local !== null){
+                if ($autor->get_local() !== null){
             ?>
 
                 <br> 
                 <span class="material-icons">
                     place
                 </span>
-                <?=$art_local?>
+                <?=$autor->get_local()?>
 
             <?php
                 }
             ?>
 
             <?php
-                if ($art_website !== null){
+                if ($autor->get_website() !== null){
             ?>
 
                 <br>
@@ -61,8 +61,8 @@
                     link
                 </span>
 
-                <a class="classic-links" href="<?=$art_website?>"> 
-                    <?=$art_website?> 
+                <a class="classic-links" href="<?=$autor->get_website()?>"> 
+                    <?=$autor->get_website()?> 
                 </a>
 
             <?php
@@ -78,13 +78,25 @@
 
         <nav class="mt-5 ms-2">
             <div class="nav nav-tabs" id="nav-tab" role="tablist" style="z-index: 0;">
-                <button class="nav-link active" id="nav-playlist-tab" data-bs-toggle="tab" data-bs-target="#nav-playlist" type="button" role="tab" aria-controls="nav-playlist" aria-selected="true">Playlists</button>
+
+                <button class="nav-link active" id="nav-album-tab" data-bs-toggle="tab" data-bs-target="#nav-album" type="button" role="tab" aria-controls="nav-album" aria-selected="true">Albuns</button>
+
                 <button class="nav-link" id="nav-musicas-tab" data-bs-toggle="tab" data-bs-target="#nav-musicas" type="button" role="tab" aria-controls="nav-musicas" aria-selected="false">Musicas</button>
+
+                <button class="nav-link" id="nav-playlist-tab" data-bs-toggle="tab" data-bs-target="#nav-playlist" type="button" role="tab" aria-controls="nav-playlist" 
+                aria-selected="true">Playlists</button>
+
                 <button class="nav-link" id="nav-contrib-tab" data-bs-toggle="tab" data-bs-target="#nav-contrib" type="button" role="tab" aria-controls="nav-contrib" aria-selected="false">Contribuições</button>
             </div>
         </nav>
+
         <div class="tab-content border border-5 border-primary rounded shadow" id="nav-tabContent" style="z-index: 1;">
-            <div class="tab-pane show active" id="nav-playlist" role="tabpanel" aria-label="nav-playlist-tab">
+
+            <div class="tab-pane show active" id="nav-album" role="tabpanel" aria-label="nav-album-tab">
+                <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>
+            </div>
+            
+            <div class="tab-pane show" id="nav-playlist" role="tabpanel" aria-label="nav-playlist-tab">
                 <table class="table table-hover">
                     <thead>
                         <tr>

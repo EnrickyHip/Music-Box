@@ -28,12 +28,6 @@ pageAdd.addEventListener("click", function(){
     }
 })
 
-
-
-
-
-
-
 function addPageSongtoQueueFirst(){
     songs.unshift(pageSong);
     load_song()

@@ -1,7 +1,6 @@
 <?php
 
     require_once "../vendor/autoload.php";
-    use classes\model\AlbumModel;
 
     session_start();
 
@@ -11,7 +10,9 @@
     }
 
     else {
-        $song = $_SESSION['actual_song'][0]; //esta variavel recebe o arquivo da música guardada na sessão actual_song, criada na song register
+        $song_code_name = $_POST['song_code_name'];
+
+        $song = $_SESSION[$song_code_name]['file_info']; //esta variavel recebe o arquivo da música guardada na sessão actual_song, criada na song register
         $user_id = $_SESSION['usuario']['id'];
         $visibility = $_POST['visibility'];
         $song_title = filter_input(INPUT_POST, "song_title", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -25,13 +26,6 @@
             $subgenre = null;
         }
 
-        if(isset($_POST['subgenre_select'])){
-            $key = $_POST['key_select'];
-        }
-        else{
-            $key = null;
-        }
-
         if ($visibility == "true"){
             $visibility = true;
         }
@@ -42,7 +36,10 @@
         $album_id = (int)$_POST['album_select'];
 
         $upload_song = new \classes\controler\SongControler($user_id);
-        $song_code_name = $upload_song->uploadSong($song, $album_id, $visibility, $song_title, $song_desc, $genre, $subgenre, $key);
-        header("Location: ../?p=song&s=$song_code_name");
+        $upload_song->uploadSong($song, $album_id, $visibility, $song_title, $song_desc, $genre, $subgenre, $song_code_name);
+
+        $_SESSION[$song_code_name] = null;
+        
+        header("Location: ../?p=song&s=$song_code_name&e=true");
         exit();
     }

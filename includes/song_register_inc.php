@@ -112,7 +112,7 @@
                     </div>    
                 </div>
 
-                <div class="col-md-12 mb-4 mt-2">
+                <!--<div class="col-md-12 mb-4 mt-2">
                     <label class="form-label" for="key_select">Tom (Opcional):</label> 
                     
                     <div class="input-group">
@@ -144,7 +144,7 @@
                             <option>G#m/Abm</option>
                         </select>              
                     </div>    
-                </div>
+                </div>-->
                 
                 <div class="col-md-12 mb-4 mt-2">
 
@@ -167,14 +167,14 @@
             </div>
 
             <div class="d-flex mt-5">
-                <a href="../actions/delete_actual_song_session.php" class="btn btn-danger me-auto">Cancelar</a>
+                <a href="../actions/delete_actual_song_session.php?s=<?=$code_name?>" class="btn btn-danger me-auto">Cancelar</a>
                 <button type="button" class="btn btn-secondary white-button text-white me-2" disabled id="back_button">Voltar</button>
                 <button type="button" class="btn btn-info text-white" id="next_button">Próximo</button>
             </div>
         </div>
 
+        <input type="hidden" name="song_code_name" value="<?=$code_name?>">
         
-
     </form>
 </div>
 

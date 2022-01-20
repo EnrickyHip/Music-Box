@@ -14,7 +14,6 @@
     else {
         $user_id = $_SESSION['usuario']['id'];
         $title = filter_input(INPUT_POST, "album_title_input", FILTER_SANITIZE_SPECIAL_CHARS);
-        $songs = []; //ISTO É TEMPORÁRIO! pois ainda não foi desenvolvido o sistema de adicionar músicas em seu álbum
         $cover = $_FILES['album_cover'];
         $about = filter_input(INPUT_POST, "album_desc", FILTER_SANITIZE_SPECIAL_CHARS);
 

@@ -10,11 +10,8 @@
 
     //caso o usuario esteja logado, essas variaveis irao receber as informações do usuário
     if(isset($_SESSION['usuario'])){
-        $self_user = $_SESSION['usuario'];
-        $self_username = $self_user['username'];
-        $self_art_name = $self_user['art_name'];
-        $self_id = $self_user['id'];
-        $self_profile_img = "../".$self_user['profile_img_dir'];
+
+        $self_user = new \classes\objects\UserObject($_SESSION['usuario']);
 
     }
     

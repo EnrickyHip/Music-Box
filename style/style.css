@@ -94,6 +94,13 @@ button.nav-link{
 
 /*classes e ids custom*/
 
+.article h1, .article h2, .article h3, .article h4, .article h5, .article h6, .article p{
+    margin-bottom: 20px;
+}
+
+.justify-text{
+    text-align: justify;
+}
 
 #theory-nav{
     margin-left: 7.5rem;;
@@ -196,8 +203,6 @@ button.nav-link{
     background-color: #1718b0;
 }
 
-
-
 #wrapper li:hover, #tools:hover {
     background-color: #4e2bdd !important;
 }
@@ -223,11 +228,6 @@ button.nav-link{
     width: 56px;
     height: auto;
 }
-
-a{
-    text-decoration: none;
-}
-
 .autocomplete{
     position: relative;
 }
@@ -339,6 +339,10 @@ input[type="range"]::-webkit-slider-thumb {
 /*-----*/
 
 /*Links*/
+
+a{
+    text-decoration: none;
+}
 
 a:link.classic-links {
     text-decoration: none;

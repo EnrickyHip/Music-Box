@@ -3,7 +3,7 @@
     <!-- foto de perfil do usuário -->
             
     <div class="text-center">
-        <img src='<?=$self_profile_img?>' alt="Foto de Perfil" id="avIcon" class="image-preview rounded-circle border border-4 bi bi-person fs-2">
+        <img src='<?=$self_user->get_profile_img() ?>' alt="Foto de Perfil" id="avIcon" class="image-preview rounded-circle border border-4 bi bi-person fs-2">
     </div>
 
 
@@ -30,14 +30,14 @@
             <div>
                 <label class="mt-3" for="art_name">Nome artístico:</label>
                 <h3>
-                    <input class="text-center" value="<?=$self_art_name;?>" type="text" name="art_name" id="art_name" required>
+                    <input class="text-center" value="<?=$self_user->get_art_name()?>" type="text" name="art_name" id="art_name" required>
                 </h3>
             </div> 
 
             <div>
                 <label class="mt-3" for="username">Nome de usuário:</label>
                 <h5>
-                    <input class="text-center" value="<?=$self_username; ?>" type="text" name="username" id="username" required>
+                    <input class="text-center" value="<?=$self_user->get_username() ?>" type="text" name="username" id="username" required>
                 </h5>
             <div>
 
@@ -46,19 +46,19 @@
                     
                 <h2>Biografia:</h2>
                     <article>
-                        <textarea class="form-control" name="bio" id="bio" rows="3" placeholder="Fale sobre você e seu trabalho!"><?=$art_bio; ?></textarea>
+                        <textarea class="form-control" name="bio" id="bio" rows="3" placeholder="Fale sobre você e seu trabalho!"><?= $autor->get_bio() ?></textarea>
 
                         <div class="mt-2">
                             <label class="mt-3" for="website">Website (Opcional):</label>
                             <h5>
-                                <input class="full-input" value="<?=$art_website; ?>" type="url" name="website" id="website">
+                                <input class="full-input" value="<?=$autor->get_website() ?>" type="url" name="website" id="website">
                             </h5>
                         <div>
 
                         <div class="mt-2">
                             <label class="mt-3" for="local">Localização (Opcional):</label>
                             <h5>
-                                <input class="full-input" value="<?=$art_local; ?>" type="text" name="local" id="local">
+                                <input class="full-input" value="<?=$autor->get_local() ?>" type="text" name="local" id="local">
                             </h5>
                         <div>
 
@@ -66,7 +66,7 @@
 
                     <div class="mt-5 text-end is-invalid">
 
-                        <a href=<?="?p=autor&a=$self_username" ?> type="button" class="btn btn-danger">Voltar</a>
+                        <a href=<?="?p=autor&a=".$self_user->get_username()  ?> type="button" class="btn btn-danger">Voltar</a>
                         <button type="submit" name="send_profile_info" class="btn btn-dark bg-primary">Salvar alterações</button>
                         <div class="invalid-feedback" id="edit_user_message"></div> <!-- adiciona d-block para aparecer -->
                     </div>
@@ -79,29 +79,6 @@
 
     </div>
     <div>
-
-        <h3 class="mt-5">Material Postado:</h3>
-        <table class="table table-striped">
-            <tbody>
-                <tr>
-                    <td>Artigo/Musica</td>
-                    <td class="text-end">Categoria</td>
-                    <td class="text-end">DD/MM/AAAA</td>
-                </tr>
-                <tr>
-                    <td>Artigo/Musica</td>
-                    <td class="text-end">Categoria</td>
-                    <td class="text-end">DD/MM/AAAA</td>
-                </tr>
-                <tr>
-                    <td>Artigo/Musica</td>
-                    <td class="text-end">Categoria</td>
-                    <td class="text-end">DD/MM/AAAA</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
 
 
 <script src="../script/edit_profile_img.js"></script>

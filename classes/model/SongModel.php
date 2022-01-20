@@ -4,11 +4,11 @@
 
     class SongModel extends Database{
         
-        public function insert_song($code_name, $song_title,  $song_file, $visibility, $single, $user_id, $album_id, $song_desc, $genre, $subgenre, $key){
+        public function insert_song($code_name, $song_title,  $song_file, $visibility, $single, $user_id, $album_id, $song_desc, $genre, $subgenre){
 
-            $stmt = $this->connect()->prepare("INSERT INTO song (code_name, title, file_dir, visibility, single, autor_id, album_id, about, genre, sub_genre, song_key) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+            $stmt = $this->connect()->prepare("INSERT INTO song (code_name, title, file_dir, visibility, single, autor_id, album_id, about, genre, sub_genre) VALUES(?,?,?,?,?,?,?,?,?,?);");
 
-            if (!$stmt->execute(array($code_name, $song_title,  $song_file, $visibility, $single, $user_id, $album_id, $song_desc, $genre, $subgenre, $key))) { // executa e testa se há erros
+            if (!$stmt->execute(array($code_name, $song_title,  $song_file, $visibility, $single, $user_id, $album_id, $song_desc, $genre, $subgenre))) { // executa e testa se há erros
                 header("Location: ../?error=instertSongerror");
                 exit();
             }

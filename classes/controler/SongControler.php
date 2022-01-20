@@ -18,7 +18,7 @@ use \classes\model\SongModel;
             $this->formatos = array("mp3", "aac", "wav", "ogg", "wma");
         }
 
-        public function uploadSong($song, $album_id, $visibility, $song_title, $song_desc, $genre, $subgenre, $key){
+        public function uploadSong($song, $album_id, $visibility, $song_title, $song_desc, $genre, $subgenre, $song_code_name){
 
             $ext = pathinfo($song['name'], PATHINFO_EXTENSION); //recebe a extensão do arquivo
 
@@ -26,10 +26,11 @@ use \classes\model\SongModel;
 
                 if ($song['error'] === 0){
                     
-                    $song_file_name = $_SESSION['actual_song'][1]; //$_SESSION['actual_song'][1] refere-se ao nome do arquivo, $_SESSION['actual_song'] é um array com as informações da música, foi criado em song_register.
+                    $song_file_name = $_SESSION[$song_code_name]['file_name']; //$_SESSION['actual_song']['file_name'] refere-se ao nome do arquivo, $_SESSION['actual_song'] é um array com as informações da música, foi criado em song_register.
                     $song_file = "songs/".$song_file_name; // define a pasta de upload
                     $temporario = "../temp_songs/".$song_file_name; //pasta temporária
                     rename($temporario, "../$song_file");// move o arquivo do local temoporario para a pastas
+                    $_SESSION[$song_code_name] = null;
 
                     if(!$album_id){ //caso o usuário não tenha selecionado álbum, o sistema irá criar um solo para a música
                         $album_id = $this->createSoloAlbum($song_title);
@@ -39,8 +40,7 @@ use \classes\model\SongModel;
                         $single = false;
                     }
 
-                    $song_code_name = uniqid('', true);
-                    $this->insert_song($song_code_name, $song_title,  $song_file, $visibility, $single, $this->user_id, $album_id, $song_desc, $genre, $subgenre, $key);
+                    $this->insert_song($song_code_name, $song_title,  $song_file, $visibility, $single, $this->user_id, $album_id, $song_desc, $genre, $subgenre);
 
                     if(!$single){
                         $playlist_code_name = AlbumModel::get_album_info($album_id, "playlist_code_name")['playlist_code_name'];

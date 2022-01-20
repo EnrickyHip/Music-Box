@@ -2,30 +2,41 @@
 PS: a classe btn-toggle e btn-toggle-nav NÃO fazem parte do bootstrap.
 -->
 <div class="flex-shrink-0 position-fixed d-none p-3 bg-light overflow-auto" style="width: 200px; height: 100%;" id="theory-nav">
+
     <div class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <span class="fs-5 fw-semibold">Teoria Musical</span>
     </div>
+    
     <ul class="list-unstyled ps-0" id="theory-nav-list">
-    <li class="mb-1">
+
+    <!--ATENÇÃO, OS ID'S DOS LINKS DEVE TER O MESMO NOME DO ARQUIVO PARA O ESTILO FUNCIONAR CORRETAMENTE-->
+
+      <li class="mb-1">
+
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-theory" aria-expanded="false">
           Início
         </button>
+
         <div class="collapse show" id="home-theory">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="?p=teoria_musical" id="teoria_musical" class="link-dark rounded">Aprenda Teoria Musical</a></li>
             <li><a href="#" class="link-dark rounded">Como Contribuir</a></li>
           </ul>
         </div>
+
       </li>
+
       <li class="mb-1">
+
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#basic-theory-nav" aria-expanded="false">
           Teoria Básica
         </button>
+
         <div class="collapse" id="basic-theory-nav">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="?p=teoria_musical&art=o_que_e_musica" id="o_que_e_musica" class="link-dark rounded">O que é Música?</a></li>
-            <li><a href="#" class="link-dark rounded">Propriedades da música</a></li>
-            <li><a href="#" class="link-dark rounded">Notas musicais</a></li>
+            <li><a href="?p=teoria_musical&art=propriedades_da_musica" id="propriedades_da_musica" class="link-dark rounded">Propriedades da música</a></li>
+            <li><a href="?p=teoria_musical&art=notas_musicais" id="notas_musicais" class="link-dark rounded">Notas musicais</a></li>
             <li><a href="#" class="link-dark rounded">Intervalos</a></li>
             <li><a href="#" class="link-dark rounded">O que é uma Escala?</a></li>
             <li><a href="#" class="link-dark rounded">Escala Maior</a></li>
@@ -34,10 +45,13 @@ PS: a classe btn-toggle e btn-toggle-nav NÃO fazem parte do bootstrap.
           </ul>
         </div>
       </li>
+
       <li class="mb-1">
+
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#harmony-theory" aria-expanded="false">
           Harmonia
         </button>
+
         <div class="collapse" id="harmony-theory">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li><a href="#" class="link-dark rounded">Introdução</a></li>
@@ -54,10 +68,13 @@ PS: a classe btn-toggle e btn-toggle-nav NÃO fazem parte do bootstrap.
           </ul>
         </div>
       </li>
+
       <li class="mb-1">
+
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sheet-theory" aria-expanded="false">
           Partituras
         </button>
+
         <div class="collapse" id="sheet-theory">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="#" class="link-dark rounded">O que são Partituras?</a></li>
@@ -69,10 +86,13 @@ PS: a classe btn-toggle e btn-toggle-nav NÃO fazem parte do bootstrap.
           </ul>
         </div>
       </li>
+
       <li class="mb-1">
+
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chord-theory" aria-expanded="false">
           Acordes
         </button>
+
         <div class="collapse" id="chord-theory">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="#" class="link-dark rounded">Acorde Maior</a></li>
@@ -85,10 +105,12 @@ PS: a classe btn-toggle e btn-toggle-nav NÃO fazem parte do bootstrap.
           </ul>
         </div>
       </li>
+
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#scale-theory" aria-expanded="false">
           Escalas
         </button>
+
         <div class="collapse" id="scale-theory">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="#" class="link-dark rounded">Escala Maior</a></li>
@@ -107,6 +129,7 @@ PS: a classe btn-toggle e btn-toggle-nav NÃO fazem parte do bootstrap.
           </ul>
         </div>
       </li>
+
     </ul >
   </div>
 
