@@ -8,14 +8,11 @@ let pageSong = {//para testes
 const pagePlay = document.getElementById('page-play');
 const pagePause = document.getElementById('page-pause');
 const pagePlayer = document.getElementById('page-player');
-const pageProgressBar = document.getElementById('page-progress-bar');
-const pageProgress = document.getElementById('page-progress');
-const pagetime = document.getElementById('begin-page-time');
-const pageEndtime = document.getElementById('end-page-time');
+const pageAdd = document.getElementById('page-add');
 
 pagePlay.addEventListener("click",function(){
     if(!songs.includes(pageSong)){
-        addPageSongtoQueue()
+        addPageSongtoQueueFirst()
 
     }
     song_play(pagePlay, pagePause)
@@ -25,6 +22,11 @@ pagePause.addEventListener("click", function(){
     song_pause(pagePause,pagePlay);
 })
 
+pageAdd.addEventListener("click", function(){
+    if(!songs.includes(pageSong)){
+        addPageSongtoQueueFinal();
+    }
+})
 
 
 
@@ -32,8 +34,12 @@ pagePause.addEventListener("click", function(){
 
 
 
-
-function addPageSongtoQueue(){
-    songs.unshift(pageSong)
+function addPageSongtoQueueFirst(){
+    songs.unshift(pageSong);
     load_song()
+}
+
+function addPageSongtoQueueFinal(){
+    songs.push(pageSong);
+    load_song
 }
