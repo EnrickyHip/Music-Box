@@ -12,8 +12,13 @@
 
     if (!$song_info) {
         require_once 'includes/song_error.php';
+        exit;
     }
-    else{
+
+    else {
+
+        /*print_r($_SESSION['usuario']['player_list']);
+        die;*/
 
         $song = new \classes\objects\SongObject($song_info);
 

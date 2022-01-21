@@ -1,71 +1,87 @@
-let songs = [ //Lista de músicas
+let songs = [//Lista de músicas
 
-    {
-        name: "Sign of the Cross",
+    /*{
+      title: "Sign of the Cross",
         artist: "Avantasia",
         src: "../songs/sign-of-the-cross.mp3",
-        cover: "../album_covers/The_Metal_Opera.jpg"
+        cover: "../album_covers/The_Metal_Opera.jpg",
+        code_name: '1'
     },
 
     {
-        name: "Darts",
+        title: "Darts",
         artist: "System of a Down",
         src: "../songs/darts.mp3",
-        cover: "../album_covers/System_of_a_down.jpg"
+        cover: "../album_covers/System_of_a_down.jpg",
+        code_name: '2'
     },
 
     {
-        name: "M.I.A",
+        title: "M.I.A",
         artist: "Avenged Sevenfold",
         src: "../songs/MIA.mp3",
-        cover: "../album_covers/City_of_Evil_album_cover.jpg"
+        cover: "../album_covers/City_of_Evil_album_cover.jpg",
+        code_name: '3'
     },
 
     {
-        name: "Lost in the Static",
+        title: "Lost in the Static",
         artist: "After the Burial",
         src: "../songs/lost-in-the-static.mp3",
-        cover: "../album_covers/ab67616d0000b273ee1ce5c92d708957395abdeb.jpg"
+        cover: "../album_covers/ab67616d0000b273ee1ce5c92d708957395abdeb.jpg",
+        code_name: '4'
     },
 
     {
-        name: "Hallowed Be Thy Name",
+        title: "Hallowed Be Thy Name",
         artist: "Iron Maiden",
         src: "../songs/hallowed-be-thy-name.mp3",
-        cover: "../album_covers/666.jpg"
+        cover: "../album_covers/666.jpg",
+        code_name: '5'
     },
 
     {
-        name: "Sickening",
+        title: "Sickening",
         artist: "Meshuggah",
         src: "../songs/sickening.mp3",
-        cover: "../album_covers/R-1673713-1236027023.jpeg.jpg"
+        cover: "../album_covers/R-1673713-1236027023.jpeg.jpg",
+        code_name: '6'
     },
 
     {
-        name: "The Looking Glass",
+        title: "The Looking Glass",
         artist: "Avantasia",
         src: "../songs/the-looking-glass.mp3",
-        cover: "../album_covers/AvantasiaTheMetalOpera1304_f.jpg"
-    }
+        cover: "../album_covers/AvantasiaTheMetalOpera1304_f.jpg",
+        code_name: '7'
+    }*/
 ]
 
+get_session()
+
 const song = document.getElementById("song")
+
 let list_index = 0 //index da lista
 let holding = false //este holding refere-se a barra de progresso do player, se o usuário está segurando o clique em algum ponto dela ela, vai estar true
 let player_stage = 0 // estágio do player, 0 para inteiro, 1 para remover a capa, e 2 para o player mínimo
 let playing = false
 
-
-
 function load_song(){ //carrega a música
     if (list_index == 0){
         grayIcon(prev)
+    }
+    else {
+        PurpleIcon(prev)
     }
 
     if (list_index >= songs.length-1){
         grayIcon(next)
     }
+    else {
+        PurpleIcon(next)
+    }
+
+    update_index()
 
     song.setAttribute("src", songs[list_index].src)
 
@@ -76,9 +92,51 @@ function load_song(){ //carrega a música
 
 function load_data(){ // carrega as informações da música
     song_cover.setAttribute("src", songs[list_index].cover)
-    song_name.textContent = songs[list_index].name
+    song_name.textContent = songs[list_index].title
     song_artist.textContent = songs[list_index].artist
     end_time.textContent = secForMinute(Math.floor(song.duration))
+}
+
+function get_session(){
+
+    check = true
+
+    $.ajax({
+        url:"../actions/get_player_session.php",
+        method: "POST",
+        data:{check:check},
+        success: (function(result){
+            set_session(result)
+        })
+      })
+}
+
+function set_session(list){
+    songs = JSON.parse(list)['songs']
+    list_index = JSON.parse(list)['index']
+}
+
+function update_session(){
+    song_json = JSON.stringify(songs)
+
+    $.ajax({
+        url:"../actions/set_player_session.php",
+        method: "POST",
+        data:{songs:song_json},
+        success: (function(result){
+        })
+      }) 
+}
+
+function update_index(){
+
+    $.ajax({
+        url:"../actions/set_player_index.php",
+        method: "POST",
+        data:{index:list_index},
+        success: (function(result){
+        })
+      }) 
 }
 
 function expand_less(){
@@ -88,7 +146,7 @@ function expand_less(){
         song_cover.classList.add("d-none")
     }
     else {
-        player_title.textContent = songs[list_index].name
+        player_title.textContent = songs[list_index].title
         expand_less_button.classList.add("d-none")
         modal_body.classList.add("d-none")
         if (playing){
@@ -140,7 +198,6 @@ function next_song(play, pause){ //troca para a próxima música
         list_index++
         load_song()
         song_play(play, pause)
-        PurpleIcon(prev)
     }
 } 
 
@@ -149,7 +206,6 @@ function prev_song(play, pause){ //troca para a música anterior
         list_index--
         load_song()
         song_play(play, pause)
-        PurpleIcon(next)
     }
 }
 

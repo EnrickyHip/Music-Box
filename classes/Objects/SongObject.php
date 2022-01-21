@@ -6,9 +6,11 @@
     use classes\model\SongModel;
     use classes\model\UserModel;
 
-    require_once 'vendor/autoload.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
     class SongObject extends SongModel{
+
+        private $code_name;
 
         private $title;
         private $autor_id;
@@ -23,6 +25,8 @@
         private $autor_profile_img;
  
         public function __construct($song){
+
+            $this->code_name = $song['code_name'];
 
             $this->title = $song['title'];
             $this->autor_id = $song['autor_id'];
@@ -61,10 +65,12 @@
                 'title' => $this->title,
                 'artist' => $this->autor_name,
                 'src' => $this->file,
-                'cover' => $this->album_cover
+                'cover' => $this->album_cover,
+                'code_name' => $this->code_name
             ];
     
-            $json = json_encode($song_info);
+            $song_json = json_encode($song_info);
+            return $song_json;
         }
 
         public function get_title(){
