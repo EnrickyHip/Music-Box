@@ -1,5 +1,5 @@
 <!-- PLAYER DE ÁUDIO - APENAS PARA TESTES -->
-<div class="fixed-bottom" id="player">
+<div class="fixed-bottom d-none" id="player">
     <div class="position-absolute bottom-0 end-0 me-3">
 
         <div class="modal-content shadow-lg">
@@ -33,8 +33,8 @@
                 <img class="rounded mx-auto d-block p-0 mb-2" id="player-song-cover">
 
                 <div id="descrição">
-                    <h5 class="mb-0" id="player-song-name">Sign of the Cross</h5>
-                    <p class="text-secondary fst-italic mb-0" id="player-song-artist">Avantasia</p>
+                    <h5 class="mb-0" id="player-song-name"></h5>
+                    <p class="text-secondary fst-italic mb-0" id="player-song-artist"></p>
 
                     <div class="d-flex align-item-center mt-1 mb-3 w-50" id="player_volume">
                         <span class="material-icons purple fs-5 clickable" id="volume_up">

@@ -13,6 +13,7 @@
         if(!isset($_SESSION['usuario']['player_list'])){
             $_SESSION['usuario']['player_list']['songs'] = [];
             $_SESSION['usuario']['player_list']['index'] = 0;
+            $_SESSION['usuario']['player_list']['stage'] = 0;
         }
 
         $list = $_SESSION['usuario']['player_list'];

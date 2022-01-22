@@ -98,7 +98,6 @@ function load_data(){ // carrega as informações da música
 }
 
 function get_session(){
-
     check = true
 
     $.ajax({
@@ -114,6 +113,7 @@ function get_session(){
 function set_session(list){
     songs = JSON.parse(list)['songs']
     list_index = JSON.parse(list)['index']
+    player_stage = JSON.parse(list)['stage']
 }
 
 function update_session(){
@@ -139,15 +139,34 @@ function update_index(){
       }) 
 }
 
+function update_stage_session(){
+    $.ajax({
+        url:"../actions/set_player_stage.php",
+        method: "POST",
+        data:{stage:player_stage},
+        success: (function(result){
+        })
+      }) 
+}
+
 function expand_less(){
     player_stage++
-    if(player_stage == 1){
-        expand_more_button.classList.remove("d-none")
-        song_cover.classList.add("d-none")
-    }
-    else {
+    update_stage()
+    
+}
+
+function expand_more(){
+    player_stage--
+    update_stage()
+}
+
+function update_stage(){
+
+    if(player_stage == 2){
+
         player_title.textContent = songs[list_index].title
         expand_less_button.classList.add("d-none")
+        expand_more_button.classList.remove("d-none")
         modal_body.classList.add("d-none")
         if (playing){
             litle_pause_button.classList.remove("d-none")
@@ -156,29 +175,28 @@ function expand_less(){
             litle_play_button.classList.remove("d-none")
         }
     }
-    
-}
 
-function expand_more(){
-    player_stage--
-    if(player_stage == 1){
+    else if(player_stage == 1){
         player_title.textContent = "Music-box"
         modal_body.classList.remove("d-none")
+        song_cover.classList.add("d-none")
         expand_more_button.classList.remove("d-none")
         expand_less_button.classList.remove("d-none")
         litle_play_button.classList.add("d-none")
         litle_pause_button.classList.add("d-none")
     }
+
     else {
         song_cover.classList.remove("d-none")
         expand_more_button.classList.add("d-none")
     }
+    update_stage_session()
 }
 
 function close_player(){
     player.classList.add("d-none")
     song.pause
-    song.currentTime = 0
+    song.src = null
 }
 
 function song_play(play, pause){ //toca a música

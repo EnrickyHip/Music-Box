@@ -29,6 +29,7 @@ volume_icons = [volume_up, volume_off, volume_down]
 
 if(songs.length > 0){
     load_song()
+    update_stage()
 }
 /*EVENTOS*/
 
