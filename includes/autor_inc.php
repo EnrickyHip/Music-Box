@@ -93,7 +93,64 @@
         <div class="tab-content border border-5 border-primary rounded shadow" id="nav-tabContent" style="z-index: 1;">
 
             <div class="tab-pane show active" id="nav-album" role="tabpanel" aria-label="nav-album-tab">
-                <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>
+            <?php
+                if($albuns == false){
+                    echo '<h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>';
+                } else{
+                    echo '<div class="d-flex flex-wrap">';
+                    foreach($albuns as $album){
+                        
+                        $albunCardModel = 
+                    "<div class='card m-1'>
+                        <img src='$album[cover_dir]' class='card-img rounded coverAPage'>
+                        <div class='card-img-overlay d-flex flex-column album-overlay'>
+                            <h5 class='text-white'>$album[title]</h5>
+                            <div class='text-end mt-auto'>
+                                <span id='page-add' class='material-icons play text-white clickable' style='font-size: 60px;'>add</span>
+                                <span id='author-play' class='material-icons play text-white clickable' style='font-size: 60px;'>play_arrow</span>
+                            </div>
+                        </div>
+                    </div>"; 
+                    echo $albunCardModel;
+                    }
+                    echo '</div>';
+                }
+            
+            ?>
+
+                <!-- <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2> 
+                <div class="d-flex flex-wrap">
+                    <div class="card m-1">
+                        <img src="../album_covers/666.jpg" class="card-img rounded coverAPage">
+                        <div class="card-img-overlay d-flex flex-column album-overlay">
+                            <h5 class="text-white">Nome do Album</h5>
+                            <div class="text-end mt-auto">
+                                <span id="page-add" class="material-icons play text-white clickable" style="font-size: 60px;">add</span>
+                                <span id="author-play" class="material-icons play text-white clickable" style="font-size: 60px;">play_arrow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card m-1">
+                        <img src="../album_covers/666.jpg" class="card-img rounded coverAPage">
+                        <div class="card-img-overlay d-flex flex-column album-overlay">
+                            <h5 class="text-white">Nome do Album</h5>
+                            <div class="text-end mt-auto">
+                                <span id="page-add" class="material-icons play text-white clickable" style="font-size: 60px;">add</span>
+                                <span id="author-play" class="material-icons play text-white clickable" style="font-size: 60px;">play_arrow</span>
+                            </div>
+                        </div>
+                    </div><div class="card m-1">
+                        <img src="../album_covers/666.jpg" class="card-img rounded coverAPage">
+                        <div class="card-img-overlay d-flex flex-column album-overlay">
+                            <h5 class="text-white">Nome do Album</h5>
+                            <div class="text-end mt-auto">
+                                <span id="page-add" class="material-icons play text-white clickable" style="font-size: 60px;">add</span>
+                                <span id="author-play" class="material-icons play text-white clickable" style="font-size: 60px;">play_arrow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        -->
             </div>
             
             <div class="tab-pane show" id="nav-playlist" role="tabpanel" aria-label="nav-playlist-tab">
