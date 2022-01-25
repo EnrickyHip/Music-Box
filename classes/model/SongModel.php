@@ -48,6 +48,21 @@
             }
         }
 
+        public static function get_all_songs($autor_id){
+            $stmt = self::connect()->prepare("SELECT * FROM song WHERE autor_id = ?;");
+
+            if (!$stmt->execute(array($autor_id))) {
+                header("Location: ../?error=getalbunserror");
+                exit();
+            }
+            else if($stmt->rowCount() > 0){
+                return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            }
+            else{
+                return false;
+            }
+        }
+
         protected function update_album($song, $single, $album_id){
 
             $stmt = self::connect()->prepare("UPDATE song SET album_id = ?, single = ? WHERE code_name = ?;");

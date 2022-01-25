@@ -186,7 +186,36 @@
                 </table>
             </div>
             <div class="tab-pane show" id="nav-musicas" role="tabpanel" aria-label="nav-musicas-tab">
-            <table class="table table-hover">
+                <?php
+                if($songs == false){
+                    echo '<h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>';
+                }else{
+                    echo 
+                    '<table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">título</th>
+                            <th scope="col" class="text-end">duração</th>
+                        </tr>  
+                    </thead>
+                    <tbody>';
+
+                    foreach($songs as $song){
+                        echo"<tr>
+                        <th scope='row'>1</th>
+                        <th>$song[title]</th>
+                        <th class='text-end'>Mn:Sg</th>
+                    </tr>";
+                    }
+
+                    echo '</tbody>
+                    </table>';
+                }
+                
+                ?>
+                <!--
+                <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -213,6 +242,7 @@
                         </tr>
                     </tbody>
                 </table>
+            -->
             </div>
             <div class="tab-pane show" id="nav-contrib" role="tabpanel" aria-label="nav-contrib-tab">
                 <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>

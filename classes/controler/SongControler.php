@@ -72,6 +72,11 @@ use \classes\model\SongModel;
             return $songs;
         }
 
+        public function get_all_user_songs(){
+            $songs = $this->get_all_songs($this->user_id);
+            return $songs;
+        }
+
         public function change_album($songs, $single, $album_id){         
             $this->update_album($songs, $single, $album_id);
         }
