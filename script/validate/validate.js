@@ -1,5 +1,4 @@
   // constantes relativas aos inputs
-  console.log("loaded")
 
   const username = $("#username").get(0)
   const email = $("#email").get(0)
@@ -70,7 +69,6 @@ function check_exists_user(){
     success: (function(result){ //função que é executada após sucesso da requisição
 
        if(result){
-         console.log(result)
         $("#user-message").get(0).innerHTML = "Nome de usuário já existente"
         add_invalid(username)//invalida o input
        }
@@ -214,15 +212,5 @@ function check_terms(){
   
   // estas são as funções que alteram a validação dos inputs, é apenas estético, por isso o implemento de classes do BOOTSTRAP 
 
-
-  function add_invalid(input){
-    input.classList.remove('is-valid')
-    input.classList.add('is-invalid')
-  }
-
-  function add_valid(input){
-    input.classList.remove('is-invalid')
-    input.classList.add('is-valid')
-  }
 
 

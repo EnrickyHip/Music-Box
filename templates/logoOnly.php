@@ -6,6 +6,8 @@
         require_once "includes/head_default.html"
     ?>
     <script src="script/jquery-3.6.0.min.js"></script>
+    <script src="../script/general_functions.js"></script>
+    <script src="../script/genres.js"></script>
 </head>
 
 <body>

@@ -17,8 +17,16 @@
         private $file;
         private $album_id;
 
+        private $about;
+
+        private $visibility;
+
         private $album_title;
         private $album_cover;
+        private $single;
+
+        private $genre;
+        private $subgenre;
 
         private $autor_name;
         private $autor_username;
@@ -32,6 +40,18 @@
             $this->autor_id = $song['autor_id'];
             $this->file = $song['file_dir'];
             $this->album_id = $song['album_id'];
+
+            $this->single = $song['single'];
+
+            $this->visibility = $song['visibility'];
+
+            $this->about = $song['about'];
+
+            $this->genre = $song['genre'];
+            $this->sub_genre = $song['sub_genre'];
+
+            $this->key = $song['song_key'];
+            $this->type = $song['type'];
             
             $this->set_album_info();
             $this->set_user_info();
@@ -40,11 +60,9 @@
         private function set_album_info(){
             $album = AlbumModel::get_album_info($this->album_id, 'title, cover_dir, single');
                         
-            $album_single = $album['single'];
-
             $this->album_cover = $album['cover_dir'];
 
-            if ($album_single) {
+            if ($this->single) {
                 $this->album_title = "Solo";
             }
             else{
@@ -73,6 +91,10 @@
             return $song_json;
         }
 
+        public function get_codename(){
+            return $this->code_name;
+        }
+
         public function get_title(){
             return $this->title;
         }
@@ -85,6 +107,10 @@
             return $this->album_cover;
         }
 
+        public function get_album_id(){
+            return $this->album_id;
+        }
+
         public function get_autor_username(){
             return $this->autor_username;
         }
@@ -95,5 +121,33 @@
 
         public function get_autor_profile_img(){
             return $this->autor_profile_img;
+        }
+
+        public function get_about(){
+            return $this->about;
+        }
+
+        public function get_single(){
+            return $this->single;
+        }
+
+        public function get_visibility(){
+            return $this->visibility;
+        }
+
+        public function get_subgenre(){
+            return $this->sub_genre;
+        }
+
+        public function get_genre(){
+            return $this->genre;
+        }
+
+        public function key(){
+            return $this->key;
+        }
+
+        public function type(){
+            return $this->type;
         }
     }

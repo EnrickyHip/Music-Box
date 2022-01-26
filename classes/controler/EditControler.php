@@ -38,8 +38,7 @@
             }
             else {
                 $profile_img_dir = $_SESSION['usuario']['profile_img_dir'];
-            }
-            $this->set_null(); 
+            } 
             $this->update_user($this->user_id, $this->art_name, $this->username, $this->bio, $this->website, $this->local, $profile_img_dir);
 
             $login_ctrl = new \classes\controler\LoginControler($this->username, null, null);
@@ -78,21 +77,6 @@
             else {
                 header("Location: ../?error=extensionNotAlwd");
                 exit();
-            }
-        }
-
-        private function set_null(){ //essa função serve para definir algumas informações opicionais como null para cadastro no banco de dados. pois a método post considera inputs em brancos como uma string vazia.
-
-            if($this->bio === ""){
-                $this->bio = null;
-            }
-
-            if($this->website === ""){
-                $this->website = null;
-            }
-
-            if($this->local === ""){
-                $this->local = null;
             }
         }
     }

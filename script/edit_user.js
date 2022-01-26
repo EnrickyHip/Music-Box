@@ -1,5 +1,4 @@
 
-console.log("edit user carregado")
 
 jQuery(function(){ 
 

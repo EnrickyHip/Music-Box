@@ -49,6 +49,19 @@
                     </div>
                 </div>
 
+                <div class="text-center mt-2">
+                    <?php
+                        if(isset($self_user)){
+                            if ($self_user->get_username()  == $song->get_autor_username()){
+                
+                                ?>  
+                                    <a  class="btn btn-success" href= <?= "?p=song&s=".$song->get_codename()."&e=true";?>>Editar Música</a>
+                                <?php
+                            }
+                        }
+                    ?>
+                </div>
+
 
 
 

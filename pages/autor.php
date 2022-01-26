@@ -17,15 +17,7 @@
     }
     else {
 
-        $autor = new \classes\objects\AutorObject($user_autor);
-
-        $album_ctrl = new \classes\controler\AlbumControler($user_autor['id']);
-        $albuns = $album_ctrl->get_all_user_albuns($user_autor['id']);
-
-        $song_ctrl = new \classes\controler\SongControler($user_autor['id']);
-        $songs = $song_ctrl->get_all_user_songs();
-
-
+        $autor = new \classes\objects\UserObject($user_autor);
 
         //se o autor for o mesmo do usuário logado e a variável edit estiver habilitada, o usuário irá para a página de edição, caso não, será redirecionado para o página de autor
         if (isset($self_user)){

@@ -48,6 +48,7 @@ CREATE TABLE song (
     genre VARCHAR(255) NOT NULL,
     sub_genre VARCHAR(255),
     song_key VARCHAR (3),
+    type VARCHAR (255),
     autor_id INTEGER NOT NULL,
     album_id INTEGER NOT NULL,
     FOREIGN KEY(autor_id) REFERENCES usuario(id),

@@ -20,11 +20,11 @@ jQuery(function(){
         page = getGetParam("p")
         
         if(page == "teoria_musical"){
-            theory_nav.classList.remove("d-none")
+            theory_nav.hidden = false
             return true
         }
         else {
-            theory_nav.classList.add("d-none")
+            theory_nav.hidden = true
             return false
         }
     }

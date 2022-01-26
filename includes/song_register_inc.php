@@ -58,11 +58,11 @@
                     
                     <div class="input-group">
                         <select id="album_select" name="album_select" class="form-select">
-                            <option>Nenhum</option>
+                            <option value="solo">Nenhum</option>
                             <?php
                                 
                                 $album_ctrl = new \classes\controler\AlbumControler($self_id);
-                                $albuns = $album_ctrl->get_all_user_albuns($self_id);
+                                $albuns = $album_ctrl->get_all_user_albuns();
                                 
                                 foreach ($albuns as $album){
                                     echo "<option value='".$album['id']."'>".$album['title']."</option>";
@@ -112,40 +112,6 @@
                     </div>    
                 </div>
 
-                <!--<div class="col-md-12 mb-4 mt-2">
-                    <label class="form-label" for="key_select">Tom (Opcional):</label> 
-                    
-                    <div class="input-group">
-                        <select id="key_select" name="key_select" class="form-select">
-                            <option disabled selected>Escolher Tonalidade</option>
-                            <option>A</option>
-                            <option>Am</option>
-                            <option>A#/Bb</option>
-                            <option>A#m/Bbm</option>
-                            <option>B</option>
-                            <option>Bm</option>
-                            <option>C</option>
-                            <option>Cm</option>
-                            <option>C#/Db</option>
-                            <option>C#m/Dbm</option>
-                            <option>D</option>
-                            <option>Dm</option>
-                            <option>D#/Eb</option>
-                            <option>D#m/Ebm</option>
-                            <option>E</option>
-                            <option>Em</option>
-                            <option>F</option>
-                            <option>Fm</option>
-                            <option>F#/Gb</option>
-                            <option>F#m/Gbm</option>
-                            <option>G</option>
-                            <option>Gm</option>
-                            <option>G#/Ab</option>
-                            <option>G#m/Abm</option>
-                        </select>              
-                    </div>    
-                </div>-->
-                
                 <div class="col-md-12 mb-4 mt-2">
 
                     <label class="form-label title d-flex" for="input-tags">
@@ -156,7 +122,7 @@
                     <div class="wrapper">
                         <div class="content">
                             <p>Pressione entre ou adicione uma virgúla para adicionar uma tag.</p>
-                            <ul><input id="input-tags" name="input-tags" type="text" spellcheck="false"></ul>
+                            <ul class="tags"><input id="input-tags" name="input-tags" type="text" spellcheck="false"></ul>
                         </div>
                         <div class="details">
                             <p><span>1000</span>/1000</p>

@@ -59,7 +59,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
         }
 
 
-        private function set_album_cover($cover){ //função para definir capa do álbum, retornando a pasta do arquivo
+        public function set_album_cover($cover){ //função para definir capa do álbum, retornando a pasta do arquivo
             $formatos = array("png", "jpg", "jpeg", "PNG");
 
             $ext = pathinfo($cover['name'], PATHINFO_EXTENSION); //recebe a extensão do arquivo
@@ -87,8 +87,12 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
             }
         }
 
-        public function get_all_user_albuns($user_id){
-            $albuns = $this->get_all_albuns($user_id);
+        public function edit_album($title, $single, $about, $cover, $album_id){
+            $this->update_album($title, $single, $about, $cover, $album_id);
+        }
+
+        public function get_all_user_albuns(){
+            $albuns = $this->get_all_albuns($this->user_id);
             return $albuns;
         }
 

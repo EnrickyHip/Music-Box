@@ -17,10 +17,14 @@
 
         public function create_playlist($songs, $title, $visibility, $favorite){
             $this->insert_playlist($this->code_name, $title, $this->user_id, $visibility, $favorite);
-            $this->add_song($this->code_name, $songs);
+            $this->add_song($songs);
         }
 
-        public function add_song($code_name, $songs){
-            $this->add_songs($code_name, $songs);
+        public function add_song($songs){
+            $this->add_songs($this->code_name, $songs);
+        }
+
+        public function remove_song($songs){
+            $this->remove_songs($this->code_name, $songs);
         }
     }

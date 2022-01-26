@@ -72,4 +72,26 @@
                 exit();
             }
         }
+
+        public function update_song($title, $single, $visibility, $about, $genre, $subgenre, $song_key, $type, $song_code_name){
+            $stmt = self::connect()->prepare(
+
+                "UPDATE song SET 
+                            title = ?,
+                            single = ?,
+                            visibility = ?,
+                            about = ?,
+                            genre = ?,
+                            sub_genre = ?,
+                            song_key = ?,
+                            type = ?                                                
+                WHERE code_name = ?;"
+                );
+
+
+            if (!$stmt->execute(array($title, $single, $visibility, $about, $genre, $subgenre, $song_key, $type, $song_code_name))) { // executa e testa se há erros
+                header("Location: ../?error=getalbunserror");
+                exit();
+            }
+        }
     }

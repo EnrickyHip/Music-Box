@@ -197,7 +197,7 @@
           <div class="mt-4">
             <h6 class="mb-3">Capa do Álbum:</h6>
             <div>
-              <img class="image-preview" src="../album_covers/default-cover-art.png" alt="" width="35%">
+              <img id="album_cover_preview" src="../album_covers/default-cover-art.png" alt="" width="35%">
             </div>
             
             <label for="album_cover" class="btn btn-success mt-3">Selecionar Capa para o Álbum</label>

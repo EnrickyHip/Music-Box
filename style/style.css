@@ -330,14 +330,14 @@ input[type="range"]::-webkit-slider-thumb {
     width: 15px;
 }
 
-.underline_input input:not([type="checkbox"]){
+.underline_input input:not([type="radio"], [type="checkbox"], [spellcheck="false"]){
     border-style: none;
     border-bottom: 1px solid #b3b3cc !important;
     outline: none;
     line-height: 1.5;
 }
 
-.underline_input input:not([type="checkbox"]):focus{
+.underline_input input:not([type="checkbox"], [spellcheck="false"]):focus{
     border-bottom: 2px solid #1718b0 !important;
 }
 

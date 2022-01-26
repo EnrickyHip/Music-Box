@@ -65,3 +65,4 @@
 </div>
 
 <script src="./script/validate/validate.js"></script>
+<script src="./script/general_functions.js"></script>

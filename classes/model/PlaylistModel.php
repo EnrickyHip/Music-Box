@@ -23,6 +23,7 @@
         protected function add_songs($playlist_code_name, $songs){
            
             foreach($songs as $song){
+
                 $stmt = $this->connect()->prepare('INSERT INTO playlist_songs (playlist_id, song_id) VALUES (?,?);');
 
                 if (!$stmt->execute(array($playlist_code_name, $song))) {
@@ -32,10 +33,22 @@
                     exit();
                 }
             }
-            
+        }
+
+        protected function remove_songs($playlist_code_name, $songs){
+            foreach($songs as $song){
+
+                $stmt = $this->connect()->prepare("DELETE FROM playlist_songs WHERE playlist_id = ? AND song_id = ?;");
+
+                if (!$stmt->execute(array($playlist_code_name, $song))) {
+
+                    $stmt = null;
+                    header("Location: ../../?error=playliststmtError"); //apenas para testes
+                    exit();
+                }
+            }
         }
 
         public static function get_playlist_info($code_name){
-
         }
     }

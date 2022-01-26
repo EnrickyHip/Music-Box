@@ -103,14 +103,3 @@ function check_pwd_correct(){
   })()
 
   // estas são as funções que alteram a validação dos inputs, é apenas estético, por isso o implemento de classes do BOOTSTRAP 
-
-
-  function add_invalid(input){
-    input.classList.remove("is-valid")
-    input.classList.add('is-invalid')
-  }
-
-  function add_valid(input){
-    input.classList.remove('is-invalid')
-    input.classList.add('is-valid')
-  }

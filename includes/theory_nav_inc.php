@@ -1,7 +1,7 @@
 <!-- sidebar de navegação da página de teoria musical
 PS: a classe btn-toggle e btn-toggle-nav NÃO fazem parte do bootstrap.
 -->
-<div class="flex-shrink-0 position-fixed d-none p-3 bg-light overflow-auto" style="width: 200px; height: 100%;" id="theory-nav">
+<div hidden class="flex-shrink-0 position-fixed p-3 bg-light overflow-auto" style="width: 200px; height: 100%;" id="theory-nav">
 
     <div class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <span class="fs-5 fw-semibold">Teoria Musical</span>

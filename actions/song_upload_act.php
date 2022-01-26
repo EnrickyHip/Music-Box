@@ -32,8 +32,14 @@
         else {
             $visibility = false;
         }
+
+        if($_POST['album_select'] == "solo"){
+            $album_id = false;
+        }
+        else {
+            $album_id = (int)$_POST['album_select'];
+        }
         
-        $album_id = (int)$_POST['album_select'];
 
         $upload_song = new \classes\controler\SongControler($user_id);
         $upload_song->uploadSong($song, $album_id, $visibility, $song_title, $song_desc, $genre, $subgenre, $song_code_name);

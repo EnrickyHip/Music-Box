@@ -53,7 +53,7 @@ class LoginControler extends UserModel { // classe. "extends" significa herança
         public function check_pwd(){
             $user = self::get_user_info($this->user, 'senha');
 
-            $check_pwd = password_verify($this->senha, $user[0]['senha']); //verfica se a senha que o usuário digitou coincide com o hash
+            $check_pwd = password_verify($this->senha, $user['senha']); //verfica se a senha que o usuário digitou coincide com o hash
 
             if ($check_pwd == true){
                 echo true;              

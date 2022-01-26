@@ -46,7 +46,7 @@ use \classes\model\SongModel;
                         $playlist_code_name = AlbumModel::get_album_info($album_id, "playlist_code_name")['playlist_code_name'];
 
                         $playlist_controler = new \classes\controler\PlaylistControler($this->user_id, $playlist_code_name);
-                        $playlist_controler->add_song($playlist_code_name, array($song_code_name));
+                        $playlist_controler->add_song(array($song_code_name));
                     }
 
                     return $song_code_name;
@@ -55,6 +55,61 @@ use \classes\model\SongModel;
                     die("deu erro meu bom");
                 }
             }
+        }
+
+        public function edit_song($song_title, $new_album_id, $about, $visibility, $genre, $subgenre, $key, $type, $song_codename, $cover){
+
+            $song_old_info = SongModel::get_song_info($song_codename, '*');
+            $old_song_album = $song_old_info['album_id'];
+            
+            if($new_album_id !== "solo"){
+
+                $this->change_album($song_codename, false, $new_album_id);
+                $single = false;
+
+                $new_album_playlist_code_name = AlbumModel::get_album_info($new_album_id, 'playlist_code_name')['playlist_code_name'];
+
+                $new_playlist_ctrl = new \classes\controler\PlaylistControler($this->user_id, $new_album_playlist_code_name);
+                $new_playlist_ctrl->add_song([$song_codename]);
+                
+                if($song_old_info['single']){
+                    $album_ctrl = new \classes\controler\AlbumControler($this->user_id);
+                    $album_ctrl->delete_album($old_song_album);
+                }
+
+                else if($new_album_id !== $old_song_album){
+                    $old_album_playlist_code_name = AlbumModel::get_album_info($old_song_album, 'playlist_code_name')['playlist_code_name'];
+
+                    $old_playlist_ctrl = new \classes\controler\PlaylistControler($this->user_id, $old_album_playlist_code_name);
+                    $old_playlist_ctrl->remove_song([$song_codename]);
+                }
+            }
+
+            else if(!$song_old_info['single']){
+
+                    $new_album_id = $this->createSoloAlbum($song_title);
+                    $album_ctrl = new \classes\controler\AlbumControler($this->user_id);
+
+                    if ($cover['size'] == 0){
+                        $cover_dir = "album_covers/default-cover-art.png";
+                    }
+                    else{
+                        $cover_dir =  $album_ctrl->set_album_cover($cover);
+                    }
+
+                    $album_ctrl->edit_album($song_title, true, '', $cover_dir, $new_album_id);
+
+                    $this->change_album($song_codename, true, $new_album_id);
+                    $single = true;
+
+                    $old_album_playlist_code_name = AlbumModel::get_album_info($old_song_album, 'playlist_code_name')['playlist_code_name'];
+
+                    $old_playlist_ctrl = new \classes\controler\PlaylistControler($this->user_id, $old_album_playlist_code_name);
+
+                    $old_playlist_ctrl->remove_song([$song_codename]);
+            }
+
+            $this->update_song($song_title, $single, $visibility, $about, $genre, $subgenre, $key, $type, $song_codename);
         }
 
         private function createSoloAlbum($song_title){ //cria o album solo
@@ -67,6 +122,10 @@ use \classes\model\SongModel;
             return $album_id;
         }
 
+        private function edit_album(){
+
+        }
+
         public function get_all_solo_songs(){
             $songs = $this->get_solo_songs($this->user_id);
             return $songs;
@@ -77,7 +136,7 @@ use \classes\model\SongModel;
             return $songs;
         }
 
-        public function change_album($songs, $single, $album_id){         
-            $this->update_album($songs, $single, $album_id);
+        public function change_album($song, $single, $album_id){         
+            $this->update_album($song, $single, $album_id);
         }
     }

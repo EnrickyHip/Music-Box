@@ -57,4 +57,22 @@
                 exit();
             }
         }
+
+        protected function update_album($title, $single, $about, $cover, $album_id){
+            $stmt = self::connect()->prepare(
+
+                "UPDATE album SET 
+                            title = ?,
+                            single = ?,
+                            about = ?,
+                            cover_dir = ?                                            
+                WHERE id = ?;"
+                );
+
+
+            if (!$stmt->execute(array($title, $single, $about, $cover, $album_id))) { // executa e testa se há erros
+                header("Location: ../?error=getalbunserror");
+                exit();
+            }
+        }
     }

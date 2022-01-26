@@ -21,6 +21,18 @@
         $local = filter_input(INPUT_POST, "local", FILTER_SANITIZE_SPECIAL_CHARS);
         $foto = $_FILES['inputFile'];
 
+        if($bio === ""){
+            $bio = null;
+        }
+
+        if($website === ""){
+            $website = null;
+        }
+
+        if($local === ""){
+            $local = null;
+        }
+
         //instancia o controle e edita as informações do usuário
         $edit_ctrl = new \classes\controler\EditControler($user_id, $art_name, $username, $bio, $website, $local, $foto); 
         $edit_ctrl->edit_user();
