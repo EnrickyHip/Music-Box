@@ -10,6 +10,7 @@ jQuery(function(){
   const local = $("#local").get(0)
   const message = $("#edit_user_message").get(0)
   let match = null
+  const send_profile_info = $("#send_profile_info").get(0)
   const autor = username.value
   // testa se o username digitado já existe por meio do ajax
   function check_exists_user_(){
@@ -123,7 +124,8 @@ jQuery(function(){
 
   // função de submit
   $(document).ready(function(){
-    edit_user_form.addEventListener('submit', function (event) {
+    send_profile_info.addEventListener('click', function (event) {
+      edit_user_form.submit()
 
         if(!checkArt_name() || !checkUsername() || !checkWebsite() || !checkLocalization()){
           message.classList.add("d-block") //d-block para a mensagem de erro aparecer

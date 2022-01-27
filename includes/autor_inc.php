@@ -244,8 +244,8 @@
 
                         </th>
                         <th class='text-end'>
-                            <span id="page-add" class="material-icons play purple clickable">add_circle</span>
-                            <span id="page-play" class="material-icons play purple clickable">play_circle</span>
+                            <span codename=<?=$song->get_codename()?> class="material-icons play purple clickable page-add">add_circle</span>
+                            <span codename=<?=$song->get_codename()?> class="material-icons play purple clickable page-play">play_circle</span>
                             <span id="like-false" class="material-icons purple clickable">favorite_border</span>
                             <span id="like-true" class="material-icons purple clickable d-none">favorite</span>
                             <span class="ms-5">Mn:Sg</span>

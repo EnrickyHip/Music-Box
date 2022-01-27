@@ -2,7 +2,7 @@
 
     use classes\model\SongModel;
 
-    require_once '../vendor/autoload.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
     if(!isset($_POST['song_code_name'])){
         header("Location: ../");
@@ -15,7 +15,7 @@
         $song_info = SongModel::get_song_info($song_code_name, '*');
 
         if (!$song_info) {
-            require_once 'includes/song_error.php';
+            require_once '../includes/song_error.php';
         }
         else {
             $song = new \classes\objects\SongObject($song_info);

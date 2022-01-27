@@ -7,12 +7,13 @@ const form_submit = $("#formLog").get(0);
 
 //checa a validade do input de usuário
 function check_user(){
+  console.log("entrou")
   if(user.value === ""){ // caso esteja vazio, o input será definido como inválido
     $("#user-message").get(0).innerHTML = "Por favor, digite seu E-mail ou nome de usuário" //define mensagem de erro
     add_invalid(user) // invalida o input, porém é apenas ESTÉTICOa
   }
   else {
-    check_exists_user() //checa se o usuário existe no banco de dados
+    return check_exists_user() //checa se o usuário existe no banco de dados
   }
 }
 
@@ -23,15 +24,14 @@ function check_exists_user(){
 
   var _username = $("#user").val()
 
-  $.ajax({
-    async: false, //o ajax por padrão executa o server-side ao mesmo tempo que o resto do código JS é executado, porém isto causa um delay das funções ajax, e como posteriormente o script JS depende das definições do ajax, essa propriedade faz com que o a continuação do código JS só seja feita após o término da requisição . Esta propriedade, aparentemente, é depreciada atualmente, porém não achei forma melhor de resolver este problema.  
+  return $.ajax({ //o ajax por padrão executa o server-side ao mesmo tempo que o resto do código JS é executado, porém isto causa um delay das funções ajax, e como posteriormente o script JS depende das definições do ajax, essa propriedade faz com que o a continuação do código JS só seja feita após o término da requisição . Esta propriedade, aparentemente, é depreciada atualmente, porém não achei forma melhor de resolver este problema.  
     url:"../actions/login_validate.php", //envia a requisição para este arquivo
     method: "POST", 
     data:{user_name:_username}, //estas são as variáveis enviadas por método POST para o server side
     success: (function(result){ //função que é executada após sucesso da requisição
        if(!result){
-
         $("#user-message").get(0).innerHTML = "Usuário inexistente"
+        remove_valid_invalid(password)
         add_invalid(user) //invalida o input
        }
 
@@ -60,7 +60,7 @@ function check_pwd_correct(){
   var _password = $("#pwd").val()
   var _username = $("#user").val()
 
-  $.ajax({
+  return $.ajax({
     async: false,
     url:"../actions/login_validate_pwd.php",
     method: "POST",
@@ -92,11 +92,16 @@ function check_pwd_correct(){
 
         form.addEventListener('submit', function (event) {
 
-          check_user() //executa a função para checar o usuário
+          //check_user() //executa a função para checar o usuário
+
+          event.preventDefault()
       
-          if(user.classList.contains("is-invalid") || password.classList.contains("is-invalid")){ 
-            event.preventDefault() //testa se os inputs contém a classe inválida, se sim, o evento(submit) é cancelado
-          }
+          $.when(check_user()).done(function(){
+            console.log(user.classList.contains("is-invalid"))
+            if(!(user.classList.contains("is-invalid") || password.classList.contains("is-invalid"))){ 
+              form.submit() 
+            }
+          })
 
         }, false)
       })

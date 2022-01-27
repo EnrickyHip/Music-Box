@@ -32,7 +32,7 @@
       add_invalid(username)
     }
     else{
-      check_exists_user() //checa se o username digitado ja existe no banco de dados
+      return check_exists_user() //checa se o username digitado ja existe no banco de dados
     }
   }
 
@@ -50,7 +50,7 @@
       add_invalid(email)
     }
     else {
-      check_exists_email()
+      return check_exists_email()
     }
   }
 
@@ -61,8 +61,7 @@ function check_exists_user(){
   
   var _username = $("#username").val() 
 
-  $.ajax({
-    async: false, //o ajax por padrão executa o server-side ao mesmo tempo que o resto do código JS é executado, porém isto causa um delay das funções ajax, e como posteriormente o script JS depende das definições do ajax, essa propriedade faz com que o a continuação do código JS só seja feita após o término da requisição . Esta propriedade, aparentemente, é depreciada atualmente, porém não achei forma melhor de resolver este problema.  
+  return $.ajax({
     url:"../actions/signup_validate_user.php", //envia a requisição para este arquivo
     method: "POST",
     data:{user_name:_username}, //estas são as variáveis enviadas por método POST para o server side
@@ -85,16 +84,13 @@ function check_exists_email(){
 
   var email_ = $("#email").val()
   
-  $.ajax({
-    async: false,
+  return $.ajax({
     url:"../actions/signup_validate_email.php",
     method: "POST",
     data:{email_: email_},
     success: (function(result){
-
-
        if(result){  
-          
+
         add_invalid(email)
         $("#email-message").get(0).innerHTML = "Email já cadastrado"
        }
@@ -193,18 +189,22 @@ function check_terms(){
       .forEach(function (form) {
 
         form.addEventListener('submit', function(event) {
-
+          event.preventDefault()
+          
           check_username()
           check_email()
           check_password()
           check_terms()
 
-          //testa se os inputs contém a classe inválida, se sim, o evento(submit) é cancelado
-          if(username.classList.contains("is-invalid") || email.classList.contains("is-invalid") || password.classList.contains("is-invalid") || terms.classList.contains("is-invalid")){
-            event.preventDefault()
-          }
-          else {
-          }
+          $.when(check_username(), check_email()).done(function(){
+            if(!(username.classList.contains("is-invalid") || email.classList.contains("is-invalid") || password.classList.contains("is-invalid") || terms.classList.contains("is-invalid"))){
+              console.log("enviou")
+              form.submit()
+            }
+            else {
+              console.log("nao enviou")
+            }
+          })
 
         }, false)
       })

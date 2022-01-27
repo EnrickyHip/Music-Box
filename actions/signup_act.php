@@ -4,7 +4,7 @@
 
     include_once "../vendor/autoload.php";
 
-    if (!isset($_POST['register'])){ // testa se o formuçário foi enviado
+    if (!isset($_POST['username'])){ // testa se o formuçário foi enviado
         header("Location: ../?t=logoOnly&p=register"); //retorna para a página de registro caso o usuário não tenha enviado o formulário
         exit();
     }

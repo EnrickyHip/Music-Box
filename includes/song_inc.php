@@ -30,11 +30,11 @@
                 <div class="text-center">
                     <div id="controlador-page" class="py-1 d-inline-flex">
                         <div>
-                            <span id="page-add" class="material-icons play purple clickable" style="font-size: 60px;">add_circle</span>
+                            <span codename=<?=$song->get_codename()?> class="material-icons play purple clickable page-add" style="font-size: 60px;">add_circle</span>
                         </div>
                         <div>
-                            <span id="page-play" class="material-icons play purple clickable" style="font-size: 60px;">play_circle</span>
-                            <span id="page-pause" class="material-icons d-none play purple clickable" style="font-size: 60px;">pause_circle</span>
+                            <span codename=<?=$song->get_codename()?> class="material-icons play purple clickable page-play" style="font-size: 60px;">play_circle</span>
+                
                         </div>
 
                     </div>
@@ -81,4 +81,3 @@
     Suscipit quam fugiat earum eaque in, sit officiis corrupti laboriosam doloremque dolore quod, nobis repellendus, magnam eius? Nihil ea aliquid laboriosam amet sunt iusto quasi, ratione nam voluptatem temporibus esse!
     Iste suscipit animi delectus, saepe velit ad deleniti, ipsum, eius odio sit qui voluptas omnis eos quos reprehenderit. Cupiditate culpa quidem molestias vero accusamus animi ipsa mollitia magnam eligendi atque.
 </div>
-<script src="../script/playerJs/pagePlayer.js"></script>

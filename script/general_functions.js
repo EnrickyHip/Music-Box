@@ -28,6 +28,11 @@ function add_valid(input){
     input.classList.add('is-valid')
 }
 
+function remove_valid_invalid(input){
+    input.classList.remove('is-invalid')
+    input.classList.remove('is-valid')
+}
+
 function set_subgenres(subgenre_select, genre, subgenre){
     $(`${subgenre_select} option:not(:first)`).remove();
     $(`${subgenre_select}`).append("<option>Nenhum</option>")

@@ -15,6 +15,13 @@
                 
                 <h3>Informações Principais</h3>
 
+                <div class="my-5 text-center is-invalid">
+
+                    <button type="button" id="send_song_edit" name="send_song_edit" class="btn btn-dark bg-primary">Salvar alterações</button>
+                    <div class="invalid-feedback" id="song_edit_message"></div> <!-- adiciona d-block para aparecer -->
+
+                </div>
+
                 <div class="text-center">
                     <div class="mt-4">
                         <label for="song_title_edit">Título:</label>
@@ -295,13 +302,6 @@
 
             <input type="hidden" name="edit_song_codename" value=<?=$song->get_codename()?>>
 
-            <div class="my-5 text-end is-invalid">
-
-                <a href=<?="?p=song&s=".$song->get_codename() ?> type="button" class="btn btn-danger">Voltar</a>
-                <button type="button" id="send_song_edit" name="send_song_edit" class="btn btn-dark bg-primary">Salvar alterações</button>
-                <div class="invalid-feedback" id="song_edit_message"></div> <!-- adiciona d-block para aparecer -->
-
-            </div>
         </form>
 
     </div>

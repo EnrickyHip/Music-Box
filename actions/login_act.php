@@ -4,7 +4,7 @@
 
     include_once "../vendor/autoload.php";
 
-    if (!isset($_POST['login'])){ // testa se o formulário de login foi enviado
+    if (!isset($_POST['user'])){ // testa se o formulário de login foi enviado
         header("Location: ../");
         exit();
     }

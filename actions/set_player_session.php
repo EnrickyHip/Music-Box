@@ -19,7 +19,6 @@
         else {
             $list = json_decode($song_info);
             $_SESSION['usuario']['player_list']['songs'] = $list;
-            echo "caralho";
         }
     }
 

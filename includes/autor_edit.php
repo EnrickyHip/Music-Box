@@ -67,7 +67,7 @@
                     <div class="mt-5 text-end is-invalid">
 
                         <a href=<?="?p=autor&a=".$self_user->get_username()  ?> type="button" class="btn btn-danger">Voltar</a>
-                        <button type="submit" name="send_profile_info" class="btn btn-dark bg-primary">Salvar alterações</button>
+                        <button type="button" id="send_profile_info" name="send_profile_info" class="btn btn-dark bg-primary">Salvar alterações</button>
                         <div class="invalid-feedback" id="edit_user_message"></div> <!-- adiciona d-block para aparecer -->
                     </div>
 
