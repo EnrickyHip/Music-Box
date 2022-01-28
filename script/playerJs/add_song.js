@@ -19,6 +19,9 @@ function play_Song(){
         load_song()
         song_play(play, pause)
     }
+    if(player_stage == 2){
+        update_stage()
+    }
 }
 
 function add_Song(){
@@ -60,7 +63,10 @@ jQuery(function(){
             let codename = playButton.getAttribute("codename")
             $.when(get_song_info(codename)).done(function(){
                 play_Song()
-                open_player()
+                if(player_stage == "closed"){
+                    player_stage = 0
+                    open_player()
+                }
             })
         })
     })

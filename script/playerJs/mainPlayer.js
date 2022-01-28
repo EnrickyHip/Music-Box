@@ -31,20 +31,20 @@ volume_icons = [volume_up, volume_off, volume_down]
 /*EVENTOS*/
 
 play.addEventListener("click", function(){
-    song_play(play, pause)
+    song_play()
 })
 
 litle_play_button.addEventListener("click", function(){
-    song_play(litle_play_button, litle_pause_button)
+    song_play()
 })
 
 
 pause.addEventListener("click", function(){
-    song_pause(pause, play)
+    song_pause()
 })
 
 litle_pause_button.addEventListener("click", function(){
-    song_pause(litle_pause_button,litle_play_button)
+    song_pause()
 })
 
 prev.addEventListener("click", function(){ //botão para para a música anterior

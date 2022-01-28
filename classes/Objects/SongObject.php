@@ -143,11 +143,11 @@
             return $this->genre;
         }
 
-        public function key(){
+        public function get_key(){
             return $this->key;
         }
 
-        public function type(){
+        public function get_type(){
             return $this->type;
         }
     }

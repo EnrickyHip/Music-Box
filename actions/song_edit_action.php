@@ -23,6 +23,10 @@
         $album_id = $_POST['album_edit_select'];
 
         $cover = $_FILES['inputCover_edit'];
+
+        if($about == ''){
+            $about = null;
+        }
             
         
         if(isset($_POST['subgenre_edit'])){

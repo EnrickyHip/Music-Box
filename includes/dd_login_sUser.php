@@ -19,10 +19,10 @@
 
     <div class="d-flex mx-3">
 
-        <a href="actions/logout.php" class="btn btn-danger no-ajaxy">
+        <a href="actions/logout.php" class="btn btn-danger no-ajaxy me-2">
             Sair
         </a>
-        <a class="btn btn-primary text-dark" href= <?="?p=autor&a=".$self_user->get_username();?>>
+        <a class="btn btn-primary" href= <?="?p=autor&a=".$self_user->get_username();?>>
             Página de Autor
         </a> 
             
