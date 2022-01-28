@@ -208,7 +208,7 @@
 
         <div class="modal-footer">
           <div class="text-danger" id="create_album_message"></div>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" id="album_cancel" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
           <button type="submit" name="create_album_submit" class="btn btn-success">Criar Álbum</button>
         </div>
 

@@ -4,6 +4,12 @@ $(document).ready(function(){
     const message = $("#create_album_message").get(0)
     const inputFile = document.getElementById("album_cover")
     const imgPreview = document.querySelector("#album_cover_preview")
+    const album_form = document.getElementById("create_album_form")
+
+    $('#create_album_modal').on('hidden.bs.modal', function () {
+        album_form.reset()
+        imgPreview.src = "../album_covers/default-cover-art.png"
+    });
 
 
     $("#create_album_form").submit(function(event){
@@ -15,7 +21,6 @@ $(document).ready(function(){
           else {
             message.classList.remove("d-block")
           }
-
     })
 
     function checkAlbumTitle(){

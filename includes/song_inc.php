@@ -9,7 +9,7 @@
             </div>
         </a>
     </div>
-    <div class="p-1 my-3 mx-auto" style="max-width: 80%;">
+    <div class="p-1 my-4 mx-auto" style="max-width: 80%;">
         <div class="g-0">
 
             <div class="py-1">
@@ -68,16 +68,62 @@
             </div>
         </div>
     </div>
-</div>
-<div class="container">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum accusantium pariatur tenetur, esse voluptatibus veniam expedita ab earum voluptatum vitae aperiam quidem ut eligendi, dolores cupiditate et. Ipsam, temporibus nulla!
-    Repudiandae molestiae, ea enim accusamus ipsam consectetur inventore optio quae mollitia ab iure odit atque nesciunt tempora suscipit. Magnam, tenetur laborum esse iste cupiditate debitis at minus corrupti reprehenderit? Dicta.
-    Placeat nam animi similique esse perspiciatis consequatur eaque fuga perferendis autem. Ad aliquid illum temporibus aut. Delectus quaerat molestiae optio, tempora sint minus ipsam debitis, eaque, sunt molestias cupiditate asperiores?
-    Consectetur impedit vitae dicta quae maiores ullam maxime modi iure quos rerum nostrum, adipisci dolorem libero, iusto beatae eveniet? Praesentium et voluptate vero culpa architecto dignissimos rerum deserunt sunt alias.
-    Ipsa obcaecati explicabo error dolor sint consequatur mollitia expedita nulla fuga, pariatur ab repudiandae voluptas eum odio corrupti perferendis praesentium unde quia laborum asperiores, illo tenetur minima consectetur repellendus! Error?
-    Nihil cumque error quasi nobis expedita accusamus veritatis facere explicabo quos est praesentium optio suscipit qui aliquam hic assumenda, adipisci eligendi quo inventore. Placeat culpa ad porro assumenda, fugit tenetur.
-    Similique ut libero reiciendis, excepturi, culpa dolorum ipsum velit est quo veniam voluptatum nostrum accusantium animi magnam aliquam ad ex eum debitis? Sunt tenetur, quod vero asperiores exercitationem officiis eligendi!
-    Alias, sit dignissimos expedita itaque ipsum quae voluptatum facilis, quaerat id accusamus impedit ullam necessitatibus neque perspiciatis sint deserunt laudantium ex ducimus inventore hic tempora magnam, enim ea architecto! Aspernatur?
-    Suscipit quam fugiat earum eaque in, sit officiis corrupti laboriosam doloremque dolore quod, nobis repellendus, magnam eius? Nihil ea aliquid laboriosam amet sunt iusto quasi, ratione nam voluptatem temporibus esse!
-    Iste suscipit animi delectus, saepe velit ad deleniti, ipsum, eius odio sit qui voluptas omnis eos quos reprehenderit. Cupiditate culpa quidem molestias vero accusamus animi ipsa mollitia magnam eligendi atque.
+
+    <div class="my-5">
+        <?php
+            if($song->get_about()){
+        ?>
+
+        <div class="mb-5 container text-center w-75 mx-auto">
+            <p>
+                <?=$song->get_about()?>
+            </p>
+        </div>
+
+        <?php
+            }
+        ?>  
+        
+        <span class="fs-5">
+            <strong>Gênero/Estilo:</strong>
+            <?=$song->get_genre()?>
+        </span>
+        <br>
+        <span class="fs-5">
+            <strong>Subgênero:</strong>
+            <?php
+                if(!$song->get_subgenre()){
+                    echo "Não definido";
+                }
+                else {
+                    echo $song->get_subgenre();
+                }
+            ?>
+        </span>
+        <br>
+        <span class="fs-5">
+            <strong>Tipo:</strong>
+            <?php
+                if(!$song->get_type()){
+                    echo "Não definido";
+                }
+                else {
+                    echo $song->get_type();
+                }
+            ?>
+        </span>
+        <br>
+        <span class="fs-5">
+            <strong>Tonalidade:</strong>
+            <?php
+                if(!$song->get_key()){
+                    echo "Não definido";
+                }
+                else {
+                    echo $song->get_key();
+                }
+            ?>
+        </span>
+
+    </div>
 </div>

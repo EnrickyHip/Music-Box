@@ -249,22 +249,22 @@
                         <div class="d-flex">  
                             <input
                             
-                            class="form-check-input" type="radio" name="song_type" id="not_defined_type_edit">
-                            <label class="form-check-label ms-1" for="not_defined_type">
+                            class="form-check-input" type="radio" value="Não Definido" name="song_type" id="not_defined_type_edit">
+                            <label class="form-check-label ms-1" for="not_defined_type_edit">
                                 Não definido
                             </label>
                         </div>
 
                         <div class="d-flex">
-                            <input class="form-check-input" type="radio" name="song_type" id="lyric_type_edit">
-                            <label class="form-check-label ms-1" for="public_type">
+                            <input class="form-check-input" value="Lírico" type="radio" name="song_type" id="lyric_type_edit">
+                            <label class="form-check-label ms-1" for="lyric_type_edit">
                                 Lírico
                             </label>
                         </div>
 
                         <div class="d-flex">
-                            <input class="form-check-input" type="radio" name="song_type" id="intrumental_type_edit">
-                            <label class="form-check-label ms-1" for="intrumental_type">
+                            <input class="form-check-input" value="Instrumental" type="radio" name="song_type" id="intrumental_type_edit">
+                            <label class="form-check-label ms-1" for="intrumental_type_edit">
                                 Instrumental
                             </label>
                         </div>

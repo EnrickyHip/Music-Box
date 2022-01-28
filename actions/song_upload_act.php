@@ -18,6 +18,10 @@
         $song_title = filter_input(INPUT_POST, "song_title", FILTER_SANITIZE_SPECIAL_CHARS);
         $song_desc = filter_input(INPUT_POST, "song_desc", FILTER_SANITIZE_SPECIAL_CHARS);
         $genre = $_POST['genre_select'];
+        
+        if($song_desc == ''){
+            $song_desc = null;
+        }
 
         if(isset($_POST['subgenre_select'])){
             $subgenre = $_POST['subgenre_select'];

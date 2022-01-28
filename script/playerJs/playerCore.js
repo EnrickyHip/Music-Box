@@ -1,5 +1,3 @@
-
-
 let songs = [//Lista de músicas
 
     /*{
@@ -236,16 +234,22 @@ function open_player(){
     update_stage_session()
 }
 
-function song_play(play, pause){ //toca a música
+function song_play(){ //toca a música
     playing = true
     song.play()
     changePlayPauseButton(play, pause)
+    if (player_stage == 2){
+        changePlayPauseButton(litle_play_button, litle_pause_button)
+    }
 }
 
-function song_pause(pause, play){ //pausa a música
+function song_pause(){ //pausa a música
     playing = false
     song.pause()
     changePlayPauseButton(pause, play)
+    if (player_stage == 2){
+        changePlayPauseButton(litle_pause_button, litle_play_button)
+    }
 }
 
 function next_song(play, pause){ //troca para a próxima música
