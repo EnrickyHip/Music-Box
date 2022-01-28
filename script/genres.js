@@ -1,4 +1,4 @@
-console.log("declarando generos")
+
 
 const genres = [
     {

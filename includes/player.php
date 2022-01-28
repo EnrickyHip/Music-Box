@@ -89,5 +89,6 @@
 
 
 
-
+<script src="../script/playerJs/playerCore.js"></script>
 <script src="../script/playerJs/mainPlayer.js"></script>
+

@@ -3,8 +3,8 @@
     require_once '../vendor/autoload.php';
     session_start();
 
-    if(!isset($_POST['check']) || !isset($_SESSION['usuario'])){
-        header("Location: ../");
+    if(!(isset($_POST['check'])) or !(isset($_SESSION['usuario']))){
+        echo false;
         exit;
     }
     

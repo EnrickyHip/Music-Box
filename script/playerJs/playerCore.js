@@ -1,3 +1,5 @@
+
+
 let songs = [//Lista de músicas
 
     /*{
@@ -57,14 +59,12 @@ let songs = [//Lista de músicas
     }*/
 ]
 
-get_session()
-
-const song = document.getElementById("song")
-
 let list_index = 0 //index da lista
 let holding = false //este holding refere-se a barra de progresso do player, se o usuário está segurando o clique em algum ponto dela ela, vai estar true
 let player_stage = 0 // estágio do player, 0 para inteiro, 1 para remover a capa, e 2 para o player mínimo
 let playing = false
+
+get_session()
 
 function load_song(){ //carrega a música
     if (list_index == 0){
@@ -101,23 +101,51 @@ function get_session(){
     check = true
 
     $.ajax({
+        async: false,
         url:"../actions/get_player_session.php",
         method: "POST",
         data:{check:check},
         success: (function(result){
-            set_session(result)
+            console.log(result)
+            if(result){
+                set_session(result)
+            }
         })
       })
 }
 
 function set_session(list){
-    songs = JSON.parse(list)['songs']
+
     list_index = JSON.parse(list)['index']
     player_stage = JSON.parse(list)['stage']
+
+    songs_condenames = JSON.parse(list)['songs']
+    songs_condenames.forEach(song_codename => {
+        $.when(get_song_info(song_codename)).done(function(song){
+            let song_info = JSON.parse(song)
+            songs.push(song_info)
+
+            if(player_stage !== "closed"){
+                open_player()
+            }
+
+            if(songs.length > 0){
+                load_song()
+                update_stage()
+            }
+
+        })
+    });
 }
 
 function update_session(){
-    song_json = JSON.stringify(songs)
+    let songs_codenames = []
+
+    songs.forEach(song => {
+        songs_codenames.push(song.code_name)
+    });
+
+    song_json = JSON.stringify(songs_codenames)
 
     $.ajax({
         url:"../actions/set_player_session.php",
@@ -140,6 +168,7 @@ function update_index(){
 }
 
 function update_stage_session(){
+
     $.ajax({
         url:"../actions/set_player_stage.php",
         method: "POST",
@@ -162,34 +191,35 @@ function expand_more(){
 
 function update_stage(){
 
-    if(player_stage == 2){
+        if(player_stage == 2){
 
-        player_title.textContent = songs[list_index].title
-        expand_less_button.classList.add("d-none")
-        expand_more_button.classList.remove("d-none")
-        modal_body.classList.add("d-none")
-        if (playing){
-            litle_pause_button.classList.remove("d-none")
+            player_title.textContent = songs[list_index].title
+            expand_less_button.classList.add("d-none")
+            expand_more_button.classList.remove("d-none")
+            modal_body.classList.add("d-none")
+            if (playing){
+                litle_pause_button.classList.remove("d-none")
+            }
+            else {
+                litle_play_button.classList.remove("d-none")
+            }
         }
+    
+        else if(player_stage == 1){
+            player_title.textContent = "Music-box"
+            modal_body.classList.remove("d-none")
+            song_cover.classList.add("d-none")
+            expand_more_button.classList.remove("d-none")
+            expand_less_button.classList.remove("d-none")
+            litle_play_button.classList.add("d-none")
+            litle_pause_button.classList.add("d-none")
+        }
+    
         else {
-            litle_play_button.classList.remove("d-none")
+            song_cover.classList.remove("d-none")
+            expand_more_button.classList.add("d-none")
         }
-    }
 
-    else if(player_stage == 1){
-        player_title.textContent = "Music-box"
-        modal_body.classList.remove("d-none")
-        song_cover.classList.add("d-none")
-        expand_more_button.classList.remove("d-none")
-        expand_less_button.classList.remove("d-none")
-        litle_play_button.classList.add("d-none")
-        litle_pause_button.classList.add("d-none")
-    }
-
-    else {
-        song_cover.classList.remove("d-none")
-        expand_more_button.classList.add("d-none")
-    }
     update_stage_session()
 }
 
@@ -197,6 +227,13 @@ function close_player(){
     player.classList.add("d-none")
     song.pause
     song.src = null
+    player_stage = "closed"
+    update_stage_session()
+}
+
+function open_player(){
+    player.classList.remove("d-none")
+    update_stage_session()
 }
 
 function song_play(play, pause){ //toca a música

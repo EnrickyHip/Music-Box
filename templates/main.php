@@ -52,7 +52,6 @@
     <script src="../script/general_functions.js"></script>
     <script src="../script/playerJs/add_song.js"></script>
     <script src="../script/genres.js"></script>
-    <script src="../script/playerJs/playerCore.js"></script>
     
 
     <?php

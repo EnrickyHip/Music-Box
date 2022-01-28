@@ -1,5 +1,6 @@
 //declaração de variáveis
 
+
 const play = document.getElementById("play")
 const pause = document.getElementById("pause")
 const prev = document.getElementById("prev")
@@ -27,10 +28,6 @@ const player_title = document.getElementById("player-title")
 
 volume_icons = [volume_up, volume_off, volume_down]
 
-if(songs.length > 0){
-    load_song()
-    update_stage()
-}
 /*EVENTOS*/
 
 play.addEventListener("click", function(){
