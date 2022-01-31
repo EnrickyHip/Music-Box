@@ -13,51 +13,37 @@ jQuery(function(){
   const send_profile_info = $("#send_profile_info").get(0)
   const autor = username.value
   // testa se o username digitado já existe por meio do ajax
-  function check_exists_user_(){
-    var _username = $("#username").val() 
 
-    $.ajax({
-      async: false, //o ajax por padrão executa o server-side ao mesmo tempo que o resto do código JS é executado, porém isto causa um delay das funções ajax, e como posteriormente o script JS depende das definições do ajax, essa propriedade faz com que o a continuação do código JS só seja feita após o término da requisição . Esta propriedade, aparentemente, é depreciada atualmente, porém não achei forma melhor de resolver este problema.  
-      url:"../actions/signup_validate_user.php", //envia a requisição para este arquivo
-      method: "POST",
-      data:{user_name:_username}, //estas são as variáveis enviadas por método POST para o server side
-      success: (function(result){ //função que é executada após sucesso da requisição
-        result_ = getUsernameExists(result)
-      })
-    })
-    return result_
-  }
-
-  // retorna a validação do usuário
-  function getUsernameExists(result){
-
-    if(result & $("#username").val() !== autor){ //o caso o usuário existe e NÃO seja igual ao usuário logado, retornará true
-      message.innerHTML = "Nome de usuário já existente"
-      return true
-    }
-    else {
-      return false
-    }
-  }
 
   // checa a validade do username
   function checkUsername(){
+    match = /^[a-zA-Z0-9_]*$/
     if(!check_empty(username)){
       message.innerHTML = "Por favor, digite um nome de usuário"
       return false
     }
-
-    match = /^[a-zA-Z0-9_]*$/
-    if(!checkSpecialChars(username, match)){
+    else if(!checkSpecialChars(username, match)){
       message.innerHTML = "Nome de usuário contém caracteres inválidos"
       return false
     }
-    else {
-      if(!check_exists_user_()){
-        return true
-      }
+    else{
+      return true
     }
   }
+
+  function check_exists_user_(){
+    var _username = $("#username").val() 
+
+    return $.ajax({
+      url:"../actions/signup_validate_user.php", //envia a requisição para este arquivo
+      method: "POST",
+      data:{user_name:_username}, //estas são as variáveis enviadas por método POST para o server side
+      success: (function(result){
+         //função que é executada após sucesso da requisição
+      })
+    })
+  }
+
 
   function check_empty(name){
     if(name.value === ""){
@@ -88,7 +74,7 @@ jQuery(function(){
       return false
     }
 
-    match = /^[a-zA-Z0-9, áàâãéèêíïóôõöúçñ]*$/
+    match = /^[a-zA-Z0-9_, áàâãéèêíïóôõöúçñ]*$/
     if(!checkSpecialChars(art_name, match)){
       message.innerHTML = "Nome artístico contém caracteres inválidos"
       return false
@@ -125,15 +111,28 @@ jQuery(function(){
   // função de submit
   $(document).ready(function(){
     send_profile_info.addEventListener('click', function (event) {
-      edit_user_form.submit()
+      
+      $.when(check_exists_user_()).done(function(result){
 
-        if(!checkArt_name() || !checkUsername() || !checkWebsite() || !checkLocalization()){
+        if(!result){
+          result = true
+        }
+
+        else if($("#username").val() !== autor){ //o caso o usuário existe e NÃO seja igual ao usuário logado,
+          result = false
+          message.innerHTML = "Nome de usuário já existente"
+        }
+
+        if(!checkArt_name() || !checkUsername() || !result || !checkWebsite() || !checkLocalization()){
           message.classList.add("d-block") //d-block para a mensagem de erro aparecer
-          event.preventDefault()
+          console.log("nao enviou")
         }
         else {
           message.classList.remove("d-block")
+          console.log("enviou")
+         edit_user_form.submit()
         }
       })
+    })
   })
 })

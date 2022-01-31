@@ -19,6 +19,8 @@
         require("./pages/noExist.php");
     }
 
+    require_once "includes/footer_inc.html";
+
 ?>
 
 </div>

@@ -7,7 +7,6 @@ const form_submit = $("#formLog").get(0);
 
 //checa a validade do input de usuário
 function check_user(){
-  console.log("entrou")
   if(user.value === ""){ // caso esteja vazio, o input será definido como inválido
     $("#user-message").get(0).innerHTML = "Por favor, digite seu E-mail ou nome de usuário" //define mensagem de erro
     add_invalid(user) // invalida o input, porém é apenas ESTÉTICOa
@@ -29,28 +28,34 @@ function check_exists_user(){
     method: "POST", 
     data:{user_name:_username}, //estas são as variáveis enviadas por método POST para o server side
     success: (function(result){ //função que é executada após sucesso da requisição
+      console.log("entrou aqui primeiro")
        if(!result){
         $("#user-message").get(0).innerHTML = "Usuário inexistente"
         remove_valid_invalid(password)
+
         add_invalid(user) //invalida o input
        }
 
        else {
         add_valid(user)//valida o input
-        check_pwd() // testa a senha
        }
     }) 
   })
 }
 
 function check_pwd(){
-
-  if(password.value === ""){ 
-    add_invalid(password)
-    $("#password-message").get(0).innerHTML = "Digite sua senha" 
+  if(!user.classList.contains("is-invalid") & user.value !== ""){
+    if(password.value === ""){ 
+      add_invalid(password)
+      $("#password-message").get(0).innerHTML = "Digite sua senha" 
+    }
+    else {
+      return check_pwd_correct() //checa se a senha que o usuário digitou coincide com a senha do banco de dados
+    }
   }
   else {
-    check_pwd_correct() //checa se a senha que o usuário digitou coincide com a senha do banco de dados
+    console.log("removeu valid_invalid")
+    remove_valid_invalid(password)
   }
 }
 
@@ -61,7 +66,6 @@ function check_pwd_correct(){
   var _username = $("#user").val()
 
   return $.ajax({
-    async: false,
     url:"../actions/login_validate_pwd.php",
     method: "POST",
     data:{
@@ -97,10 +101,14 @@ function check_pwd_correct(){
           event.preventDefault()
       
           $.when(check_user()).done(function(){
-            console.log(user.classList.contains("is-invalid"))
-            if(!(user.classList.contains("is-invalid") || password.classList.contains("is-invalid"))){ 
-              form.submit() 
-            }
+            $.when(check_pwd()).done(function(){
+              console.log("depois aqui")
+              if(!(user.classList.contains("is-invalid") || password.classList.contains("is-invalid"))){ 
+                form.submit()
+              }
+              else{
+              }
+            })
           })
 
         }, false)

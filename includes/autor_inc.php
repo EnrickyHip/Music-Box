@@ -169,36 +169,7 @@
             </div>
             
             <div class="tab-pane show" id="nav-playlist" role="tabpanel" aria-label="nav-playlist-tab">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">título</th>
-                            <th scope="col" class="text-end">atualizado</th>
-                            <th scope="col" class="text-end">duração</th>
-                        </tr>  
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <th>Nome</th>
-                            <th class="text-end">DD/MM/AAAA</th>
-                            <th class="text-end">Mn:Sg</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <th>Nome</th>
-                            <th class="text-end">DD/MM/AAAA</th>
-                            <th class="text-end">Mn:Sg</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <th>Nome</th>
-                            <th class="text-end">DD/MM/AAAA</th>
-                            <th class="text-end">Mn:Sg</th>
-                        </tr>
-                    </tbody>
-                </table>
+                    <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>
             </div>
             <div class="tab-pane show" id="nav-musicas" role="tabpanel" aria-label="nav-musicas-tab">
                 <?php

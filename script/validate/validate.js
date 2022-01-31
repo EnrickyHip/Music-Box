@@ -191,8 +191,6 @@ function check_terms(){
         form.addEventListener('submit', function(event) {
           event.preventDefault()
           
-          check_username()
-          check_email()
           check_password()
           check_terms()
 
