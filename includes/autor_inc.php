@@ -3,7 +3,7 @@
     <!-- foto de perfil do usuário -->
     <div class="text-center">
 
-        <img src=<?= $autor->get_profile_img() ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-4">
+        <img src=<?= $autor->get_profile_img() ?> alt="Foto de Perfil" id="avIcon" class="rounded-circle border border-3 mb-2" style="width: 170px;">
     </div>
 
     <div class="text-center">
@@ -106,7 +106,7 @@
                 else {
 
             ?>
-                    <div class="d-flex flex-wrap p-4">
+                    <div class="d-flex flex-wrap p-4 px-5">
             <?php            
                     foreach($autor->get_albuns() as $album){
             ?>            

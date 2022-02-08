@@ -1,16 +1,19 @@
-function get_song_info(codename){
+function get_song_info(codenames){
 
     return $.ajax({
         url:"../actions/get_song_info.php",
         method: "POST",
-        data:{song_code_name:codename},
-        success: (function(song){
-            Song = JSON.parse(song)
+        data:{song_code_name:codenames},
+        success: (function(songs){
+            Songs = JSON.parse(songs)
+            Song = Songs[0]
         })
     })
 }
 
+
 function play_Song(){
+
     if (!songs.some(({code_name}) => code_name === Song.code_name)){
         addSongtoQueue()
     }
@@ -21,15 +24,6 @@ function play_Song(){
     }
     if(player_stage == 2){
         update_stage()
-    }
-}
-
-function add_Song(){
-    if(songs.length == 0){
-        addSongtoQueue()
-    }
-    else {
-        addSongtoQueueFinal();
     }
 }
 
@@ -61,7 +55,7 @@ jQuery(function(){
     PlayButtons.forEach(function(playButton){
         playButton.addEventListener("click", function(){
             let codename = playButton.getAttribute("codename")
-            $.when(get_song_info(codename)).done(function(){
+            $.when(get_song_info([codename])).done(function(){
                 play_Song()
                 if(player_stage == "closed"){
                     player_stage = 0
@@ -74,8 +68,8 @@ jQuery(function(){
     AddButtons.forEach(function(AddButton){
         AddButton.addEventListener("click", function(){
             let codename = AddButton.getAttribute("codename")
-            $.when(get_song_info(codename)).done(function(){
-                add_Song()
+            $.when(get_song_info([codename])).done(function(){
+                addSongtoQueueFinal()
             })
         })
     })

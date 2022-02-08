@@ -1,72 +1,19 @@
-let songs = [//Lista de músicas
-
-    /*{
-      title: "Sign of the Cross",
-        artist: "Avantasia",
-        src: "../songs/sign-of-the-cross.mp3",
-        cover: "../album_covers/The_Metal_Opera.jpg",
-        code_name: '1'
-    },
-
-    {
-        title: "Darts",
-        artist: "System of a Down",
-        src: "../songs/darts.mp3",
-        cover: "../album_covers/System_of_a_down.jpg",
-        code_name: '2'
-    },
-
-    {
-        title: "M.I.A",
-        artist: "Avenged Sevenfold",
-        src: "../songs/MIA.mp3",
-        cover: "../album_covers/City_of_Evil_album_cover.jpg",
-        code_name: '3'
-    },
-
-    {
-        title: "Lost in the Static",
-        artist: "After the Burial",
-        src: "../songs/lost-in-the-static.mp3",
-        cover: "../album_covers/ab67616d0000b273ee1ce5c92d708957395abdeb.jpg",
-        code_name: '4'
-    },
-
-    {
-        title: "Hallowed Be Thy Name",
-        artist: "Iron Maiden",
-        src: "../songs/hallowed-be-thy-name.mp3",
-        cover: "../album_covers/666.jpg",
-        code_name: '5'
-    },
-
-    {
-        title: "Sickening",
-        artist: "Meshuggah",
-        src: "../songs/sickening.mp3",
-        cover: "../album_covers/R-1673713-1236027023.jpeg.jpg",
-        code_name: '6'
-    },
-
-    {
-        title: "The Looking Glass",
-        artist: "Avantasia",
-        src: "../songs/the-looking-glass.mp3",
-        cover: "../album_covers/AvantasiaTheMetalOpera1304_f.jpg",
-        code_name: '7'
-    }*/
-]
-
+let songs = []
 let list_index = 0 //index da lista
 let holding = false //este holding refere-se a barra de progresso do player, se o usuário está segurando o clique em algum ponto dela ela, vai estar true
 let player_stage = 0 // estágio do player, 0 para inteiro, 1 para remover a capa, e 2 para o player mínimo
 let playing = false
+
+song.addEventListener("loadeddata", function(){
+    load_data()
+})
 
 get_session()
 
 function load_song(){ //carrega a música
     if (list_index == 0){
         grayIcon(prev)
+        PurpleIcon(next)
     }
     else {
         PurpleIcon(prev)
@@ -82,13 +29,9 @@ function load_song(){ //carrega a música
     update_index()
 
     song.setAttribute("src", songs[list_index].src)
-
-    song.addEventListener("loadeddata", function(){
-        load_data()
-    })
 }
 
-function load_data(){ // carrega as informações da música
+function load_data(){ // carrega as informações da músicaz
     song_cover.setAttribute("src", songs[list_index].cover)
     song_name.textContent = songs[list_index].title
     song_artist.textContent = songs[list_index].artist
@@ -104,7 +47,6 @@ function get_session(){
         method: "POST",
         data:{check:check},
         success: (function(result){
-            console.log(result)
             if(result){
                 set_session(result)
             }
@@ -117,23 +59,22 @@ function set_session(list){
     list_index = JSON.parse(list)['index']
     player_stage = JSON.parse(list)['stage']
 
-    songs_condenames = JSON.parse(list)['songs']
-    songs_condenames.forEach(song_codename => {
-        $.when(get_song_info(song_codename)).done(function(song){
-            let song_info = JSON.parse(song)
+    songs_codenames = JSON.parse(list)['songs']
+    $.when(get_song_info(songs_codenames)).done(function(songs_info){
+        songs_info = JSON.parse(songs_info)
+
+        songs_info.forEach(song_info => {
             songs.push(song_info)
-
-            if(player_stage !== "closed"){
-                open_player()
-            }
-
-            if(songs.length > 0){
-                load_song()
-                update_stage()
-            }
-
         })
-    });
+
+        if(player_stage !== "closed"){
+            open_player()
+        }
+        if(songs.length > 0){
+            load_song()
+            update_stage()
+        }
+    })
 }
 
 function update_session(){
@@ -230,6 +171,7 @@ function close_player(){
 }
 
 function open_player(){
+    update_stage()
     player.classList.remove("d-none")
     update_stage_session()
 }

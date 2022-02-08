@@ -78,7 +78,7 @@
             $this->autor_profile_img = "../" . $autor['profile_img_dir'];
         }
 
-        public function encode(){
+        public function get_player_info(){
             $song_info = [
                 'title' => $this->title,
                 'artist' => $this->autor_name,
@@ -87,8 +87,7 @@
                 'code_name' => $this->code_name
             ];
     
-            $song_json = json_encode($song_info);
-            return $song_json;
+            return $song_info;
         }
 
         public function get_codename(){
