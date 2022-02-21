@@ -1,7 +1,7 @@
 <!-- template da página principal -->
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <?php
 
     require_once 'vendor/autoload.php';
@@ -21,7 +21,6 @@
     <?php
         require_once "includes/head_default.html";
     ?>
-    <div id="head">
 
         <?php
             $page = filter_input(INPUT_GET, 'p');
@@ -30,17 +29,20 @@
 
                 case false:
                     echo '<title>Página inicial</title>';
+                    break;
     
                 case "autor":
                     echo '<title>Página de autor</title>';
+                    break;
 
                 case "teoria_musical":
                     echo '<title>Teoria Musical</title>';
+                    break;
+
                 case "song":
                     echo '<title>Música</title>'; //posteriormente será alterado para o nome da música
             }
         ?>
-    </div>
 
     <script src="../script/ajaxify.js"></script>
 

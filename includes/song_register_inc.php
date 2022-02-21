@@ -1,7 +1,7 @@
 <div class="container-xxl bg-primary border rounded-3 shadow p-3 col-lg-6">
     <h2 class="text-white text-center">Cadastrar música</h2>
     
-    <form action="../actions/song_upload_act.php" method="post" id="form-song" class="bg-white border rounded-3 p-5" enctype="multipart/form-data">
+    <form action="../actions/song_upload_act.php" method="post" id="form-song" class="bg-white border rounded-3 p-5" enctype="multipart/form-data" autocomplete="off">
         
         <div class="containder row">
             <div id="step1">

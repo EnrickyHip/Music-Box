@@ -15,7 +15,8 @@
 
     <!--Formuláro de login-->
 
-    <form action="actions/login_act.php" method="post" class="px-4 py-3 needs-validation no-ajaxy" novalidate>
+    <form action="actions/login_act.php" method="post" class="px-4 pb-3 pt-1 needs-validation no-ajaxy" novalidate autocomplete="off">
+    <h4 class="mb-2">Login</h4>
         <div class="form-group">
 
             <label for="emailInput">Endereço de E-mail ou Nome de Usuário</label>

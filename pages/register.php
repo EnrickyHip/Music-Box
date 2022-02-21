@@ -1,7 +1,7 @@
 <div class="container-xxl bg-primary border rounded-3 shadow p-3 col-lg-6">
     <h2 class="text-white text-center">Registrar</h2>
     
-    <form action="actions/signup_act.php" method="post" id="form" class="needs-validation bg-white border rounded-3 p-5" novalidate>
+    <form action="actions/signup_act.php" method="post" id="form" class="needs-validation bg-white border rounded-3 p-5" novalidate autocomplete="off">
 
         <div class="containder row">
             

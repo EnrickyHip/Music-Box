@@ -80,9 +80,9 @@
         <nav class="mt-5 ms-4">
             <div class="nav nav-tabs" id="nav-tab" role="tablist" style="z-index: 0;">
 
-                <button class="nav-link active" id="nav-album-tab" data-bs-toggle="tab" data-bs-target="#nav-album" type="button" role="tab" aria-controls="nav-album" aria-selected="true">Albuns</button>
+                <button class="nav-link active" id="nav-album-tab" data-bs-toggle="tab" data-bs-target="#nav-album" type="button" role="tab" aria-controls="nav-album" aria-selected="true">Álbuns</button>
 
-                <button class="nav-link" id="nav-musicas-tab" data-bs-toggle="tab" data-bs-target="#nav-musicas" type="button" role="tab" aria-controls="nav-musicas" aria-selected="false">Musicas</button>
+                <button class="nav-link" id="nav-musicas-tab" data-bs-toggle="tab" data-bs-target="#nav-musicas" type="button" role="tab" aria-controls="nav-musicas" aria-selected="false">Músicas</button>
 
                 <button class="nav-link" id="nav-playlist-tab" data-bs-toggle="tab" data-bs-target="#nav-playlist" type="button" role="tab" aria-controls="nav-playlist" 
                 aria-selected="true">Playlists</button>

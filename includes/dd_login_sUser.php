@@ -1,7 +1,7 @@
 <!-- Dropdown para usuário logados -->
 
 <!--Botão-->
-    <button type="button" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class=" btn pe-2" aria-expanded="false">
+    <button type="button" data-toggle="dropdown" id="dropdownMenuLink" data-bs-toggle="dropdown" class=" btn pe-2" aria-expanded="false">
         <img src=<?=$self_user->get_profile_img() ?> alt="" class="rounded-circle" style="width: 37px;">
     </button>
 
@@ -22,7 +22,7 @@
         <a href="actions/logout.php" class="btn btn-danger no-ajaxy me-2">
             Sair
         </a>
-        <a class="btn btn-primary" href= <?="?p=autor&a=".$self_user->get_username();?>>
+        <a class="btn btn-primary" href=<?="?p=autor&a=".$self_user->get_username();?>>
             Página de Autor
         </a> 
             

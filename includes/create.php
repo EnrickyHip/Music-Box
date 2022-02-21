@@ -1,7 +1,7 @@
 
 <!-- dropdown de criação-->
 <div class="btn-group">
-  <button type="button" class="btn px-2 me-3 purple add_button gray_hover" id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
+  <div role="button" class="btn px-2 me-3 purple add_button gray_hover" id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
     <div class="d-flex align-items-center">
         <h5 class="mb-0 pb-1">
             Criar
@@ -9,8 +9,8 @@
         <span class="material-icons" id="create_icon">
             add
         </span>
-    </div>
-  </button>
+  </div>
+</div>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#add_song_modal" href="#">Enviar música</a></li>
     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#create_album_modal" href="#">Criar Album</a></li>
@@ -23,7 +23,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="add_song_modal">Adicionar música</h5>
+        <h5 class="modal-title">Adicionar música</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -77,7 +77,7 @@
 
                     <p>Arraste e solte a música que deseja carregar.</p>  
 
-                    <label for="upload_song_input" aria-expanded="false" name="send_song_upload" class="btn btn-dark bg-primary">
+                    <label for="upload_song_input" class="btn btn-dark bg-primary">
                         Selecionar Arquivo
                     </label>
             
@@ -100,11 +100,11 @@
 
                 <i class="bi bi-youtube purple upload-icon"></i>
           
-            <form name="ytdlform" action="" method="post" id="" class="needs-validation p-5 pt-0 underline_input" novalidate>
+            <form name="ytdlform" method="post" class="needs-validation p-5 pt-0 underline_input" novalidate>
                 <label for="youtube_link_upload">
                     Digite o link da música no youtube:
                 </label>
-                <input class="full-input text-center" type="link" name="youtube_link_upload" id="youtube_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp" required>
+                <input class="full-input text-center" type="link" name="youtube_link_upload" id="youtube_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp">
             </form>
 
           </div>
@@ -113,11 +113,11 @@
 
             <i class="bi bi-spotify purple upload-icon"></i>
 
-            <form action="" method="post" id="" class="needs-validation p-5 pt-0 underline_input" novalidate>
+            <form method="post" class="needs-validation p-5 pt-0 underline_input" novalidate>
               <label for="spotify_link_upload">
                 Digite o link da música no spotify:
               </label>
-              <input class="full-input text-center" type="link" name="spotify_link_upload" id="spotify_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp" required>
+              <input class="full-input text-center" type="link" name="spotify_link_upload" id="spotify_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp">
             </form>
           </div>
         </div>
@@ -133,21 +133,23 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="create_album_modal">Criar Álbum</h5>
+        <h5 class="modal-title">Criar Álbum</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form action="../actions/create_album_act.php" id="create_album_form" method="POST" enctype="multipart/form-data" class="p-5 pt-0 underline_input no-ajaxy" novalidate>
+      <form action="../actions/create_album_act.php" id="create_album_form" method="POST" enctype="multipart/form-data" class="p-5 pt-0 underline_input no-ajaxy" novalidate autocomplete="off">
         <div class="modal-body text-center">
 
+        <h3>
           <label class="mt-3" for="album_title">
-            <h3>Título do álbum:</h3>
+            Título do álbum:
           </label>
+        </h3>
           <input type="text" id="album_title_input" name="album_title_input" class="full-input text-center fs-5" required>
 
 
         <div class="dropdown">
-          <button type="button" class="btn px-2 my-3 purple add_button gray_hover" data-bs-auto-close="false" id="add_album_songs"  data-bs-toggle="dropdown" aria-expanded="false">
+          <div role="button" class="btn px-2 my-3 purple add_button gray_hover" data-bs-auto-close="false" id="add_album_songs"  data-bs-toggle="dropdown" aria-expanded="false">
             <div class="d-flex align-items-center">
                 <h5 class="mb-0 pb-1">
                     Adicionar Músicas
@@ -156,7 +158,7 @@
                     add
                 </span>
             </div>
-          </button>
+                </div>
 
           <div style="max-height: 300px;" class="dropdown-menu ps-2 pe-2 dropdown-menu-center overflow-auto" id="album_songs_dropdown" aria-labelledby="dropdownMenuLink">
 
