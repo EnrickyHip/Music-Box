@@ -19,7 +19,7 @@
             class="btn text-dark bg-primary rounded-circle mt-3" 
             aria-expanded="false" >
 
-                <span class="material-icons whiteIcon pt-1 pb-1">
+                <span class="material-icons white-icon pt-1 pb-1">
                     add_a_photo
                 </span>
 

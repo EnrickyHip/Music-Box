@@ -1,7 +1,7 @@
 <!-- Dropdown para usuário logados -->
 
 <!--Botão-->
-    <button type="button" data-toggle="dropdown" id="dropdownMenuLink" data-bs-toggle="dropdown" class=" btn pe-2" aria-expanded="false">
+    <button type="button" data-toggle="dropdown" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn pe-2" aria-expanded="false">
         <img src=<?=$self_user->get_profile_img() ?> alt="" class="rounded-circle" style="width: 37px;">
     </button>
 

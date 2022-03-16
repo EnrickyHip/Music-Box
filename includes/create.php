@@ -1,7 +1,7 @@
 
 <!-- dropdown de criação-->
 <div class="btn-group">
-  <div role="button" class="btn px-2 me-3 purple add_button gray_hover" id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
+  <div role="button" class="btn px-2 me-3 purple add_button gray-hover" id="add_song" data-bs-toggle="dropdown" aria-expanded="false">
     <div class="d-flex align-items-center">
         <h5 class="mb-0 pb-1">
             Criar
@@ -66,7 +66,7 @@
 
             <form action="..?t=logoOnly&p=song_register" method="POST" class="needs-validation no-ajaxy" enctype="multipart/form-data" id="upload_form">
 
-              <div class="m-1 drop-zone">
+              <div class="m-1">
                 <div class="p-5 m-4">
 
                     <span class="material-icons purple" id="upload_song_icon">
@@ -104,7 +104,7 @@
                 <label for="youtube_link_upload">
                     Digite o link da música no youtube:
                 </label>
-                <input class="full-input text-center" type="link" name="youtube_link_upload" id="youtube_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp">
+                <input class="full-input text-center" type="url" name="youtube_link_upload" id="youtube_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp">
             </form>
 
           </div>
@@ -117,7 +117,7 @@
               <label for="spotify_link_upload">
                 Digite o link da música no spotify:
               </label>
-              <input class="full-input text-center" type="link" name="spotify_link_upload" id="spotify_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp">
+              <input class="full-input text-center" type="url" name="spotify_link_upload" id="spotify_link_upload" aria-label="youtubeUpload" aria-describedby="user-addon userHelp">
             </form>
           </div>
         </div>
@@ -140,16 +140,14 @@
       <form action="../actions/create_album_act.php" id="create_album_form" method="POST" enctype="multipart/form-data" class="p-5 pt-0 underline_input no-ajaxy" novalidate autocomplete="off">
         <div class="modal-body text-center">
 
-        <h3>
           <label class="mt-3" for="album_title">
-            Título do álbum:
+            <h3>Título do álbum:</h3>
           </label>
-        </h3>
           <input type="text" id="album_title_input" name="album_title_input" class="full-input text-center fs-5" required>
 
 
         <div class="dropdown">
-          <div role="button" class="btn px-2 my-3 purple add_button gray_hover" data-bs-auto-close="false" id="add_album_songs"  data-bs-toggle="dropdown" aria-expanded="false">
+          <div role="button" class="btn px-2 my-3 purple add_button gray-hover" data-bs-auto-close="false" id="add_album_songs"  data-bs-toggle="dropdown" aria-expanded="false">
             <div class="d-flex align-items-center">
                 <h5 class="mb-0 pb-1">
                     Adicionar Músicas
@@ -177,7 +175,7 @@
             ?>
 
                   <div class='form-check ps-0'>
-                    <label class='form-check-label clickable gray_hover text-break w-100 py-1 pe-1' for="<?=$i?>">
+                    <label class='form-check-label clickable gray-hover text-break w-100 py-1 pe-1' for="<?=$i?>">
                       
                       <input class='form-check-input mx-2 clickable float-start' id="<?=$i?>" type='checkbox' name='album_songs[]' value="<?=$song['code_name']?>">
 

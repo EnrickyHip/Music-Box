@@ -65,48 +65,50 @@ use \classes\model\SongModel;
             $album_ctrl = new \classes\controler\AlbumControler($this->user_id);
             $single = true;
             
-            if($new_album_id !== "solo"){
+            if($new_album_id !== $old_song_album){
+                if($new_album_id !== "solo"){
 
-                $this->change_album($song_codename, false, $new_album_id);
-                $single = false;
+                    $this->change_album($song_codename, false, $new_album_id);
+                    $single = false;
 
-                $new_album_playlist_code_name = AlbumModel::get_album_info($new_album_id, 'playlist_code_name')['playlist_code_name'];
+                    $new_album_playlist_code_name = AlbumModel::get_album_info($new_album_id, 'playlist_code_name')['playlist_code_name'];
 
-                
-                if($song_old_info['single']){
-                    $album_ctrl->delete_album($old_song_album);
-                    $playlist_ctrl->add_song($new_album_playlist_code_name, [$song_codename]);
-                }
-                else if($new_album_id !== $old_song_album){
-
-                    $old_album_playlist_code_name = AlbumModel::get_album_info($old_song_album, 'playlist_code_name')['playlist_code_name'];
-
-                    $playlist_ctrl->add_song($new_album_playlist_code_name, [$song_codename]);
-                    $playlist_ctrl->remove_song($old_album_playlist_code_name, [$song_codename]);
-                }
-            }
-
-            else if(!$song_old_info['single']){
-
-                    $new_album_id = $this->createSoloAlbum($song_title);
-
-                    if ($cover['size'] == 0){
-                        $cover_dir = "album_covers/default-cover-art.png";
+                    
+                    if($song_old_info['single']){
+                        $album_ctrl->delete_album($old_song_album);
+                        $playlist_ctrl->add_song($new_album_playlist_code_name, [$song_codename]);
                     }
-                    else{
-                        $cover_dir =  $album_ctrl->set_album_cover($cover);
+                    else {
+
+                        $old_album_playlist_code_name = AlbumModel::get_album_info($old_song_album, 'playlist_code_name')['playlist_code_name'];
+
+                        $playlist_ctrl->add_song($new_album_playlist_code_name, [$song_codename]);
+                        $playlist_ctrl->remove_song($old_album_playlist_code_name, [$song_codename]);
                     }
+                }
 
-                    $album_ctrl->edit_album($song_title, true, '', $cover_dir, $new_album_id);
-                    $this->change_album($song_codename, true, $new_album_id);
+                else if(!$song_old_info['single']){
 
-                    $old_album_playlist_code_name = AlbumModel::get_album_info($old_song_album, 'playlist_code_name')['playlist_code_name'];
+                        $new_album_id = $this->createSoloAlbum($song_title);
 
-                    $playlist_ctrl->remove_song($old_album_playlist_code_name, [$song_codename]);
-            }
+                        if ($cover['size'] == 0){
+                            $cover_dir = "album_covers/default-cover-art.png";
+                        }
+                        else{
+                            $cover_dir =  $album_ctrl->set_album_cover($cover);
+                        }
 
-            $this->update_song($song_title, $single, $visibility, $about, $genre, $subgenre, $key, $type, $song_codename);
+                        $album_ctrl->edit_album($song_title, true, '', $cover_dir, $new_album_id);
+                        $this->change_album($song_codename, true, $new_album_id);
 
+                        $old_album_playlist_code_name = AlbumModel::get_album_info($old_song_album, 'playlist_code_name')['playlist_code_name'];
+
+                        $playlist_ctrl->remove_song($old_album_playlist_code_name, [$song_codename]);
+                }
+
+                $this->update_song($song_title, $single, $visibility, $about, $genre, $subgenre, $key, $type, $song_codename);
+
+                }
         }
 
         private function createSoloAlbum($song_title){ //cria o album solo

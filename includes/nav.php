@@ -5,7 +5,7 @@
         <div class="nav-item col text-elf d-block d-sm-none py-3">
 
             <!--Botão-->
-            <button class="btn btn-primary purpleIcon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+            <button class="btn btn-primary purple" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
                 aria-controls="offcanvasTop"><i class="bi bi-search"></i></button>
 
             <!--Janela offCanvas-->

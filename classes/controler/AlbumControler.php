@@ -7,7 +7,7 @@
     use classes\model\AlbumModel;
     use classes\model\SongModel;
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
     class AlbumControler extends AlbumModel{
 

@@ -263,13 +263,13 @@ function changePlayPauseButton(rem,add){//altera os icones do botão de play/pau
 }
 
 function grayIcon(icon){ //transforma o icone em cinza
-    icon.classList.remove("purpleIcon")
+    icon.classList.remove("purple")
     icon.classList.add("grayIcon")
     icon.style.cursor = "auto" //altera o cursor
 }
 
 function PurpleIcon(icon){//transforma o icone em roxo
-    icon.classList.add("purpleIcon")
+    icon.classList.add("purple")
     icon.classList.remove("grayIcon")
     icon.style.cursor = "pointer"
 }

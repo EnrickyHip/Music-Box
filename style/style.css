@@ -118,8 +118,12 @@ button.nav-link{
     height: 200px;
 }
 
-.justify-text{
+article.justify-text p{
     text-align: justify;
+}
+
+article.indent-text p{
+    text-indent: 30px;
 }
 
 #theory-nav{
@@ -184,7 +188,7 @@ button.nav-link{
     padding-bottom: 2px;
 }
 
-.gray_hover:hover {
+.gray-hover:hover {
     background-color: #e4e4e4;
 }
 
@@ -235,7 +239,7 @@ button.nav-link{
     color: #9393ad !important;
 }
 
-.whiteIcon{
+.white-icon{
     color: #ffffff !important;
 }
 
