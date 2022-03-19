@@ -72,10 +72,9 @@ jQuery(function(){
             $("#song_edit_message").get(0).innerHTML = "Por favor, digite um título para sua música" //define mensagem de erro
             return false
         }
-        else {
-            add_valid(song_title_edit)
-            return true
-        }     
+        
+        add_valid(song_title_edit)
+        return true    
     }
 
     let tag_list = document.querySelector(".tags"),

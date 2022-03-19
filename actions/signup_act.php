@@ -9,7 +9,7 @@
         exit();
     }
 
-    else{
+    else {
         //recebe as variáveis
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);

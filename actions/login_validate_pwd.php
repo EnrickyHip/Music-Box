@@ -9,11 +9,8 @@
         exit();
     }
 
-    else{
-
-        $user = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS); //recebe as variáveis do ajax
-        $password = filter_input(INPUT_POST, "pass_word");
-        
-        $login_ctrl = new \classes\controler\LoginControler($user, $password); // instancia o controle de login
-        $login_ctrl->check_pwd(); // checa se as senhas coincidem
-    }
+    $user = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS); //recebe as variáveis do ajax
+    $password = filter_input(INPUT_POST, "pass_word");
+    
+    $login_ctrl = new \classes\controler\LoginControler($user, $password); // instancia o controle de login
+    $login_ctrl->check_pwd(); // checa se as senhas coincidem

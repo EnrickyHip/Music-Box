@@ -15,7 +15,7 @@
 
         <?php
             if(isset($self_user)){
-                if ($self_user->get_username()  == $autor->get_username()){
+                if ($self_user->get_username() === $autor->get_username()){
     
                     ?>  
                         <a  class="btn btn-success" href= <?= "?p=autor&a=".$self_user->get_username() ."&e=true";?>>Editar página de Autor</a>
@@ -97,7 +97,7 @@
             <div class="tab-pane show active" id="nav-album" role="tabpanel" aria-label="nav-album-tab">
             <?php
 
-                if($autor->get_albuns() == false){
+                if(!$autor->get_albuns()){
             ?>
                     <h2 class="text-muted ms-5 my-5">Não há nada aqui :(</h2>
             <?php
@@ -200,7 +200,7 @@
                         $index++;
                         $song = new \classes\objects\SongObject($song);
 
-                        if($song->get_visibility() or $self_user->get_id() == $autor->get_id()){
+                        if($song->get_visibility() or $self_user->get_id() === $autor->get_id()){
 
                 ?>
                     <tr>

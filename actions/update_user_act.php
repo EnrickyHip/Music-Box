@@ -10,30 +10,28 @@
         exit();
     }
 
-    else{
+    //recebe as variáveis
+    $user_id = $_SESSION['usuario']['id'];
+    $art_name = filter_input(INPUT_POST, "art_name", FILTER_SANITIZE_SPECIAL_CHARS);
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $bio = filter_input(INPUT_POST, "bio", FILTER_SANITIZE_SPECIAL_CHARS);
+    $website = filter_input(INPUT_POST, "website", FILTER_SANITIZE_SPECIAL_CHARS);
+    $local = filter_input(INPUT_POST, "local", FILTER_SANITIZE_SPECIAL_CHARS);
+    $foto = $_FILES['inputFile'];
 
-        //recebe as variáveis
-        $user_id = $_SESSION['usuario']['id'];
-        $art_name = filter_input(INPUT_POST, "art_name", FILTER_SANITIZE_SPECIAL_CHARS);
-        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-        $bio = filter_input(INPUT_POST, "bio", FILTER_SANITIZE_SPECIAL_CHARS);
-        $website = filter_input(INPUT_POST, "website", FILTER_SANITIZE_SPECIAL_CHARS);
-        $local = filter_input(INPUT_POST, "local", FILTER_SANITIZE_SPECIAL_CHARS);
-        $foto = $_FILES['inputFile'];
-
-        if($bio === ""){
-            $bio = null;
-        }
-
-        if($website === ""){
-            $website = null;
-        }
-
-        if($local === ""){
-            $local = null;
-        }
-
-        //instancia o controle e edita as informações do usuário
-        $edit_ctrl = new \classes\controler\EditControler($user_id, $art_name, $username, $bio, $website, $local, $foto); 
-        $edit_ctrl->edit_user();
+    if($bio === ""){
+        $bio = null;
     }
+
+    if($website === ""){
+        $website = null;
+    }
+
+    if($local === ""){
+        $local = null;
+    }
+
+    //instancia o controle e edita as informações do usuário
+    $edit_ctrl = new \classes\controler\EditControler($user_id, $art_name, $username, $bio, $website, $local, $foto); 
+    $edit_ctrl->edit_user();
+    

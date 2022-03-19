@@ -21,7 +21,7 @@
 
         //se o autor for o mesmo do usuário logado e a variável edit estiver habilitada, o usuário irá para a página de edição, caso não, será redirecionado para o página de autor
         if (isset($self_user)){
-            if ($self_user->get_username() == $autor->get_username() and $edit === "true"){
+            if ($self_user->get_username() === $autor->get_username() and $edit === "true"){
                 require "includes/autor_edit.php"; 
             }
             else {

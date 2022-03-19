@@ -29,9 +29,9 @@
                 */
                 return $stmt->fetchAll(\PDO::FETCH_ASSOC)[0]; 
             }
-            else {
-                return false;
-            }
+
+            return false;
+
         }
         
         
@@ -47,16 +47,8 @@
                 exit();
             }  
 
-            $result = null;
+            return ($stmt->rowCount() > 0);
 
-            if($stmt->rowCount() > 0) {
-                $result = true;
-            }
-            else {
-                $result = false;
-            }
-
-            return $result;
         }
 
         //checa se o usuario existe a partir do email
@@ -71,16 +63,7 @@
                 exit();
             }  
 
-            $result = null;
-
-            if($stmt->rowCount() > 0) {
-                $result = true;
-            }
-            else {
-                $result = false;
-            }
-
-            return $result;
+            return ($stmt->rowCount() > 0);
         }
 
         //da um insert do usuário no banco de dados.
@@ -97,9 +80,7 @@
                 exit();
             }
 
-            $user_id = $this->connect()->lastInsertId();
-
-            return $user_id;
+            return $this->connect()->lastInsertId();
         }
 
         function update_user($user_id, $art_name, $username, $bio, $website, $local, $profile_img_dir){

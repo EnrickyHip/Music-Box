@@ -26,10 +26,6 @@
             $page = filter_input(INPUT_GET, 'p');
 
             switch($page){
-
-                case false:
-                    echo '<title>Página inicial</title>';
-                    break;
     
                 case "autor":
                     echo '<title>Página de autor</title>';
@@ -41,6 +37,9 @@
 
                 case "song":
                     echo '<title>Música</title>'; //posteriormente será alterado para o nome da música
+
+                default:
+                echo '<title>Music-Box</title>';
             }
         ?>
 

@@ -23,6 +23,7 @@
                         die();
                     }
                 } 
+                
                 return self::$db;
             }
         }

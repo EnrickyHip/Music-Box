@@ -51,9 +51,6 @@ use \classes\model\SongModel;
 
                     return $song_code_name;
                 }
-                else {
-                    die("deu erro meu bom");
-                }
             }
         }
 
@@ -91,7 +88,7 @@ use \classes\model\SongModel;
 
                         $new_album_id = $this->createSoloAlbum($song_title);
 
-                        if ($cover['size'] == 0){
+                        if ($cover['size'] === 0){
                             $cover_dir = "album_covers/default-cover-art.png";
                         }
                         else{

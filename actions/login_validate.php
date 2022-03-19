@@ -10,9 +10,7 @@
         exit();
     }
 
-    else{
-        $user = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS); // recebe a variável
-        
-        $login_ctrl = new \classes\controler\LoginControler($user, ''); // instancia o controle de login
-        $login_ctrl->check_exists_user(); //checa se o usuário digitado existe.
-    }
+    $user = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS); // recebe a variável
+    
+    $login_ctrl = new \classes\controler\LoginControler($user, ''); // instancia o controle de login
+    $login_ctrl->check_exists_user(); //checa se o usuário digitado existe.

@@ -9,10 +9,8 @@
         exit();
     }
 
-    else{
-        $username = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS);
+    $username = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS);
 
-         //instancia o controle e checa se o username já existe
-        $signup_ctrl = new \classes\controler\SignupControler($username, '', ''); 
-        $signup_ctrl->check_exists_user();
-    }
+        //instancia o controle e checa se o username já existe
+    $signup_ctrl = new \classes\controler\SignupControler($username, '', ''); 
+    $signup_ctrl->check_exists_user();

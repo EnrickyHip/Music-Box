@@ -9,10 +9,7 @@
         exit;
     }
     
-    else {
-
-        $song_index = $_POST['index'];
-        $_SESSION['usuario']['player_list']['index'] = $song_index;
-    }
+    $song_index = $_POST['index'];
+    $_SESSION['usuario']['player_list']['index'] = $song_index;
 
 ?>

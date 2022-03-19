@@ -8,12 +8,6 @@
         exit;
     }
     
-    else {
+    $index = $_SESSION['usuario']['player_list']['index'];
 
-        $index = $_SESSION['usuario']['player_list']['index'];
-
-        echo $index;
-        
-    }
-
-?>
+    echo $index;

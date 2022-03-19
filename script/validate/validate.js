@@ -107,12 +107,7 @@ function check_exists_email(){
 function checkSpecialChars(){
   var match = /^[a-zA-Z0-9_]*$/
 
-  if (!username.value.match(match)){
-    return true
-  }
-  else {
-    return false
-  }
+  return (!username.value.match(match))
 }
 
 //função para validar a senha digitada
@@ -156,15 +151,8 @@ function check_pwd_match() {
 
 //testa se as senhas são iguais
 function checkPwd(){ 
-
-  if (c_password.value !== password.value){
-    return true
-  }
-  else {
-    return false
- }
+  return (c_password.value !== password.value)
 }
-
 // checa os termos
 
 function check_terms(){
@@ -196,11 +184,9 @@ function check_terms(){
 
           $.when(check_username(), check_email()).done(function(){
             if(!(username.classList.contains("is-invalid") || email.classList.contains("is-invalid") || password.classList.contains("is-invalid") || terms.classList.contains("is-invalid"))){
-              console.log("enviou")
               form.submit()
             }
             else {
-              console.log("nao enviou")
             }
           })
 

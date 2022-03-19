@@ -28,7 +28,7 @@
                 $playlist_controler->create_playlist($playlist_code_name, $songs, $title, true, false);
                 $single = false;
 
-                if ($cover['size'] == 0){ //caso o usuário não defina nenhuma capa para o álbum, será definida como a default
+                if ($cover['size'] === 0){ //caso o usuário não defina nenhuma capa para o álbum, será definida como a default
                     $cover_dir = "album_covers/default-cover-art.png";
                 }
                 else{
@@ -76,10 +76,9 @@
 
                     return $pasta_files;
                 }
-                else {
-                    header("Location: ../?error=uploaderror");
-                    exit();
-                }
+                
+                header("Location: ../?error=uploaderror");
+                exit();
             }
             else {
                 header("Location: ../?error=extensionNotAlwd");

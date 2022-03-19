@@ -10,10 +10,8 @@
         exit();
     }
 
-    else{
-        $email = filter_input(INPUT_POST, "email_", FILTER_SANITIZE_SPECIAL_CHARS);
-        
-        //instancia o controle e checa se o email já existe
-        $signup_ctrl = new \classes\controler\SignupControler('', $email, ''); 
-        $signup_ctrl->check_exists_email();
-    }
+    $email = filter_input(INPUT_POST, "email_", FILTER_SANITIZE_SPECIAL_CHARS);
+    
+    //instancia o controle e checa se o email já existe
+    $signup_ctrl = new \classes\controler\SignupControler('', $email, ''); 
+    $signup_ctrl->check_exists_email();

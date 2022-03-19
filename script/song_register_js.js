@@ -60,11 +60,10 @@ function validate_title(){
         add_invalid(title_input) // caso esteja vazio, o input será definido como inválido
         message.innerHTML = "Por favor, digite um título para sua música" //define mensagem de erro
         return false
-      }
-    else {
-        add_valid(title_input)
-        return true
-    }     
+    }
+    add_valid(title_input)
+    return true
+      
 }
 
 function validate_genre(){
@@ -73,10 +72,10 @@ function validate_genre(){
         $("#genre-message").get(0).innerHTML = "Por favor, defina um gênero para sua música" //define mensagem de erro
         return false
       }
-    else {
-        add_valid($("#genre_select").get(0))
-        return true
-    }     
+      
+    add_valid($("#genre_select").get(0))
+    return true
+        
 }
 
 /* sistema de tags IMPORTADO*/

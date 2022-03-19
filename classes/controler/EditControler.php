@@ -67,12 +67,12 @@
                     if($old_profile_img !== "../profile_img/Avatar_PlaceHolder.png"){
                         unlink($old_profile_img);
                     }
+                    
                     return $pasta_files;
                 }
-                else {
-                    header("Location: ../?error=uploaderror");
-                    exit();
-                }
+
+                header("Location: ../?error=uploaderror");
+                exit();
             }
             else {
                 header("Location: ../?error=extensionNotAlwd");

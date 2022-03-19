@@ -22,13 +22,13 @@ jQuery(function(){
       message.innerHTML = "Por favor, digite um nome de usuário"
       return false
     }
-    else if(!checkSpecialChars(username, match)){
+    if(!checkSpecialChars(username, match)){
       message.innerHTML = "Nome de usuário contém caracteres inválidos"
       return false
     }
-    else{
-      return true
-    }
+    
+    return true
+    
   }
 
   function check_exists_user_(){
@@ -46,23 +46,13 @@ jQuery(function(){
 
 
   function check_empty(name){
-    if(name.value === ""){
-      return false
-    }
-    else{
-      return true
-    }
+    return (name.value !== "")
   }
 
   // teste de caractéres especiais
 
   function checkSpecialChars(name, match){
-      if (name.value.match(match)){
-        return true
-      }
-      else {
-        return false
-      }
+      return (name.value.match(match))
     }
 
     //checa a validade do nome artístico
@@ -70,7 +60,7 @@ jQuery(function(){
   function checkArt_name(){
 
     if(!check_empty(art_name)){
-      message.innerHTML = "Por favor, digite um nome artístio"
+      message.innerHTML = "Por favor, digite um nome artístico"
       return false
     }
 
@@ -79,9 +69,9 @@ jQuery(function(){
       message.innerHTML = "Nome artístico contém caracteres inválidos"
       return false
     }
-    else {
-      return true
-    }
+
+    return true
+    
   }
 
   //checa a validade do website
@@ -90,21 +80,20 @@ jQuery(function(){
       message.innerHTML = "Link de website inválido"
       return false
     }
-    else {
-      return true
-    }
+    return true
+    
   }
 
   //checa a validade da localização
   function checkLocalization(){
     match = /^[a-zA-Z0-9, áàâãéèêíïóôõöúçñ]*$/
-    if(!checkSpecialChars(local)){
+    if(!checkSpecialChars(local, match)){
       message.innerHTML = "Localização contém caractéres inválidos"
       return false
     }
-    else {
-      return true
-    }
+    return true
+
+    
   }
 
 
@@ -125,11 +114,9 @@ jQuery(function(){
 
         if(!checkArt_name() || !checkUsername() || !result || !checkWebsite() || !checkLocalization()){
           message.classList.add("d-block") //d-block para a mensagem de erro aparecer
-          console.log("nao enviou")
         }
         else {
           message.classList.remove("d-block")
-          console.log("enviou")
          edit_user_form.submit()
         }
       })

@@ -8,11 +8,9 @@
         header("Location: ../");
         exit;
     }
-    
-    else {
 
-        $player_stage = $_POST['stage'];
-        $_SESSION['usuario']['player_list']['stage'] = $player_stage;
-    }
+    $player_stage = $_POST['stage'];
+    $_SESSION['usuario']['player_list']['stage'] = $player_stage;
+
 
 ?>

@@ -23,10 +23,10 @@ jQuery(function(){
             theory_nav.hidden = false
             return true
         }
-        else {
-            theory_nav.hidden = true
-            return false
-        }
+        
+        theory_nav.hidden = true
+        return false
+        
     }
 
     function getArticle(){ //retorna o artigo presente

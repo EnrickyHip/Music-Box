@@ -14,11 +14,9 @@
                 header("Location: ../?error=insteralbumerror");
                 exit();
             }
-            else {
-                $album_id = $this->connect()->lastInsertId();
 
-                return $album_id;
-            }
+            return $this->connect()->lastInsertId();
+
         }
 
         protected function get_all_albuns($user_id){ //retorna todos os albuns do usuário, caso o usuário não tenha albuns cadastrados, retornará false.
@@ -28,12 +26,12 @@
                 header("Location: ../?error=getalbunserror");
                 exit();
             }
-            else if($stmt->rowCount() > 0){
+            
+            if($stmt->rowCount() > 0){
                 return $stmt->fetchAll(\PDO::FETCH_ASSOC); 
             }
-            else {
-                return false;
-            }
+            
+            return false;
         }
 
         public static function get_album_info($album, $column){ // retorna as informações do álbum em um array associativo
@@ -44,9 +42,8 @@
                 header("Location: ../?error=albunGetInfoerror");
                 exit();
             }
-            else {
-                return $stmt->fetchAll(\PDO::FETCH_ASSOC)[0]; 
-            }
+            
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC)[0]; 
         }
 
         protected function delete($album_id){

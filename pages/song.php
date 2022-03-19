@@ -15,23 +15,20 @@
         exit;
     }
 
-    else {
+    /*print_r($_SESSION['usuario']['player_list']);
+    die;*/
 
-        /*print_r($_SESSION['usuario']['player_list']);
-        die;*/
+    $song = new \classes\objects\SongObject($song_info);
 
-        $song = new \classes\objects\SongObject($song_info);
-
-        if (isset($self_user)){
-            if ($self_user->get_username() == $song->get_autor_username() and $edit === "true"){ 
-                require "includes/song_edit.php"; 
-            }
-            else {
-                require "includes/song_inc.php";
-            } 
+    if (isset($self_user)){
+        if ($self_user->get_username() === $song->get_autor_username() and $edit === "true"){ 
+            require "includes/song_edit.php"; 
         }
-        else{
+        else {
             require "includes/song_inc.php";
-        }
+        } 
+    }
+    else{
+        require "includes/song_inc.php";
     }
 ?>

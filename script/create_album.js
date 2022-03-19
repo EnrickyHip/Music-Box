@@ -28,9 +28,7 @@ $(document).ready(function(){
             message.innerHTML = "Por favor, digite um título para o álbum"
             return false
         }
-        else {
-            return true
-        }
+        return true
     }
 
     image_preview(inputFile, imgPreview)

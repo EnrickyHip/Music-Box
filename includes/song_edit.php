@@ -45,7 +45,7 @@
                                     }
                                     
                                     foreach ($self_user->get_albuns() as $album){
-                                        if($album['id'] == $song->get_album_id()){
+                                        if($album['id'] === $song->get_album_id()){
                                             echo "<option selected value='".$album['id']."'>".$album['title']."</option>";
                                         }
                                         else{
@@ -97,7 +97,7 @@
                             <input
                             <?php
 
-                                if($song->get_visibility() == 1){
+                                if($song->get_visibility() === 1){
                                     echo "checked";
                                 }
                             
@@ -113,7 +113,7 @@
 
                             <?php
 
-                                if($song->get_visibility() == 0){
+                                if($song->get_visibility() === 0){
                                     echo "checked";
                                 }
                             
