@@ -101,10 +101,8 @@
 
                         $playlist_ctrl->remove_song($old_album_playlist_code_name, [$song_codename]);
                 }
-
-                $this->update_song($song_title, $single, $visibility, $about, $genre, $subgenre, $key, $type, $song_codename);
-
-                }
+            }
+            $this->update_song($song_title, $single, $visibility, $about, $genre, $subgenre, $key, $type, $song_codename);
         }
 
         private function createSoloAlbum($song_title){ //cria o album solo
