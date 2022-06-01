@@ -1,4 +1,5 @@
 <!-- Dropdown para usuário não logados -->
+<?php ?>
 
 <!--Botão-->
 <a href="#" data-toggle="dropdown" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" class="btn btn-primary dropdown login-btn transparent" data-bs-auto-close="false" aria-expanded="false">

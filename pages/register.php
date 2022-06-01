@@ -1,3 +1,5 @@
+<?php ?>
+
 <div class="container-xxl bg-primary border rounded-3 shadow p-3 col-lg-6">
     <h2 class="text-white text-center">Registrar</h2>
     

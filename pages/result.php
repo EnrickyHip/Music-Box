@@ -1,4 +1,5 @@
 <!--Essa página é só para desktop/tablet-->
+<?php ?>
 <div class="container mt-5">
     <div class="mx-lg-5">
         <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group">

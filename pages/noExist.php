@@ -1,3 +1,5 @@
+<?php ?>
+
 <div class="container mt-5">
     <h1 class="fs-1 text-center fw-bold">Essa página não existe :(</h1>
 
@@ -6,5 +8,5 @@
     <div class="text-center">
         <a href="javascript:history.back()" class="btn btn-primary fs-2 purple">Voltar</a>
     </div>
-    
 </div>
+

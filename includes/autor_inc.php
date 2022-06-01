@@ -25,8 +25,6 @@
         ?>
 
     </div>
-    <div>
-
         <?php 
             if ($autor->get_bio() !== null){
         ?>

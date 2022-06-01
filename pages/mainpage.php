@@ -1,3 +1,6 @@
+<?php ?>
+
+
 <div class="container mt-5">
     <div class="row g-5">
         <div class="col-sm-6">
